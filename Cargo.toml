@@ -1,0 +1,22 @@
+[package]
+name = "tg-bot-schema"
+version = "0.1.0"
+authors = ["Arsenii Lyashenko <arsenylyashenko.3@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.34"
+scraper = "0.12.0"
+ego-tree = "0.6.2"
+reqwest = "0.10.8"
+tokio = { version = "0.2", features = ["full"] }
+thiserror = "1.0.22"
+serde_yaml = "0.8.14"
+serde_json = "1.0.59"
+# valico = "3.4.0"
+# paperclip = { version = "0.4.1", features = ["v2", "codegen"] }
+itertools = "0.9.0"
+openapiv3 = "0.3.2"
+chrono = "0.4.19"
+once_cell = "1.4.1"
+indexmap = "1.6.0"

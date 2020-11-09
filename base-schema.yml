@@ -1,0 +1,44 @@
+openapi: "3.0.0"
+info:
+  title: Telegram Bot API
+  description: Auto-generated OpenAPI schema
+  version: 1.0.%Y%m%d
+components: 
+  schemas:
+    Success:
+      type: object
+      required:
+        - ok
+        - result
+      properties:
+        ok:
+          type: boolean
+          default: true
+        result:
+          type: object
+    Error:
+      type: object
+      required:
+        - ok
+        - error_code
+        - description
+      properties:
+        ok:
+          type: boolean
+          default: false
+        error_code:
+          type: integer
+        description:
+          type: string
+        parameters:
+          $ref: "#/components/schemas/ResponseParameters"
+paths: {}
+servers:
+  - url: https://api.telegram.org/bot{token}
+    variables: 
+      token:
+        description: Each bot is given a unique authentication token when it is created.
+        default: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+externalDocs: 
+  description: The Bot API is an HTTP-based interface created for developers keen on building bots for Telegram.
+  url: https://core.telegram.org/bots/api
