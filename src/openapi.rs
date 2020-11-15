@@ -1,4 +1,4 @@
-use crate::parser::{Argument, Field, MethodArgs, Parsed, Required, Type as ParserType};
+use crate::parser::{Argument, Field, MethodArgs, Parsed, Type as ParserType};
 use indexmap::indexmap;
 use openapiv3::{
     ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType, OpenAPI,
@@ -38,7 +38,7 @@ pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
         let mut properties = indexmap![];
         let mut required = vec![];
         for field in object.fields {
-            if let Required::Yes = field.required {
+            if field.required {
                 required.push(field.name.clone());
             }
 
@@ -85,7 +85,7 @@ pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
                         file_uploading = true;
                     }
 
-                    if let Required::Yes = arg.required {
+                    if arg.required {
                         required.push(arg.name.clone());
                     }
 

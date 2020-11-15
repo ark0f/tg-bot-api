@@ -124,11 +124,7 @@ fn parse_object(raw_object: RawObject) -> Result<Object> {
 
 fn parse_field(raw_field: RawField) -> Result<Field> {
     let plain_description = raw_field.description.plain_text();
-    let required = if plain_description.starts_with("Optional.") {
-        Required::Optional
-    } else {
-        Required::Yes
-    };
+    let required = !plain_description.starts_with("Optional.");
     let kind = Type::new_with_description(&raw_field.kind, &plain_description)?;
 
     Ok(Field {
@@ -161,12 +157,21 @@ fn parse_method(raw_method: RawMethod) -> Result<Method> {
 fn parse_argument(raw_arg: RawArgument) -> Result<Argument> {
     let plain_description = raw_arg.description.plain_text();
     let kind = Type::new_with_description(&raw_arg.kind, &plain_description)?;
+    let required = parse_required(raw_arg.required)?;
     Ok(Argument {
         name: raw_arg.name,
         kind,
-        required: Required::new(raw_arg.required)?,
+        required,
         description: raw_arg.description.markdown(),
     })
+}
+
+fn parse_required(s: String) -> Result<bool> {
+    match s.as_str() {
+        "Yes" => Ok(true),
+        "Optional" => Ok(false),
+        _ => Err(ParseError::InvalidRequired(s)),
+    }
 }
 
 #[derive(Debug)]
@@ -440,27 +445,11 @@ impl Type {
     }
 }
 
-#[derive(Debug, Clone, Eq, PartialEq)]
-pub enum Required {
-    Yes,
-    Optional,
-}
-
-impl Required {
-    fn new(s: String) -> Result<Self> {
-        match s.as_str() {
-            "Yes" => Ok(Self::Yes),
-            "Optional" => Ok(Self::Optional),
-            _ => Err(ParseError::InvalidRequired(s)),
-        }
-    }
-}
-
 #[derive(Debug, Clone)]
 pub struct Field {
     pub name: String,
     pub kind: Type,
-    pub required: Required,
+    pub required: bool,
     pub description: String,
 }
 
@@ -476,7 +465,7 @@ pub struct Object {
 pub struct Argument {
     pub name: String,
     pub kind: Type,
-    pub required: Required,
+    pub required: bool,
     pub description: String,
 }
 
