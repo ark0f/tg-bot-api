@@ -1,4 +1,4 @@
-use crate::parser::{Argument, Field, MethodArgs, Parsed, Type as ParserType};
+use crate::parser::{Argument, Field, MethodArgs, ObjectData, Parsed, Type as ParserType};
 use indexmap::indexmap;
 use openapiv3::{
     ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType, OpenAPI,
@@ -35,35 +35,61 @@ pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
 
     let mut schemas = indexmap![];
     for object in parsed.objects {
-        let mut properties = indexmap![];
-        let mut required = vec![];
-        for field in object.fields {
-            if field.required {
-                required.push(field.name.clone());
-            }
+        match object.data {
+            ObjectData::Fields(fields) => {
+                let mut properties = indexmap![];
+                let mut required = vec![];
+                for field in fields {
+                    if field.required {
+                        required.push(field.name.clone());
+                    }
 
-            let (name, ref_or_schema) = field.into_ref_or_schema();
-            properties.insert(name, ref_or_schema);
-        }
+                    let (name, ref_or_schema) = field.into_ref_or_schema();
+                    properties.insert(name, ref_or_schema);
+                }
 
-        schemas.insert(
-            object.name,
-            ReferenceOr::Item(Schema {
-                schema_data: SchemaData {
-                    description: Some(object.description),
-                    external_docs: Some(ExternalDocumentation {
-                        description: None,
-                        url: object.docs_link,
+                schemas.insert(
+                    object.name,
+                    ReferenceOr::Item(Schema {
+                        schema_data: SchemaData {
+                            description: Some(object.description),
+                            external_docs: Some(ExternalDocumentation {
+                                description: None,
+                                url: object.docs_link,
+                            }),
+                            ..SchemaData::default()
+                        },
+                        schema_kind: SchemaKind::Type(Type::Object(ObjectType {
+                            properties,
+                            required,
+                            ..ObjectType::default()
+                        })),
                     }),
-                    ..SchemaData::default()
-                },
-                schema_kind: SchemaKind::Type(Type::Object(ObjectType {
-                    properties,
-                    required,
-                    ..ObjectType::default()
-                })),
-            }),
-        );
+                );
+            }
+            ObjectData::Elements(elements) => {
+                let any_of = elements
+                    .into_iter()
+                    .map(|ty| ty.into_ref_or_schema(None))
+                    .map(ReferenceOr::unbox)
+                    .collect();
+
+                schemas.insert(
+                    object.name,
+                    ReferenceOr::Item(Schema {
+                        schema_data: SchemaData {
+                            description: Some(object.description),
+                            external_docs: Some(ExternalDocumentation {
+                                description: None,
+                                url: object.docs_link,
+                            }),
+                            ..SchemaData::default()
+                        },
+                        schema_kind: SchemaKind::AnyOf { any_of },
+                    }),
+                );
+            }
+        }
     }
 
     let mut paths = indexmap![];

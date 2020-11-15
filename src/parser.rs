@@ -1,4 +1,4 @@
-use crate::extractor::{Extracted, RawArgument, RawField, RawMethod, RawObject};
+use crate::extractor::{Extracted, RawArgument, RawField, RawMethod, RawObject, RawObjectData};
 use crate::util::ElementRefExt;
 use crate::util::StrExt;
 use crate::BOT_API_DOCS;
@@ -108,16 +108,23 @@ fn parse_version(version: ElementRef) -> Result<Version> {
 fn parse_object(raw_object: RawObject) -> Result<Object> {
     let name = raw_object.name.plain_text();
     let description = raw_object.description.markdown();
-    let fields = raw_object
-        .fields
-        .into_iter()
-        .map(parse_field)
-        .collect::<Result<_>>()?;
+    let data = match raw_object.data {
+        RawObjectData::Fields(fields) => {
+            ObjectData::Fields(fields.into_iter().map(parse_field).collect::<Result<_>>()?)
+        }
+        RawObjectData::Elements(elements) => ObjectData::Elements(
+            elements
+                .into_iter()
+                .map(|elem| elem.plain_text())
+                .map(|s| Type::new(&s))
+                .collect(),
+        ),
+    };
     let docs_link = raw_object.name.a_href().map(make_url_from_fragment)?;
     Ok(Object {
         name,
         description,
-        fields,
+        data,
         docs_link,
     })
 }
@@ -400,7 +407,6 @@ impl Type {
                     .map(|part| &part.inner)
                     .filter(|s| !s.is_first_letter_lowercase())
                     .map(String::as_str)
-                    .map(|s| dbg!(s))
                     .map(Type::new)
                     .collect();
                 Some(Type::Or(types))
@@ -445,6 +451,20 @@ impl Type {
     }
 }
 
+#[derive(Debug)]
+pub struct Object {
+    pub name: String,
+    pub description: String,
+    pub data: ObjectData,
+    pub docs_link: String,
+}
+
+#[derive(Debug)]
+pub enum ObjectData {
+    Fields(Vec<Field>),
+    Elements(Vec<Type>),
+}
+
 #[derive(Debug, Clone)]
 pub struct Field {
     pub name: String,
@@ -454,19 +474,12 @@ pub struct Field {
 }
 
 #[derive(Debug)]
-pub struct Object {
+pub struct Method {
     pub name: String,
     pub description: String,
-    pub fields: Vec<Field>,
+    pub args: MethodArgs,
+    pub return_type: Type,
     pub docs_link: String,
-}
-
-#[derive(Debug, Clone)]
-pub struct Argument {
-    pub name: String,
-    pub kind: Type,
-    pub required: bool,
-    pub description: String,
 }
 
 #[derive(Debug)]
@@ -488,13 +501,12 @@ impl MethodArgs {
     }
 }
 
-#[derive(Debug)]
-pub struct Method {
+#[derive(Debug, Clone)]
+pub struct Argument {
     pub name: String,
+    pub kind: Type,
+    pub required: bool,
     pub description: String,
-    pub args: MethodArgs,
-    pub return_type: Type,
-    pub docs_link: String,
 }
 
 #[derive(Debug)]

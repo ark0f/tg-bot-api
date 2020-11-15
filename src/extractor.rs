@@ -32,7 +32,9 @@ impl Extractor {
         let table = Selector::parse("table").unwrap();
         let td = Selector::parse("td").unwrap();
         let p = Selector::parse("p").unwrap();
-        let any = Selector::parse("h3, h4, p, table").unwrap();
+        let ul = Selector::parse("ul").unwrap();
+        let li = Selector::parse("li").unwrap();
+        let any = Selector::parse("h3, h4, p, table, ul").unwrap();
 
         let mut state = State::SearchRecentChanges;
         let mut select_any = self.doc.select(&any).peekable();
@@ -68,15 +70,20 @@ impl Extractor {
                 State::GetDescription { name } if p.matches(&elem) => {
                     let description = elem;
 
+                    let no_ul = select_any
+                        .peek()
+                        .map(|next_elem| !ul.matches(next_elem))
+                        .unwrap_or(true);
                     let no_table = select_any
                         .peek()
                         .map(|next_elem| !table.matches(next_elem))
                         .unwrap_or(true);
                     let is_method = name.plain_text().is_first_letter_lowercase();
-                    match (no_table, is_method) {
-                        (false, true) => State::GetMethodFields { name, description },
-                        (false, false) => State::GetObjectFields { name, description },
-                        (true, true) => {
+                    match (no_table, no_ul, is_method) {
+                        (false, _, true) => State::GetMethodFields { name, description },
+                        (false, true, false) => State::GetObjectFields { name, description },
+                        (true, false, false) => State::GetObjectElements { name, description },
+                        (true, _, true) => {
                             methods.push(RawMethod {
                                 name,
                                 description,
@@ -84,11 +91,11 @@ impl Extractor {
                             });
                             State::GetName
                         }
-                        (true, false) => {
+                        (_, _, false) => {
                             objects.push(RawObject {
                                 name,
                                 description,
-                                fields: vec![],
+                                data: RawObjectData::Fields(vec![]),
                             });
                             State::GetName
                         }
@@ -98,7 +105,7 @@ impl Extractor {
                     objects.push(RawObject {
                         name,
                         description,
-                        fields: extract_fields(&td, elem),
+                        data: RawObjectData::Fields(extract_fields(&td, elem)),
                     });
 
                     State::GetName
@@ -110,6 +117,15 @@ impl Extractor {
                         args: extract_args(&td, elem),
                     });
 
+                    State::GetName
+                }
+                State::GetObjectElements { name, description } if ul.matches(&elem) => {
+                    let elements = extract_elements(&li, elem);
+                    objects.push(RawObject {
+                        name,
+                        description,
+                        data: RawObjectData::Elements(elements),
+                    });
                     State::GetName
                 }
                 x => x,
@@ -163,6 +179,10 @@ fn extract_args<'a>(td: &Selector, elem: ElementRef<'a>) -> Vec<RawArgument<'a>>
         .collect()
 }
 
+fn extract_elements<'a>(li: &Selector, elem: ElementRef<'a>) -> Vec<ElementRef<'a>> {
+    elem.select(li).collect()
+}
+
 pub struct Extracted<'a> {
     pub recent_changes: String,
     pub version: ElementRef<'a>,
@@ -188,6 +208,10 @@ enum State<'a> {
         name: ElementRef<'a>,
         description: ElementRef<'a>,
     },
+    GetObjectElements {
+        name: ElementRef<'a>,
+        description: ElementRef<'a>,
+    },
 }
 
 pub struct RawMethod<'a> {
@@ -206,7 +230,12 @@ pub struct RawArgument<'a> {
 pub struct RawObject<'a> {
     pub name: ElementRef<'a>,
     pub description: ElementRef<'a>,
-    pub fields: Vec<RawField<'a>>,
+    pub data: RawObjectData<'a>,
+}
+
+pub enum RawObjectData<'a> {
+    Fields(Vec<RawField<'a>>),
+    Elements(Vec<ElementRef<'a>>),
 }
 
 pub struct RawField<'a> {
