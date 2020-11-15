@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 1.0.%Y%m%d
+  version: 0.0.0
 components: 
   schemas:
     Success:
