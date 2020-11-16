@@ -64,41 +64,55 @@ impl Extractor {
                     if name.chars().any(char::is_whitespace) {
                         State::GetName
                     } else {
-                        State::GetDescription { name: elem }
+                        State::GetDescription {
+                            name: elem,
+                            description: RawDescription::default(),
+                        }
                     }
                 }
-                State::GetDescription { name } if p.matches(&elem) => {
-                    let description = elem;
+                State::GetDescription {
+                    name,
+                    mut description,
+                } if p.matches(&elem) => {
+                    description.push(elem);
 
-                    let no_ul = select_any
+                    let no_p = select_any
                         .peek()
-                        .map(|next_elem| !ul.matches(next_elem))
-                        .unwrap_or(true);
-                    let no_table = select_any
-                        .peek()
-                        .map(|next_elem| !table.matches(next_elem))
-                        .unwrap_or(true);
-                    let is_method = name.plain_text().is_first_letter_lowercase();
-                    match (no_table, no_ul, is_method) {
-                        (false, _, true) => State::GetMethodFields { name, description },
-                        (false, true, false) => State::GetObjectFields { name, description },
-                        (true, false, false) => State::GetObjectElements { name, description },
-                        (true, _, true) => {
-                            methods.push(RawMethod {
-                                name,
-                                description,
-                                args: vec![],
-                            });
-                            State::GetName
+                        .map(|next_elem| !p.matches(next_elem))
+                        .unwrap_or(false);
+                    if no_p {
+                        let no_ul = select_any
+                            .peek()
+                            .map(|next_elem| !ul.matches(next_elem))
+                            .unwrap_or(true);
+                        let no_table = select_any
+                            .peek()
+                            .map(|next_elem| !table.matches(next_elem))
+                            .unwrap_or(true);
+                        let is_method = name.plain_text().is_first_letter_lowercase();
+                        match (no_table, no_ul, is_method) {
+                            (false, _, true) => State::GetMethodFields { name, description },
+                            (false, true, false) => State::GetObjectFields { name, description },
+                            (true, false, false) => State::GetObjectElements { name, description },
+                            (true, _, true) => {
+                                methods.push(RawMethod {
+                                    name,
+                                    description,
+                                    args: vec![],
+                                });
+                                State::GetName
+                            }
+                            (_, _, false) => {
+                                objects.push(RawObject {
+                                    name,
+                                    description,
+                                    data: RawObjectData::Fields(vec![]),
+                                });
+                                State::GetName
+                            }
                         }
-                        (_, _, false) => {
-                            objects.push(RawObject {
-                                name,
-                                description,
-                                data: RawObjectData::Fields(vec![]),
-                            });
-                            State::GetName
-                        }
+                    } else {
+                        State::GetDescription { name, description }
                     }
                 }
                 State::GetObjectFields { name, description } if table.matches(&elem) => {
@@ -199,24 +213,34 @@ enum State<'a> {
     GetName,
     GetDescription {
         name: ElementRef<'a>,
+        description: RawDescription<'a>,
     },
     GetObjectFields {
         name: ElementRef<'a>,
-        description: ElementRef<'a>,
+        description: RawDescription<'a>,
     },
     GetMethodFields {
         name: ElementRef<'a>,
-        description: ElementRef<'a>,
+        description: RawDescription<'a>,
     },
     GetObjectElements {
         name: ElementRef<'a>,
-        description: ElementRef<'a>,
+        description: RawDescription<'a>,
     },
+}
+
+#[derive(Debug, Default)]
+pub struct RawDescription<'a>(pub Vec<ElementRef<'a>>);
+
+impl<'a> RawDescription<'a> {
+    fn push(&mut self, element: ElementRef<'a>) {
+        self.0.push(element);
+    }
 }
 
 pub struct RawMethod<'a> {
     pub name: ElementRef<'a>,
-    pub description: ElementRef<'a>,
+    pub description: RawDescription<'a>,
     pub args: Vec<RawArgument<'a>>,
 }
 
@@ -229,7 +253,7 @@ pub struct RawArgument<'a> {
 
 pub struct RawObject<'a> {
     pub name: ElementRef<'a>,
-    pub description: ElementRef<'a>,
+    pub description: RawDescription<'a>,
     pub data: RawObjectData<'a>,
 }
 

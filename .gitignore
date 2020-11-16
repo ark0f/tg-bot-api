@@ -1,1 +1,10 @@
 /target
+
+# custom JSON schema
+custom.json
+custom.schema.json
+
+# OpenAPI
+openapi.yml
+openapi.json
+openapi.min.json

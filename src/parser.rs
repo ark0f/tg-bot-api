@@ -1,4 +1,6 @@
-use crate::extractor::{Extracted, RawArgument, RawField, RawMethod, RawObject, RawObjectData};
+use crate::extractor::{
+    Extracted, RawArgument, RawDescription, RawField, RawMethod, RawObject, RawObjectData,
+};
 use crate::util::ElementRefExt;
 use crate::util::StrExt;
 use crate::BOT_API_DOCS;
@@ -181,7 +183,7 @@ fn parse_required(s: String) -> Result<bool> {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Parsed {
     pub recent_changes: NaiveDate,
     pub version: Version,
@@ -451,7 +453,7 @@ impl Type {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Object {
     pub name: String,
     pub description: String,
@@ -459,7 +461,7 @@ pub struct Object {
     pub docs_link: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum ObjectData {
     Fields(Vec<Field>),
     Elements(Vec<Type>),
@@ -473,7 +475,7 @@ pub struct Field {
     pub description: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Method {
     pub name: String,
     pub description: String,
@@ -482,7 +484,7 @@ pub struct Method {
     pub docs_link: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum MethodArgs {
     No,
     Yes(Vec<Argument>),
@@ -633,6 +635,25 @@ where
 
     fn index(&self, index: I) -> &Self::Output {
         unsafe { &*(&self.parts[index] as *const [Part] as *const SentenceRef) }
+    }
+}
+
+trait RawDescriptionExt {
+    fn markdown(&self) -> String;
+
+    fn plain_text(&self) -> String;
+}
+
+impl RawDescriptionExt for RawDescription<'_> {
+    fn markdown(&self) -> String {
+        html2md::parse_html_custom(
+            &self.0.iter().map(ElementRef::html).join("\n"),
+            &AnchorHandlerFactory::new_in_map(),
+        )
+    }
+
+    fn plain_text(&self) -> String {
+        self.0.iter().map(ElementRef::plain_text).join("\n")
     }
 }
 

@@ -5,25 +5,14 @@ use openapiv3::{
     Operation, PathItem, ReferenceOr, RequestBody, Response, Responses, Schema, SchemaData,
     SchemaKind, StatusCode, StringType, Type,
 };
-use serde_json::Value;
 
 const BASE_SCHEMA: &str = include_str!("../base-schema.yml");
 const FORM_URL_ENCODED: &str = "application/x-www-form-urlencoded";
 const JSON: &str = "application/json";
 const FORM_DATA: &str = "multipart/form-data";
 
-#[derive(Debug, thiserror::Error)]
-pub enum OpenApiError {
-    #[error("YAML: {0}")]
-    Yaml(
-        #[from]
-        #[source]
-        serde_yaml::Error,
-    ),
-}
-
-pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
-    let mut api: OpenAPI = serde_yaml::from_str(BASE_SCHEMA)?;
+pub fn generate(parsed: Parsed) -> OpenAPI {
+    let mut api: OpenAPI = serde_yaml::from_str(BASE_SCHEMA).expect("Base schema is invalid");
 
     let success = api
         .components
@@ -122,7 +111,7 @@ pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
         }
 
         for content_type in [
-            Some(FORM_URL_ENCODED),
+            Some(FORM_URL_ENCODED).filter(|_| !file_uploading),
             Some(FORM_DATA),
             Some(JSON).filter(|_| !file_uploading),
         ]
@@ -209,18 +198,22 @@ pub fn generate(parsed: Parsed) -> Result<OpenAPI, OpenApiError> {
         components.schemas.extend(schemas)
     }
 
-    Ok(api)
+    api
 }
 
 trait TypeExt: Sized {
     fn into_ref_or_schema(self, description: Option<String>) -> ReferenceOr<Box<Schema>>;
-
-    fn default(&self) -> Option<serde_json::Value>;
 }
 
 impl TypeExt for ParserType {
     fn into_ref_or_schema(self, description: Option<String>) -> ReferenceOr<Box<Schema>> {
-        let default = self.default();
+        let default = match &self {
+            ParserType::Bool { default } => default.map(Into::into),
+            ParserType::Integer { default, .. } => default.map(Into::into),
+            ParserType::String { default, .. } => default.clone().map(Into::into),
+            _ => None,
+        };
+
         let schema_kind = match self {
             this @ ParserType::Integer { .. }
             | this @ ParserType::String { .. }
@@ -270,15 +263,6 @@ impl TypeExt for ParserType {
             },
             schema_kind,
         }))
-    }
-
-    fn default(&self) -> Option<Value> {
-        match self {
-            ParserType::Bool { default } => default.map(Into::into),
-            ParserType::Integer { default, .. } => default.map(Into::into),
-            ParserType::String { default, .. } => default.clone().map(Into::into),
-            _ => None,
-        }
     }
 }
 
