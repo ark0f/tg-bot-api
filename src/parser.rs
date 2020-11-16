@@ -526,7 +526,9 @@ impl SentenceParser {
                     State::GetNextChar
                 }
                 State::Break => {
-                    sentences.push(Sentence { parts });
+                    if !parts.is_empty() {
+                        sentences.push(Sentence { parts });
+                    }
                     break;
                 }
             };
@@ -744,17 +746,39 @@ mod tests {
     }
 
     #[test]
-    fn sentence_parser() {
-        let parser = dbg!(SentenceParser::new(
-            r#"Emoji on which the dice throw animation is based.Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”. Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”. The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport”"#,
-        ));
-        let sentence = parser.find(&["one", "of"]).unwrap();
-        let emojis = sentence.remove_words(&[",", "or"])[5..]
-            .parts
-            .iter()
-            .map(|part| &part.inner)
-            .cloned()
-            .collect::<Vec<String>>();
-        assert_eq!(emojis, vec!["🎲", "🎯", "🏀", "⚽", "🎰"]);
+    fn sentence_parser_parts() {
+        let parser = SentenceParser::new(
+            r#"Emoji on which the dice throw animation is based.Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”. Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”."#,
+        );
+        assert_eq!(parser.sentences.len(), 4);
+        assert_eq!(parser.sentences[0].parts.len(), 9);
+        assert_eq!(parser.sentences[1].parts.len(), 11);
+        assert_eq!(parser.sentences[2].parts.len(), 20);
+        assert_eq!(parser.sentences[3].parts.len(), 3);
+    }
+
+    #[test]
+    fn sentence_parser_quotes() {
+        let parser = SentenceParser::new(
+            r#"The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport”."#,
+        );
+        assert_eq!(
+            parser
+                .sentences
+                .into_iter()
+                .next()
+                .unwrap()
+                .parts
+                .into_iter()
+                .filter(|part| part.has_quotes)
+                .map(|part| part.inner)
+                .collect::<Vec<String>>(),
+            vec![
+                "passport",
+                "driver_license",
+                "identity_card",
+                "internal_passport"
+            ]
+        );
     }
 }
