@@ -11,11 +11,11 @@ use itertools::Itertools;
 use scraper::{ElementRef, Node};
 use semver::Version;
 use std::collections::HashMap;
-use std::mem;
 use std::num::ParseIntError;
 use std::ops::Index;
 use std::slice::SliceIndex;
 use std::str::ParseBoolError;
+use std::{mem, slice};
 
 /*const RETURN_TYPE_PATTERNS: &[(&str, &str)] = &[
     ("Returns ", " on success"),
@@ -394,23 +394,13 @@ impl Type {
             const OTHERWISE: &[&str] = &["otherwise"];
 
             if sentence.contains(OTHERWISE) {
-                /*let types = sentence
-                .parts
-                .iter()
-                .map(|part| part.inner.as_str())
-                .map(SentenceParser::new)
-                .filter(|parser| parser.sentences.is_empty())
-                .flat_map(|parser| parser.sentences)
-                .map(|sentence| extract_type(sentence.as_ref()))
-                .collect::<Option<_>>()?;*/
                 let types = sentence
                     .parts
                     .iter()
-                    .map(|part| &part.inner)
-                    .filter(|s| !s.is_first_letter_lowercase())
-                    .map(String::as_str)
-                    .map(Type::new)
-                    .collect();
+                    .filter(|part| !part.inner.is_first_letter_lowercase())
+                    .map(SentenceRef::from_part)
+                    .map(extract_type)
+                    .collect::<Option<_>>()?;
                 Some(Type::Or(types))
             } else {
                 let (pos, part) = sentence
@@ -680,11 +670,17 @@ struct SentenceRef {
 }
 
 impl SentenceRef {
+    fn from_part(part: &Part) -> &Self {
+        unsafe {
+            &*(slice::from_raw_parts(part as *const Part, 1) as *const [Part] as *const SentenceRef)
+        }
+    }
+
     fn starts_with(&self, words: &[&str]) -> bool {
-        self.parts[..words.len()]
-            .iter()
-            .zip(words)
-            .all(|(l, &r)| l.inner == r)
+        self.parts
+            .get(..words.len())
+            .map(|slice| slice.iter().zip(words).all(|(l, &r)| l.inner == r))
+            .unwrap_or(false)
     }
 
     fn contains(&self, words: &[&str]) -> bool {
