@@ -17,21 +17,6 @@ use std::slice::SliceIndex;
 use std::str::ParseBoolError;
 use std::{mem, slice};
 
-/*const RETURN_TYPE_PATTERNS: &[(&str, &str)] = &[
-    ("Returns ", " on success"),
-    ("Returns ", " object."),
-    ("An ", " is returned."),
-    ("On success, ", " is returned."),
-    ("On success, ", " object."),
-    ("returns ", "."),
-];
-const DEFAULTS_PATTERNS: &[(&str, &str)] = &[
-    ("Defaults to ", ","),
-    ("Defaults to ", "."),
-    ("Defaults to ", "”"),
-];
-const MIN_MAX_PATTERNS: &[(&str, &str)] = &[("Values between ", " are accepted.")];
-const ONE_OF_PATTERNS: &[(&str, &str)] = &[("One of", "."), ("one of", ".")];*/
 const RETURN_TYPE_PATTERNS: &[&[&str]] = &[&["On", "success"], &["Returns"], &["returns"], &["An"]];
 const DEFAULTS_PATTERNS: &[&[&str]] = &[&["Defaults", "to"]];
 const MIN_MAX_PATTERNS: &[&[&str]] = &[&["Values", "between"]];
@@ -255,19 +240,12 @@ impl Type {
     fn new_with_description(s: &str, description: &str) -> Result<Self> {
         let default = Self::custom_parse(
             DEFAULTS_PATTERNS,
-            // |sentence| Some(text.trim_quotes().to_string()),
             |sentence| Some(sentence.parts.get(0)?.inner.clone()),
             description,
         );
 
         let min_max = Self::custom_parse(
             MIN_MAX_PATTERNS,
-            /*|text| {
-                let mut split = text.split('-');
-                let min = split.next()?.to_string();
-                let max = split.next()?.to_string();
-                Some((min, max))
-            }*/
             |sentence| {
                 let values = &sentence.parts.get(0)?.inner;
                 let mut split = values.split('-');
@@ -285,17 +263,6 @@ impl Type {
 
         let one_of = Self::custom_parse(
             ONE_OF_PATTERNS,
-            /*|text| {
-                Some(
-                    SentenceParser::new(text).sentences[0]
-                        .parts
-                        .iter()
-                        .filter(|part| part.has_quotes)
-                        .map(|part| &part.inner)
-                        .cloned()
-                        .collect(),
-                )
-            },*/
             |sentence| {
                 Some(
                     sentence
@@ -339,55 +306,9 @@ impl Type {
             let sentence = &sentence[pattern.len()..];
             extractor(sentence)
         })
-
-        /*fn get_range(text: &str, start: &str, end: &str) -> Option<Range<usize>> {
-            let start = text.find(start)? + start.len();
-            let end = text[start..].find(end)? + start;
-            Some(start..end)
-        }
-
-        patterns.iter().find_map(|(start, end)| {
-            let range = get_range(text, start, end)?;
-            let text = &text[range];
-            extractor(text)
-        })*/
     }
 
     pub fn extract_from_text(text: &str) -> Result<Self> {
-        /*fn extract_type(text: &str) -> Option<Type> {
-            const ARRAY: &str = "Array";
-            const AN_ARRAY_OF: &str = "an array of ";
-            const OTHERWISE: &str = "otherwise";
-
-            if text.contains(OTHERWISE) {
-                let types = text
-                    .split(OTHERWISE)
-                    .map(extract_type)
-                    .collect::<Option<_>>()?;
-                Some(Type::Or(types))
-            } else {
-                let (pos, ty) = text
-                    .split_whitespace()
-                    .find_position(|word| !word.is_first_letter_lowercase())?;
-                let mut ty = ty.trim_matches(',');
-
-                // get rid of plural ending
-                if ty.ends_with("es") {
-                    ty = ty.trim_end_matches('s');
-                }
-
-                if ty == ARRAY
-                    || text[pos.saturating_sub(AN_ARRAY_OF.len())..].starts_with(AN_ARRAY_OF)
-                {
-                    let text = &text[pos + ARRAY.len()..];
-                    let ty = extract_type(text)?;
-                    Some(Type::Array(Box::new(ty)))
-                } else {
-                    Some(Type::new(ty))
-                }
-            }
-        }*/
-
         fn extract_type(sentence: &SentenceRef) -> Option<Type> {
             const ARRAY: &str = "Array";
             const AN_ARRAY_OF: &[&str] = &["an", "array", "of"];
