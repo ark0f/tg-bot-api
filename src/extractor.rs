@@ -76,25 +76,18 @@ impl Extractor {
                 } if p.matches(&elem) => {
                     description.push(elem);
 
-                    let no_p = select_any
-                        .peek()
-                        .map(|next_elem| !p.matches(next_elem))
-                        .unwrap_or(false);
-                    if no_p {
-                        let no_ul = select_any
-                            .peek()
-                            .map(|next_elem| !ul.matches(next_elem))
-                            .unwrap_or(true);
-                        let no_table = select_any
-                            .peek()
-                            .map(|next_elem| !table.matches(next_elem))
-                            .unwrap_or(true);
+                    let has_p = select_any.peek().matches(&p);
+                    if has_p {
+                        State::GetDescription { name, description }
+                    } else {
                         let is_method = name.plain_text().is_first_letter_lowercase();
-                        match (no_table, no_ul, is_method) {
-                            (false, _, true) => State::GetMethodFields { name, description },
+                        let has_table = select_any.peek().matches(&table);
+                        let has_ul = select_any.peek().matches(&ul);
+                        match (is_method, has_table, has_ul) {
+                            (true, true, false) => State::GetMethodFields { name, description },
                             (false, true, false) => State::GetObjectFields { name, description },
-                            (true, false, false) => State::GetObjectElements { name, description },
-                            (true, _, true) => {
+                            (false, false, true) => State::GetObjectElements { name, description },
+                            (true, false, false) => {
                                 methods.push(RawMethod {
                                     name,
                                     description,
@@ -102,7 +95,7 @@ impl Extractor {
                                 });
                                 State::GetName
                             }
-                            (_, _, false) => {
+                            (false, false, false) => {
                                 objects.push(RawObject {
                                     name,
                                     description,
@@ -110,9 +103,8 @@ impl Extractor {
                                 });
                                 State::GetName
                             }
+                            _ => unreachable!(),
                         }
-                    } else {
-                        State::GetDescription { name, description }
                     }
                 }
                 State::GetObjectFields { name, description } if table.matches(&elem) => {
@@ -266,4 +258,14 @@ pub struct RawField<'a> {
     pub name: String,
     pub kind: String,
     pub description: ElementRef<'a>,
+}
+
+trait OptionExt {
+    fn matches(&self, selector: &Selector) -> bool;
+}
+
+impl OptionExt for Option<&ElementRef<'_>> {
+    fn matches(&self, selector: &Selector) -> bool {
+        self.map(|elem| selector.matches(elem)).unwrap_or(false)
+    }
 }
