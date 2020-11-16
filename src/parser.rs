@@ -517,7 +517,7 @@ struct SentenceParser {
 }
 
 impl SentenceParser {
-    fn new(sentence: &str) -> Self {
+    fn new(text: &str) -> Self {
         const QUOTES: &[(char, char)] = &[('“', '”'), ('"', '"')];
 
         let mut sentences = vec![];
@@ -525,37 +525,102 @@ impl SentenceParser {
         let mut part = Part::default();
 
         let mut last_quote = None;
+        let mut c = '\0';
+        let mut chars = text.chars();
 
-        for c in sentence.chars() {
-            if let Some(&(start_quote, _)) = QUOTES.iter().find(|&&(l, r)| l == c || r == c) {
-                if last_quote == Some(start_quote) {
-                    part.has_quotes = true;
-                    parts.push(mem::take(&mut part));
-                    last_quote = None;
-                } else {
-                    last_quote = Some(start_quote);
-                }
-            } else if c.is_whitespace() && last_quote.is_none() {
-                if !part.inner.is_empty() {
-                    parts.push(mem::take(&mut part));
-                }
-            } else if c == '.' {
-                if !part.inner.is_empty() {
-                    parts.push(mem::take(&mut part));
-                }
-                sentences.push(Sentence {
-                    parts: mem::take(&mut parts),
-                });
-            } else if c == ',' {
-                if !part.inner.is_empty() {
-                    parts.push(mem::take(&mut part));
-                }
-            } else {
-                part.inner.push(c);
-            }
+        enum State {
+            GetNextChar,
+            CheckQuotes,
+            CheckWhitespace,
+            CheckDot,
+            CheckComma,
+            PushChar,
+            PushPart { and_sentence: bool },
+            PushSentence,
+            Break,
         }
 
-        sentences.push(Sentence { parts });
+        let mut state = State::GetNextChar;
+        loop {
+            let new_state = match state {
+                State::GetNextChar => {
+                    if let Some(new_c) = chars.next() {
+                        c = new_c;
+                        State::CheckQuotes
+                    } else {
+                        State::Break
+                    }
+                }
+                State::CheckQuotes => {
+                    if let Some(&(start_quote, _)) = QUOTES.iter().find(|&&(l, r)| l == c || r == c)
+                    {
+                        if last_quote == Some(start_quote) {
+                            part.has_quotes = true;
+                            last_quote = None;
+                            State::PushPart {
+                                and_sentence: false,
+                            }
+                        } else {
+                            last_quote = Some(start_quote);
+                            State::GetNextChar
+                        }
+                    } else {
+                        State::CheckWhitespace
+                    }
+                }
+                State::CheckWhitespace => {
+                    if c.is_whitespace() && last_quote.is_none() {
+                        State::PushPart {
+                            and_sentence: false,
+                        }
+                    } else {
+                        State::CheckDot
+                    }
+                }
+                State::CheckDot => {
+                    if c == '.' {
+                        State::PushPart { and_sentence: true }
+                    } else {
+                        State::CheckComma
+                    }
+                }
+                State::CheckComma => {
+                    if c == ',' {
+                        State::PushPart {
+                            and_sentence: false,
+                        }
+                    } else {
+                        State::PushChar
+                    }
+                }
+                State::PushChar => {
+                    part.inner.push(c);
+                    State::GetNextChar
+                }
+                State::PushPart { and_sentence } => {
+                    if !part.inner.is_empty() {
+                        parts.push(mem::take(&mut part));
+                    }
+
+                    if and_sentence {
+                        State::PushSentence
+                    } else {
+                        State::GetNextChar
+                    }
+                }
+                State::PushSentence => {
+                    sentences.push(Sentence {
+                        parts: mem::take(&mut parts),
+                    });
+                    State::GetNextChar
+                }
+                State::Break => {
+                    sentences.push(Sentence { parts });
+                    break;
+                }
+            };
+            state = new_state;
+        }
 
         Self { sentences }
     }
