@@ -1,5 +1,5 @@
 use crate::parser::{Argument, Field, MethodArgs, ObjectData, Parsed, Type as ParserType};
-use indexmap::indexmap;
+use indexmap::{indexmap, IndexMap};
 use openapiv3::{
     ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType, OpenAPI,
     Operation, PathItem, ReferenceOr, RequestBody, Response, Responses, Schema, SchemaData,
@@ -26,16 +26,7 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
     for object in parsed.objects {
         match object.data {
             ObjectData::Fields(fields) => {
-                let mut properties = indexmap![];
-                let mut required = vec![];
-                for field in fields {
-                    if field.required {
-                        required.push(field.name.clone());
-                    }
-
-                    let (name, ref_or_schema) = field.into_ref_or_schema();
-                    properties.insert(name, ref_or_schema);
-                }
+                let (properties, required) = make_properties_and_required(fields);
 
                 schemas.insert(
                     object.name,
@@ -59,7 +50,7 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
             ObjectData::Elements(elements) => {
                 let any_of = elements
                     .into_iter()
-                    .map(|ty| ty.into_ref_or_schema(None))
+                    .map(ParserType::into_schema)
                     .map(ReferenceOr::unbox)
                     .collect();
 
@@ -83,32 +74,19 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
 
     let mut paths = indexmap![];
     for method in parsed.methods {
-        let mut file_uploading = false;
-        let has_args;
+        let (file_uploading, has_args) = match method.args {
+            MethodArgs::No => (false, false),
+            MethodArgs::Yes(_) => (false, true),
+            MethodArgs::WithMultipart(_) => (true, true),
+        };
 
-        let mut required = vec![];
-        let mut properties = indexmap![];
         let mut content = indexmap![];
-
-        match method.args {
-            MethodArgs::No => has_args = false,
+        let (properties, required) = match method.args {
             MethodArgs::Yes(args) | MethodArgs::WithMultipart(args) => {
-                has_args = true;
-
-                for arg in args {
-                    if arg.kind.maybe_file_to_send() {
-                        file_uploading = true;
-                    }
-
-                    if arg.required {
-                        required.push(arg.name.clone());
-                    }
-
-                    let (name, ref_or_schema) = arg.into_ref_or_schema();
-                    properties.insert(name, ref_or_schema);
-                }
+                make_properties_and_required(args)
             }
-        }
+            _ => (indexmap![], vec![]),
+        };
 
         for content_type in [
             Some(FORM_URL_ENCODED).filter(|_| !file_uploading),
@@ -137,10 +115,9 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
         let mut success = success.clone();
         if let ReferenceOr::Item(item) = &mut success {
             if let SchemaKind::Type(Type::Object(object)) = &mut item.schema_kind {
-                object.properties.insert(
-                    "result".to_string(),
-                    method.return_type.into_ref_or_schema(None),
-                );
+                object
+                    .properties
+                    .insert("result".to_string(), method.return_type.into_schema());
             }
         }
 
@@ -201,12 +178,49 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
     api
 }
 
+fn make_properties_and_required<T>(
+    common: Vec<T>,
+) -> (IndexMap<String, ReferenceOr<Box<Schema>>>, Vec<String>)
+where
+    T: Into<CommonContent>,
+{
+    common.into_iter().map(Into::into).fold(
+        (indexmap![], vec![]),
+        |(mut properties, mut required), content| {
+            if content.required {
+                required.push(content.name.clone());
+            }
+
+            let ref_or_schema_parts = content.kind.into_ref_or_schema_parts();
+            let ref_or_schema = match ref_or_schema_parts {
+                ReferenceOr::Item(SchemaParts {
+                    default,
+                    kind: schema_kind,
+                }) => ReferenceOr::Item(Box::new(Schema {
+                    schema_data: SchemaData {
+                        description: Some(content.description),
+                        default,
+                        ..SchemaData::default()
+                    },
+                    schema_kind,
+                })),
+                ReferenceOr::Reference { reference } => ReferenceOr::Reference { reference },
+            };
+            properties.insert(content.name, ref_or_schema);
+
+            (properties, required)
+        },
+    )
+}
+
 trait TypeExt: Sized {
-    fn into_ref_or_schema(self, description: Option<String>) -> ReferenceOr<Box<Schema>>;
+    fn into_ref_or_schema_parts(self) -> ReferenceOr<SchemaParts>;
+
+    fn into_schema(self) -> ReferenceOr<Box<Schema>>;
 }
 
 impl TypeExt for ParserType {
-    fn into_ref_or_schema(self, description: Option<String>) -> ReferenceOr<Box<Schema>> {
+    fn into_ref_or_schema_parts(self) -> ReferenceOr<SchemaParts> {
         let default = match &self {
             ParserType::Bool { default } => default.map(Into::into),
             ParserType::Integer { default, .. } => default.map(Into::into),
@@ -233,7 +247,7 @@ impl TypeExt for ParserType {
                     ParserType::Bool { .. } => Type::Boolean {},
                     ParserType::Float => Type::Number(NumberType::default()),
                     ParserType::Array(array) => Type::Array(ArrayType {
-                        items: array.into_ref_or_schema(None),
+                        items: array.into_schema(),
                         min_items: None,
                         max_items: None,
                         unique_items: false,
@@ -245,7 +259,7 @@ impl TypeExt for ParserType {
             ParserType::Or(types) => SchemaKind::AnyOf {
                 any_of: types
                     .into_iter()
-                    .map(|ty| ty.into_ref_or_schema(None))
+                    .map(ParserType::into_schema)
                     .map(ReferenceOr::unbox)
                     .collect(),
             },
@@ -255,35 +269,57 @@ impl TypeExt for ParserType {
                 }
             }
         };
-        ReferenceOr::Item(Box::new(Schema {
-            schema_data: SchemaData {
-                description,
-                default,
-                ..SchemaData::default()
-            },
-            schema_kind,
-        }))
+
+        ReferenceOr::Item(SchemaParts {
+            default,
+            kind: schema_kind,
+        })
+    }
+
+    fn into_schema(self) -> ReferenceOr<Box<Schema>> {
+        match self.into_ref_or_schema_parts() {
+            ReferenceOr::Item(parts) => ReferenceOr::Item(Box::new(Schema {
+                schema_data: SchemaData {
+                    default: parts.default,
+                    ..SchemaData::default()
+                },
+                schema_kind: parts.kind,
+            })),
+            ReferenceOr::Reference { reference } => ReferenceOr::Reference { reference },
+        }
     }
 }
 
-trait FieldExt: Sized {
-    fn into_ref_or_schema(self) -> (String, ReferenceOr<Box<Schema>>);
+struct SchemaParts {
+    default: Option<serde_json::Value>,
+    kind: SchemaKind,
 }
 
-impl FieldExt for Field {
-    fn into_ref_or_schema(self) -> (String, ReferenceOr<Box<Schema>>) {
-        let ref_or_schema = self.kind.into_ref_or_schema(Some(self.description));
-        (self.name, ref_or_schema)
+struct CommonContent {
+    name: String,
+    description: String,
+    required: bool,
+    kind: ParserType,
+}
+
+impl From<Argument> for CommonContent {
+    fn from(arg: Argument) -> Self {
+        CommonContent {
+            name: arg.name,
+            description: arg.description,
+            required: arg.required,
+            kind: arg.kind,
+        }
     }
 }
 
-trait ArgumentExt: Sized {
-    fn into_ref_or_schema(self) -> (String, ReferenceOr<Box<Schema>>);
-}
-
-impl ArgumentExt for Argument {
-    fn into_ref_or_schema(self) -> (String, ReferenceOr<Box<Schema>>) {
-        let ref_or_schema = self.kind.into_ref_or_schema(Some(self.description));
-        (self.name, ref_or_schema)
+impl From<Field> for CommonContent {
+    fn from(field: Field) -> Self {
+        CommonContent {
+            name: field.name,
+            description: field.description,
+            required: field.required,
+            kind: field.kind,
+        }
     }
 }
