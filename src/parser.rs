@@ -1,21 +1,20 @@
-use crate::extractor::{
-    Extracted, RawArgument, RawDescription, RawField, RawMethod, RawObject, RawObjectData,
+use crate::{
+    extractor::{
+        Extracted, RawArgument, RawDescription, RawField, RawMethod, RawObject, RawObjectData,
+    },
+    util::{ElementRefExt, StrExt},
+    BOT_API_DOCS_URL,
 };
-use crate::util::ElementRefExt;
-use crate::util::StrExt;
-use crate::BOT_API_DOCS_URL;
 use chrono::NaiveDate;
 use ego_tree::iter::Edge;
 use html2md::{Handle, NodeData, StructuredPrinter, TagHandler, TagHandlerFactory};
 use itertools::Itertools;
 use scraper::{ElementRef, Node};
 use semver::Version;
-use std::collections::HashMap;
-use std::num::ParseIntError;
-use std::ops::Index;
-use std::slice::SliceIndex;
-use std::str::ParseBoolError;
-use std::{mem, slice};
+use std::{
+    collections::HashMap, mem, num::ParseIntError, ops::Index, slice, slice::SliceIndex,
+    str::ParseBoolError,
+};
 
 const RETURN_TYPE_PATTERNS: &[&[&str]] = &[&["On", "success"], &["Returns"], &["returns"], &["An"]];
 const DEFAULTS_PATTERNS: &[&[&str]] = &[&["Defaults", "to"]];

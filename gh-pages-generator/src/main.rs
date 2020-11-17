@@ -1,8 +1,7 @@
 mod custom;
 mod openapi;
 
-use std::fs;
-use std::path::PathBuf;
+use std::{fs, path::PathBuf};
 use tg_bot_api::BOT_API_DOCS_URL;
 
 fn main() -> anyhow::Result<()> {

@@ -1,7 +1,5 @@
 use chrono::Datelike;
-use schemars::schema::RootSchema;
-use schemars::schema_for;
-use schemars::JsonSchema;
+use schemars::{schema::RootSchema, schema_for, JsonSchema};
 use serde::Serialize;
 use tg_bot_api::{MethodArgs, Parsed, Type};
 
