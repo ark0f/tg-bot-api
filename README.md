@@ -5,7 +5,7 @@
 [![crates.io](https://img.shields.io/crates/v/tg-bot-api.svg)](https://crates.io/crates/tg-bot-api)
 [![Documentation](https://docs.rs/tg-bot-api/badge.svg)](https://docs.rs/tg-bot-api)
 
-Telegram Bot Api parser in Rust
+Telegram Bot API parser in Rust
 
 Generated schemas can be found at `pages.pelme.ga/tg-bot-api`:
 * `/openapi.yml` or `/openapi.json` - OpenAPI 3.0.0
