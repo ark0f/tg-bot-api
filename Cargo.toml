@@ -3,6 +3,13 @@ name = "tg-bot-api"
 version = "0.1.0"
 authors = ["Arsenii Lyashenko <arsenylyashenko.3@gmail.com>"]
 edition = "2018"
+license = "MIT or Apache-2.0"
+repository = "https://github.com/ark0f/tg-bot-api"
+documentation = "https://docs.rs/ark0f/tg-bot-api"
+readme = "README.md"
+include = ["Cargo.toml", "LICENSE-*.md", "src/**/*"]
+keywords = ["telegram", "telegram-bot-api", "api", "parser"]
+categories = ["development-tools", "parsing"]
 
 [workspace]
 members = ["gh-pages-generator"]
