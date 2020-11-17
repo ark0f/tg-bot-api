@@ -1,0 +1,17 @@
+[package]
+name = "gh-pages-generator"
+version = "0.1.0"
+authors = ["Arsenii Lyashenko <arsenylyashenko.3@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+reqwest = { version = "0.10.8", features = ["blocking"] }
+anyhow = "1.0.34"
+schemars = "0.8.0"
+openapiv3 = "0.3.2"
+serde = { version = "1.0.117", features = ["derive"] }
+serde_json = "1.0.59"
+serde_yaml = "0.8.14"
+tg-bot-api = { path = ".." }
+chrono = "0.4.19"
+indexmap = "1.6.0"

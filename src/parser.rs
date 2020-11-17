@@ -3,7 +3,7 @@ use crate::extractor::{
 };
 use crate::util::ElementRefExt;
 use crate::util::StrExt;
-use crate::BOT_API_DOCS;
+use crate::BOT_API_DOCS_URL;
 use chrono::NaiveDate;
 use ego_tree::iter::Edge;
 use html2md::{Handle, NodeData, StructuredPrinter, TagHandler, TagHandlerFactory};
@@ -688,7 +688,7 @@ impl TagHandlerFactory for AnchorHandlerFactory {
 
 fn make_url_from_fragment(fragment: String) -> String {
     assert!(fragment.starts_with('#'));
-    format!("{}{}", BOT_API_DOCS, fragment)
+    format!("{}{}", BOT_API_DOCS_URL, fragment)
 }
 
 #[derive(Default)]
@@ -742,7 +742,10 @@ mod tests {
     fn make_absolute_a_href() {
         let map = AnchorHandlerFactory::new_in_map();
         let md = html2md::parse_html_custom(r##"<a href="#fragment">This is a link</a>"##, &map);
-        assert_eq!(md, format!("[This is a link]({}/#fragment)", BOT_API_DOCS))
+        assert_eq!(
+            md,
+            format!("[This is a link]({}/#fragment)", BOT_API_DOCS_URL)
+        )
     }
 
     #[test]

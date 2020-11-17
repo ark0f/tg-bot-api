@@ -1,12 +1,12 @@
-use crate::parser::{Argument, Field, MethodArgs, ObjectData, Parsed, Type as ParserType};
 use indexmap::{indexmap, IndexMap};
 use openapiv3::{
     ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType, OpenAPI,
     Operation, PathItem, ReferenceOr, RequestBody, Response, Responses, Schema, SchemaData,
     SchemaKind, StatusCode, StringType, Type,
 };
+use tg_bot_api::{Argument, Field, MethodArgs, ObjectData, Parsed, Type as ParserType};
 
-const BASE_SCHEMA: &str = include_str!("../base-schema.yml");
+const BASE_SCHEMA: &str = include_str!("../../base-schema.yml");
 const FORM_URL_ENCODED: &str = "application/x-www-form-urlencoded";
 const JSON: &str = "application/json";
 const FORM_DATA: &str = "multipart/form-data";

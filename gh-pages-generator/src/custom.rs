@@ -1,10 +1,9 @@
-use crate::parser;
-use crate::parser::{MethodArgs, Parsed, Type};
 use chrono::Datelike;
 use schemars::schema::RootSchema;
 use schemars::schema_for;
 use schemars::JsonSchema;
 use serde::Serialize;
+use tg_bot_api::{MethodArgs, Parsed, Type};
 
 pub fn generate(parsed: Parsed) -> (Schema, RootSchema) {
     let methods = parsed.methods.into_iter().map(Method::from).collect();
@@ -92,8 +91,8 @@ enum Kind {
     Array(Box<BaseKind>),
 }
 
-impl From<parser::Type> for Kind {
-    fn from(ty: parser::Type) -> Self {
+impl From<tg_bot_api::Type> for Kind {
+    fn from(ty: tg_bot_api::Type) -> Self {
         let base = match ty {
             Type::Integer { default, min, max } => BaseKind::Integer { default, min, max },
             Type::String { default, one_of } => BaseKind::String {
@@ -131,8 +130,8 @@ struct Method {
     documentation_link: String,
 }
 
-impl From<parser::Method> for Method {
-    fn from(method: parser::Method) -> Self {
+impl From<tg_bot_api::Method> for Method {
+    fn from(method: tg_bot_api::Method) -> Self {
         let (multipart_only, args) = match method.args {
             MethodArgs::No => (false, vec![]),
             MethodArgs::Yes(args) => (false, args),
@@ -158,8 +157,8 @@ struct Argument {
     kind: Kind,
 }
 
-impl From<parser::Argument> for Argument {
-    fn from(arg: parser::Argument) -> Self {
+impl From<tg_bot_api::Argument> for Argument {
+    fn from(arg: tg_bot_api::Argument) -> Self {
         Self {
             name: arg.name,
             description: arg.description,
@@ -178,8 +177,8 @@ struct Object {
     documentation_link: String,
 }
 
-impl From<parser::Object> for Object {
-    fn from(object: parser::Object) -> Self {
+impl From<tg_bot_api::Object> for Object {
+    fn from(object: tg_bot_api::Object) -> Self {
         Self {
             name: object.name,
             description: object.description,
@@ -196,16 +195,16 @@ enum ObjectData {
     Unknown {},
 }
 
-impl From<parser::ObjectData> for ObjectData {
-    fn from(object_data: parser::ObjectData) -> Self {
+impl From<tg_bot_api::ObjectData> for ObjectData {
+    fn from(object_data: tg_bot_api::ObjectData) -> Self {
         match object_data {
-            parser::ObjectData::Fields(fields) if !fields.is_empty() => {
+            tg_bot_api::ObjectData::Fields(fields) if !fields.is_empty() => {
                 ObjectData::Known(KnownObjectData::Properties {
                     properties: fields.into_iter().map(Property::from).collect(),
                 })
             }
-            parser::ObjectData::Fields(_) => ObjectData::Unknown {},
-            parser::ObjectData::Elements(types) => ObjectData::Known(KnownObjectData::AnyOf {
+            tg_bot_api::ObjectData::Fields(_) => ObjectData::Unknown {},
+            tg_bot_api::ObjectData::Elements(types) => ObjectData::Known(KnownObjectData::AnyOf {
                 any_of: types.into_iter().map(Kind::from).collect(),
             }),
         }
@@ -229,8 +228,8 @@ struct Property {
     kind: Kind,
 }
 
-impl From<parser::Field> for Property {
-    fn from(field: parser::Field) -> Self {
+impl From<tg_bot_api::Field> for Property {
+    fn from(field: tg_bot_api::Field) -> Self {
         Self {
             name: field.name,
             description: field.description,
