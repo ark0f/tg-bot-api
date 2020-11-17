@@ -1,8 +1,12 @@
-on:
-  - push
-  - pull_request
-
 name: CI
+
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  pull_request:
+    branches-ignore:
+      - gh-pages
 
 jobs:
   test:
@@ -40,10 +44,12 @@ jobs:
             ${{ runner.os }}-cargo-build-target-
       - uses: actions-rs/cargo@v1
         with:
-          command: build --all --all-features --all-targets
+          command: build 
+          args: --all --all-features --all-targets
       - uses: actions-rs/cargo@v1
         with: 
-          command: test --all --all-features
+          command: 
+          args: test --all --all-features
   rustfmt:
     runs-on: ubuntu-latest
     steps:
