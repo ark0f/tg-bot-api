@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Arsenii Lyashenko <arsenylyashenko.3@gmail.com>"]
 edition = "2018"
 license = "MIT or Apache-2.0"
+description = "Telegram Bot API parser"
 repository = "https://github.com/ark0f/tg-bot-api"
 documentation = "https://docs.rs/ark0f/tg-bot-api"
 readme = "README.md"
