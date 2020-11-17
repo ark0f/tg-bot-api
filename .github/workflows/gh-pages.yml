@@ -1,0 +1,27 @@
+name: GitHub Pages
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build generator
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --package gh-pages-generator --bin gh-pages-generator
+      - name: Generate schemas
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --package gh-pages-generator --bin gh-pages-generator
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
