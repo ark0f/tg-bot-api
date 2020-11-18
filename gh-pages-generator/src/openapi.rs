@@ -24,28 +24,14 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
 
     let mut schemas = indexmap![];
     for object in parsed.objects {
-        match object.data {
+        let schema_kind = match object.data {
             ObjectData::Fields(fields) => {
                 let (properties, required) = make_properties_and_required(fields);
-
-                schemas.insert(
-                    object.name,
-                    ReferenceOr::Item(Schema {
-                        schema_data: SchemaData {
-                            description: Some(object.description),
-                            external_docs: Some(ExternalDocumentation {
-                                description: None,
-                                url: object.docs_link,
-                            }),
-                            ..SchemaData::default()
-                        },
-                        schema_kind: SchemaKind::Type(Type::Object(ObjectType {
-                            properties,
-                            required,
-                            ..ObjectType::default()
-                        })),
-                    }),
-                );
+                SchemaKind::Type(Type::Object(ObjectType {
+                    properties,
+                    required,
+                    ..ObjectType::default()
+                }))
             }
             ObjectData::Elements(elements) => {
                 let any_of = elements
@@ -53,23 +39,24 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
                     .map(ParserType::into_schema)
                     .map(ReferenceOr::unbox)
                     .collect();
-
-                schemas.insert(
-                    object.name,
-                    ReferenceOr::Item(Schema {
-                        schema_data: SchemaData {
-                            description: Some(object.description),
-                            external_docs: Some(ExternalDocumentation {
-                                description: None,
-                                url: object.docs_link,
-                            }),
-                            ..SchemaData::default()
-                        },
-                        schema_kind: SchemaKind::AnyOf { any_of },
-                    }),
-                );
+                SchemaKind::AnyOf { any_of }
             }
-        }
+        };
+
+        schemas.insert(
+            object.name,
+            ReferenceOr::Item(Schema {
+                schema_data: SchemaData {
+                    description: Some(object.description),
+                    external_docs: Some(ExternalDocumentation {
+                        description: None,
+                        url: object.docs_link,
+                    }),
+                    ..SchemaData::default()
+                },
+                schema_kind,
+            }),
+        );
     }
 
     let mut paths = indexmap![];
