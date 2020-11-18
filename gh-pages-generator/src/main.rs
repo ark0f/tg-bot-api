@@ -84,7 +84,7 @@ fn main() -> anyhow::Result<()> {
 
     let (custom_schema, json_schema) = custom::generate(parsed);
     indexer.add(&custom_schema, vec![Format::Json("custom.json")])?;
-    indexer.add(&&json_schema, vec![Format::Yaml("custom.schema.json")])?;
+    indexer.add(&&json_schema, vec![Format::Json("custom.schema.json")])?;
 
     indexer.gen()?;
 
