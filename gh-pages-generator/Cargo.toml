@@ -15,3 +15,4 @@ serde_yaml = "0.8.14"
 tg-bot-api = { path = ".." }
 chrono = "0.4.19"
 indexmap = "1.6.0"
+pulldown-cmark = "0.8.0"
