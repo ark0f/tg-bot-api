@@ -79,7 +79,7 @@ fn main() -> anyhow::Result<()> {
     let api = openapi::generate(parsed.clone());
     indexer.add(
         &api,
-        vec![Format::Json("openapi.yml"), Format::Yaml("openapi.yml")],
+        vec![Format::Json("openapi.json"), Format::Yaml("openapi.yml")],
     )?;
 
     let (custom_schema, json_schema) = custom::generate(parsed);
