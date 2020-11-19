@@ -728,17 +728,6 @@ impl TagHandler for AnchorHandler {
     }
 }
 
-trait StrParserExt<'a> {
-    fn trim_quotes(self) -> &'a str;
-}
-
-impl<'a> StrParserExt<'a> for &'a str {
-    fn trim_quotes(self) -> &'a str {
-        const QUOTES: &[char] = &['“', '”', '"'];
-        self.trim_matches(QUOTES)
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
