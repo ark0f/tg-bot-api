@@ -219,7 +219,8 @@ impl Type {
             }
             _ if s.starts_with("Array of ") => {
                 let types: Vec<&str> = s
-                    .trim_start_matches("Array of ")
+                    .strip_suffix("Array of ")
+                    .unwrap_or(s)
                     .split(" and ")
                     .flat_map(|s| s.split(','))
                     .map(str::trim)
@@ -308,6 +309,14 @@ impl Type {
     }
 
     pub fn extract_from_text(text: &str) -> Result<Self> {
+        fn strip_plural_ending(mut s: &str) -> &str {
+            if s.ends_with("es") {
+                s = s.strip_suffix('s').unwrap_or(s);
+            }
+
+            s
+        }
+
         fn extract_type(sentence: &SentenceRef) -> Option<Type> {
             const ARRAY: &str = "Array";
             const AN_ARRAY_OF: &[&str] = &["an", "array", "of"];
@@ -327,12 +336,8 @@ impl Type {
                     .parts
                     .iter()
                     .find_position(|part| !part.inner.is_first_letter_lowercase())?;
-                let mut ty = part.inner.as_str();
-
-                // get rid of plural ending
-                if ty.ends_with("es") {
-                    ty = ty.trim_end_matches('s');
-                }
+                let ty = part.inner.as_str();
+                let ty = strip_plural_ending(ty);
 
                 if ty == ARRAY {
                     let sentence = &sentence[pos + 1..];
