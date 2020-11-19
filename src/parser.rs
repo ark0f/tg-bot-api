@@ -237,10 +237,11 @@ impl Type {
     }
 
     fn new_with_description(s: &str, description: &str) -> Result<Self> {
+        let parser = SentenceParser::new(description);
         let default = Self::custom_parse(
             DEFAULTS_PATTERNS,
             |sentence| Some(sentence.parts.get(0)?.inner.clone()),
-            description,
+            &parser,
         );
 
         let min_max = Self::custom_parse(
@@ -252,7 +253,7 @@ impl Type {
                 let max = split.next()?.to_string();
                 Some((min, max))
             },
-            description,
+            &parser,
         );
         let (min, max) = if let Some((min, max)) = min_max {
             (Some(min), Some(max))
@@ -273,7 +274,7 @@ impl Type {
                         .collect(),
                 )
             },
-            description,
+            &parser,
         );
 
         let ty = match Type::new(s) {
@@ -295,12 +296,11 @@ impl Type {
         Ok(ty)
     }
 
-    fn custom_parse<F, T>(patterns: &[&[&str]], extractor: F, text: &str) -> Option<T>
+    fn custom_parse<F, T>(patterns: &[&[&str]], extractor: F, parser: &SentenceParser) -> Option<T>
     where
         F: Fn(&SentenceRef) -> Option<T>,
     {
         patterns.iter().find_map(|&pattern| {
-            let parser = SentenceParser::new(text);
             let sentence = parser.find(pattern)?;
             let sentence = &sentence[pattern.len()..];
             extractor(sentence)
@@ -349,7 +349,8 @@ impl Type {
             }
         }
 
-        Self::custom_parse(RETURN_TYPE_PATTERNS, extract_type, text)
+        let parser = SentenceParser::new(text);
+        Self::custom_parse(RETURN_TYPE_PATTERNS, extract_type, &parser)
             .ok_or_else(|| ParseError::TypeExtractionFailed(text.to_string()))
     }
 
