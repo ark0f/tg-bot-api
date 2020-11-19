@@ -198,6 +198,15 @@ pub enum Type {
 impl Type {
     // this function parses types from `Type` column in docs
     fn new(s: &str) -> Self {
+        fn types_from_sentence_ref(sentence: &SentenceRef) -> Vec<Type> {
+            sentence
+                .parts
+                .iter()
+                .map(|part| part.inner.as_str())
+                .map(Type::new)
+                .collect()
+        }
+
         match s {
             "Integer" | "Int" => Self::Integer {
                 default: None,
@@ -213,27 +222,23 @@ impl Type {
                 default: Some(true),
             },
             "Float" | "Float number" => Self::Float,
-            _ if s.contains(" or ") => {
-                let types = s.split(" or ").map(Self::new).collect();
-                Self::Or(types)
-            }
-            _ if s.starts_with("Array of ") => {
-                let types: Vec<&str> = s
-                    .strip_suffix("Array of ")
-                    .unwrap_or(s)
-                    .split(" and ")
-                    .flat_map(|s| s.split(','))
-                    .map(str::trim)
-                    .collect();
-                if types.len() == 1 {
-                    Self::Array(Box::new(Self::new(types[0])))
+            _ => {
+                let parser = SentenceParser::new(s);
+                if let Some(sentence) = parser.find(&["or"]) {
+                    let types = types_from_sentence_ref(sentence);
+                    Self::Or(types)
+                } else if let Some(sentence) = parser.find(&["Array", "of"]) {
+                    let sentence = &sentence[2..];
+                    let boxed = if sentence.len() == 1 {
+                        Box::new(Self::new(&sentence.parts[0].inner))
+                    } else {
+                        Box::new(Self::Or(types_from_sentence_ref(sentence)))
+                    };
+                    Self::Array(boxed)
                 } else {
-                    Self::Array(Box::new(Self::Or(
-                        types.into_iter().map(Self::new).collect(),
-                    )))
+                    Self::Object(s.to_string())
                 }
             }
-            _ => Self::Object(s.to_string()),
         }
     }
 
@@ -602,6 +607,10 @@ impl SentenceRef {
         unsafe {
             &*(slice::from_raw_parts(part as *const Part, 1) as *const [Part] as *const SentenceRef)
         }
+    }
+
+    fn len(&self) -> usize {
+        self.parts.len()
     }
 
     fn starts_with(&self, words: &[&str]) -> bool {
