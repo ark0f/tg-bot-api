@@ -202,6 +202,7 @@ impl Type {
             sentence
                 .parts
                 .iter()
+                .filter(|part| !part.inner.is_first_letter_lowercase())
                 .map(|part| part.inner.as_str())
                 .map(Type::new)
                 .collect()
@@ -536,6 +537,10 @@ impl SentenceParser {
                     State::GetNextChar
                 }
                 State::Break => {
+                    if !part.inner.is_empty() {
+                        parts.push(part);
+                    }
+
                     if !parts.is_empty() {
                         sentences.push(Sentence { parts });
                     }
@@ -749,6 +754,14 @@ mod tests {
             md,
             format!("[This is a link]({}/#fragment)", BOT_API_DOCS_URL)
         )
+    }
+
+    #[test]
+    fn sentence_parser_one_word() {
+        let parser = SentenceParser::new("One");
+        assert_eq!(parser.sentences.len(), 1);
+        assert_eq!(parser.sentences[0].parts.len(), 1);
+        assert_eq!(parser.sentences[0].parts[0], "One");
     }
 
     #[test]
