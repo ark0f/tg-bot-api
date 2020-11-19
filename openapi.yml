@@ -39,7 +39,7 @@ paths:
                   description: "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time."
                   type: array
                   items:
-                    type: string
+                    anyOf: []
           multipart/form-data:
             schema:
               type: object
@@ -61,7 +61,7 @@ paths:
                   description: "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time."
                   type: array
                   items:
-                    type: string
+                    anyOf: []
           application/json:
             schema:
               type: object
@@ -83,7 +83,7 @@ paths:
                   description: "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time."
                   type: array
                   items:
-                    type: string
+                    anyOf: []
         required: true
       responses:
         default:
@@ -136,7 +136,7 @@ paths:
                   description: "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time."
                   type: array
                   items:
-                    type: string
+                    anyOf: []
                 drop_pending_updates:
                   description: Pass *True* to drop all pending updates
                   type: boolean
@@ -343,7 +343,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -354,7 +354,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -371,9 +371,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - text
@@ -385,7 +387,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -396,7 +398,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -413,9 +415,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - text
@@ -427,7 +431,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -438,7 +442,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -455,9 +459,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - text
@@ -499,12 +505,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -523,12 +529,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -547,12 +553,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -601,12 +607,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
                   type: integer
@@ -620,7 +626,7 @@ paths:
                   description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -634,9 +640,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - from_chat_id
@@ -649,12 +657,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
                   type: integer
@@ -668,7 +676,7 @@ paths:
                   description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -682,9 +690,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - from_chat_id
@@ -697,12 +707,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
                   type: integer
@@ -716,7 +726,7 @@ paths:
                   description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -730,9 +740,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - from_chat_id
@@ -775,12 +787,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 photo:
                   description: "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Photo caption (may also be used when resending photos by *file\\_id*), 0-1024 characters after entities parsing"
                   type: string
@@ -791,7 +803,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -805,9 +817,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - photo
@@ -849,12 +863,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 audio:
                   description: "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Audio caption, 0-1024 characters after entities parsing"
                   type: string
@@ -865,7 +879,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 duration:
                   description: Duration of the audio in seconds
                   type: integer
@@ -879,7 +893,7 @@ paths:
                   description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -893,9 +907,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - audio
@@ -937,17 +953,17 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 document:
                   description: "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 thumb:
                   description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Document caption (may also be used when resending documents by *file\\_id*), 0-1024 characters after entities parsing"
                   type: string
@@ -958,7 +974,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_content_type_detection:
                   description: Disables automatic server-side content type detection for files uploaded using multipart/form-data
                   type: boolean
@@ -975,9 +991,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - document
@@ -1019,12 +1037,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 video:
                   description: "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 duration:
                   description: Duration of sent video in seconds
                   type: integer
@@ -1038,7 +1056,7 @@ paths:
                   description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing"
                   type: string
@@ -1049,7 +1067,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 supports_streaming:
                   description: "Pass *True*, if the uploaded video is suitable for streaming"
                   type: boolean
@@ -1066,9 +1084,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - video
@@ -1110,12 +1130,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 animation:
                   description: "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 duration:
                   description: Duration of sent animation in seconds
                   type: integer
@@ -1129,7 +1149,7 @@ paths:
                   description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Animation caption (may also be used when resending animation by *file\\_id*), 0-1024 characters after entities parsing"
                   type: string
@@ -1140,7 +1160,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -1154,9 +1174,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - animation
@@ -1198,12 +1220,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 voice:
                   description: "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 caption:
                   description: "Voice message caption, 0-1024 characters after entities parsing"
                   type: string
@@ -1214,7 +1236,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 duration:
                   description: Duration of the voice message in seconds
                   type: integer
@@ -1231,9 +1253,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - voice
@@ -1275,12 +1299,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 video_note:
                   description: "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 duration:
                   description: Duration of sent video in seconds
                   type: integer
@@ -1291,7 +1315,7 @@ paths:
                   description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -1305,9 +1329,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - video_note
@@ -1349,7 +1375,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 media:
                   description: "A JSON-serialized array describing messages to be sent, must include 2-10 items"
                   type: array
@@ -1358,7 +1384,7 @@ paths:
                       - $ref: "#/components/schemas/InputMediaAudio"
                       - $ref: "#/components/schemas/InputMediaDocument"
                       - $ref: "#/components/schemas/InputMediaPhoto"
-                      - $ref: "#/components/schemas/InputMediaVideo"
+                      - $ref: "#/components/schemas/and"
                 disable_notification:
                   description: "Sends messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -1411,7 +1437,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1443,9 +1469,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1458,7 +1486,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1490,9 +1518,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1505,7 +1535,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1537,9 +1567,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1582,7 +1614,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -1617,7 +1649,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -1652,7 +1684,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -1720,7 +1752,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message with live location to stop"
                   type: integer
@@ -1737,7 +1769,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message with live location to stop"
                   type: integer
@@ -1754,7 +1786,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message with live location to stop"
                   type: integer
@@ -1804,7 +1836,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -1842,9 +1874,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1859,7 +1893,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -1897,9 +1931,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1914,7 +1950,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -1952,9 +1988,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - latitude
@@ -1999,7 +2037,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2025,9 +2063,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - phone_number
@@ -2040,7 +2080,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2066,9 +2106,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - phone_number
@@ -2081,7 +2123,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2107,9 +2149,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - phone_number
@@ -2152,7 +2196,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2160,7 +2204,7 @@ paths:
                   description: "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each"
                   type: array
                   items:
-                    type: string
+                    anyOf: []
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
                   type: boolean
@@ -2183,7 +2227,7 @@ paths:
                   description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 open_period:
                   description: "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*."
                   type: integer
@@ -2206,9 +2250,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - question
@@ -2221,7 +2267,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2229,7 +2275,7 @@ paths:
                   description: "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each"
                   type: array
                   items:
-                    type: string
+                    anyOf: []
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
                   type: boolean
@@ -2252,7 +2298,7 @@ paths:
                   description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 open_period:
                   description: "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*."
                   type: integer
@@ -2275,9 +2321,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - question
@@ -2290,7 +2338,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2298,7 +2346,7 @@ paths:
                   description: "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each"
                   type: array
                   items:
-                    type: string
+                    anyOf: []
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
                   type: boolean
@@ -2321,7 +2369,7 @@ paths:
                   description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 open_period:
                   description: "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*."
                   type: integer
@@ -2344,9 +2392,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - question
@@ -2389,7 +2439,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”"
                   default: 🎲
@@ -2413,9 +2463,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -2426,7 +2478,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”"
                   default: 🎲
@@ -2450,9 +2502,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -2463,7 +2517,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”"
                   default: 🎲
@@ -2487,9 +2541,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -2530,7 +2586,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
@@ -2545,7 +2601,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
@@ -2560,7 +2616,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
@@ -2747,7 +2803,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2765,7 +2821,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2783,7 +2839,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2832,7 +2888,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2850,7 +2906,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2868,7 +2924,7 @@ paths:
                   description: "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2917,7 +2973,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2938,7 +2994,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -2959,7 +3015,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3011,7 +3067,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3053,7 +3109,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3095,7 +3151,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3168,7 +3224,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3187,7 +3243,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3206,7 +3262,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -3256,7 +3312,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
               required:
@@ -3270,7 +3326,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
               required:
@@ -3284,7 +3340,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
               required:
@@ -3329,7 +3385,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -3340,7 +3396,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -3351,7 +3407,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -3392,7 +3448,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 photo:
                   $ref: "#/components/schemas/InputFile"
               required:
@@ -3437,7 +3493,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -3448,7 +3504,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -3459,7 +3515,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -3501,7 +3557,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 title:
                   description: "New chat title, 1-255 characters"
                   type: string
@@ -3516,7 +3572,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 title:
                   description: "New chat title, 1-255 characters"
                   type: string
@@ -3531,7 +3587,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 title:
                   description: "New chat title, 1-255 characters"
                   type: string
@@ -3577,7 +3633,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 description:
                   description: "New chat description, 0-255 characters"
                   type: string
@@ -3591,7 +3647,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 description:
                   description: "New chat description, 0-255 characters"
                   type: string
@@ -3605,7 +3661,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 description:
                   description: "New chat description, 0-255 characters"
                   type: string
@@ -3650,7 +3706,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of a message to pin
                   type: integer
@@ -3668,7 +3724,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of a message to pin
                   type: integer
@@ -3686,7 +3742,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of a message to pin
                   type: integer
@@ -3735,7 +3791,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned."
                   type: integer
@@ -3749,7 +3805,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned."
                   type: integer
@@ -3763,7 +3819,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned."
                   type: integer
@@ -3808,7 +3864,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -3819,7 +3875,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -3830,7 +3886,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -3872,7 +3928,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -3883,7 +3939,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -3894,7 +3950,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -3936,7 +3992,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -3947,7 +4003,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -3958,7 +4014,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -3999,7 +4055,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -4010,7 +4066,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -4021,7 +4077,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -4064,7 +4120,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -4075,7 +4131,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -4086,7 +4142,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -4127,7 +4183,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -4142,7 +4198,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -4157,7 +4213,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 user_id:
                   description: Unique identifier of the target user
                   type: integer
@@ -4202,7 +4258,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 sticker_set_name:
                   description: Name of the sticker set to be set as the group sticker set
                   type: string
@@ -4217,7 +4273,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 sticker_set_name:
                   description: Name of the sticker set to be set as the group sticker set
                   type: string
@@ -4232,7 +4288,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 sticker_set_name:
                   description: Name of the sticker set to be set as the group sticker set
                   type: string
@@ -4278,7 +4334,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           multipart/form-data:
@@ -4289,7 +4345,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
           application/json:
@@ -4300,7 +4356,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
         required: true
@@ -4442,7 +4498,7 @@ paths:
                   description: "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified."
                   type: array
                   items:
-                    $ref: "#/components/schemas/BotCommand"
+                    anyOf: []
               required:
                 - commands
           multipart/form-data:
@@ -4453,7 +4509,7 @@ paths:
                   description: "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified."
                   type: array
                   items:
-                    $ref: "#/components/schemas/BotCommand"
+                    anyOf: []
               required:
                 - commands
           application/json:
@@ -4464,7 +4520,7 @@ paths:
                   description: "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified."
                   type: array
                   items:
-                    $ref: "#/components/schemas/BotCommand"
+                    anyOf: []
               required:
                 - commands
         required: true
@@ -4535,7 +4591,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4552,7 +4608,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -4568,7 +4624,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4585,7 +4641,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -4601,7 +4657,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4618,7 +4674,7 @@ paths:
                   description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 disable_web_page_preview:
                   description: Disables link previews for links in this message
                   type: boolean
@@ -4667,7 +4723,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4684,7 +4740,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
           multipart/form-data:
@@ -4695,7 +4751,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4712,7 +4768,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
           application/json:
@@ -4723,7 +4779,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4740,7 +4796,7 @@ paths:
                   description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
-                    $ref: "#/components/schemas/MessageEntity"
+                    anyOf: []
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
         required: true
@@ -4784,7 +4840,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4838,7 +4894,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4855,7 +4911,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4872,7 +4928,7 @@ paths:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit"
                   type: integer
@@ -4922,7 +4978,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the original message with the poll
                   type: integer
@@ -4939,7 +4995,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the original message with the poll
                   type: integer
@@ -4956,7 +5012,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the original message with the poll
                   type: integer
@@ -5003,7 +5059,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the message to delete
                   type: integer
@@ -5018,7 +5074,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the message to delete
                   type: integer
@@ -5033,7 +5089,7 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 message_id:
                   description: Identifier of the message to delete
                   type: integer
@@ -5079,12 +5135,12 @@ paths:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
                     - type: integer
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 sticker:
                   description: "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -5098,9 +5154,11 @@ paths:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/or"
                     - $ref: "#/components/schemas/ReplyKeyboardRemove"
-                    - $ref: "#/components/schemas/ForceReply"
+                    - $ref: "#/components/schemas/or"
               required:
                 - chat_id
                 - sticker
@@ -5250,7 +5308,7 @@ paths:
                   description: "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 tgs_sticker:
                   $ref: "#/components/schemas/InputFile"
                 emojis:
@@ -5311,7 +5369,7 @@ paths:
                   description: "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
                 tgs_sticker:
                   $ref: "#/components/schemas/InputFile"
                 emojis:
@@ -5496,7 +5554,7 @@ paths:
                   description: "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [](https://core.telegram.org/animated_stickers#technical-requirements)[https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL."
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
-                    - type: string
+                    - $ref: "#/components/schemas/or"
               required:
                 - name
                 - user_id
@@ -5542,7 +5600,7 @@ paths:
                   description: A JSON-serialized array of results for the inline query
                   type: array
                   items:
-                    $ref: "#/components/schemas/InlineQueryResult"
+                    anyOf: []
                 cache_time:
                   description: The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.
                   default: 300
@@ -5573,7 +5631,7 @@ paths:
                   description: A JSON-serialized array of results for the inline query
                   type: array
                   items:
-                    $ref: "#/components/schemas/InlineQueryResult"
+                    anyOf: []
                 cache_time:
                   description: The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.
                   default: 300
@@ -5604,7 +5662,7 @@ paths:
                   description: A JSON-serialized array of results for the inline query
                   type: array
                   items:
-                    $ref: "#/components/schemas/InlineQueryResult"
+                    anyOf: []
                 cache_time:
                   description: The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.
                   default: 300
@@ -5684,7 +5742,7 @@ paths:
                   description: "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)"
                   type: array
                   items:
-                    $ref: "#/components/schemas/LabeledPrice"
+                    anyOf: []
                 provider_data:
                   description: "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider."
                   type: string
@@ -5770,7 +5828,7 @@ paths:
                   description: "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)"
                   type: array
                   items:
-                    $ref: "#/components/schemas/LabeledPrice"
+                    anyOf: []
                 provider_data:
                   description: "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider."
                   type: string
@@ -5856,7 +5914,7 @@ paths:
                   description: "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)"
                   type: array
                   items:
-                    $ref: "#/components/schemas/LabeledPrice"
+                    anyOf: []
                 provider_data:
                   description: "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider."
                   type: string
@@ -5957,7 +6015,7 @@ paths:
                   description: Required if *ok* is True. A JSON-serialized array of available shipping options.
                   type: array
                   items:
-                    $ref: "#/components/schemas/ShippingOption"
+                    anyOf: []
                 error_message:
                   description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
@@ -5978,7 +6036,7 @@ paths:
                   description: Required if *ok* is True. A JSON-serialized array of available shipping options.
                   type: array
                   items:
-                    $ref: "#/components/schemas/ShippingOption"
+                    anyOf: []
                 error_message:
                   description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
@@ -5999,7 +6057,7 @@ paths:
                   description: Required if *ok* is True. A JSON-serialized array of available shipping options.
                   type: array
                   items:
-                    $ref: "#/components/schemas/ShippingOption"
+                    anyOf: []
                 error_message:
                   description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
@@ -6127,7 +6185,7 @@ paths:
                   description: A JSON-serialized array describing the errors
                   type: array
                   items:
-                    $ref: "#/components/schemas/PassportElementError"
+                    anyOf: []
               required:
                 - user_id
                 - errors
@@ -6142,7 +6200,7 @@ paths:
                   description: A JSON-serialized array describing the errors
                   type: array
                   items:
-                    $ref: "#/components/schemas/PassportElementError"
+                    anyOf: []
               required:
                 - user_id
                 - errors
@@ -6157,7 +6215,7 @@ paths:
                   description: A JSON-serialized array describing the errors
                   type: array
                   items:
-                    $ref: "#/components/schemas/PassportElementError"
+                    anyOf: []
               required:
                 - user_id
                 - errors
@@ -6572,7 +6630,7 @@ components:
           description: "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types"
           type: array
           items:
-            type: string
+            anyOf: []
       required:
         - url
         - has_custom_certificate
@@ -6724,7 +6782,7 @@ components:
           description: "*Optional*. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         animation:
           $ref: "#/components/schemas/Animation"
         audio:
@@ -6735,7 +6793,7 @@ components:
           description: "*Optional*. Message is a photo, available sizes of the photo"
           type: array
           items:
-            $ref: "#/components/schemas/PhotoSize"
+            anyOf: []
         sticker:
           $ref: "#/components/schemas/Sticker"
         video:
@@ -6751,7 +6809,7 @@ components:
           description: "*Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         contact:
           $ref: "#/components/schemas/Contact"
         dice:
@@ -6768,7 +6826,7 @@ components:
           description: "*Optional*. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)"
           type: array
           items:
-            $ref: "#/components/schemas/User"
+            anyOf: []
         left_chat_member:
           $ref: "#/components/schemas/User"
         new_chat_title:
@@ -6778,7 +6836,7 @@ components:
           description: "*Optional*. A chat photo was change to this value"
           type: array
           items:
-            $ref: "#/components/schemas/PhotoSize"
+            anyOf: []
         delete_chat_photo:
           description: "*Optional*. Service message: the chat photo was deleted"
           type: boolean
@@ -7140,7 +7198,7 @@ components:
           description: "0-based identifiers of answer options, chosen by the user. May be empty if the user retracted their vote."
           type: array
           items:
-            type: integer
+            anyOf: []
       required:
         - poll_id
         - user
@@ -7161,7 +7219,7 @@ components:
           description: List of poll options
           type: array
           items:
-            $ref: "#/components/schemas/PollOption"
+            anyOf: []
         total_voter_count:
           description: Total number of users that voted in the poll
           type: integer
@@ -7187,7 +7245,7 @@ components:
           description: "*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         open_period:
           description: "*Optional*. Amount of time in seconds the poll will be active after creation"
           type: integer
@@ -7290,7 +7348,9 @@ components:
           description: Requested profile pictures (in up to 4 sizes each)
           type: array
           items:
-            $ref: "#/components/schemas/PhotoSize"
+            anyOf:
+              - $ref: "#/components/schemas/Array"
+              - $ref: "#/components/schemas/of"
       required:
         - total_count
         - photos
@@ -7325,7 +7385,9 @@ components:
           description: "Array of button rows, each represented by an Array of [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) objects"
           type: array
           items:
-            $ref: "#/components/schemas/KeyboardButton"
+            anyOf:
+              - $ref: "#/components/schemas/Array"
+              - $ref: "#/components/schemas/of"
         resize_keyboard:
           description: "*Optional*. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to *false*, in which case the custom keyboard is always of the same height as the app's standard keyboard."
           default: false
@@ -7391,7 +7453,9 @@ components:
           description: "Array of button rows, each represented by an Array of [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) objects"
           type: array
           items:
-            $ref: "#/components/schemas/InlineKeyboardButton"
+            anyOf:
+              - $ref: "#/components/schemas/Array"
+              - $ref: "#/components/schemas/of"
       required:
         - inline_keyboard
     InlineKeyboardButton:
@@ -7681,7 +7745,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
       required:
         - type
         - media
@@ -7701,7 +7765,7 @@ components:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
-            - type: string
+            - $ref: "#/components/schemas/or"
         caption:
           description: "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -7712,7 +7776,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         width:
           description: "*Optional*. Video width"
           type: integer
@@ -7744,7 +7808,7 @@ components:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
-            - type: string
+            - $ref: "#/components/schemas/or"
         caption:
           description: "*Optional*. Caption of the animation to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -7755,7 +7819,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         width:
           description: "*Optional*. Animation width"
           type: integer
@@ -7784,7 +7848,7 @@ components:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
-            - type: string
+            - $ref: "#/components/schemas/or"
         caption:
           description: "*Optional*. Caption of the audio to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -7795,7 +7859,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         duration:
           description: "*Optional*. Duration of the audio in seconds"
           type: integer
@@ -7824,7 +7888,7 @@ components:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
-            - type: string
+            - $ref: "#/components/schemas/or"
         caption:
           description: "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -7835,7 +7899,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         disable_content_type_detection:
           description: "*Optional*. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album."
           type: boolean
@@ -7909,7 +7973,7 @@ components:
           description: List of all set stickers
           type: array
           items:
-            $ref: "#/components/schemas/Sticker"
+            anyOf: []
         thumb:
           $ref: "#/components/schemas/PhotoSize"
       required:
@@ -8077,7 +8141,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8135,7 +8199,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8193,7 +8257,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8237,7 +8301,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         video_width:
           description: "*Optional*. Video width"
           type: integer
@@ -8289,7 +8353,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         performer:
           description: "*Optional*. Performer"
           type: string
@@ -8333,7 +8397,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         voice_duration:
           description: "*Optional*. Recording duration in seconds"
           type: integer
@@ -8371,7 +8435,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         document_url:
           description: A valid URL for the file
           type: string
@@ -8602,7 +8666,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8639,7 +8703,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8676,7 +8740,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8739,7 +8803,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8780,7 +8844,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8818,7 +8882,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8853,7 +8917,7 @@ components:
           description: "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
         input_message_content:
@@ -8887,7 +8951,7 @@ components:
           description: "*Optional*. List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         disable_web_page_preview:
           description: "*Optional*. Disables link previews for links in the sent message"
           type: boolean
@@ -9105,7 +9169,7 @@ components:
           description: List of price portions
           type: array
           items:
-            $ref: "#/components/schemas/LabeledPrice"
+            anyOf: []
       required:
         - id
         - title
@@ -9204,7 +9268,7 @@ components:
           description: Array with information about documents and other Telegram Passport elements that was shared with the bot
           type: array
           items:
-            $ref: "#/components/schemas/EncryptedPassportElement"
+            anyOf: []
         credentials:
           $ref: "#/components/schemas/EncryptedCredentials"
       required:
@@ -9269,7 +9333,7 @@ components:
           description: "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
           type: array
           items:
-            $ref: "#/components/schemas/PassportFile"
+            anyOf: []
         front_side:
           $ref: "#/components/schemas/PassportFile"
         reverse_side:
@@ -9280,7 +9344,7 @@ components:
           description: "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
           type: array
           items:
-            $ref: "#/components/schemas/PassportFile"
+            anyOf: []
         hash:
           description: "Base64-encoded element hash for using in [PassportElementErrorUnspecified](https://core.telegram.org/bots/api/#passportelementerrorunspecified)"
           type: string
@@ -9487,7 +9551,7 @@ components:
           description: List of base64-encoded file hashes
           type: array
           items:
-            type: string
+            anyOf: []
         message:
           description: Error message
           type: string
@@ -9555,7 +9619,7 @@ components:
           description: List of base64-encoded file hashes
           type: array
           items:
-            type: string
+            anyOf: []
         message:
           description: Error message
           type: string
@@ -9603,7 +9667,7 @@ components:
           description: Photo that will be displayed in the game message in chats.
           type: array
           items:
-            $ref: "#/components/schemas/PhotoSize"
+            anyOf: []
         text:
           description: "*Optional*. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls [setGameScore](https://core.telegram.org/bots/api/#setgamescore), or manually edited using [editMessageText](https://core.telegram.org/bots/api/#editmessagetext). 0-4096 characters."
           type: string
@@ -9611,7 +9675,7 @@ components:
           description: "*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc."
           type: array
           items:
-            $ref: "#/components/schemas/MessageEntity"
+            anyOf: []
         animation:
           $ref: "#/components/schemas/Animation"
       required:
