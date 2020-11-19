@@ -40,7 +40,7 @@
           "name": "allowed_updates",
           "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
           "required": false,
-          "type": "any_of"
+          "type": "string"
         }
       ],
       "multipart_only": false,
@@ -84,7 +84,7 @@
           "name": "allowed_updates",
           "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
           "required": false,
-          "type": "any_of"
+          "type": "string"
         },
         {
           "name": "drop_pending_updates",
@@ -172,8 +172,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -193,7 +192,8 @@
           "name": "entities",
           "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_web_page_preview",
@@ -231,15 +231,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -247,7 +239,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -273,8 +265,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -288,8 +279,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -327,8 +317,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -342,8 +331,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -369,7 +357,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_notification",
@@ -401,15 +390,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -417,7 +398,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -443,8 +424,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -459,8 +439,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -480,7 +459,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_notification",
@@ -512,15 +492,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -528,7 +500,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -554,8 +526,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -570,8 +541,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -591,7 +561,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "duration",
@@ -622,8 +593,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -657,15 +627,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -673,7 +635,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -699,8 +661,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -715,8 +676,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -731,8 +691,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -752,7 +711,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_content_type_detection",
@@ -790,15 +750,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -806,7 +758,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -832,8 +784,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -848,8 +799,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -882,8 +832,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -903,7 +852,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "supports_streaming",
@@ -941,15 +891,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -957,7 +899,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -983,8 +925,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -999,8 +940,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1033,8 +973,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1054,7 +993,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_notification",
@@ -1086,15 +1026,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1102,7 +1034,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1128,8 +1060,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1144,8 +1075,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1165,7 +1095,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "duration",
@@ -1203,15 +1134,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1219,7 +1142,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1245,8 +1168,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1261,8 +1183,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1289,8 +1210,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1324,15 +1244,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1340,7 +1252,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1366,8 +1278,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1391,7 +1302,7 @@
             },
             {
               "type": "reference",
-              "reference": "and"
+              "reference": "InputMediaVideo"
             }
           ]
         },
@@ -1435,8 +1346,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1506,15 +1416,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1522,7 +1424,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1548,8 +1450,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1633,8 +1534,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1688,8 +1588,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1771,15 +1670,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1787,7 +1678,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1813,8 +1704,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1872,15 +1762,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -1888,7 +1770,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -1914,8 +1796,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -1929,7 +1810,7 @@
           "name": "options",
           "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
           "required": true,
-          "type": "any_of"
+          "type": "string"
         },
         {
           "name": "is_anonymous",
@@ -1971,7 +1852,8 @@
           "name": "explanation_entities",
           "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "open_period",
@@ -2021,15 +1903,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -2037,7 +1911,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -2063,8 +1937,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2112,15 +1985,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -2128,7 +1993,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -2154,8 +2019,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2238,8 +2102,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2277,8 +2140,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2316,8 +2178,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2362,8 +2223,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2449,8 +2309,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2488,8 +2347,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2522,8 +2380,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2548,8 +2405,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2582,8 +2438,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2609,8 +2464,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2642,8 +2496,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2675,8 +2528,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2714,8 +2566,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2747,8 +2598,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2774,8 +2624,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2801,8 +2650,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2828,8 +2676,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2855,8 +2702,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -2881,8 +2727,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2914,8 +2759,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -2947,8 +2791,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -3012,7 +2855,8 @@
           "name": "commands",
           "description": "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "BotCommand"
         }
       ],
       "multipart_only": false,
@@ -3046,8 +2890,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3079,7 +2922,8 @@
           "name": "entities",
           "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_web_page_preview",
@@ -3125,8 +2969,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3158,7 +3001,8 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -3198,8 +3042,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3260,8 +3103,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3315,8 +3157,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3355,8 +3196,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3388,8 +3228,7 @@
               "type": "integer"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3404,8 +3243,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3439,15 +3277,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
-            },
-            {
-              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
-            },
-            {
-              "type": "reference",
-              "reference": "or"
             },
             {
               "type": "reference",
@@ -3455,7 +3285,7 @@
             },
             {
               "type": "reference",
-              "reference": "or"
+              "reference": "ForceReply"
             }
           ]
         }
@@ -3543,8 +3373,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3609,8 +3438,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -3711,8 +3539,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         }
@@ -3738,7 +3565,8 @@
           "name": "results",
           "description": "A JSON-serialized array of results for the inline query",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "InlineQueryResult"
         },
         {
           "name": "cache_time",
@@ -3829,7 +3657,8 @@
           "name": "prices",
           "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "LabeledPrice"
         },
         {
           "name": "provider_data",
@@ -3956,7 +3785,8 @@
           "name": "shipping_options",
           "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "ShippingOption"
         },
         {
           "name": "error_message",
@@ -4016,7 +3846,8 @@
           "name": "errors",
           "description": "A JSON-serialized array describing the errors",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PassportElementError"
         }
       ],
       "multipart_only": false,
@@ -4318,7 +4149,7 @@
           "name": "allowed_updates",
           "description": "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types",
           "required": false,
-          "type": "any_of"
+          "type": "string"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#webhookinfo"
@@ -4617,7 +4448,8 @@
           "name": "entities",
           "description": "*Optional*. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "animation",
@@ -4644,7 +4476,8 @@
           "name": "photo",
           "description": "*Optional*. Message is a photo, available sizes of the photo",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PhotoSize"
         },
         {
           "name": "sticker",
@@ -4684,7 +4517,8 @@
           "name": "caption_entities",
           "description": "*Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "contact",
@@ -4732,7 +4566,8 @@
           "name": "new_chat_members",
           "description": "*Optional*. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "User"
         },
         {
           "name": "left_chat_member",
@@ -4751,7 +4586,8 @@
           "name": "new_chat_photo",
           "description": "*Optional*. A chat photo was change to this value",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PhotoSize"
         },
         {
           "name": "delete_chat_photo",
@@ -5354,7 +5190,7 @@
           "name": "option_ids",
           "description": "0-based identifiers of answer options, chosen by the user. May be empty if the user retracted their vote.",
           "required": true,
-          "type": "any_of"
+          "type": "integer"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#pollanswer"
@@ -5380,7 +5216,8 @@
           "name": "options",
           "description": "List of poll options",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PollOption"
         },
         {
           "name": "total_voter_count",
@@ -5428,7 +5265,8 @@
           "name": "explanation_entities",
           "description": "*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "open_period",
@@ -5591,7 +5429,7 @@
             },
             {
               "type": "reference",
-              "reference": "of"
+              "reference": "PhotoSize"
             }
           ]
         }
@@ -5647,7 +5485,7 @@
             },
             {
               "type": "reference",
-              "reference": "of"
+              "reference": "KeyboardButton"
             }
           ]
         },
@@ -5758,7 +5596,7 @@
             },
             {
               "type": "reference",
-              "reference": "of"
+              "reference": "InlineKeyboardButton"
             }
           ]
         }
@@ -6266,7 +6104,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#inputmediaphoto"
@@ -6299,8 +6138,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -6320,7 +6158,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "width",
@@ -6377,8 +6216,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -6398,7 +6236,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "width",
@@ -6449,8 +6288,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -6470,7 +6308,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "duration",
@@ -6521,8 +6360,7 @@
               "reference": "InputFile"
             },
             {
-              "type": "reference",
-              "reference": "or"
+              "type": "string"
             }
           ]
         },
@@ -6542,7 +6380,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_content_type_detection",
@@ -6661,7 +6500,8 @@
           "name": "stickers",
           "description": "List of all set stickers",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "Sticker"
         },
         {
           "name": "thumb",
@@ -6984,7 +6824,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -7084,7 +6925,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -7184,7 +7026,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -7260,7 +7103,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "video_width",
@@ -7348,7 +7192,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "performer",
@@ -7424,7 +7269,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "voice_duration",
@@ -7488,7 +7334,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "document_url",
@@ -7897,7 +7744,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -7961,7 +7809,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8025,7 +7874,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8135,7 +7985,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8205,7 +8056,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8269,7 +8121,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8327,7 +8180,8 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "reply_markup",
@@ -8391,7 +8245,8 @@
           "name": "entities",
           "description": "*Optional*. List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "disable_web_page_preview",
@@ -8730,7 +8585,8 @@
           "name": "prices",
           "description": "List of price portions",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "LabeledPrice"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#shippingoption"
@@ -8881,7 +8737,8 @@
           "name": "data",
           "description": "Array with information about documents and other Telegram Passport elements that was shared with the bot",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "EncryptedPassportElement"
         },
         {
           "name": "credentials",
@@ -8973,7 +8830,8 @@
           "name": "files",
           "description": "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PassportFile"
         },
         {
           "name": "front_side",
@@ -9000,7 +8858,8 @@
           "name": "translation",
           "description": "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PassportFile"
         },
         {
           "name": "hash",
@@ -9306,7 +9165,7 @@
           "name": "file_hashes",
           "description": "List of base64-encoded file hashes",
           "required": true,
-          "type": "any_of"
+          "type": "string"
         },
         {
           "name": "message",
@@ -9392,7 +9251,7 @@
           "name": "file_hashes",
           "description": "List of base64-encoded file hashes",
           "required": true,
-          "type": "any_of"
+          "type": "string"
         },
         {
           "name": "message",
@@ -9456,7 +9315,8 @@
           "name": "photo",
           "description": "Photo that will be displayed in the game message in chats.",
           "required": true,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "PhotoSize"
         },
         {
           "name": "text",
@@ -9468,7 +9328,8 @@
           "name": "text_entities",
           "description": "*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.",
           "required": false,
-          "type": "any_of"
+          "type": "reference",
+          "reference": "MessageEntity"
         },
         {
           "name": "animation",

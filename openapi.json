@@ -49,7 +49,7 @@
                     "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   }
                 }
@@ -79,7 +79,7 @@
                     "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   }
                 }
@@ -109,7 +109,7 @@
                     "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   }
                 }
@@ -190,7 +190,7 @@
                     "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   },
                   "drop_pending_updates": {
@@ -519,7 +519,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -535,7 +535,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -561,19 +561,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -595,7 +589,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -611,7 +605,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -637,19 +631,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -671,7 +659,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -687,7 +675,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -713,19 +701,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -795,7 +777,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -806,7 +788,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -837,7 +819,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -848,7 +830,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -879,7 +861,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -890,7 +872,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -969,7 +951,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -980,7 +962,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1000,7 +982,7 @@
                     "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_notification": {
@@ -1022,19 +1004,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1057,7 +1033,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1068,7 +1044,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1088,7 +1064,7 @@
                     "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_notification": {
@@ -1110,19 +1086,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1145,7 +1115,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1156,7 +1126,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1176,7 +1146,7 @@
                     "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_notification": {
@@ -1198,19 +1168,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1281,7 +1245,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1292,7 +1256,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1308,7 +1272,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_notification": {
@@ -1330,19 +1294,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1412,7 +1370,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1423,7 +1381,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1439,7 +1397,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "duration": {
@@ -1461,7 +1419,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1484,19 +1442,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1566,7 +1518,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1577,7 +1529,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1588,7 +1540,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1604,7 +1556,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_content_type_detection": {
@@ -1630,19 +1582,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1712,7 +1658,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1723,7 +1669,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1746,7 +1692,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1762,7 +1708,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "supports_streaming": {
@@ -1788,19 +1734,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -1870,7 +1810,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1881,7 +1821,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1904,7 +1844,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -1920,7 +1860,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_notification": {
@@ -1942,19 +1882,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2024,7 +1958,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2035,7 +1969,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2051,7 +1985,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "duration": {
@@ -2077,19 +2011,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2159,7 +2087,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2170,7 +2098,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2189,7 +2117,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2212,19 +2140,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2294,7 +2216,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2313,7 +2235,7 @@
                           "$ref": "#/components/schemas/InputMediaPhoto"
                         },
                         {
-                          "$ref": "#/components/schemas/and"
+                          "$ref": "#/components/schemas/InputMediaVideo"
                         }
                       ]
                     }
@@ -2399,7 +2321,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2446,19 +2368,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2481,7 +2397,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2528,19 +2444,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2563,7 +2473,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2610,19 +2520,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -2693,7 +2597,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2746,7 +2650,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2799,7 +2703,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2908,7 +2812,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2937,7 +2841,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -2966,7 +2870,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3051,7 +2955,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3106,19 +3010,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3143,7 +3041,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3198,19 +3096,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3235,7 +3127,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3290,19 +3182,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3375,7 +3261,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3414,19 +3300,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3449,7 +3329,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3488,19 +3368,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3523,7 +3397,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3562,19 +3436,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3645,7 +3513,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3657,7 +3525,7 @@
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   },
                   "is_anonymous": {
@@ -3688,7 +3556,7 @@
                     "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "open_period": {
@@ -3722,19 +3590,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3757,7 +3619,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3769,7 +3631,7 @@
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   },
                   "is_anonymous": {
@@ -3800,7 +3662,7 @@
                     "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "open_period": {
@@ -3834,19 +3696,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -3869,7 +3725,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -3881,7 +3737,7 @@
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "type": "string"
                     }
                   },
                   "is_anonymous": {
@@ -3912,7 +3768,7 @@
                     "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "open_period": {
@@ -3946,19 +3802,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -4029,7 +3879,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4064,19 +3914,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -4097,7 +3941,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4132,19 +3976,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -4165,7 +4003,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4200,19 +4038,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -4281,7 +4113,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4307,7 +4139,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4333,7 +4165,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4621,7 +4453,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4651,7 +4483,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4681,7 +4513,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4760,7 +4592,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4790,7 +4622,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4820,7 +4652,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4899,7 +4731,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4933,7 +4765,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -4967,7 +4799,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5050,7 +4882,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5112,7 +4944,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5174,7 +5006,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5285,7 +5117,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5316,7 +5148,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5347,7 +5179,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5427,7 +5259,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5452,7 +5284,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5477,7 +5309,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5551,7 +5383,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5572,7 +5404,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5593,7 +5425,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5662,7 +5494,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5736,7 +5568,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5757,7 +5589,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5778,7 +5610,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -5848,7 +5680,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5874,7 +5706,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5900,7 +5732,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -5975,7 +5807,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6000,7 +5832,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6025,7 +5857,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6099,7 +5931,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6129,7 +5961,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6159,7 +5991,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6238,7 +6070,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6263,7 +6095,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6288,7 +6120,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6362,7 +6194,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6383,7 +6215,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6404,7 +6236,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6474,7 +6306,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6495,7 +6327,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6516,7 +6348,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6586,7 +6418,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6607,7 +6439,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6628,7 +6460,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6697,7 +6529,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6718,7 +6550,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6739,7 +6571,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6811,7 +6643,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6832,7 +6664,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6853,7 +6685,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -6922,7 +6754,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6948,7 +6780,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -6974,7 +6806,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7048,7 +6880,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7074,7 +6906,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7100,7 +6932,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7175,7 +7007,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -7196,7 +7028,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -7217,7 +7049,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -7429,7 +7261,7 @@
                     "description": "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/BotCommand"
                     }
                   }
                 },
@@ -7446,7 +7278,7 @@
                     "description": "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/BotCommand"
                     }
                   }
                 },
@@ -7463,7 +7295,7 @@
                     "description": "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/BotCommand"
                     }
                   }
                 },
@@ -7578,7 +7410,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7602,7 +7434,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -7629,7 +7461,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7653,7 +7485,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -7680,7 +7512,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7704,7 +7536,7 @@
                     "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "disable_web_page_preview": {
@@ -7787,7 +7619,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7811,7 +7643,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "reply_markup": {
@@ -7831,7 +7663,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7855,7 +7687,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "reply_markup": {
@@ -7875,7 +7707,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -7899,7 +7731,7 @@
                     "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
                   "reply_markup": {
@@ -7975,7 +7807,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8066,7 +7898,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8095,7 +7927,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8124,7 +7956,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8209,7 +8041,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8238,7 +8070,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8267,7 +8099,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8344,7 +8176,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8370,7 +8202,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8396,7 +8228,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8471,7 +8303,7 @@
                         "type": "integer"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8482,7 +8314,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8505,19 +8337,13 @@
                         "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
-                      },
-                      {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/or"
                       },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardRemove"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "$ref": "#/components/schemas/ForceReply"
                       }
                     ]
                   }
@@ -8755,7 +8581,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -8850,7 +8676,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   },
@@ -9137,7 +8963,7 @@
                         "$ref": "#/components/schemas/InputFile"
                       },
                       {
-                        "$ref": "#/components/schemas/or"
+                        "type": "string"
                       }
                     ]
                   }
@@ -9209,7 +9035,7 @@
                     "description": "A JSON-serialized array of results for the inline query",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/InlineQueryResult"
                     }
                   },
                   "cache_time": {
@@ -9252,7 +9078,7 @@
                     "description": "A JSON-serialized array of results for the inline query",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/InlineQueryResult"
                     }
                   },
                   "cache_time": {
@@ -9295,7 +9121,7 @@
                     "description": "A JSON-serialized array of results for the inline query",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/InlineQueryResult"
                     }
                   },
                   "cache_time": {
@@ -9411,7 +9237,7 @@
                     "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/LabeledPrice"
                     }
                   },
                   "provider_data": {
@@ -9526,7 +9352,7 @@
                     "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/LabeledPrice"
                     }
                   },
                   "provider_data": {
@@ -9641,7 +9467,7 @@
                     "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/LabeledPrice"
                     }
                   },
                   "provider_data": {
@@ -9784,7 +9610,7 @@
                     "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/ShippingOption"
                     }
                   },
                   "error_message": {
@@ -9814,7 +9640,7 @@
                     "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/ShippingOption"
                     }
                   },
                   "error_message": {
@@ -9844,7 +9670,7 @@
                     "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/ShippingOption"
                     }
                   },
                   "error_message": {
@@ -10037,7 +9863,7 @@
                     "description": "A JSON-serialized array describing the errors",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/PassportElementError"
                     }
                   }
                 },
@@ -10059,7 +9885,7 @@
                     "description": "A JSON-serialized array describing the errors",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/PassportElementError"
                     }
                   }
                 },
@@ -10081,7 +9907,7 @@
                     "description": "A JSON-serialized array describing the errors",
                     "type": "array",
                     "items": {
-                      "anyOf": []
+                      "$ref": "#/components/schemas/PassportElementError"
                     }
                   }
                 },
@@ -10698,7 +10524,7 @@
             "description": "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types",
             "type": "array",
             "items": {
-              "anyOf": []
+              "type": "string"
             }
           }
         },
@@ -10907,7 +10733,7 @@
             "description": "*Optional*. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "animation": {
@@ -10923,7 +10749,7 @@
             "description": "*Optional*. Message is a photo, available sizes of the photo",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PhotoSize"
             }
           },
           "sticker": {
@@ -10946,7 +10772,7 @@
             "description": "*Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "contact": {
@@ -10971,7 +10797,7 @@
             "description": "*Optional*. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/User"
             }
           },
           "left_chat_member": {
@@ -10985,7 +10811,7 @@
             "description": "*Optional*. A chat photo was change to this value",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PhotoSize"
             }
           },
           "delete_chat_photo": {
@@ -11481,7 +11307,7 @@
             "description": "0-based identifiers of answer options, chosen by the user. May be empty if the user retracted their vote.",
             "type": "array",
             "items": {
-              "anyOf": []
+              "type": "integer"
             }
           }
         },
@@ -11510,7 +11336,7 @@
             "description": "List of poll options",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PollOption"
             }
           },
           "total_voter_count": {
@@ -11545,7 +11371,7 @@
             "description": "*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "open_period": {
@@ -11690,7 +11516,7 @@
                   "$ref": "#/components/schemas/Array"
                 },
                 {
-                  "$ref": "#/components/schemas/of"
+                  "$ref": "#/components/schemas/PhotoSize"
                 }
               ]
             }
@@ -11746,7 +11572,7 @@
                   "$ref": "#/components/schemas/Array"
                 },
                 {
-                  "$ref": "#/components/schemas/of"
+                  "$ref": "#/components/schemas/KeyboardButton"
                 }
               ]
             }
@@ -11846,7 +11672,7 @@
                   "$ref": "#/components/schemas/Array"
                 },
                 {
-                  "$ref": "#/components/schemas/of"
+                  "$ref": "#/components/schemas/InlineKeyboardButton"
                 }
               ]
             }
@@ -12258,7 +12084,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           }
         },
@@ -12289,7 +12115,7 @@
                 "$ref": "#/components/schemas/InputFile"
               },
               {
-                "$ref": "#/components/schemas/or"
+                "type": "string"
               }
             ]
           },
@@ -12305,7 +12131,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "width": {
@@ -12352,7 +12178,7 @@
                 "$ref": "#/components/schemas/InputFile"
               },
               {
-                "$ref": "#/components/schemas/or"
+                "type": "string"
               }
             ]
           },
@@ -12368,7 +12194,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "width": {
@@ -12411,7 +12237,7 @@
                 "$ref": "#/components/schemas/InputFile"
               },
               {
-                "$ref": "#/components/schemas/or"
+                "type": "string"
               }
             ]
           },
@@ -12427,7 +12253,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "duration": {
@@ -12470,7 +12296,7 @@
                 "$ref": "#/components/schemas/InputFile"
               },
               {
-                "$ref": "#/components/schemas/or"
+                "type": "string"
               }
             ]
           },
@@ -12486,7 +12312,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "disable_content_type_detection": {
@@ -12587,7 +12413,7 @@
             "description": "List of all set stickers",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/Sticker"
             }
           },
           "thumb": {
@@ -12848,7 +12674,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -12926,7 +12752,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13004,7 +12830,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13064,7 +12890,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "video_width": {
@@ -13134,7 +12960,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "performer": {
@@ -13194,7 +13020,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "voice_duration": {
@@ -13246,7 +13072,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "document_url": {
@@ -13558,7 +13384,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13609,7 +13435,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13660,7 +13486,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13747,7 +13573,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13803,7 +13629,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13855,7 +13681,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13903,7 +13729,7 @@
             "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "reply_markup": {
@@ -13958,7 +13784,7 @@
             "description": "*Optional*. List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "disable_web_page_preview": {
@@ -14256,7 +14082,7 @@
             "description": "List of price portions",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/LabeledPrice"
             }
           }
         },
@@ -14391,7 +14217,7 @@
             "description": "Array with information about documents and other Telegram Passport elements that was shared with the bot",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/EncryptedPassportElement"
             }
           },
           "credentials": {
@@ -14476,7 +14302,7 @@
             "description": "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PassportFile"
             }
           },
           "front_side": {
@@ -14492,7 +14318,7 @@
             "description": "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PassportFile"
             }
           },
           "hash": {
@@ -14783,7 +14609,7 @@
             "description": "List of base64-encoded file hashes",
             "type": "array",
             "items": {
-              "anyOf": []
+              "type": "string"
             }
           },
           "message": {
@@ -14870,7 +14696,7 @@
             "description": "List of base64-encoded file hashes",
             "type": "array",
             "items": {
-              "anyOf": []
+              "type": "string"
             }
           },
           "message": {
@@ -14935,7 +14761,7 @@
             "description": "Photo that will be displayed in the game message in chats.",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/PhotoSize"
             }
           },
           "text": {
@@ -14946,7 +14772,7 @@
             "description": "*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.",
             "type": "array",
             "items": {
-              "anyOf": []
+              "$ref": "#/components/schemas/MessageEntity"
             }
           },
           "animation": {
