@@ -7852,7 +7852,6 @@ components:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#inputfile"
       description: This object represents the contents of a file to be uploaded. Must be posted using multipart/form-data in the usual way that files are uploaded via the browser.
-      type: object
     Sticker:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#sticker"
@@ -9628,7 +9627,6 @@ components:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#callbackgame"
       description: "A placeholder, currently holds no information. Use [BotFather](https://t.me/botfather) to set up your game."
-      type: object
     GameHighScore:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#gamehighscore"
