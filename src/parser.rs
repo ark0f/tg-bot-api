@@ -95,9 +95,10 @@ fn parse_object(raw_object: RawObject) -> Result<Object> {
     let name = raw_object.name.plain_text();
     let description = raw_object.description.markdown();
     let data = match raw_object.data {
-        RawObjectData::Fields(fields) => {
+        RawObjectData::Fields(fields) if !fields.is_empty() => {
             ObjectData::Fields(fields.into_iter().map(parse_field).collect::<Result<_>>()?)
         }
+        RawObjectData::Fields(_) => ObjectData::Unknown,
         RawObjectData::Elements(elements) => ObjectData::Elements(
             elements
                 .into_iter()
@@ -387,6 +388,9 @@ pub struct Object {
 pub enum ObjectData {
     Fields(Vec<Field>),
     Elements(Vec<Type>),
+    /// Object without fields or elements
+    /// So we don't know what it will be in the future
+    Unknown,
 }
 
 #[derive(Debug, Clone)]

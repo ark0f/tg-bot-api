@@ -1,8 +1,8 @@
 use indexmap::{indexmap, IndexMap};
 use openapiv3::{
-    ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType, OpenAPI,
-    Operation, PathItem, ReferenceOr, RequestBody, Response, Responses, Schema, SchemaData,
-    SchemaKind, StatusCode, StringType, Type,
+    AnySchema, ArrayType, ExternalDocumentation, IntegerType, MediaType, NumberType, ObjectType,
+    OpenAPI, Operation, PathItem, ReferenceOr, RequestBody, Response, Responses, Schema,
+    SchemaData, SchemaKind, StatusCode, StringType, Type,
 };
 use tg_bot_api::{Argument, Field, MethodArgs, ObjectData, Parsed, Type as ParserType};
 
@@ -41,6 +41,7 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
                     .collect();
                 SchemaKind::AnyOf { any_of }
             }
+            ObjectData::Unknown => SchemaKind::Any(AnySchema::default()),
         };
 
         schemas.insert(
