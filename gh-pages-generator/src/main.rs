@@ -49,7 +49,7 @@ impl Indexer {
 
     fn gen(self) -> anyhow::Result<()> {
         if !self.publish_dir.exists() {
-            fs::create_dir(&self.publish_dir)?;
+            fs::create_dir_all(&self.publish_dir)?;
         }
 
         let mut index = String::new();
