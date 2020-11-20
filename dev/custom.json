@@ -40,13 +40,19 @@
           "name": "allowed_updates",
           "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
           "required": false,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         }
       ],
       "multipart_only": false,
       "return_type": {
-        "type": "reference",
-        "reference": "Update"
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "Update"
+        }
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getupdates"
     },
@@ -84,7 +90,10 @@
           "name": "allowed_updates",
           "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
           "required": false,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         },
         {
           "name": "drop_pending_updates",
@@ -192,8 +201,11 @@
           "name": "entities",
           "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_web_page_preview",
@@ -357,8 +369,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_notification",
@@ -459,8 +474,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_notification",
@@ -561,8 +579,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "duration",
@@ -711,8 +732,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_content_type_detection",
@@ -852,8 +876,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "supports_streaming",
@@ -993,8 +1020,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_notification",
@@ -1095,8 +1125,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "duration",
@@ -1286,25 +1319,28 @@
           "name": "media",
           "description": "A JSON-serialized array describing messages to be sent, must include 2-10 items",
           "required": true,
-          "type": "any_of",
-          "any_of": [
-            {
-              "type": "reference",
-              "reference": "InputMediaAudio"
-            },
-            {
-              "type": "reference",
-              "reference": "InputMediaDocument"
-            },
-            {
-              "type": "reference",
-              "reference": "InputMediaPhoto"
-            },
-            {
-              "type": "reference",
-              "reference": "InputMediaVideo"
-            }
-          ]
+          "type": "array",
+          "array": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "InputMediaAudio"
+              },
+              {
+                "type": "reference",
+                "reference": "InputMediaDocument"
+              },
+              {
+                "type": "reference",
+                "reference": "InputMediaPhoto"
+              },
+              {
+                "type": "reference",
+                "reference": "InputMediaVideo"
+              }
+            ]
+          }
         },
         {
           "name": "disable_notification",
@@ -1327,8 +1363,11 @@
       ],
       "multipart_only": true,
       "return_type": {
-        "type": "reference",
-        "reference": "Message"
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "Message"
+        }
       },
       "documentation_link": "https://core.telegram.org/bots/api/#sendmediagroup"
     },
@@ -1810,7 +1849,10 @@
           "name": "options",
           "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
           "required": true,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         },
         {
           "name": "is_anonymous",
@@ -1852,8 +1894,11 @@
           "name": "explanation_entities",
           "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "open_period",
@@ -2683,8 +2728,11 @@
       ],
       "multipart_only": false,
       "return_type": {
-        "type": "reference",
-        "reference": "ChatMember"
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "ChatMember"
+        }
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getchatadministrators"
     },
@@ -2855,8 +2903,11 @@
           "name": "commands",
           "description": "A JSON-serialized list of bot commands to be set as the list of the bot's commands. At most 100 commands can be specified.",
           "required": true,
-          "type": "reference",
-          "reference": "BotCommand"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "BotCommand"
+          }
         }
       ],
       "multipart_only": false,
@@ -2871,8 +2922,11 @@
       "description": "Use this method to get the current list of the bot's commands. Requires no parameters. Returns Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) on success.",
       "multipart_only": false,
       "return_type": {
-        "type": "reference",
-        "reference": "BotCommand"
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "BotCommand"
+        }
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getmycommands"
     },
@@ -2922,8 +2976,11 @@
           "name": "entities",
           "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_web_page_preview",
@@ -3001,8 +3058,11 @@
           "name": "caption_entities",
           "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -3565,8 +3625,11 @@
           "name": "results",
           "description": "A JSON-serialized array of results for the inline query",
           "required": true,
-          "type": "reference",
-          "reference": "InlineQueryResult"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "InlineQueryResult"
+          }
         },
         {
           "name": "cache_time",
@@ -3657,8 +3720,11 @@
           "name": "prices",
           "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
           "required": true,
-          "type": "reference",
-          "reference": "LabeledPrice"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "LabeledPrice"
+          }
         },
         {
           "name": "provider_data",
@@ -3785,8 +3851,11 @@
           "name": "shipping_options",
           "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
           "required": false,
-          "type": "reference",
-          "reference": "ShippingOption"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ShippingOption"
+          }
         },
         {
           "name": "error_message",
@@ -3846,8 +3915,11 @@
           "name": "errors",
           "description": "A JSON-serialized array describing the errors",
           "required": true,
-          "type": "reference",
-          "reference": "PassportElementError"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PassportElementError"
+          }
         }
       ],
       "multipart_only": false,
@@ -4000,8 +4072,11 @@
       ],
       "multipart_only": false,
       "return_type": {
-        "type": "reference",
-        "reference": "GameHighScore"
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "GameHighScore"
+        }
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getgamehighscores"
     }
@@ -4149,7 +4224,10 @@
           "name": "allowed_updates",
           "description": "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types",
           "required": false,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#webhookinfo"
@@ -4448,8 +4526,11 @@
           "name": "entities",
           "description": "*Optional*. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "animation",
@@ -4476,8 +4557,11 @@
           "name": "photo",
           "description": "*Optional*. Message is a photo, available sizes of the photo",
           "required": false,
-          "type": "reference",
-          "reference": "PhotoSize"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PhotoSize"
+          }
         },
         {
           "name": "sticker",
@@ -4517,8 +4601,11 @@
           "name": "caption_entities",
           "description": "*Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "contact",
@@ -4566,8 +4653,11 @@
           "name": "new_chat_members",
           "description": "*Optional*. New members that were added to the group or supergroup and information about them (the bot itself may be one of these members)",
           "required": false,
-          "type": "reference",
-          "reference": "User"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "User"
+          }
         },
         {
           "name": "left_chat_member",
@@ -4586,8 +4676,11 @@
           "name": "new_chat_photo",
           "description": "*Optional*. A chat photo was change to this value",
           "required": false,
-          "type": "reference",
-          "reference": "PhotoSize"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PhotoSize"
+          }
         },
         {
           "name": "delete_chat_photo",
@@ -5190,7 +5283,10 @@
           "name": "option_ids",
           "description": "0-based identifiers of answer options, chosen by the user. May be empty if the user retracted their vote.",
           "required": true,
-          "type": "integer"
+          "type": "array",
+          "array": {
+            "type": "integer"
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#pollanswer"
@@ -5216,8 +5312,11 @@
           "name": "options",
           "description": "List of poll options",
           "required": true,
-          "type": "reference",
-          "reference": "PollOption"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PollOption"
+          }
         },
         {
           "name": "total_voter_count",
@@ -5265,8 +5364,11 @@
           "name": "explanation_entities",
           "description": "*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "open_period",
@@ -5421,17 +5523,20 @@
           "name": "photos",
           "description": "Requested profile pictures (in up to 4 sizes each)",
           "required": true,
-          "type": "any_of",
-          "any_of": [
-            {
-              "type": "reference",
-              "reference": "Array"
-            },
-            {
-              "type": "reference",
-              "reference": "PhotoSize"
-            }
-          ]
+          "type": "array",
+          "array": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "Array"
+              },
+              {
+                "type": "reference",
+                "reference": "PhotoSize"
+              }
+            ]
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#userprofilephotos"
@@ -5477,17 +5582,20 @@
           "name": "keyboard",
           "description": "Array of button rows, each represented by an Array of [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) objects",
           "required": true,
-          "type": "any_of",
-          "any_of": [
-            {
-              "type": "reference",
-              "reference": "Array"
-            },
-            {
-              "type": "reference",
-              "reference": "KeyboardButton"
-            }
-          ]
+          "type": "array",
+          "array": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "Array"
+              },
+              {
+                "type": "reference",
+                "reference": "KeyboardButton"
+              }
+            ]
+          }
         },
         {
           "name": "resize_keyboard",
@@ -5588,17 +5696,20 @@
           "name": "inline_keyboard",
           "description": "Array of button rows, each represented by an Array of [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) objects",
           "required": true,
-          "type": "any_of",
-          "any_of": [
-            {
-              "type": "reference",
-              "reference": "Array"
-            },
-            {
-              "type": "reference",
-              "reference": "InlineKeyboardButton"
-            }
-          ]
+          "type": "array",
+          "array": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "Array"
+              },
+              {
+                "type": "reference",
+                "reference": "InlineKeyboardButton"
+              }
+            ]
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#inlinekeyboardmarkup"
@@ -6104,8 +6215,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#inputmediaphoto"
@@ -6158,8 +6272,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "width",
@@ -6236,8 +6353,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "width",
@@ -6308,8 +6428,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "duration",
@@ -6380,8 +6503,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_content_type_detection",
@@ -6500,8 +6626,11 @@
           "name": "stickers",
           "description": "List of all set stickers",
           "required": true,
-          "type": "reference",
-          "reference": "Sticker"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "Sticker"
+          }
         },
         {
           "name": "thumb",
@@ -6824,8 +6953,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -6925,8 +7057,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -7026,8 +7161,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -7103,8 +7241,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "video_width",
@@ -7192,8 +7333,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "performer",
@@ -7269,8 +7413,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "voice_duration",
@@ -7334,8 +7481,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "document_url",
@@ -7744,8 +7894,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -7809,8 +7962,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -7874,8 +8030,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -7985,8 +8144,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -8056,8 +8218,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -8121,8 +8286,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -8180,8 +8348,11 @@
           "name": "caption_entities",
           "description": "*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "reply_markup",
@@ -8245,8 +8416,11 @@
           "name": "entities",
           "description": "*Optional*. List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "disable_web_page_preview",
@@ -8585,8 +8759,11 @@
           "name": "prices",
           "description": "List of price portions",
           "required": true,
-          "type": "reference",
-          "reference": "LabeledPrice"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "LabeledPrice"
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#shippingoption"
@@ -8737,8 +8914,11 @@
           "name": "data",
           "description": "Array with information about documents and other Telegram Passport elements that was shared with the bot",
           "required": true,
-          "type": "reference",
-          "reference": "EncryptedPassportElement"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "EncryptedPassportElement"
+          }
         },
         {
           "name": "credentials",
@@ -8830,8 +9010,11 @@
           "name": "files",
           "description": "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
-          "type": "reference",
-          "reference": "PassportFile"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PassportFile"
+          }
         },
         {
           "name": "front_side",
@@ -8858,8 +9041,11 @@
           "name": "translation",
           "description": "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
-          "type": "reference",
-          "reference": "PassportFile"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PassportFile"
+          }
         },
         {
           "name": "hash",
@@ -9165,7 +9351,10 @@
           "name": "file_hashes",
           "description": "List of base64-encoded file hashes",
           "required": true,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         },
         {
           "name": "message",
@@ -9251,7 +9440,10 @@
           "name": "file_hashes",
           "description": "List of base64-encoded file hashes",
           "required": true,
-          "type": "string"
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
         },
         {
           "name": "message",
@@ -9315,8 +9507,11 @@
           "name": "photo",
           "description": "Photo that will be displayed in the game message in chats.",
           "required": true,
-          "type": "reference",
-          "reference": "PhotoSize"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PhotoSize"
+          }
         },
         {
           "name": "text",
@@ -9328,8 +9523,11 @@
           "name": "text_entities",
           "description": "*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.",
           "required": false,
-          "type": "reference",
-          "reference": "MessageEntity"
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
         },
         {
           "name": "animation",

@@ -33,10 +33,161 @@
       "type": "object",
       "anyOf": [
         {
-          "$ref": "#/definitions/BaseKind"
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "max": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "min": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "integer"
+              ]
+            }
+          }
         },
         {
-          "$ref": "#/definitions/BaseKind"
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "enumeration": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/definitions/Argument"
+              }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "string"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "bool"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "float"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "any_of": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/definitions/Argument"
+              }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "any_of"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "reference",
+            "type"
+          ],
+          "properties": {
+            "reference": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "reference"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "array",
+            "type"
+          ],
+          "properties": {
+            "array": {
+              "$ref": "#/definitions/Kind"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            }
+          }
         }
       ],
       "required": [
@@ -56,7 +207,31 @@
         }
       }
     },
-    "BaseKind": {
+    "Date": {
+      "type": "object",
+      "required": [
+        "day",
+        "month",
+        "year"
+      ],
+      "properties": {
+        "day": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "month": {
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Kind": {
       "anyOf": [
         {
           "type": "object",
@@ -196,40 +371,24 @@
               ]
             }
           }
-        }
-      ]
-    },
-    "Date": {
-      "type": "object",
-      "required": [
-        "day",
-        "month",
-        "year"
-      ],
-      "properties": {
-        "day": {
-          "type": "integer",
-          "format": "uint32",
-          "minimum": 0.0
-        },
-        "month": {
-          "type": "integer",
-          "format": "uint32",
-          "minimum": 0.0
-        },
-        "year": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "Kind": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/BaseKind"
         },
         {
-          "$ref": "#/definitions/BaseKind"
+          "type": "object",
+          "required": [
+            "array",
+            "type"
+          ],
+          "properties": {
+            "array": {
+              "$ref": "#/definitions/Kind"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            }
+          }
         }
       ]
     },
@@ -346,10 +505,161 @@
       "type": "object",
       "anyOf": [
         {
-          "$ref": "#/definitions/BaseKind"
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "max": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "min": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "integer"
+              ]
+            }
+          }
         },
         {
-          "$ref": "#/definitions/BaseKind"
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "enumeration": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/definitions/Argument"
+              }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "string"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "default": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "bool"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "float"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "any_of": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "$ref": "#/definitions/Argument"
+              }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "any_of"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "reference",
+            "type"
+          ],
+          "properties": {
+            "reference": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "reference"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "array",
+            "type"
+          ],
+          "properties": {
+            "array": {
+              "$ref": "#/definitions/Kind"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            }
+          }
         }
       ],
       "required": [
