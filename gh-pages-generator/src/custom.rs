@@ -1,6 +1,7 @@
 use chrono::Datelike;
+use schemars::gen::SchemaGenerator;
 use schemars::{schema::RootSchema, schema_for, JsonSchema};
-use serde::Serialize;
+use serde::{Serialize, Serializer};
 use tg_bot_api::{MethodArgs, Parsed, Type};
 
 pub fn generate(parsed: Parsed) -> (Schema, RootSchema) {
@@ -51,7 +52,7 @@ struct Date {
 #[derive(Debug, Serialize, JsonSchema)]
 #[serde(tag = "type")]
 #[serde(rename_all = "snake_case")]
-enum BaseKind {
+enum Kind {
     Integer {
         #[serde(skip_serializing_if = "Option::is_none")]
         default: Option<i64>,
@@ -75,44 +76,59 @@ enum BaseKind {
     AnyOf {
         #[schemars(with = "Option<Vec<Argument>>")]
         #[serde(skip_serializing_if = "Vec::is_empty")]
-        any_of: Vec<Kind>,
+        any_of: Vec<KindWrapper>,
     },
     Reference {
         reference: String,
     },
+    Array {
+        array: Box<KindWrapper>,
+    },
 }
 
-#[derive(Debug, Serialize, JsonSchema)]
-#[serde(untagged)]
-enum Kind {
-    Base(BaseKind),
-    Array(Box<BaseKind>),
+// this type used to avoid recursion type
+// because serde and schemars don't support such types
+#[derive(Debug)]
+struct KindWrapper(Kind);
+
+impl Serialize for KindWrapper {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        self.0.serialize(serializer)
+    }
 }
 
-impl From<tg_bot_api::Type> for Kind {
+impl JsonSchema for KindWrapper {
+    fn schema_name() -> String {
+        Kind::schema_name()
+    }
+
+    fn json_schema(gen: &mut SchemaGenerator) -> schemars::schema::Schema {
+        Kind::json_schema(gen)
+    }
+}
+
+impl From<tg_bot_api::Type> for KindWrapper {
     fn from(ty: tg_bot_api::Type) -> Self {
         let base = match ty {
-            Type::Integer { default, min, max } => BaseKind::Integer { default, min, max },
-            Type::String { default, one_of } => BaseKind::String {
+            Type::Integer { default, min, max } => Kind::Integer { default, min, max },
+            Type::String { default, one_of } => Kind::String {
                 default,
                 enumeration: one_of,
             },
-            Type::Bool { default } => BaseKind::Bool { default },
-            Type::Float => BaseKind::Float,
-            Type::Or(types) => BaseKind::AnyOf {
-                any_of: types.into_iter().map(Kind::from).collect(),
+            Type::Bool { default } => Kind::Bool { default },
+            Type::Float => Kind::Float,
+            Type::Or(types) => Kind::AnyOf {
+                any_of: types.into_iter().map(KindWrapper::from).collect(),
             },
-            Type::Object(object) => BaseKind::Reference { reference: object },
-            Type::Array(ty) => {
-                let kind = Kind::from(*ty);
-                let base = match kind {
-                    Kind::Base(base) => base,
-                    Kind::Array(base) => panic!("Recursion type detected: {:?}", base),
-                };
-                return Kind::Array(Box::new(base));
-            }
+            Type::Object(object) => Kind::Reference { reference: object },
+            Type::Array(ty) => Kind::Array {
+                array: Box::new(KindWrapper::from(*ty)),
+            },
         };
-        Kind::Base(base)
+        KindWrapper(base)
     }
 }
 
@@ -124,7 +140,7 @@ struct Method {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     arguments: Vec<Argument>,
     multipart_only: bool,
-    return_type: Kind,
+    return_type: KindWrapper,
     documentation_link: String,
 }
 
@@ -140,7 +156,7 @@ impl From<tg_bot_api::Method> for Method {
             description: method.description,
             arguments: args.into_iter().map(Argument::from).collect(),
             multipart_only,
-            return_type: Kind::from(method.return_type),
+            return_type: KindWrapper::from(method.return_type),
             documentation_link: method.docs_link,
         }
     }
@@ -152,7 +168,7 @@ struct Argument {
     description: String,
     required: bool,
     #[serde(flatten)]
-    kind: Kind,
+    kind: KindWrapper,
 }
 
 impl From<tg_bot_api::Argument> for Argument {
@@ -161,7 +177,7 @@ impl From<tg_bot_api::Argument> for Argument {
             name: arg.name,
             description: arg.description,
             required: arg.required,
-            kind: Kind::from(arg.kind),
+            kind: KindWrapper::from(arg.kind),
         }
     }
 }
@@ -203,7 +219,7 @@ impl From<tg_bot_api::ObjectData> for ObjectData {
             }
             tg_bot_api::ObjectData::Fields(_) => ObjectData::Unknown {},
             tg_bot_api::ObjectData::Elements(types) => ObjectData::Known(KnownObjectData::AnyOf {
-                any_of: types.into_iter().map(Kind::from).collect(),
+                any_of: types.into_iter().map(KindWrapper::from).collect(),
             }),
         }
     }
@@ -214,7 +230,7 @@ impl From<tg_bot_api::ObjectData> for ObjectData {
 #[serde(tag = "type")]
 enum KnownObjectData {
     Properties { properties: Vec<Property> },
-    AnyOf { any_of: Vec<Kind> },
+    AnyOf { any_of: Vec<KindWrapper> },
 }
 
 #[derive(Serialize, JsonSchema)]
@@ -223,7 +239,7 @@ struct Property {
     description: String,
     required: bool,
     #[serde(flatten)]
-    kind: Kind,
+    kind: KindWrapper,
 }
 
 impl From<tg_bot_api::Field> for Property {
@@ -232,7 +248,7 @@ impl From<tg_bot_api::Field> for Property {
             name: field.name,
             description: field.description,
             required: field.required,
-            kind: Kind::from(field.kind),
+            kind: KindWrapper::from(field.kind),
         }
     }
 }
