@@ -3,6 +3,7 @@ mod openapi;
 
 use serde::Serialize;
 use std::{fs, path::PathBuf};
+use structopt::StructOpt;
 use tg_bot_api::BOT_API_DOCS_URL;
 
 fn md_to_html(md: &str) -> String {
@@ -70,12 +71,30 @@ enum Format {
     Yaml(&'static str),
 }
 
+#[derive(StructOpt)]
+enum Path {
+    /// Write files to `public` directory
+    Production,
+    /// Write files to `public/dev` directory
+    Dev,
+}
+
+impl Path {
+    fn into_str(self) -> &'static str {
+        match self {
+            Path::Dev => "public/dev",
+            Path::Production => "public",
+        }
+    }
+}
+
 fn main() -> anyhow::Result<()> {
+    let path = Path::from_args();
+
     let api = reqwest::blocking::get(BOT_API_DOCS_URL)?.text()?;
     let parsed = tg_bot_api::get(&api)?;
 
-    let mut indexer = Indexer::new("public");
-
+    let mut indexer = Indexer::new(path.into_str());
     let api = openapi::generate(parsed.clone());
     indexer.add(
         &api,

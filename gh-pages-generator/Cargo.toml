@@ -16,3 +16,4 @@ tg-bot-api = { path = ".." }
 chrono = "0.4.19"
 indexmap = "1.6.0"
 pulldown-cmark = "0.8.0"
+structopt = "0.3.20"

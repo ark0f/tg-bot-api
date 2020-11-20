@@ -2,6 +2,8 @@ name: GitHub Pages
 
 on:
   push:
+    branches:
+      - master
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
 
@@ -19,7 +21,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --package gh-pages-generator --bin gh-pages-generator
+          args: --package gh-pages-generator --bin gh-pages-generator -- production
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
