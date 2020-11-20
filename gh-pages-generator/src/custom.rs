@@ -201,35 +201,73 @@ impl From<tg_bot_api::Object> for Object {
     }
 }
 
-#[derive(Serialize, JsonSchema)]
-#[serde(untagged)]
 enum ObjectData {
-    Known(KnownObjectData),
-    Unknown {},
+    Properties { properties: Vec<Property> },
+    AnyOf { any_of: Vec<KindWrapper> },
+    Unknown,
 }
 
 impl From<tg_bot_api::ObjectData> for ObjectData {
     fn from(object_data: tg_bot_api::ObjectData) -> Self {
         match object_data {
-            tg_bot_api::ObjectData::Fields(fields) if !fields.is_empty() => {
-                ObjectData::Known(KnownObjectData::Properties {
-                    properties: fields.into_iter().map(Property::from).collect(),
-                })
-            }
-            tg_bot_api::ObjectData::Fields(_) => ObjectData::Unknown {},
-            tg_bot_api::ObjectData::Elements(types) => ObjectData::Known(KnownObjectData::AnyOf {
+            tg_bot_api::ObjectData::Fields(fields) => ObjectData::Properties {
+                properties: fields.into_iter().map(Property::from).collect(),
+            },
+            tg_bot_api::ObjectData::Elements(types) => ObjectData::AnyOf {
                 any_of: types.into_iter().map(KindWrapper::from).collect(),
-            }),
+            },
+            tg_bot_api::ObjectData::Unknown => ObjectData::Unknown,
         }
     }
 }
 
-#[derive(Serialize, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-#[serde(tag = "type")]
-enum KnownObjectData {
-    Properties { properties: Vec<Property> },
-    AnyOf { any_of: Vec<KindWrapper> },
+impl Serialize for ObjectData {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        #[derive(Serialize)]
+        #[serde(rename_all = "snake_case")]
+        #[serde(tag = "type")]
+        enum Inner<'a> {
+            Properties { properties: &'a Vec<Property> },
+            AnyOf { any_of: &'a Vec<KindWrapper> },
+        }
+
+        match self {
+            ObjectData::Properties { properties } => Inner::Properties { properties },
+            ObjectData::AnyOf { any_of } => Inner::AnyOf { any_of },
+            ObjectData::Unknown => return ().serialize(serializer),
+        }
+        .serialize(serializer)
+    }
+}
+
+impl JsonSchema for ObjectData {
+    fn schema_name() -> String {
+        "ObjectData".to_string()
+    }
+
+    fn json_schema(gen: &mut SchemaGenerator) -> schemars::schema::Schema {
+        #[allow(dead_code)]
+        #[derive(Serialize, JsonSchema)]
+        #[serde(untagged)]
+        enum Inner<'a> {
+            Properties {
+                #[serde(rename = "type")]
+                kind: String,
+                properties: &'a Vec<Property>,
+            },
+            AnyOf {
+                #[serde(rename = "type")]
+                kind: String,
+                any_of: &'a Vec<KindWrapper>,
+            },
+            Unknown {},
+        }
+
+        Inner::json_schema(gen)
+    }
 }
 
 #[derive(Serialize, JsonSchema)]
