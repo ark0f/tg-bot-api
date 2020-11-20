@@ -392,52 +392,6 @@
         }
       ]
     },
-    "KnownObjectData": {
-      "anyOf": [
-        {
-          "type": "object",
-          "required": [
-            "properties",
-            "type"
-          ],
-          "properties": {
-            "properties": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Property"
-              }
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "properties"
-              ]
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "any_of",
-            "type"
-          ],
-          "properties": {
-            "any_of": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Kind"
-              }
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "any_of"
-              ]
-            }
-          }
-        }
-      ]
-    },
     "Method": {
       "type": "object",
       "required": [
@@ -478,7 +432,40 @@
       "type": "object",
       "anyOf": [
         {
-          "$ref": "#/definitions/KnownObjectData"
+          "type": "object",
+          "required": [
+            "properties",
+            "type"
+          ],
+          "properties": {
+            "properties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Property"
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "any_of",
+            "type"
+          ],
+          "properties": {
+            "any_of": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Kind"
+              }
+            },
+            "type": {
+              "type": "string"
+            }
+          }
         },
         {
           "type": "object"
