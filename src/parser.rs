@@ -19,7 +19,7 @@ use std::{
 const RETURN_TYPE_PATTERNS: &[&[&str]] = &[&["On", "success"], &["Returns"], &["returns"], &["An"]];
 const DEFAULTS_PATTERNS: &[&[&str]] = &[&["Defaults", "to"]];
 const MIN_MAX_PATTERNS: &[&[&str]] = &[&["Values", "between"]];
-const ONE_OF_PATTERNS: &[&[&str]] = &[&["One", "of"], &["one", "of"]];
+const ONE_OF_PATTERNS: &[&[&str]] = &[&["One", "of"], &["one", "of"], &["either"]];
 
 type Result<T> = std::result::Result<T, ParseError>;
 
