@@ -4309,7 +4309,13 @@
           "name": "type",
           "description": "Type of chat, can be either “private”, “group”, “supergroup” or “channel”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "private",
+            "group",
+            "supergroup",
+            "channel"
+          ]
         },
         {
           "name": "title",
@@ -7497,7 +7503,11 @@
           "name": "mime_type",
           "description": "Mime type of the content of the file, either “application/pdf” or “application/zip”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "application/pdf",
+            "application/zip"
+          ]
         },
         {
           "name": "description",

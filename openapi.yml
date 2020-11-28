@@ -6626,6 +6626,11 @@ components:
         type:
           description: "Type of chat, can be either “private”, “group”, “supergroup” or “channel”"
           type: string
+          enum:
+            - private
+            - group
+            - supergroup
+            - channel
         title:
           description: "*Optional*. Title, for supergroups, channels and group chats"
           type: string
@@ -8383,6 +8388,9 @@ components:
         mime_type:
           description: "Mime type of the content of the file, either “application/pdf” or “application/zip”"
           type: string
+          enum:
+            - application/pdf
+            - application/zip
         description:
           description: "*Optional*. Short description of the result"
           type: string
