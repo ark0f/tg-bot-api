@@ -199,6 +199,8 @@ pub enum Type {
 impl Type {
     // this function parses types from `Type` column in docs
     fn new(s: &str) -> Self {
+        const ARRAY_OF: &[&str] = &["Array", "of"];
+
         fn types_from_sentence_ref(sentence: &SentenceRef) -> Vec<Type> {
             sentence
                 .parts
@@ -229,14 +231,22 @@ impl Type {
                 if let Some(sentence) = parser.find(&["or"]) {
                     let types = types_from_sentence_ref(sentence);
                     Self::Or(types)
-                } else if let Some(sentence) = parser.find(&["Array", "of"]) {
+                } else if let Some(sentence) = parser.find(ARRAY_OF) {
                     let sentence = &sentence[2..];
-                    let boxed = if sentence.len() == 1 {
-                        Box::new(Self::new(&sentence.parts[0].inner))
+                    let ty = if sentence.len() == 1 {
+                        Self::new(&sentence.parts[0].inner)
+                    } else if sentence.starts_with(ARRAY_OF) {
+                        Self::new(
+                            &sentence
+                                .parts
+                                .iter()
+                                .map(|part| part.inner.as_str())
+                                .join(" "),
+                        )
                     } else {
-                        Box::new(Self::Or(types_from_sentence_ref(sentence)))
+                        Self::Or(types_from_sentence_ref(sentence))
                     };
-                    Self::Array(boxed)
+                    Self::Array(Box::new(ty))
                 } else {
                     Self::Object(s.to_string())
                 }
@@ -749,6 +759,26 @@ impl TagHandler for AnchorHandler {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn array_of_type() {
+        let ty = Type::new("Array of PhotoSize");
+        assert_eq!(
+            ty,
+            Type::Array(Box::new(Type::Object("PhotoSize".to_string())))
+        );
+    }
+
+    #[test]
+    fn array_of_array_type() {
+        let ty = Type::new("Array of Array of PhotoSize");
+        assert_eq!(
+            ty,
+            Type::Array(Box::new(Type::Array(Box::new(Type::Object(
+                "PhotoSize".to_string()
+            )))))
+        );
+    }
 
     #[test]
     fn make_absolute_a_href() {
