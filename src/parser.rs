@@ -786,7 +786,7 @@ mod tests {
         let md = html2md::parse_html_custom(r##"<a href="#fragment">This is a link</a>"##, &map);
         assert_eq!(
             md,
-            format!("[This is a link]({}/#fragment)", BOT_API_DOCS_URL)
+            format!("[This is a link]({}#fragment)", BOT_API_DOCS_URL)
         )
     }
 
