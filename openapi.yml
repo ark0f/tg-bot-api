@@ -7295,9 +7295,9 @@ components:
           description: Requested profile pictures (in up to 4 sizes each)
           type: array
           items:
-            anyOf:
-              - $ref: "#/components/schemas/Array"
-              - $ref: "#/components/schemas/PhotoSize"
+            type: array
+            items:
+              $ref: "#/components/schemas/PhotoSize"
       required:
         - total_count
         - photos
@@ -7332,9 +7332,9 @@ components:
           description: "Array of button rows, each represented by an Array of [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) objects"
           type: array
           items:
-            anyOf:
-              - $ref: "#/components/schemas/Array"
-              - $ref: "#/components/schemas/KeyboardButton"
+            type: array
+            items:
+              $ref: "#/components/schemas/KeyboardButton"
         resize_keyboard:
           description: "*Optional*. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to *false*, in which case the custom keyboard is always of the same height as the app's standard keyboard."
           default: false
@@ -7400,9 +7400,9 @@ components:
           description: "Array of button rows, each represented by an Array of [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) objects"
           type: array
           items:
-            anyOf:
-              - $ref: "#/components/schemas/Array"
-              - $ref: "#/components/schemas/InlineKeyboardButton"
+            type: array
+            items:
+              $ref: "#/components/schemas/InlineKeyboardButton"
       required:
         - inline_keyboard
     InlineKeyboardButton:

@@ -5531,17 +5531,11 @@
           "required": true,
           "type": "array",
           "array": {
-            "type": "any_of",
-            "any_of": [
-              {
-                "type": "reference",
-                "reference": "Array"
-              },
-              {
-                "type": "reference",
-                "reference": "PhotoSize"
-              }
-            ]
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "PhotoSize"
+            }
           }
         }
       ],
@@ -5590,17 +5584,11 @@
           "required": true,
           "type": "array",
           "array": {
-            "type": "any_of",
-            "any_of": [
-              {
-                "type": "reference",
-                "reference": "Array"
-              },
-              {
-                "type": "reference",
-                "reference": "KeyboardButton"
-              }
-            ]
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "KeyboardButton"
+            }
           }
         },
         {
@@ -5704,17 +5692,11 @@
           "required": true,
           "type": "array",
           "array": {
-            "type": "any_of",
-            "any_of": [
-              {
-                "type": "reference",
-                "reference": "Array"
-              },
-              {
-                "type": "reference",
-                "reference": "InlineKeyboardButton"
-              }
-            ]
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "InlineKeyboardButton"
+            }
           }
         }
       ],

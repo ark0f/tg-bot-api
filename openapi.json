@@ -11517,14 +11517,10 @@
             "description": "Requested profile pictures (in up to 4 sizes each)",
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/Array"
-                },
-                {
-                  "$ref": "#/components/schemas/PhotoSize"
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/PhotoSize"
+              }
             }
           }
         },
@@ -11573,14 +11569,10 @@
             "description": "Array of button rows, each represented by an Array of [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) objects",
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/Array"
-                },
-                {
-                  "$ref": "#/components/schemas/KeyboardButton"
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/KeyboardButton"
+              }
             }
           },
           "resize_keyboard": {
@@ -11673,14 +11665,10 @@
             "description": "Array of button rows, each represented by an Array of [InlineKeyboardButton](https://core.telegram.org/bots/api/#inlinekeyboardbutton) objects",
             "type": "array",
             "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/Array"
-                },
-                {
-                  "$ref": "#/components/schemas/InlineKeyboardButton"
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InlineKeyboardButton"
+              }
             }
           }
         },
