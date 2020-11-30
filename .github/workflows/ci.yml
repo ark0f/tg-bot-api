@@ -48,8 +48,8 @@ jobs:
           args: --all --all-features --all-targets
       - uses: actions-rs/cargo@v1
         with: 
-          command: 
-          args: test --all --all-features
+          command: test
+          args: --all --all-features
   rustfmt:
     runs-on: ubuntu-latest
     steps:
