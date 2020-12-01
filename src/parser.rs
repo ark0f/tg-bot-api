@@ -19,7 +19,7 @@ use std::{
 const RETURN_TYPE_PATTERNS: &[&[&str]] = &[&["On", "success"], &["Returns"], &["returns"], &["An"]];
 const DEFAULTS_PATTERNS: &[&[&str]] = &[&["Defaults", "to"]];
 const MIN_MAX_PATTERNS: &[&[&str]] = &[&["Values", "between"]];
-const ONE_OF_PATTERNS: &[&[&str]] = &[&["One", "of"], &["one", "of"], &["either"]];
+const ONE_OF_PATTERNS: &[&[&str]] = &[&["One", "of"], &["one", "of"], &["either"], &["Can", "be"]];
 
 type Result<T> = std::result::Result<T, ParseError>;
 
@@ -462,7 +462,7 @@ impl SentenceParser {
 
         let mut last_quote = None;
         let mut c = '\0';
-        let mut chars = text.chars();
+        let mut chars = text.chars().peekable();
 
         enum State {
             GetNextChar,
@@ -514,7 +514,13 @@ impl SentenceParser {
                     }
                 }
                 State::CheckDot => {
-                    if c == '.' {
+                    if c == '.'
+                        && chars
+                            .peek()
+                            .copied()
+                            .map(char::is_whitespace)
+                            .unwrap_or(true)
+                    {
                         State::PushPart { and_sentence: true }
                     } else {
                         State::CheckComma
