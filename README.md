@@ -12,3 +12,5 @@ Generated schemas can be found at `pages.pelme.ga/tg-bot-api`:
 [`/openapi.json`](https://pages.pelme.ga/tg-bot-api/openapi.json) - OpenAPI 3.0.0
 * [`/custom.json`](https://pages.pelme.ga/tg-bot-api/custom.json) - custom schema that more convenient to work with
 * [`/custom.schema.json`](https://pages.pelme.ga/tg-bot-api/custom.schema.json) - JSON Schema Draft #7 for `/custom.json`
+
+`.min.json` suffix can be used to fetch minimized JSON. For example: `openapi.min.json`, etc.

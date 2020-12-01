@@ -24,6 +24,7 @@ impl ElementRefExt for ElementRef<'_> {
                     return match node.value() {
                         Node::Text(text) => Some(text.as_ref()),
                         Node::Element(elem) if elem.name() == "img" => elem.attr("alt"),
+                        Node::Element(elem) if elem.name() == "br" => Some("\n"),
                         _ => None,
                     };
                 }
