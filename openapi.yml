@@ -6841,6 +6841,22 @@ components:
         type:
           description: "Type of the entity. Can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions))"
           type: string
+          enum:
+            - mention
+            - hashtag
+            - cashtag
+            - bot_command
+            - url
+            - email
+            - phone_number
+            - bold
+            - italic
+            - underline
+            - strikethrough
+            - code
+            - pre
+            - text_link
+            - text_mention
         offset:
           description: Offset in UTF-16 code units to the start of the entity
           type: integer
@@ -7532,6 +7548,13 @@ components:
         status:
           description: "The member's status in the chat. Can be “creator”, “administrator”, “member”, “restricted”, “left” or “kicked”"
           type: string
+          enum:
+            - creator
+            - administrator
+            - member
+            - restricted
+            - left
+            - kicked
         custom_title:
           description: "*Optional*. Owner and administrators only. Custom title for this user"
           type: string
