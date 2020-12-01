@@ -36,6 +36,7 @@ impl Indexer {
         for format in formats {
             let (path, content) = match format {
                 Format::Json(path) => (path, serde_json::to_string_pretty(api)?),
+                Format::MinimizedJson(path) => (path, serde_json::to_string(api)?),
                 Format::Yaml(path) => (path, serde_yaml::to_string(api)?),
             };
             self.inner.push(Serialized {
@@ -68,6 +69,7 @@ impl Indexer {
 
 enum Format {
     Json(&'static str),
+    MinimizedJson(&'static str),
     Yaml(&'static str),
 }
 
@@ -98,12 +100,28 @@ fn main() -> anyhow::Result<()> {
     let api = openapi::generate(parsed.clone());
     indexer.add(
         &api,
-        vec![Format::Json("openapi.json"), Format::Yaml("openapi.yml")],
+        vec![
+            Format::Json("openapi.json"),
+            Format::MinimizedJson("openapi.min.json"),
+            Format::Yaml("openapi.yml"),
+        ],
     )?;
 
     let (custom_schema, json_schema) = custom::generate(parsed);
-    indexer.add(&custom_schema, vec![Format::Json("custom.json")])?;
-    indexer.add(&&json_schema, vec![Format::Json("custom.schema.json")])?;
+    indexer.add(
+        &custom_schema,
+        vec![
+            Format::Json("custom.json"),
+            Format::MinimizedJson("custom.min.json"),
+        ],
+    )?;
+    indexer.add(
+        &&json_schema,
+        vec![
+            Format::Json("custom.schema.json"),
+            Format::MinimizedJson("custom.schema.min.json"),
+        ],
+    )?;
 
     indexer.gen()?;
 
