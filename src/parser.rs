@@ -807,7 +807,7 @@ mod tests {
     #[test]
     fn sentence_parser_parts() {
         let parser = SentenceParser::new(
-            r#"Emoji on which the dice throw animation is based.Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”. Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”."#,
+            r#"Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”. Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”."#,
         );
         assert_eq!(parser.sentences.len(), 4);
         assert_eq!(parser.sentences[0].parts.len(), 9);
