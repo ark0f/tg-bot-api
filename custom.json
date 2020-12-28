@@ -4622,7 +4622,7 @@
         },
         {
           "name": "dice",
-          "description": "*Optional*. Message is a dice with random value from 1 to 6",
+          "description": "*Optional*. Message is a dice with random value",
           "required": false,
           "type": "reference",
           "reference": "Dice"
