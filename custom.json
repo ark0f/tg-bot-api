@@ -5327,7 +5327,7 @@
         },
         {
           "name": "question",
-          "description": "Poll question, 1-255 characters",
+          "description": "Poll question, 1-300 characters",
           "required": true,
           "type": "string"
         },

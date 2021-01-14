@@ -7176,7 +7176,7 @@ components:
           description: Unique poll identifier
           type: string
         question:
-          description: "Poll question, 1-255 characters"
+          description: "Poll question, 1-300 characters"
           type: string
         options:
           description: List of poll options
