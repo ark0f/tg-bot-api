@@ -4926,7 +4926,7 @@
                     "type": "boolean"
                   },
                   "can_manage_voice_chats": {
-                    "description": "Pass True, if the administrator can manage voice chats, supergroups only",
+                    "description": "Pass True, if the administrator can manage voice chats",
                     "type": "boolean"
                   },
                   "can_restrict_members": {
@@ -4996,7 +4996,7 @@
                     "type": "boolean"
                   },
                   "can_manage_voice_chats": {
-                    "description": "Pass True, if the administrator can manage voice chats, supergroups only",
+                    "description": "Pass True, if the administrator can manage voice chats",
                     "type": "boolean"
                   },
                   "can_restrict_members": {
@@ -5066,7 +5066,7 @@
                     "type": "boolean"
                   },
                   "can_manage_voice_chats": {
-                    "description": "Pass True, if the administrator can manage voice chats, supergroups only",
+                    "description": "Pass True, if the administrator can manage voice chats",
                     "type": "boolean"
                   },
                   "can_restrict_members": {

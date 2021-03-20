@@ -3043,7 +3043,7 @@ paths:
                   description: "Pass True, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats, supergroups only"
+                  description: "Pass True, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass True, if the administrator can restrict, ban or unban chat members"
@@ -3091,7 +3091,7 @@ paths:
                   description: "Pass True, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats, supergroups only"
+                  description: "Pass True, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass True, if the administrator can restrict, ban or unban chat members"
@@ -3139,7 +3139,7 @@ paths:
                   description: "Pass True, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats, supergroups only"
+                  description: "Pass True, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass True, if the administrator can restrict, ban or unban chat members"
