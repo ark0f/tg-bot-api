@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 5,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "recent_changes": {
-    "year": 2020,
-    "month": 11,
-    "day": 4
+    "year": 2021,
+    "month": 3,
+    "day": 9
   },
   "methods": [
     {
@@ -38,7 +38,7 @@
         },
         {
           "name": "allowed_updates",
-          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
+          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
           "required": false,
           "type": "array",
           "array": {
@@ -88,7 +88,7 @@
         },
         {
           "name": "allowed_updates",
-          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all updates regardless of type (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
+          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\\_channel\\_post”, “callback\\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
           "required": false,
           "type": "array",
           "array": {
@@ -317,7 +317,7 @@
     },
     {
       "name": "copyMessage",
-      "description": "Use this method to copy messages of any kind. The method is analogous to the method [forwardMessages](https://core.telegram.org/bots/api/#forwardmessages), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+      "description": "Use this method to copy messages of any kind. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -445,7 +445,7 @@
         },
         {
           "name": "photo",
-          "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -1988,7 +1988,7 @@
         },
         {
           "name": "emoji",
-          "description": "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”",
+          "description": "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”",
           "required": false,
           "type": "string",
           "default": "🎲",
@@ -1997,6 +1997,7 @@
             "🎯",
             "🏀",
             "⚽",
+            "🎳",
             "🎰"
           ]
         },
@@ -2135,7 +2136,7 @@
     },
     {
       "name": "kickChatMember",
-      "description": "Use this method to kick a user from a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to kick a user from a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2159,9 +2160,15 @@
         },
         {
           "name": "until_date",
-          "description": "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever",
+          "description": "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.",
           "required": false,
           "type": "integer"
+        },
+        {
+          "name": "revoke_messages",
+          "description": "Pass *True* to delete all messages from the chat for the user that is being removed. If *False*, the user will be able to see messages in the group that were sent before the user was removed. Always *True* for supergroups and channels.",
+          "required": false,
+          "type": "bool"
         }
       ],
       "multipart_only": false,
@@ -2285,8 +2292,8 @@
           "type": "bool"
         },
         {
-          "name": "can_change_info",
-          "description": "Pass True, if the administrator can change chat title, photo and other settings",
+          "name": "can_manage_chat",
+          "description": "Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
           "required": false,
           "type": "bool"
         },
@@ -2309,8 +2316,8 @@
           "type": "bool"
         },
         {
-          "name": "can_invite_users",
-          "description": "Pass True, if the administrator can invite new users to the chat",
+          "name": "can_manage_voice_chats",
+          "description": "Pass True, if the administrator can manage voice chats",
           "required": false,
           "type": "bool"
         },
@@ -2321,14 +2328,26 @@
           "type": "bool"
         },
         {
-          "name": "can_pin_messages",
-          "description": "Pass True, if the administrator can pin messages, supergroups only",
+          "name": "can_promote_members",
+          "description": "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
           "required": false,
           "type": "bool"
         },
         {
-          "name": "can_promote_members",
-          "description": "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
+          "name": "can_change_info",
+          "description": "Pass True, if the administrator can change chat title, photo and other settings",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_invite_users",
+          "description": "Pass True, if the administrator can invite new users to the chat",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_pin_messages",
+          "description": "Pass True, if the administrator can pin messages, supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -2413,7 +2432,7 @@
     },
     {
       "name": "exportChatInviteLink",
-      "description": "Use this method to generate a new invite link for a chat; any previously generated link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the new invite link as *String* on success.",
+      "description": "Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the new invite link as *String* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2435,6 +2454,120 @@
         "type": "string"
       },
       "documentation_link": "https://core.telegram.org/bots/api/#exportchatinvitelink"
+    },
+    {
+      "name": "createChatInviteLink",
+      "description": "Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "expire_date",
+          "description": "Point in time (Unix timestamp) when the link will expire",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "member_limit",
+          "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatInviteLink"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#createchatinvitelink"
+    },
+    {
+      "name": "editChatInviteLink",
+      "description": "Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "invite_link",
+          "description": "The invite link to edit",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "expire_date",
+          "description": "Point in time (Unix timestamp) when the link will expire",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "member_limit",
+          "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatInviteLink"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#editchatinvitelink"
+    },
+    {
+      "name": "revokeChatInviteLink",
+      "description": "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier of the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "invite_link",
+          "description": "The invite link to revoke",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatInviteLink"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#revokechatinvitelink"
     },
     {
       "name": "setChatPhoto",
@@ -4169,6 +4302,20 @@
           "required": false,
           "type": "reference",
           "reference": "PollAnswer"
+        },
+        {
+          "name": "my_chat_member",
+          "description": "*Optional*. The bot's chat member status was updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatMemberUpdated"
+        },
+        {
+          "name": "chat_member",
+          "description": "*Optional*. A chat member's status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify “chat\\_member” in the list of *allowed\\_updates* to receive these updates.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatMemberUpdated"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#update"
@@ -4222,7 +4369,7 @@
         },
         {
           "name": "allowed_updates",
-          "description": "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types",
+          "description": "*Optional*. A list of update types the bot is subscribed to. Defaults to all update types except *chat\\_member*",
           "required": false,
           "type": "array",
           "array": {
@@ -4239,7 +4386,7 @@
       "properties": [
         {
           "name": "id",
-          "description": "Unique identifier for this user or bot",
+          "description": "Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": true,
           "type": "integer"
         },
@@ -4301,7 +4448,7 @@
       "properties": [
         {
           "name": "id",
-          "description": "Unique identifier for this chat. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+          "description": "Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": true,
           "type": "integer"
         },
@@ -4362,7 +4509,7 @@
         },
         {
           "name": "invite_link",
-          "description": "*Optional*. Chat invite link, for groups, supergroups and channel chats. Each administrator in a chat generates their own invite links, so the bot must first generate the link using [exportChatInviteLink](https://core.telegram.org/bots/api/#exportchatinvitelink). Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. Primary invite link, for groups, supergroups and channel chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "string"
         },
@@ -4383,6 +4530,12 @@
         {
           "name": "slow_mode_delay",
           "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "message_auto_delete_time",
+          "description": "*Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "integer"
         },
@@ -4622,7 +4775,7 @@
         },
         {
           "name": "dice",
-          "description": "*Optional*. Message is a dice with random value from 1 to 6",
+          "description": "*Optional*. Message is a dice with random value",
           "required": false,
           "type": "reference",
           "reference": "Dice"
@@ -4713,14 +4866,21 @@
           "type": "bool"
         },
         {
+          "name": "message_auto_delete_timer_changed",
+          "description": "*Optional*. Service message: auto-delete timer settings changed in the chat",
+          "required": false,
+          "type": "reference",
+          "reference": "MessageAutoDeleteTimerChanged"
+        },
+        {
           "name": "migrate_to_chat_id",
-          "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+          "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type": "integer"
         },
         {
           "name": "migrate_from_chat_id",
-          "description": "*Optional*. The supergroup has been migrated from a group with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+          "description": "*Optional*. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type": "integer"
         },
@@ -4764,6 +4924,27 @@
           "required": false,
           "type": "reference",
           "reference": "ProximityAlertTriggered"
+        },
+        {
+          "name": "voice_chat_started",
+          "description": "*Optional*. Service message: voice chat started",
+          "required": false,
+          "type": "reference",
+          "reference": "VoiceChatStarted"
+        },
+        {
+          "name": "voice_chat_ended",
+          "description": "*Optional*. Service message: voice chat ended",
+          "required": false,
+          "type": "reference",
+          "reference": "VoiceChatEnded"
+        },
+        {
+          "name": "voice_chat_participants_invited",
+          "description": "*Optional*. Service message: new participants invited to a voice chat",
+          "required": false,
+          "type": "reference",
+          "reference": "VoiceChatParticipantsInvited"
         },
         {
           "name": "reply_markup",
@@ -5231,7 +5412,7 @@
         },
         {
           "name": "user_id",
-          "description": "*Optional*. Contact's user identifier in Telegram",
+          "description": "*Optional*. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type": "integer"
         },
@@ -5257,7 +5438,7 @@
         },
         {
           "name": "value",
-          "description": "Value of the dice, 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” base emoji, 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />” base emoji, 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />” base emoji",
+          "description": "Value of the dice, 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />” base emoji, 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />” base emoji, 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />” base emoji",
           "required": true,
           "type": "integer"
         }
@@ -5327,7 +5508,7 @@
         },
         {
           "name": "question",
-          "description": "Poll question, 1-255 characters",
+          "description": "Poll question, 1-300 characters",
           "required": true,
           "type": "string"
         },
@@ -5530,6 +5711,57 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#proximityalerttriggered"
+    },
+    {
+      "name": "MessageAutoDeleteTimerChanged",
+      "description": "This object represents a service message about a change in auto-delete timer settings.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "message_auto_delete_time",
+          "description": "New auto-delete time for messages in the chat",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageautodeletetimerchanged"
+    },
+    {
+      "name": "VoiceChatStarted",
+      "description": "This object represents a service message about a voice chat started in the chat. Currently holds no information.",
+      "documentation_link": "https://core.telegram.org/bots/api/#voicechatstarted"
+    },
+    {
+      "name": "VoiceChatEnded",
+      "description": "This object represents a service message about a voice chat ended in the chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "duration",
+          "description": "Voice chat duration; in seconds",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#voicechatended"
+    },
+    {
+      "name": "VoiceChatParticipantsInvited",
+      "description": "This object represents a service message about new members invited to a voice chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "users",
+          "description": "*Optional*. New members that were invited to the voice chat",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "User"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#voicechatparticipantsinvited"
     },
     {
       "name": "UserProfilePhotos",
@@ -5914,6 +6146,51 @@
       "documentation_link": "https://core.telegram.org/bots/api/#chatphoto"
     },
     {
+      "name": "ChatInviteLink",
+      "description": "Represents an invite link for a chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "invite_link",
+          "description": "The invite link. If the link was created by another chat administrator, then the second part of the link will be replaced with “…”.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "creator",
+          "description": "Creator of the link",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "is_primary",
+          "description": "True, if the link is primary",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "is_revoked",
+          "description": "True, if the link is revoked",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "expire_date",
+          "description": "*Optional*. Point in time (Unix timestamp) when the link will expire or has been expired",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "member_limit",
+          "description": "*Optional*. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatinvitelink"
+    },
+    {
       "name": "ChatMember",
       "description": "This object contains information about one member of a chat.",
       "type": "properties",
@@ -5958,6 +6235,12 @@
           "type": "bool"
         },
         {
+          "name": "can_manage_chat",
+          "description": "*Optional*. Administrators only. True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "can_post_messages",
           "description": "*Optional*. Administrators only. True, if the administrator can post in the channel; channels only",
           "required": false,
@@ -5972,6 +6255,12 @@
         {
           "name": "can_delete_messages",
           "description": "*Optional*. Administrators only. True, if the administrator can delete messages of other users",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_manage_voice_chats",
+          "description": "*Optional*. Administrators only. True, if the administrator can manage voice chats",
           "required": false,
           "type": "bool"
         },
@@ -6049,6 +6338,55 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatmember"
+    },
+    {
+      "name": "ChatMemberUpdated",
+      "description": "This object represents changes in the status of a chat member.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat the user belongs to",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "from",
+          "description": "Performer of the action, which resulted in the change",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "date",
+          "description": "Date the change was done in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "old_chat_member",
+          "description": "Previous information about the chat member",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatMember"
+        },
+        {
+          "name": "new_chat_member",
+          "description": "New information about the chat member",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatMember"
+        },
+        {
+          "name": "invite_link",
+          "description": "*Optional*. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatInviteLink"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatmemberupdated"
     },
     {
       "name": "ChatPermissions",
@@ -6154,7 +6492,7 @@
       "properties": [
         {
           "name": "migrate_to_chat_id",
-          "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.",
+          "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type": "integer"
         },
