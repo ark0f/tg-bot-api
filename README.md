@@ -7,10 +7,10 @@
 
 Telegram Bot API parser in Rust
 
-Generated schemas can be found at `pages.pelme.ga/tg-bot-api`:
-* [`/openapi.yml`](https://pages.pelme.ga/tg-bot-api/openapi.yml) or 
-[`/openapi.json`](https://pages.pelme.ga/tg-bot-api/openapi.json) - OpenAPI 3.0.0
-* [`/custom.json`](https://pages.pelme.ga/tg-bot-api/custom.json) - custom schema that more convenient to work with
-* [`/custom.schema.json`](https://pages.pelme.ga/tg-bot-api/custom.schema.json) - JSON Schema Draft #7 for `/custom.json`
+Generated schemas can be found at `ark0f.github.io/tg-bot-api`:
+* [`/openapi.yml`](https://ark0f.github.io/tg-bot-api/openapi.yml) or 
+[`/openapi.json`](https://ark0f.github.io/tg-bot-api/openapi.json) - OpenAPI 3.0.0
+* [`/custom.json`](https://ark0f.github.io/tg-bot-api/custom.json) - custom schema that more convenient to work with
+* [`/custom.schema.json`](https://ark0f.github.io/tg-bot-api/custom.schema.json) - JSON Schema Draft #7 for `/custom.json`
 
 `.min.json` suffix can be used to fetch minimized JSON. For example: `openapi.min.json`, etc.
