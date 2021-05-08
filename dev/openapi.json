@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "5.1.0"
+    "version": "5.2.0"
   },
   "servers": [
     {
@@ -760,7 +760,7 @@
     },
     "/forwardMessage": {
       "post": {
-        "description": "Use this method to forward messages of any kind. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+        "description": "Use this method to forward messages of any kind. Service messages can't be forwarded. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#forwardmessage"
         },
@@ -934,7 +934,7 @@
     },
     "/copyMessage": {
       "post": {
-        "description": "Use this method to copy messages of any kind. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+        "description": "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#copymessage"
         },
@@ -3884,7 +3884,7 @@
                     ]
                   },
                   "emoji": {
-                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”",
+                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”",
                     "default": "🎲",
                     "type": "string",
                     "enum": [
@@ -3947,7 +3947,7 @@
                     ]
                   },
                   "emoji": {
-                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”",
+                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”",
                     "default": "🎲",
                     "type": "string",
                     "enum": [
@@ -4010,7 +4010,7 @@
                     ]
                   },
                   "emoji": {
-                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />”, “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, or “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Dice can have values 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />”, values 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />”, and values 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />”. Defaults to “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”",
+                    "description": "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”",
                     "default": "🎲",
                     "type": "string",
                     "enum": [
@@ -9407,7 +9407,7 @@
                     "type": "integer"
                   },
                   "thumb": {
-                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [](https://core.telegram.org/animated_stickers#technical-requirements)[https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
+                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
                     "anyOf": [
                       {
                         "$ref": "#/components/schemas/InputFile"
@@ -9656,8 +9656,15 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target private chat",
-                    "type": "integer"
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
@@ -9675,10 +9682,6 @@
                     "description": "Payments provider token, obtained via [Botfather](https://t.me/botfather)",
                     "type": "string"
                   },
-                  "start_parameter": {
-                    "description": "Unique deep-linking parameter that can be used to generate this invoice when used as a start parameter",
-                    "type": "string"
-                  },
                   "currency": {
                     "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
                     "type": "string"
@@ -9689,6 +9692,22 @@
                     "items": {
                       "$ref": "#/components/schemas/LabeledPrice"
                     }
+                  },
+                  "max_tip_amount": {
+                    "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+                    "default": 0,
+                    "type": "integer"
+                  },
+                  "suggested_tip_amounts": {
+                    "description": "A JSON-serialized array of suggested amounts of tips in the *smallest units* of the currency (integer, **not** float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\\_tip\\_amount*.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "start_parameter": {
+                    "description": "Unique deep-linking parameter. If left empty, **forwarded copies** of the sent message will have a *Pay* button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a *URL* button with a deep link to the bot (instead of a *Pay* button), with the value used as the start parameter",
+                    "type": "string"
                   },
                   "provider_data": {
                     "description": "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.",
@@ -9760,7 +9779,6 @@
                   "description",
                   "payload",
                   "provider_token",
-                  "start_parameter",
                   "currency",
                   "prices"
                 ]
@@ -9771,8 +9789,15 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target private chat",
-                    "type": "integer"
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
@@ -9790,10 +9815,6 @@
                     "description": "Payments provider token, obtained via [Botfather](https://t.me/botfather)",
                     "type": "string"
                   },
-                  "start_parameter": {
-                    "description": "Unique deep-linking parameter that can be used to generate this invoice when used as a start parameter",
-                    "type": "string"
-                  },
                   "currency": {
                     "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
                     "type": "string"
@@ -9804,6 +9825,22 @@
                     "items": {
                       "$ref": "#/components/schemas/LabeledPrice"
                     }
+                  },
+                  "max_tip_amount": {
+                    "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+                    "default": 0,
+                    "type": "integer"
+                  },
+                  "suggested_tip_amounts": {
+                    "description": "A JSON-serialized array of suggested amounts of tips in the *smallest units* of the currency (integer, **not** float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\\_tip\\_amount*.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "start_parameter": {
+                    "description": "Unique deep-linking parameter. If left empty, **forwarded copies** of the sent message will have a *Pay* button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a *URL* button with a deep link to the bot (instead of a *Pay* button), with the value used as the start parameter",
+                    "type": "string"
                   },
                   "provider_data": {
                     "description": "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.",
@@ -9875,7 +9912,6 @@
                   "description",
                   "payload",
                   "provider_token",
-                  "start_parameter",
                   "currency",
                   "prices"
                 ]
@@ -9886,8 +9922,15 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target private chat",
-                    "type": "integer"
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
@@ -9905,10 +9948,6 @@
                     "description": "Payments provider token, obtained via [Botfather](https://t.me/botfather)",
                     "type": "string"
                   },
-                  "start_parameter": {
-                    "description": "Unique deep-linking parameter that can be used to generate this invoice when used as a start parameter",
-                    "type": "string"
-                  },
                   "currency": {
                     "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
                     "type": "string"
@@ -9919,6 +9958,22 @@
                     "items": {
                       "$ref": "#/components/schemas/LabeledPrice"
                     }
+                  },
+                  "max_tip_amount": {
+                    "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+                    "default": 0,
+                    "type": "integer"
+                  },
+                  "suggested_tip_amounts": {
+                    "description": "A JSON-serialized array of suggested amounts of tips in the *smallest units* of the currency (integer, **not** float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\\_tip\\_amount*.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "start_parameter": {
+                    "description": "Unique deep-linking parameter. If left empty, **forwarded copies** of the sent message will have a *Pay* button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a *URL* button with a deep link to the bot (instead of a *Pay* button), with the value used as the start parameter",
+                    "type": "string"
                   },
                   "provider_data": {
                     "description": "A JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.",
@@ -9990,7 +10045,6 @@
                   "description",
                   "payload",
                   "provider_token",
-                  "start_parameter",
                   "currency",
                   "prices"
                 ]
@@ -11326,6 +11380,9 @@
           "proximity_alert_triggered": {
             "$ref": "#/components/schemas/ProximityAlertTriggered"
           },
+          "voice_chat_scheduled": {
+            "$ref": "#/components/schemas/VoiceChatScheduled"
+          },
           "voice_chat_started": {
             "$ref": "#/components/schemas/VoiceChatStarted"
           },
@@ -11754,7 +11811,7 @@
             "type": "string"
           },
           "value": {
-            "description": "Value of the dice, 1-6 for “<img alt=\"🎲\" src=\"//telegram.org/img/emoji/40/F09F8EB2.png\" height=\"20\" width=\"20\" />”, “<img alt=\"🎯\" src=\"//telegram.org/img/emoji/40/F09F8EAF.png\" height=\"20\" width=\"20\" />” and “<img alt=\"🎳\" src=\"//telegram.org/img/emoji/40/F09F8EB3.png\" height=\"20\" width=\"20\" />” base emoji, 1-5 for “<img alt=\"🏀\" src=\"//telegram.org/img/emoji/40/F09F8F80.png\" height=\"20\" width=\"20\" />” and “<img alt=\"⚽\" src=\"//telegram.org/img/emoji/40/E29ABD.png\" height=\"20\" width=\"20\" />” base emoji, 1-64 for “<img alt=\"🎰\" src=\"//telegram.org/img/emoji/40/F09F8EB0.png\" height=\"20\" width=\"20\" />” base emoji",
+            "description": "Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji",
             "type": "integer"
           }
         },
@@ -12005,6 +12062,22 @@
         },
         "required": [
           "message_auto_delete_time"
+        ]
+      },
+      "VoiceChatScheduled": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#voicechatscheduled"
+        },
+        "description": "This object represents a service message about a voice chat scheduled in the chat.",
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "description": "Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "start_date"
         ]
       },
       "VoiceChatStarted": {
@@ -13104,9 +13177,6 @@
           "from": {
             "$ref": "#/components/schemas/User"
           },
-          "location": {
-            "$ref": "#/components/schemas/Location"
-          },
           "query": {
             "description": "Text of the query (up to 256 characters)",
             "type": "string"
@@ -13114,6 +13184,20 @@
           "offset": {
             "description": "Offset of the results to be returned, can be controlled by the bot",
             "type": "string"
+          },
+          "chat_type": {
+            "description": "*Optional*. Type of the chat, from which the inline query was sent. Can be either “sender” for a private chat with the inline query sender, “private”, “group”, “supergroup”, or “channel”. The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat",
+            "type": "string",
+            "enum": [
+              "sender",
+              "private",
+              "group",
+              "supergroup",
+              "channel"
+            ]
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
           }
         },
         "required": [
@@ -14378,7 +14462,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#inputmessagecontent"
         },
-        "description": "This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 4 types:",
+        "description": "This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 5 types:",
         "anyOf": [
           {
             "$ref": "#/components/schemas/InputTextMessageContent"
@@ -14391,6 +14475,9 @@
           },
           {
             "$ref": "#/components/schemas/InputContactMessageContent"
+          },
+          {
+            "$ref": "#/components/schemas/InputInvoiceMessageContent"
           }
         ]
       },
@@ -14536,6 +14623,110 @@
         "required": [
           "phone_number",
           "first_name"
+        ]
+      },
+      "InputInvoiceMessageContent": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#inputinvoicemessagecontent"
+        },
+        "description": "Represents the [content](https://core.telegram.org/bots/api/#inputmessagecontent) of an invoice message to be sent as the result of an inline query.",
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Product name, 1-32 characters",
+            "type": "string"
+          },
+          "description": {
+            "description": "Product description, 1-255 characters",
+            "type": "string"
+          },
+          "payload": {
+            "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
+            "type": "string"
+          },
+          "provider_token": {
+            "description": "Payment provider token, obtained via [Botfather](https://t.me/botfather)",
+            "type": "string"
+          },
+          "currency": {
+            "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
+            "type": "string"
+          },
+          "prices": {
+            "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LabeledPrice"
+            }
+          },
+          "max_tip_amount": {
+            "description": "*Optional*. The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+            "default": 0,
+            "type": "integer"
+          },
+          "suggested_tip_amounts": {
+            "description": "*Optional*. A JSON-serialized array of suggested amounts of tip in the *smallest units* of the currency (integer, **not** float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\\_tip\\_amount*.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "provider_data": {
+            "description": "*Optional*. A JSON-serialized object for data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider.",
+            "type": "string"
+          },
+          "photo_url": {
+            "description": "*Optional*. URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.",
+            "type": "string"
+          },
+          "photo_size": {
+            "description": "*Optional*. Photo size",
+            "type": "integer"
+          },
+          "photo_width": {
+            "description": "*Optional*. Photo width",
+            "type": "integer"
+          },
+          "photo_height": {
+            "description": "*Optional*. Photo height",
+            "type": "integer"
+          },
+          "need_name": {
+            "description": "*Optional*. Pass *True*, if you require the user's full name to complete the order",
+            "type": "boolean"
+          },
+          "need_phone_number": {
+            "description": "*Optional*. Pass *True*, if you require the user's phone number to complete the order",
+            "type": "boolean"
+          },
+          "need_email": {
+            "description": "*Optional*. Pass *True*, if you require the user's email address to complete the order",
+            "type": "boolean"
+          },
+          "need_shipping_address": {
+            "description": "*Optional*. Pass *True*, if you require the user's shipping address to complete the order",
+            "type": "boolean"
+          },
+          "send_phone_number_to_provider": {
+            "description": "*Optional*. Pass *True*, if user's phone number should be sent to provider",
+            "type": "boolean"
+          },
+          "send_email_to_provider": {
+            "description": "*Optional*. Pass *True*, if user's email address should be sent to provider",
+            "type": "boolean"
+          },
+          "is_flexible": {
+            "description": "*Optional*. Pass *True*, if the final price depends on the shipping method",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "title",
+          "description",
+          "payload",
+          "provider_token",
+          "currency",
+          "prices"
         ]
       },
       "ChosenInlineResult": {
