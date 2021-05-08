@@ -856,6 +856,13 @@ mod tests {
     }
 
     #[test]
+    fn empty_link_skipped() {
+        let map = TagsHandlerFactory::new_in_map();
+        let md = html2md::parse_html_custom(r#"<a href=""></a>"#, &map);
+        assert_eq!(md, "");
+    }
+
+    #[test]
     fn make_absolute_a_href() {
         let map = TagsHandlerFactory::new_in_map();
         let md = html2md::parse_html_custom(r##"<a href="#fragment">This is a link</a>"##, &map);
