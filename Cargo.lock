@@ -1565,6 +1565,7 @@ dependencies = [
  "ego-tree",
  "html2md",
  "itertools",
+ "percent-encoding",
  "scraper",
  "semver",
  "thiserror",

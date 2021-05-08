@@ -23,6 +23,7 @@ itertools = "0.9.0"
 chrono = "0.4.19"
 html2md = "0.2.10"
 semver = "0.11.0"
+percent-encoding = "2.1.0"
 
 [patch.crates-io]
 # https://github.com/glademiller/openapiv3/pull/23
