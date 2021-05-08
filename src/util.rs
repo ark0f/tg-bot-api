@@ -2,6 +2,7 @@ use ego_tree::iter::Edge;
 use scraper::{ElementRef, Node};
 
 pub trait StrExt {
+    #[allow(clippy::wrong_self_convention)]
     fn is_first_letter_lowercase(self) -> bool;
 }
 

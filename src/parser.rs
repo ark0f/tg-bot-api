@@ -75,8 +75,8 @@ pub fn parse(raw: Extracted) -> Result<Parsed> {
     Ok(Parsed {
         recent_changes,
         version,
-        objects,
         methods,
+        objects,
     })
 }
 
