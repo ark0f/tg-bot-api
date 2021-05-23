@@ -15,7 +15,7 @@ use itertools::Itertools;
 use scraper::{node::Element, ElementRef, Node};
 use semver::Version;
 use sentence::{Pattern, SentenceRef, Sentences};
-use std::{num::ParseIntError, str::ParseBoolError};
+use std::{num::ParseIntError, ops::Deref, str::ParseBoolError};
 use tags::TagsHandlerFactory;
 
 type Result<T> = std::result::Result<T, ParseError>;
@@ -501,7 +501,7 @@ trait ElementRefParserExt {
 
 impl ElementRefParserExt for ElementRef<'_> {
     fn sentences(&self) -> Result<Vec<Sentence>> {
-        sentence::parse_elem(self)
+        sentence::parse_node(*self.deref())
     }
 
     fn markdown(&self) -> String {

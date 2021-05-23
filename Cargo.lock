@@ -1600,6 +1600,7 @@ dependencies = [
  "percent-encoding",
  "scraper",
  "semver",
+ "tendril",
  "thiserror",
 ]
 

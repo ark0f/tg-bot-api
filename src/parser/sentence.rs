@@ -1,8 +1,10 @@
 use super::{ParseError, TypeParsingUnit};
 use crate::parser::ElementExt;
+use ego_tree::{NodeRef, Tree};
 use logos::Logos;
-use scraper::{ElementRef, Node};
+use scraper::{node::Text, Node};
 use std::{mem, ops::Index, slice, slice::SliceIndex};
+use tendril::StrTendril;
 
 #[derive(Debug, PartialEq, Copy, Clone)]
 pub enum Pattern {
@@ -96,40 +98,12 @@ pub(crate) struct Sentences {
 
 impl Sentences {
     pub(crate) fn parse(text: &str) -> Self {
-        let mut sentences = vec![];
-        let mut parts = vec![];
+        let text = Node::Text(Text {
+            text: StrTendril::from_slice(text),
+        });
+        let tree = Tree::new(text);
 
-        let lexer = SentenceLexer::lexer(&text);
-        for (token, span) in lexer.spanned() {
-            let lexeme = &text[span.start..span.end];
-            match token {
-                SentenceLexer::Error => {
-                    dbg!(text);
-                    dbg!(lexeme);
-                    unreachable!()
-                }
-                SentenceLexer::Word(has_quotes) => {
-                    let inner = lexeme
-                        .trim_matches('"')
-                        .trim_matches('\'')
-                        .trim_start_matches('“')
-                        .trim_end_matches('”')
-                        .to_string();
-                    parts.push(Part::new(inner).with_quotes(has_quotes));
-                }
-                SentenceLexer::Dot => {
-                    sentences.push(Sentence {
-                        parts: mem::take(&mut parts),
-                    });
-                }
-                SentenceLexer::Quote => unreachable!(),
-            }
-        }
-
-        if !parts.is_empty() {
-            sentences.push(Sentence { parts });
-        }
-
+        let sentences = parse_node(tree.root()).unwrap();
         Self { inner: sentences }
     }
 
@@ -316,7 +290,7 @@ where
     }
 }
 
-pub(crate) fn parse_elem(elem: &ElementRef) -> Result<Vec<Sentence>, ParseError> {
+pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseError> {
     let mut sentences = vec![];
     let mut parts = vec![];
     let mut quote_part = false;
