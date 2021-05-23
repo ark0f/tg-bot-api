@@ -378,8 +378,7 @@ pub(crate) fn parse_elem(elem: &ElementRef) -> Result<Vec<Sentence>, ParseError>
                     }
                     ("br", _) => None,
                     _ => {
-                        // TODO: log skipped tags
-                        dbg!(elem);
+                        log::warn!("Tag {} skipped", elem.name());
                         None
                     }
                 };
