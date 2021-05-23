@@ -1,6 +1,6 @@
 use super::{ParseError, TypeParsingUnit};
 use crate::parser::ElementExt;
-use ego_tree::{NodeRef, Tree};
+use ego_tree::NodeRef;
 use logos::Logos;
 use scraper::{node::Text, Node};
 use std::{mem, ops::Index, slice, slice::SliceIndex};
@@ -98,10 +98,13 @@ pub(crate) struct Sentences {
 
 impl Sentences {
     pub(crate) fn parse(text: &str) -> Self {
-        let text = Node::Text(Text {
-            text: StrTendril::from_slice(text),
-        });
-        let tree = Tree::new(text);
+        let tree = ego_tree::tree! {
+            Node::Document => {
+                Node::Text(Text {
+                    text: StrTendril::from_slice(text),
+                })
+            }
+        };
 
         let sentences = parse_node(tree.root()).unwrap();
         Self { inner: sentences }
