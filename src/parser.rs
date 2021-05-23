@@ -235,7 +235,7 @@ impl Type {
                 if let Some(sentence) = parser.find(&["or"]) {
                     let types = types_from_sentence_ref(sentence);
                     Self::Or(types)
-                } else if let Some(sentence) = parser.find(ARRAY_OF) {
+                } else if let Some(sentence) = parser.find_and_crop(ARRAY_OF) {
                     let sentence = &sentence[2..];
                     let ty = if sentence.len() == 1 {
                         Self::new(sentence.parts()[0].as_inner())
@@ -538,6 +538,25 @@ impl ElementExt for Element {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn or_type() {
+        let ty = Type::new("Integer or String");
+        assert_eq!(
+            ty,
+            Type::Or(vec![
+                Type::Integer {
+                    default: None,
+                    min: None,
+                    max: None
+                },
+                Type::String {
+                    default: None,
+                    one_of: vec![]
+                }
+            ])
+        )
+    }
 
     #[test]
     fn array_of_type() {

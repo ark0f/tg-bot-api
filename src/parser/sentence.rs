@@ -110,7 +110,19 @@ impl Sentences {
         Self { inner: sentences }
     }
 
-    pub(crate) fn find(&self, words: &[&str]) -> Option<&SentenceRef> {
+    pub fn find(&self, words: &[&str]) -> Option<&SentenceRef> {
+        self.inner.iter().find_map(|sentence| {
+            sentence.parts.windows(words.len()).find_map(|window| {
+                if window == words {
+                    Some(sentence.as_ref())
+                } else {
+                    None
+                }
+            })
+        })
+    }
+
+    pub(crate) fn find_and_crop(&self, words: &[&str]) -> Option<&SentenceRef> {
         self.inner.iter().find_map(|sentence| {
             sentence
                 .parts
