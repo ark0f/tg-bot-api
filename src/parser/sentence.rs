@@ -37,6 +37,7 @@ impl Pattern {
                 .by_word("between")],
             Pattern::OneOf => {
                 vec![
+                    SearcherPattern::default().by_word("either"),
                     SearcherPattern::default().by_word("One").by_word("of"),
                     SearcherPattern::default().by_word("one").by_word("of"),
                     SearcherPattern::default().by_word("Can").by_word("be"),
