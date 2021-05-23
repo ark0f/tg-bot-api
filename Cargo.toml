@@ -27,7 +27,3 @@ percent-encoding = "2.1.0"
 logos = "0.12.0"
 log = "0.4.14"
 tendril = "0.4.2"
-
-[patch.crates-io]
-# https://github.com/glademiller/openapiv3/pull/23
-openapiv3 = { git = "https://github.com/DanielFCubides/openapiv3", branch = "patch-1" }
