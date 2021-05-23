@@ -178,6 +178,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -236,6 +239,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -267,6 +274,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -277,6 +287,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -313,6 +326,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -323,6 +339,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -382,6 +401,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -413,6 +436,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -423,6 +449,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -476,6 +506,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -489,7 +523,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -507,6 +541,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -517,6 +554,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -569,6 +610,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -599,6 +644,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -612,7 +661,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -630,6 +679,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -641,6 +693,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -651,6 +707,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -710,6 +770,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -723,7 +787,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -741,6 +805,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -751,6 +818,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -780,6 +851,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -839,6 +914,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -852,7 +931,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -870,6 +949,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -880,6 +962,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -909,6 +995,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -962,6 +1052,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -975,7 +1069,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -993,6 +1087,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -1003,6 +1100,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -1062,6 +1163,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1075,7 +1180,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1093,6 +1198,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -1103,6 +1211,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -1126,6 +1238,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -1157,6 +1273,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1170,7 +1290,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1187,6 +1307,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1259,6 +1382,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -1325,6 +1451,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1355,6 +1485,9 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1437,6 +1570,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -1487,6 +1623,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1566,6 +1705,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1596,6 +1739,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1651,6 +1797,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1681,6 +1831,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1794,6 +1947,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1824,6 +1981,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1870,6 +2030,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -1900,6 +2064,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -1981,6 +2148,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2022,6 +2192,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2056,6 +2229,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2098,6 +2274,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2194,6 +2373,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2229,6 +2411,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2259,6 +2444,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2280,6 +2468,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2315,6 +2506,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2357,6 +2551,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2385,6 +2582,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2416,6 +2616,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2438,6 +2641,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2468,6 +2674,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2496,6 +2705,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2532,6 +2744,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2561,6 +2776,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2583,6 +2801,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2607,6 +2828,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2629,6 +2853,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2656,6 +2883,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2677,6 +2907,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2707,6 +2940,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2735,6 +2971,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -2838,6 +3077,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2917,6 +3159,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -2990,6 +3235,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3048,6 +3296,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3099,6 +3350,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3135,6 +3389,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3164,6 +3421,9 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "integer"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3174,6 +3434,10 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -3205,6 +3469,10 @@
           "any_of": [
             {
               "type": "reference",
+              "reference": "InlineKeyboardMarkup"
+            },
+            {
+              "type": "reference",
               "reference": "ReplyKeyboardMarkup"
             },
             {
@@ -3218,7 +3486,7 @@
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -3297,6 +3565,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -3357,6 +3629,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }
@@ -3455,12 +3731,16 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
         }
       ],
-      "multipart_only": false,
+      "multipart_only": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3536,6 +3816,9 @@
           "required": true,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "integer"
+            },
             {
               "type": "string"
             }
@@ -6360,6 +6643,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -6438,6 +6725,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -6510,6 +6801,10 @@
           "type": "any_of",
           "any_of": [
             {
+              "type": "reference",
+              "reference": "InputFile"
+            },
+            {
               "type": "string"
             }
           ]
@@ -6581,6 +6876,10 @@
           "required": false,
           "type": "any_of",
           "any_of": [
+            {
+              "type": "reference",
+              "reference": "InputFile"
+            },
             {
               "type": "string"
             }

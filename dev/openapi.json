@@ -516,6 +516,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -554,6 +557,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -580,6 +586,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -618,6 +627,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -644,6 +656,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -682,6 +697,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -756,6 +774,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -763,6 +784,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -792,6 +816,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -799,6 +826,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -828,6 +858,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -835,6 +868,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -912,6 +948,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -919,6 +958,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -958,6 +1000,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -985,6 +1030,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -992,6 +1040,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -1031,6 +1082,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -1058,6 +1112,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1065,6 +1122,9 @@
                   "from_chat_id": {
                     "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -1104,6 +1164,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -1171,74 +1234,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "photo": {
-                    "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Photo caption (may also be used when resending photos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "photo"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -1247,6 +1242,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1254,6 +1252,9 @@
                   "photo": {
                     "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -1290,73 +1291,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "photo"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "photo": {
-                    "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Photo caption (may also be used when resending photos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -1423,94 +1359,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "audio": {
-                    "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Audio caption, 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "duration": {
-                    "description": "Duration of the audio in seconds",
-                    "type": "integer"
-                  },
-                  "performer": {
-                    "description": "Performer",
-                    "type": "string"
-                  },
-                  "title": {
-                    "description": "Track name",
-                    "type": "string"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "audio"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -1519,6 +1367,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1526,6 +1377,9 @@
                   "audio": {
                     "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -1562,6 +1416,9 @@
                     "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
                       {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1582,93 +1439,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "audio"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "audio": {
-                    "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Audio caption, 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "duration": {
-                    "description": "Duration of the audio in seconds",
-                    "type": "integer"
-                  },
-                  "performer": {
-                    "description": "Performer",
-                    "type": "string"
-                  },
-                  "title": {
-                    "description": "Track name",
-                    "type": "string"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -1735,86 +1507,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "document": {
-                    "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Document caption (may also be used when resending documents by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_content_type_detection": {
-                    "description": "Disables automatic server-side content type detection for files uploaded using multipart/form-data",
-                    "type": "boolean"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "document"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -1823,6 +1515,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1831,6 +1526,9 @@
                     "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
                       {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -1838,6 +1536,9 @@
                   "thumb": {
                     "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -1878,85 +1579,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "document"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "document": {
-                    "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Document caption (may also be used when resending documents by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_content_type_detection": {
-                    "description": "Disables automatic server-side content type detection for files uploaded using multipart/form-data",
-                    "type": "boolean"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -2023,98 +1647,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "video": {
-                    "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent video in seconds",
-                    "type": "integer"
-                  },
-                  "width": {
-                    "description": "Video width",
-                    "type": "integer"
-                  },
-                  "height": {
-                    "description": "Video height",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "supports_streaming": {
-                    "description": "Pass *True*, if the uploaded video is suitable for streaming",
-                    "type": "boolean"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "video"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -2123,6 +1655,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -2130,6 +1665,9 @@
                   "video": {
                     "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -2150,6 +1688,9 @@
                   "thumb": {
                     "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -2190,97 +1731,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "video"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "video": {
-                    "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent video in seconds",
-                    "type": "integer"
-                  },
-                  "width": {
-                    "description": "Video width",
-                    "type": "integer"
-                  },
-                  "height": {
-                    "description": "Video height",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "supports_streaming": {
-                    "description": "Pass *True*, if the uploaded video is suitable for streaming",
-                    "type": "boolean"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -2347,94 +1799,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "animation": {
-                    "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent animation in seconds",
-                    "type": "integer"
-                  },
-                  "width": {
-                    "description": "Animation width",
-                    "type": "integer"
-                  },
-                  "height": {
-                    "description": "Animation height",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Animation caption (may also be used when resending animation by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the animation caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "animation"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -2443,6 +1807,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -2450,6 +1817,9 @@
                   "animation": {
                     "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -2470,6 +1840,9 @@
                   "thumb": {
                     "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -2506,93 +1879,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "animation"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "animation": {
-                    "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent animation in seconds",
-                    "type": "integer"
-                  },
-                  "width": {
-                    "description": "Animation width",
-                    "type": "integer"
-                  },
-                  "height": {
-                    "description": "Animation height",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Animation caption (may also be used when resending animation by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the animation caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -2659,78 +1947,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "voice": {
-                    "description": "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Voice message caption, 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "duration": {
-                    "description": "Duration of the voice message in seconds",
-                    "type": "integer"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "voice"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -2739,6 +1955,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -2746,6 +1965,9 @@
                   "voice": {
                     "description": "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -2786,77 +2008,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "voice"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "voice": {
-                    "description": "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "caption": {
-                    "description": "Voice message caption, 0-1024 characters after entities parsing",
-                    "type": "string"
-                  },
-                  "parse_mode": {
-                    "description": "Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
-                    "type": "string"
-                  },
-                  "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/MessageEntity"
-                    }
-                  },
-                  "duration": {
-                    "description": "Duration of the voice message in seconds",
-                    "type": "integer"
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -2923,75 +2076,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "video_note": {
-                    "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent video in seconds",
-                    "type": "integer"
-                  },
-                  "length": {
-                    "description": "Video width and height, i.e. diameter of the video message",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "video_note"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -3000,6 +2084,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3007,6 +2094,9 @@
                   "video_note": {
                     "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -3023,6 +2113,9 @@
                   "thumb": {
                     "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -3044,74 +2137,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "video_note"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "video_note": {
-                    "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "duration": {
-                    "description": "Duration of sent video in seconds",
-                    "type": "integer"
-                  },
-                  "length": {
-                    "description": "Video width and height, i.e. diameter of the video message",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -3185,6 +2212,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -3288,6 +2318,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3331,6 +2364,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -3358,6 +2394,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3401,6 +2440,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -3428,6 +2470,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3471,6 +2516,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -3546,6 +2594,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3596,6 +2647,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3645,6 +2699,9 @@
                   "chat_id": {
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -3752,6 +2809,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3778,6 +2838,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3803,6 +2866,9 @@
                   "chat_id": {
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -3886,6 +2952,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -3937,6 +3006,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -3966,6 +3038,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4017,6 +3092,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4046,6 +3124,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4097,6 +3178,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4174,6 +3258,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4209,6 +3296,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4236,6 +3326,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4271,6 +3364,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4298,6 +3394,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4333,6 +3432,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4408,6 +3510,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4484,6 +3589,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4511,6 +3619,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4587,6 +3698,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4614,6 +3728,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4690,6 +3807,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4765,6 +3885,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4797,6 +3920,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4822,6 +3948,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4854,6 +3983,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4879,6 +4011,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -4911,6 +4046,9 @@
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
+                      },
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -4984,6 +4122,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5007,6 +4148,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5029,6 +4173,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -5315,6 +4462,9 @@
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5346,6 +4496,9 @@
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5376,6 +4529,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -5457,6 +4613,9 @@
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5484,6 +4643,9 @@
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5510,6 +4672,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -5587,6 +4752,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5618,6 +4786,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5648,6 +4819,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -5729,6 +4903,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5796,6 +4973,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -5862,6 +5042,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -5979,6 +5162,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6007,6 +5193,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6034,6 +5223,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6112,6 +5304,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6134,6 +5329,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6155,6 +5353,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6227,6 +5428,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6245,6 +5449,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6262,6 +5469,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6329,6 +5539,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6355,6 +5568,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6380,6 +5596,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6455,6 +5674,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6486,6 +5708,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6516,6 +5741,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6596,6 +5824,9 @@
                     "description": "Unique identifier of the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6619,6 +5850,9 @@
                     "description": "Unique identifier of the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6641,6 +5875,9 @@
                   "chat_id": {
                     "description": "Unique identifier of the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6713,6 +5950,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6784,6 +6024,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6802,6 +6045,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6819,6 +6065,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -6887,6 +6136,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6910,6 +6162,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -6932,6 +6187,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7005,6 +6263,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7027,6 +6288,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7048,6 +6312,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7120,6 +6387,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7147,6 +6417,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7173,6 +6446,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7250,6 +6526,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7272,6 +6551,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7293,6 +6575,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7365,6 +6650,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7383,6 +6671,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7400,6 +6691,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7468,6 +6762,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7486,6 +6783,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7503,6 +6803,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7571,6 +6874,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7589,6 +6895,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7606,6 +6915,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7673,6 +6985,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7691,6 +7006,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7708,6 +7026,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7778,6 +7099,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7796,6 +7120,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7813,6 +7140,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7880,6 +7210,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7903,6 +7236,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -7925,6 +7261,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -7997,6 +7336,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8020,6 +7362,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8042,6 +7387,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -8115,6 +7463,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8133,6 +7484,9 @@
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8150,6 +7504,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -8509,6 +7866,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8557,6 +7917,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8604,6 +7967,9 @@
                   "chat_id": {
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -8709,6 +8075,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8750,6 +8119,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8790,6 +8162,9 @@
                   "chat_id": {
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -8888,6 +8263,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -8976,6 +8354,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9002,6 +8383,9 @@
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9027,6 +8411,9 @@
                   "chat_id": {
                     "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -9110,6 +8497,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9136,6 +8526,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9161,6 +8554,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -9236,6 +8632,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9259,6 +8658,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9281,6 +8683,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -9346,59 +8751,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "sticker": {
-                    "description": "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "sticker"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -9407,6 +8759,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9414,6 +8769,9 @@
                   "sticker": {
                     "description": "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -9435,58 +8793,8 @@
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/ReplyKeyboardMarkup"
+                        "$ref": "#/components/schemas/InlineKeyboardMarkup"
                       },
-                      {
-                        "$ref": "#/components/schemas/ReplyKeyboardRemove"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ForceReply"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "sticker"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "sticker": {
-                    "description": "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "disable_notification": {
-                    "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
-                    "type": "boolean"
-                  },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
-                  },
-                  "reply_markup": {
-                    "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
-                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/ReplyKeyboardMarkup"
                       },
@@ -9729,6 +9037,9 @@
                     "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
                       {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -9820,6 +9131,9 @@
                   "png_sticker": {
                     "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
                     "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -10089,33 +9403,6 @@
         },
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "description": "Sticker set name",
-                    "type": "string"
-                  },
-                  "user_id": {
-                    "description": "User identifier of the sticker set owner",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "name",
-                  "user_id"
-                ]
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "type": "object",
@@ -10132,32 +9419,8 @@
                     "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
                     "anyOf": [
                       {
-                        "type": "string"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "name",
-                  "user_id"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "description": "Sticker set name",
-                    "type": "string"
-                  },
-                  "user_id": {
-                    "description": "User identifier of the sticker set owner",
-                    "type": "integer"
-                  },
-                  "thumb": {
-                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
-                    "anyOf": [
+                        "$ref": "#/components/schemas/InputFile"
+                      },
                       {
                         "type": "string"
                       }
@@ -10405,6 +9668,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -10535,6 +9801,9 @@
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
+                        "type": "integer"
+                      },
+                      {
                         "type": "string"
                       }
                     ]
@@ -10664,6 +9933,9 @@
                   "chat_id": {
                     "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
                     "anyOf": [
+                      {
+                        "type": "integer"
+                      },
                       {
                         "type": "string"
                       }
@@ -13544,6 +12816,9 @@
             "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
             "anyOf": [
               {
+                "$ref": "#/components/schemas/InputFile"
+              },
+              {
                 "type": "string"
               }
             ]
@@ -13605,6 +12880,9 @@
             "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
             "anyOf": [
               {
+                "$ref": "#/components/schemas/InputFile"
+              },
+              {
                 "type": "string"
               }
             ]
@@ -13662,6 +12940,9 @@
             "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
             "anyOf": [
               {
+                "$ref": "#/components/schemas/InputFile"
+              },
+              {
                 "type": "string"
               }
             ]
@@ -13718,6 +12999,9 @@
           "thumb": {
             "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
             "anyOf": [
+              {
+                "$ref": "#/components/schemas/InputFile"
+              },
               {
                 "type": "string"
               }
