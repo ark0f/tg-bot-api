@@ -1,4 +1,5 @@
 use super::{ParseError, TypeParsingUnit};
+use crate::parser::ElementExt;
 use logos::Logos;
 use scraper::{ElementRef, Node};
 use std::{mem, ops::Index, slice, slice::SliceIndex};
@@ -361,12 +362,11 @@ pub(crate) fn parse_elem(elem: &ElementRef) -> Result<Vec<Sentence>, ParseError>
 
                 let part = match (elem.name(), text) {
                     ("a", Some(text)) => {
-                        // TODO: Element::a_href()
-                        let link = elem.attr("href").ok_or(ParseError::MissingHref)?;
+                        let link = elem.a_href()?;
                         Some(Part::link(text, link.to_string()))
                     }
                     ("a", None) => {
-                        let link = elem.attr("href").ok_or(ParseError::MissingHref)?;
+                        let link = elem.a_href()?;
                         Some(Part::new(link.to_string()))
                     }
                     ("em", Some(text)) => Some(Part::italic(text)),

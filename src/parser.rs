@@ -12,7 +12,7 @@ use crate::{
 use chrono::NaiveDate;
 use ego_tree::iter::Edge;
 use itertools::Itertools;
-use scraper::{ElementRef, Node};
+use scraper::{node::Element, ElementRef, Node};
 use semver::Version;
 use sentence::{Pattern, SentenceRef, Sentences};
 use std::{num::ParseIntError, str::ParseBoolError};
@@ -513,16 +513,25 @@ impl ElementRefParserExt for ElementRef<'_> {
             if let Edge::Open(node) = edge {
                 if let Node::Element(elem) = node.value() {
                     if elem.name() == "a" {
-                        return elem
-                            .attr("href")
-                            .map(str::to_string)
-                            .ok_or(ParseError::MissingHref);
+                        return elem.a_href();
                     }
                 }
             }
         }
 
         Err(ParseError::MissingHref)
+    }
+}
+
+trait ElementExt {
+    fn a_href(&self) -> Result<String>;
+}
+
+impl ElementExt for Element {
+    fn a_href(&self) -> Result<String> {
+        self.attr("href")
+            .map(str::to_string)
+            .ok_or(ParseError::MissingHref)
     }
 }
 
