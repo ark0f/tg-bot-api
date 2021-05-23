@@ -9,6 +9,7 @@ use chrono::NaiveDate;
 use ego_tree::iter::Edge;
 use html2md::{common::get_tag_attr, Handle, StructuredPrinter, TagHandler, TagHandlerFactory};
 use itertools::Itertools;
+use logos::Logos;
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 use scraper::{ElementRef, Node};
 use semver::Version;
@@ -17,18 +18,13 @@ use std::{
     str::ParseBoolError,
 };
 
-const RETURN_TYPE_PATTERNS: &[&[&str]] = &[&["On", "success"], &["Returns"], &["returns"], &["An"]];
-const DEFAULTS_PATTERNS: &[&[&str]] = &[&["Defaults", "to"]];
-const MIN_MAX_PATTERNS: &[&[&str]] = &[&["Values", "between"]];
-const ONE_OF_PATTERNS: &[&[&str]] = &[&["One", "of"], &["one", "of"], &["either"], &["Can", "be"]];
-
 type Result<T> = std::result::Result<T, ParseError>;
 
 #[derive(Debug, thiserror::Error)]
 pub enum ParseError {
     #[error("Invalid Required: {0}")]
     InvalidRequired(String),
-    #[error("Failed to extract type from description: {0}")]
+    #[error("Failed to extract type from description: {0:?}")]
     TypeExtractionFailed(String),
     #[error("chrono: {0}")]
     ChronoParse(
@@ -38,6 +34,8 @@ pub enum ParseError {
     ),
     #[error("Missing `href` attribute")]
     MissingHref,
+    #[error("Missing `alt` attribute")]
+    MissingAlt,
     #[error("SemVer: {0}")]
     SemVer(
         #[from]
@@ -120,7 +118,10 @@ fn parse_object(raw_object: RawObject) -> Result<Object> {
 fn parse_field(raw_field: RawField) -> Result<Field> {
     let plain_description = raw_field.description.plain_text();
     let required = !plain_description.starts_with("Optional.");
-    let kind = Type::new_with_description(&raw_field.kind, &plain_description)?;
+    let kind = Type::new_with_description(
+        &raw_field.kind,
+        ElementOrDescription::Element(&raw_field.description),
+    )?;
 
     Ok(Field {
         name: raw_field.name,
@@ -133,8 +134,8 @@ fn parse_field(raw_field: RawField) -> Result<Field> {
 fn parse_method(raw_method: RawMethod) -> Result<Method> {
     let name = raw_method.name.plain_text();
     let docs_link = raw_method.name.a_href().map(make_url_from_fragment)?;
-    let plain_description = raw_method.description.plain_text();
-    let return_type = Type::extract_from_text(&plain_description)?;
+    let return_type =
+        Type::extract_from_text(ElementOrDescription::Description(&raw_method.description))?;
     let args = raw_method
         .args
         .into_iter()
@@ -150,8 +151,10 @@ fn parse_method(raw_method: RawMethod) -> Result<Method> {
 }
 
 fn parse_argument(raw_arg: RawArgument) -> Result<Argument> {
-    let plain_description = raw_arg.description.plain_text();
-    let kind = Type::new_with_description(&raw_arg.kind, &plain_description)?;
+    let kind = Type::new_with_description(
+        &raw_arg.kind,
+        ElementOrDescription::Element(&raw_arg.description),
+    )?;
     let required = parse_required(raw_arg.required)?;
     Ok(Argument {
         name: raw_arg.name,
@@ -228,7 +231,7 @@ impl Type {
             },
             "Float" | "Float number" => Self::Float,
             _ => {
-                let parser = SentenceParser::new(s);
+                let parser = Sentences::parse(s);
                 if let Some(sentence) = parser.find(&["or"]) {
                     let types = types_from_sentence_ref(sentence);
                     Self::Or(types)
@@ -255,46 +258,34 @@ impl Type {
         }
     }
 
-    fn new_with_description(s: &str, description: &str) -> Result<Self> {
-        let parser = SentenceParser::new(description);
-        let default = Self::custom_parse(
-            DEFAULTS_PATTERNS,
-            |sentence| Some(sentence.parts.get(0)?.inner.clone()),
-            &parser,
-        );
+    fn new_with_description(s: &str, description: ElementOrDescription) -> Result<Self> {
+        let default = Self::custom_parse(Pattern::Default, description, |sentence| {
+            sentence.parts.get(0).map(|part| part.inner.clone())
+        })?;
+        let min_max = Self::custom_parse(Pattern::MinMax, description, |sentence| {
+            let values = &sentence.parts.get(0)?.inner;
+            let mut split = values.split('-');
+            let min = split.next()?.to_string();
+            let max = split.next()?.to_string();
+            Some((min, max))
+        })?;
+        let one_of = Self::custom_parse(Pattern::OneOf, description, |sentence| {
+            Some(
+                sentence
+                    .parts
+                    .iter()
+                    .filter(|part| part.has_quotes)
+                    .map(|part| &part.inner)
+                    .cloned()
+                    .collect(),
+            )
+        })?;
 
-        let min_max = Self::custom_parse(
-            MIN_MAX_PATTERNS,
-            |sentence| {
-                let values = &sentence.parts.get(0)?.inner;
-                let mut split = values.split('-');
-                let min = split.next()?.to_string();
-                let max = split.next()?.to_string();
-                Some((min, max))
-            },
-            &parser,
-        );
         let (min, max) = if let Some((min, max)) = min_max {
             (Some(min), Some(max))
         } else {
             (None, None)
         };
-
-        let one_of = Self::custom_parse(
-            ONE_OF_PATTERNS,
-            |sentence| {
-                Some(
-                    sentence
-                        .parts
-                        .iter()
-                        .filter(|part| part.has_quotes)
-                        .map(|part| &part.inner)
-                        .cloned()
-                        .collect(),
-                )
-            },
-            &parser,
-        );
 
         let ty = match Type::new(s) {
             Type::Integer { .. } => Type::Integer {
@@ -303,11 +294,16 @@ impl Type {
                 max: max.as_deref().map(str::parse).transpose()?,
             },
             Type::Bool { .. } => Type::Bool {
-                default: default.as_deref().map(str::parse).transpose()?,
+                default: default
+                    .as_deref()
+                    .map(str::to_lowercase)
+                    .as_deref()
+                    .map(str::parse)
+                    .transpose()?,
             },
-            Type::String { .. } if one_of.is_some() => Type::String {
+            Type::String { .. } if default.is_some() || one_of.is_some() => Type::String {
                 default,
-                one_of: one_of.unwrap(),
+                one_of: one_of.unwrap_or_default(),
             },
             x => x,
         };
@@ -315,18 +311,37 @@ impl Type {
         Ok(ty)
     }
 
-    fn custom_parse<F, T>(patterns: &[&[&str]], extractor: F, parser: &SentenceParser) -> Option<T>
+    fn custom_parse<E, T>(
+        pattern: Pattern,
+        text: ElementOrDescription,
+        extractor: E,
+    ) -> Result<Option<T>>
     where
-        F: Fn(&SentenceRef) -> Option<T>,
+        E: Fn(&SentenceRef) -> Option<T>,
     {
-        patterns.iter().find_map(|&pattern| {
-            let sentence = parser.find(pattern)?;
-            let sentence = &sentence[pattern.len()..];
-            extractor(sentence)
-        })
+        let sentences = text.sentences()?;
+        let mut result = None;
+        let patterns = pattern.parts();
+        'patterns: for pattern in patterns {
+            for sentence in &sentences {
+                for (word_idx, words) in sentence.parts.windows(pattern.parts.len()).enumerate() {
+                    if pattern.parts == words {
+                        let offset = (word_idx as isize
+                            + pattern.parts.len() as isize
+                            + pattern.offset) as usize;
+
+                        let sentence = &sentence[offset..];
+                        result = Some(sentence);
+                        break 'patterns;
+                    }
+                }
+            }
+        }
+
+        Ok(result.and_then(extractor))
     }
 
-    pub fn extract_from_text(text: &str) -> Result<Self> {
+    pub fn extract_from_text(text: ElementOrDescription) -> Result<Self> {
         fn strip_plural_ending(mut s: &str) -> &str {
             if s.ends_with("es") {
                 s = s.strip_suffix('s').unwrap_or(s);
@@ -372,9 +387,9 @@ impl Type {
             }
         }
 
-        let parser = SentenceParser::new(text);
-        Self::custom_parse(RETURN_TYPE_PATTERNS, extract_type, &parser)
-            .ok_or_else(|| ParseError::TypeExtractionFailed(text.to_string()))
+        Self::custom_parse(Pattern::ReturnType, text, extract_type)
+            .transpose()
+            .ok_or_else(|| ParseError::TypeExtractionFailed(text.plain_text()))?
     }
 
     pub fn maybe_file_to_send(&self) -> bool {
@@ -383,6 +398,28 @@ impl Type {
             Type::Or(types) => types.iter().any(Self::maybe_file_to_send),
             Type::Array(ty) => ty.maybe_file_to_send(),
             Type::Object(object) => object.starts_with("Input"),
+        }
+    }
+}
+
+#[derive(Debug, Copy, Clone)]
+pub enum ElementOrDescription<'a> {
+    Element(&'a ElementRef<'a>),
+    Description(&'a RawDescription<'a>),
+}
+
+impl ElementOrDescription<'_> {
+    fn sentences(self) -> Result<Vec<Sentence>> {
+        match self {
+            ElementOrDescription::Element(elem) => elem.sentences(),
+            ElementOrDescription::Description(description) => description.sentences(),
+        }
+    }
+
+    fn plain_text(self) -> String {
+        match self {
+            ElementOrDescription::Element(elem) => elem.plain_text(),
+            ElementOrDescription::Description(description) => description.plain_text(),
         }
     }
 }
@@ -448,156 +485,242 @@ pub struct Argument {
     pub description: String,
 }
 
-#[derive(Debug)]
-struct SentenceParser {
-    sentences: Vec<Sentence>,
+#[derive(Debug, PartialEq, Copy, Clone)]
+enum Pattern {
+    ReturnType,
+    Default,
+    MinMax,
+    OneOf,
 }
 
-impl SentenceParser {
-    fn new(text: &str) -> Self {
-        const QUOTES: &[(char, char)] = &[('“', '”'), ('"', '"')];
+impl Pattern {
+    fn parts(self) -> Vec<SearcherPattern> {
+        match self {
+            Pattern::ReturnType => vec![
+                SearcherPattern::default().by_word("On").by_word("success"),
+                SearcherPattern::default().by_word("Returns"),
+                SearcherPattern::default().by_word("returns"),
+                SearcherPattern::default().by_word("An"),
+            ],
+            Pattern::Default => vec![
+                SearcherPattern::default().by_word("Defaults").by_word("to"),
+                SearcherPattern::default().by_word("defaults").by_word("to"),
+                SearcherPattern::default()
+                    .by_word("must")
+                    .by_word("be")
+                    .by_kind(PartKind::Italic)
+                    .with_offset(-1),
+            ],
+            Pattern::MinMax => vec![SearcherPattern::default()
+                .by_word("Values")
+                .by_word("between")],
+            Pattern::OneOf => {
+                vec![
+                    SearcherPattern::default().by_word("One").by_word("of"),
+                    SearcherPattern::default().by_word("one").by_word("of"),
+                    SearcherPattern::default().by_word("Can").by_word("be"),
+                ]
+            }
+        }
+    }
+}
 
+#[derive(Debug, Default)]
+struct SearcherPattern {
+    parts: Vec<SearcherPart>,
+    offset: isize,
+}
+
+impl SearcherPattern {
+    fn by_word<T: Into<String>>(mut self, inner: T) -> Self {
+        self.parts.push(SearcherPart::by_word(inner));
+        self
+    }
+
+    fn by_kind(mut self, kind: PartKind) -> Self {
+        self.parts.push(SearcherPart::by_kind(kind));
+        self
+    }
+
+    /// Useful for partial matching  
+    fn with_offset(mut self, offset: isize) -> Self {
+        self.offset = offset;
+        self
+    }
+}
+
+#[derive(Debug, Clone, Logos)]
+enum SentenceLexer {
+    #[error]
+    #[token(",", logos::skip)]
+    #[token(" ", logos::skip)]
+    #[token("(", logos::skip)]
+    #[token(")", logos::skip)]
+    Error,
+    #[regex(r#"([^“., ]|\\.)+"#, |_| false)] // just word
+    #[regex(r#""(?:[^"']|\\["'])*["']"#, |_| true)] // words in "", '", '' or "' quotes
+    #[regex(r#"“(?:[^”]|\\”)*”"#, |_| true)] // words in unicode quotes
+    Word(bool), // does word has quotes?
+    #[token(".")]
+    Dot,
+    #[token("\"")]
+    #[token("“")]
+    #[token("”")]
+    /// In case line break between text and tag
+    Quote,
+}
+
+#[derive(Debug)]
+struct Sentences {
+    inner: Vec<Sentence>,
+}
+
+impl Sentences {
+    fn parse(text: &str) -> Self {
         let mut sentences = vec![];
         let mut parts = vec![];
-        let mut part = Part::default();
 
-        let mut last_quote = None;
-        let mut c = '\0';
-        let mut chars = text.chars().peekable();
-
-        enum State {
-            GetNextChar,
-            CheckQuotes,
-            CheckWhitespace,
-            CheckDot,
-            CheckComma,
-            PushChar,
-            PushPart { and_sentence: bool },
-            PushSentence,
-            Break,
-        }
-
-        let mut state = State::GetNextChar;
-        loop {
-            let new_state = match state {
-                State::GetNextChar => {
-                    if let Some(new_c) = chars.next() {
-                        c = new_c;
-                        State::CheckQuotes
-                    } else {
-                        State::Break
-                    }
+        let lexer = SentenceLexer::lexer(&text);
+        for (token, span) in lexer.spanned() {
+            let lexeme = &text[span.start..span.end];
+            match token {
+                SentenceLexer::Error => {
+                    dbg!(text);
+                    dbg!(lexeme);
+                    unreachable!()
                 }
-                State::CheckQuotes => {
-                    if let Some(&(start_quote, _)) = QUOTES.iter().find(|&&(l, r)| l == c || r == c)
-                    {
-                        if last_quote == Some(start_quote) {
-                            part.has_quotes = true;
-                            last_quote = None;
-                            State::PushPart {
-                                and_sentence: false,
-                            }
-                        } else {
-                            last_quote = Some(start_quote);
-                            State::GetNextChar
-                        }
-                    } else {
-                        State::CheckWhitespace
-                    }
+                SentenceLexer::Word(has_quotes) => {
+                    let inner = lexeme
+                        .trim_matches('"')
+                        .trim_matches('\'')
+                        .trim_start_matches('“')
+                        .trim_end_matches('”')
+                        .to_string();
+                    parts.push(Part::new(inner).with_quotes(has_quotes));
                 }
-                State::CheckWhitespace => {
-                    if c.is_whitespace() && last_quote.is_none() {
-                        State::PushPart {
-                            and_sentence: false,
-                        }
-                    } else {
-                        State::CheckDot
-                    }
-                }
-                State::CheckDot => {
-                    if c == '.'
-                        && chars
-                            .peek()
-                            .copied()
-                            .map(char::is_whitespace)
-                            .unwrap_or(true)
-                    {
-                        State::PushPart { and_sentence: true }
-                    } else {
-                        State::CheckComma
-                    }
-                }
-                State::CheckComma => {
-                    if c == ',' {
-                        State::PushPart {
-                            and_sentence: false,
-                        }
-                    } else {
-                        State::PushChar
-                    }
-                }
-                State::PushChar => {
-                    part.inner.push(c);
-                    State::GetNextChar
-                }
-                State::PushPart { and_sentence } => {
-                    if !part.inner.is_empty() {
-                        parts.push(mem::take(&mut part));
-                    }
-
-                    if and_sentence {
-                        State::PushSentence
-                    } else {
-                        State::GetNextChar
-                    }
-                }
-                State::PushSentence => {
+                SentenceLexer::Dot => {
                     sentences.push(Sentence {
                         parts: mem::take(&mut parts),
                     });
-                    State::GetNextChar
                 }
-                State::Break => {
-                    if !part.inner.is_empty() {
-                        parts.push(part);
-                    }
-
-                    if !parts.is_empty() {
-                        sentences.push(Sentence { parts });
-                    }
-                    break;
-                }
-            };
-            state = new_state;
+                SentenceLexer::Quote => unreachable!(),
+            }
         }
 
-        Self { sentences }
+        if !parts.is_empty() {
+            sentences.push(Sentence { parts });
+        }
+
+        Self { inner: sentences }
     }
 
     fn find(&self, words: &[&str]) -> Option<&SentenceRef> {
-        self.sentences.iter().find_map(|sentence| {
-            if sentence
+        self.inner.iter().find_map(|sentence| {
+            sentence
                 .parts
                 .windows(words.len())
-                .any(|window| window == words)
-            {
-                Some(sentence.as_ref())
-            } else {
-                None
-            }
+                .position(|window| window == words)
+                .map(|pos| &sentence[pos..])
         })
     }
 }
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 struct Part {
     inner: String,
     has_quotes: bool,
+    kind: PartKind,
+}
+
+impl Part {
+    fn new(inner: String) -> Self {
+        Self {
+            inner,
+            ..Self::default()
+        }
+    }
+
+    fn link(inner: String, link: String) -> Self {
+        Self {
+            inner,
+            kind: PartKind::Link(link),
+            ..Self::default()
+        }
+    }
+
+    fn italic(inner: String) -> Self {
+        Self {
+            inner,
+            kind: PartKind::Italic,
+            ..Self::default()
+        }
+    }
+
+    fn code(inner: String) -> Self {
+        Self {
+            inner,
+            kind: PartKind::Code,
+            ..Self::default()
+        }
+    }
+
+    fn bold(inner: String) -> Self {
+        Self {
+            inner,
+            kind: PartKind::Bold,
+            ..Self::default()
+        }
+    }
+
+    fn with_quotes(mut self, has_quotes: bool) -> Self {
+        self.has_quotes = has_quotes;
+        self
+    }
 }
 
 impl PartialEq<&str> for Part {
     fn eq(&self, other: &&str) -> bool {
         self.inner == *other
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
+enum PartKind {
+    Word,
+    Link(String),
+    Bold,
+    Italic,
+    Code,
+}
+
+impl Default for PartKind {
+    fn default() -> Self {
+        Self::Word
+    }
+}
+
+#[derive(Debug, Clone, PartialEq)]
+enum SearcherPart {
+    ByWord(String),
+    ByKind(PartKind),
+}
+
+impl SearcherPart {
+    fn by_word<T: Into<String>>(inner: T) -> Self {
+        Self::ByWord(inner.into())
+    }
+
+    fn by_kind(kind: PartKind) -> Self {
+        Self::ByKind(kind)
+    }
+}
+
+impl PartialEq<Part> for SearcherPart {
+    fn eq(&self, other: &Part) -> bool {
+        match self {
+            SearcherPart::ByWord(inner) => other.inner == *inner,
+            SearcherPart::ByKind(kind) => other.kind == *kind,
+        }
     }
 }
 
@@ -663,12 +786,24 @@ where
 }
 
 trait RawDescriptionExt {
+    fn sentences(&self) -> Result<Vec<Sentence>>;
+
     fn markdown(&self) -> String;
 
     fn plain_text(&self) -> String;
 }
 
 impl RawDescriptionExt for RawDescription<'_> {
+    fn sentences(&self) -> Result<Vec<Sentence>> {
+        self.0
+            .iter()
+            .map(ElementRef::sentences)
+            .try_fold(Vec::new(), |mut acc, x| {
+                acc.extend(x?);
+                Ok(acc)
+            })
+    }
+
     fn markdown(&self) -> String {
         html2md::parse_html_custom(
             &self.0.iter().map(ElementRef::html).join("\n"),
@@ -682,12 +817,95 @@ impl RawDescriptionExt for RawDescription<'_> {
 }
 
 trait ElementRefParserExt {
+    fn sentences(&self) -> Result<Vec<Sentence>>;
+
     fn markdown(&self) -> String;
 
     fn a_href(&self) -> Result<String>;
 }
 
 impl ElementRefParserExt for ElementRef<'_> {
+    fn sentences(&self) -> Result<Vec<Sentence>> {
+        let mut sentences = vec![];
+        let mut parts = vec![];
+        let mut quote_part = false;
+
+        for node in self.children() {
+            match node.value() {
+                Node::Text(text) => {
+                    let lexer = SentenceLexer::lexer(&text);
+                    for (token, span) in lexer.spanned() {
+                        let lexeme = &text[span.start..span.end];
+                        match token {
+                            SentenceLexer::Error => {
+                                dbg!(text);
+                                dbg!(lexeme);
+                                unreachable!()
+                            }
+                            SentenceLexer::Word(has_quotes) => {
+                                let inner = lexeme
+                                    .trim_matches('"')
+                                    .trim_matches('\'')
+                                    .trim_start_matches('“')
+                                    .trim_end_matches('”')
+                                    .to_string();
+                                parts.push(Part::new(inner).with_quotes(has_quotes));
+                            }
+                            SentenceLexer::Dot => {
+                                sentences.push(Sentence {
+                                    parts: mem::take(&mut parts),
+                                });
+                            }
+                            SentenceLexer::Quote => {
+                                quote_part = !quote_part;
+                            }
+                        }
+                    }
+                }
+                Node::Element(elem) => {
+                    let inner = node.first_child();
+                    let text = inner
+                        .as_ref()
+                        .and_then(|node| node.value().as_text())
+                        .map(|text| text.to_string());
+
+                    let part = match (elem.name(), text) {
+                        ("a", Some(text)) => {
+                            // TODO: Element::a_href()
+                            let link = elem.attr("href").ok_or(ParseError::MissingHref)?;
+                            Some(Part::link(text, link.to_string()))
+                        }
+                        ("a", None) => {
+                            let link = elem.attr("href").ok_or(ParseError::MissingHref)?;
+                            Some(Part::new(link.to_string()))
+                        }
+                        ("em", Some(text)) => Some(Part::italic(text)),
+                        ("code", Some(text)) => Some(Part::code(text)),
+                        ("strong", Some(text)) => Some(Part::bold(text)),
+                        ("img", _) => {
+                            let alt = elem.attr("alt").ok_or(ParseError::MissingAlt)?;
+                            Some(Part::new(alt.to_string()).with_quotes(quote_part))
+                        }
+                        ("br", _) => None,
+                        _ => {
+                            // TODO: log skipped tags
+                            dbg!(elem);
+                            None
+                        }
+                    };
+                    parts.extend(part);
+                }
+                _ => continue,
+            }
+        }
+
+        if !parts.is_empty() {
+            sentences.push(Sentence { parts });
+        }
+
+        Ok(sentences)
+    }
+
     fn markdown(&self) -> String {
         html2md::parse_html_custom(&self.html(), &TagsHandlerFactory::new_in_map())
     }
@@ -888,32 +1106,32 @@ mod tests {
 
     #[test]
     fn sentence_parser_one_word() {
-        let parser = SentenceParser::new("One");
-        assert_eq!(parser.sentences.len(), 1);
-        assert_eq!(parser.sentences[0].parts.len(), 1);
-        assert_eq!(parser.sentences[0].parts[0], "One");
+        let sentences = Sentences::parse("One");
+        assert_eq!(sentences.inner.len(), 1);
+        assert_eq!(sentences.inner[0].parts.len(), 1);
+        assert_eq!(sentences.inner[0].parts[0], "One");
     }
 
     #[test]
     fn sentence_parser_parts() {
-        let parser = SentenceParser::new(
+        let sentences = Sentences::parse(
             r#"Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, or “🎰”. Dice can have values 1-6 for “🎲” and “🎯”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”."#,
         );
-        assert_eq!(parser.sentences.len(), 4);
-        assert_eq!(parser.sentences[0].parts.len(), 9);
-        assert_eq!(parser.sentences[1].parts.len(), 11);
-        assert_eq!(parser.sentences[2].parts.len(), 20);
-        assert_eq!(parser.sentences[3].parts.len(), 3);
+        assert_eq!(sentences.inner.len(), 4);
+        assert_eq!(sentences.inner[0].parts.len(), 9);
+        assert_eq!(sentences.inner[1].parts.len(), 11);
+        assert_eq!(sentences.inner[2].parts.len(), 20);
+        assert_eq!(sentences.inner[3].parts.len(), 3);
     }
 
     #[test]
     fn sentence_parser_quotes() {
-        let parser = SentenceParser::new(
+        let sentences = Sentences::parse(
             r#"The section of the user's Telegram Passport which has the issue, one of “passport”, “driver_license”, “identity_card”, “internal_passport”."#,
         );
         assert_eq!(
-            parser
-                .sentences
+            sentences
+                .inner
                 .into_iter()
                 .next()
                 .unwrap()
