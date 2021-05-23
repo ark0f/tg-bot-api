@@ -11116,7 +11116,13 @@
           },
           "type": {
             "description": "Type of chat, can be either “private”, “group”, “supergroup” or “channel”",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "private",
+              "group",
+              "supergroup",
+              "channel"
+            ]
           },
           "title": {
             "description": "*Optional*. Title, for supergroups, channels and group chats",
@@ -13806,7 +13812,11 @@
           },
           "mime_type": {
             "description": "Mime type of the content of the file, either “application/pdf” or “application/zip”",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "application/pdf",
+              "application/zip"
+            ]
           },
           "description": {
             "description": "*Optional*. Short description of the result",
