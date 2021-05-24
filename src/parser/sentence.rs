@@ -86,6 +86,12 @@ impl SearcherPattern {
     }
 }
 
+impl PartialEq<&[Part]> for SearcherPattern {
+    fn eq(&self, other: &&[Part]) -> bool {
+        self.parts == *other
+    }
+}
+
 #[derive(Debug, Clone, Logos)]
 enum SentenceLexer {
     #[error]
@@ -429,7 +435,7 @@ where
     'patterns: for pattern in patterns {
         for sentence in &sentences {
             for (word_idx, words) in sentence.parts.windows(pattern.parts.len()).enumerate() {
-                if pattern.parts == words {
+                if pattern == words {
                     let offset = (word_idx as isize + pattern.parts.len() as isize + pattern.offset)
                         as usize;
 
