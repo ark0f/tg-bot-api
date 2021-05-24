@@ -2981,7 +2981,11 @@
                   },
                   "foursquare_type": {
                     "description": "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "arts_entertainment/aquarium",
+                      "food/icecream"
+                    ]
                   },
                   "google_place_id": {
                     "description": "Google Places identifier of the venue",
@@ -3067,7 +3071,11 @@
                   },
                   "foursquare_type": {
                     "description": "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "arts_entertainment/aquarium",
+                      "food/icecream"
+                    ]
                   },
                   "google_place_id": {
                     "description": "Google Places identifier of the venue",
@@ -3153,7 +3161,11 @@
                   },
                   "foursquare_type": {
                     "description": "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "arts_entertainment/aquarium",
+                      "food/icecream"
+                    ]
                   },
                   "google_place_id": {
                     "description": "Google Places identifier of the venue",
@@ -3536,7 +3548,11 @@
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
                     "default": "regular",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "quiz",
+                      "regular"
+                    ]
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
@@ -3645,7 +3661,11 @@
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
                     "default": "regular",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "quiz",
+                      "regular"
+                    ]
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
@@ -3754,7 +3774,11 @@
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
                     "default": "regular",
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                      "quiz",
+                      "regular"
+                    ]
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
@@ -11914,7 +11938,11 @@
           },
           "type": {
             "description": "Poll type, currently can be “regular” or “quiz”",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "regular",
+              "quiz"
+            ]
           },
           "allows_multiple_answers": {
             "description": "True, if the poll allows multiple answers",
@@ -12016,7 +12044,11 @@
           },
           "foursquare_type": {
             "description": "*Optional*. Foursquare type of the venue. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "arts_entertainment/aquarium",
+              "food/icecream"
+            ]
           },
           "google_place_id": {
             "description": "*Optional*. Google Places identifier of the venue",
@@ -13596,7 +13628,11 @@
           },
           "mime_type": {
             "description": "Mime type of the content of video url, “text/html” or “video/mp4”",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "text/html",
+              "video/mp4"
+            ]
           },
           "thumb_url": {
             "description": "URL of the thumbnail (jpeg only) for the video",
@@ -13958,7 +13994,11 @@
           },
           "foursquare_type": {
             "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "arts_entertainment/aquarium",
+              "food/icecream"
+            ]
           },
           "google_place_id": {
             "description": "*Optional*. Google Places identifier of the venue",
@@ -14612,7 +14652,11 @@
           },
           "foursquare_type": {
             "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "arts_entertainment/aquarium",
+              "food/icecream"
+            ]
           },
           "google_place_id": {
             "description": "*Optional*. Google Places identifier of the venue",

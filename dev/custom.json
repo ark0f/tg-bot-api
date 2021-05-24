@@ -1665,7 +1665,11 @@
           "name": "foursquare_type",
           "description": "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "arts_entertainment/aquarium",
+            "food/icecream"
+          ]
         },
         {
           "name": "google_place_id",
@@ -1866,7 +1870,11 @@
           "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
           "required": false,
           "type": "string",
-          "default": "regular"
+          "default": "regular",
+          "enumeration": [
+            "quiz",
+            "regular"
+          ]
         },
         {
           "name": "allows_multiple_answers",
@@ -5578,7 +5586,11 @@
           "name": "type",
           "description": "Poll type, currently can be “regular” or “quiz”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "regular",
+            "quiz"
+          ]
         },
         {
           "name": "allows_multiple_answers",
@@ -5701,7 +5713,11 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "arts_entertainment/aquarium",
+            "food/icecream"
+          ]
         },
         {
           "name": "google_place_id",
@@ -7633,7 +7649,11 @@
           "name": "mime_type",
           "description": "Mime type of the content of video url, “text/html” or “video/mp4”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "text/html",
+            "video/mp4"
+          ]
         },
         {
           "name": "thumb_url",
@@ -8116,7 +8136,11 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "arts_entertainment/aquarium",
+            "food/icecream"
+          ]
         },
         {
           "name": "google_place_id",
@@ -8959,7 +8983,11 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "arts_entertainment/aquarium",
+            "food/icecream"
+          ]
         },
         {
           "name": "google_place_id",

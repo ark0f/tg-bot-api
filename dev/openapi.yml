@@ -1823,6 +1823,9 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
+                  enum:
+                    - arts_entertainment/aquarium
+                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -1878,6 +1881,9 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
+                  enum:
+                    - arts_entertainment/aquarium
+                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -1933,6 +1939,9 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
+                  enum:
+                    - arts_entertainment/aquarium
+                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -2169,6 +2178,9 @@ paths:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
                   default: regular
                   type: string
+                  enum:
+                    - quiz
+                    - regular
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
@@ -2241,6 +2253,9 @@ paths:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
                   default: regular
                   type: string
+                  enum:
+                    - quiz
+                    - regular
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
@@ -2313,6 +2328,9 @@ paths:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
                   default: regular
                   type: string
+                  enum:
+                    - quiz
+                    - regular
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
@@ -7530,6 +7548,9 @@ components:
         type:
           description: "Poll type, currently can be “regular” or “quiz”"
           type: string
+          enum:
+            - regular
+            - quiz
         allows_multiple_answers:
           description: "True, if the poll allows multiple answers"
           type: boolean
@@ -7606,6 +7627,9 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
+          enum:
+            - arts_entertainment/aquarium
+            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string
@@ -8715,6 +8739,9 @@ components:
         mime_type:
           description: "Mime type of the content of video url, “text/html” or “video/mp4”"
           type: string
+          enum:
+            - text/html
+            - video/mp4
         thumb_url:
           description: URL of the thumbnail (jpeg only) for the video
           type: string
@@ -8984,6 +9011,9 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
+          enum:
+            - arts_entertainment/aquarium
+            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string
@@ -9457,6 +9487,9 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
+          enum:
+            - arts_entertainment/aquarium
+            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string
