@@ -1,5 +1,9 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.2.5 (24.05.2021)
+* Fix issue #11
+* Fix issue #9
+
 # v0.2.5 (09.05.2021)
 * Fix issue #7
 * Fix issue #8

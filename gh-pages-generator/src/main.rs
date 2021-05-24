@@ -91,6 +91,8 @@ impl Path {
 }
 
 fn main() -> anyhow::Result<()> {
+    pretty_env_logger::init();
+
     let path = Path::from_args();
 
     let api = reqwest::blocking::get(BOT_API_DOCS_URL)?.text()?;

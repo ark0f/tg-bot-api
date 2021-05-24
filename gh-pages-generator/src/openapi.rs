@@ -50,8 +50,8 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
                 schema_data: SchemaData {
                     description: Some(object.description),
                     external_docs: Some(ExternalDocumentation {
-                        description: None,
                         url: object.docs_link,
+                        ..ExternalDocumentation::default()
                     }),
                     ..SchemaData::default()
                 },
@@ -113,9 +113,9 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
             description: Some(method.description),
             request_body: if has_args {
                 Some(ReferenceOr::Item(RequestBody {
-                    description: None,
                     content,
                     required: true,
+                    ..RequestBody::default()
                 }))
             } else {
                 None
@@ -142,9 +142,9 @@ pub fn generate(parsed: Parsed) -> OpenAPI {
                     }),
                 },
             },
-            external_documentation: Some(ExternalDocumentation {
-                description: None,
+            external_docs: Some(ExternalDocumentation {
                 url: method.docs_link,
+                ..ExternalDocumentation::default()
             }),
             ..Operation::default()
         };

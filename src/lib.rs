@@ -1,3 +1,6 @@
+#[macro_use]
+extern crate ego_tree;
+
 mod extractor;
 mod parser;
 mod util;
