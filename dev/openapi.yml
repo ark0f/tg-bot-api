@@ -1823,9 +1823,6 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
-                  enum:
-                    - arts_entertainment/aquarium
-                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -1881,9 +1878,6 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
-                  enum:
-                    - arts_entertainment/aquarium
-                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -1939,9 +1933,6 @@ paths:
                 foursquare_type:
                   description: "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
                   type: string
-                  enum:
-                    - arts_entertainment/aquarium
-                    - food/icecream
                 google_place_id:
                   description: Google Places identifier of the venue
                   type: string
@@ -7627,9 +7618,6 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
-          enum:
-            - arts_entertainment/aquarium
-            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string
@@ -9011,9 +8999,6 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
-          enum:
-            - arts_entertainment/aquarium
-            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string
@@ -9487,9 +9472,6 @@ components:
         foursquare_type:
           description: "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)"
           type: string
-          enum:
-            - arts_entertainment/aquarium
-            - food/icecream
         google_place_id:
           description: "*Optional*. Google Places identifier of the venue"
           type: string

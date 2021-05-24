@@ -1665,11 +1665,7 @@
           "name": "foursquare_type",
           "description": "Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string",
-          "enumeration": [
-            "arts_entertainment/aquarium",
-            "food/icecream"
-          ]
+          "type": "string"
         },
         {
           "name": "google_place_id",
@@ -5713,11 +5709,7 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string",
-          "enumeration": [
-            "arts_entertainment/aquarium",
-            "food/icecream"
-          ]
+          "type": "string"
         },
         {
           "name": "google_place_id",
@@ -8136,11 +8128,7 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string",
-          "enumeration": [
-            "arts_entertainment/aquarium",
-            "food/icecream"
-          ]
+          "type": "string"
         },
         {
           "name": "google_place_id",
@@ -8983,11 +8971,7 @@
           "name": "foursquare_type",
           "description": "*Optional*. Foursquare type of the venue, if known. (For example, “arts\\_entertainment/default”, “arts\\_entertainment/aquarium” or “food/icecream”.)",
           "required": false,
-          "type": "string",
-          "enumeration": [
-            "arts_entertainment/aquarium",
-            "food/icecream"
-          ]
+          "type": "string"
         },
         {
           "name": "google_place_id",
