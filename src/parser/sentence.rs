@@ -59,23 +59,23 @@ impl Pattern {
 
 #[derive(Debug, Default)]
 struct SearcherPattern {
-    parts: Vec<SearcherPart>,
+    parts: Vec<SearchBy>,
     offset: isize,
 }
 
 impl SearcherPattern {
     fn by_word<T: Into<String>>(mut self, inner: T) -> Self {
-        self.parts.push(SearcherPart::by_word(inner));
+        self.parts.push(SearchBy::word(inner));
         self
     }
 
     fn by_kind(mut self, kind: PartKind) -> Self {
-        self.parts.push(SearcherPart::by_kind(kind));
+        self.parts.push(SearchBy::kind(kind));
         self
     }
 
     fn by_quotes(mut self) -> Self {
-        self.parts.push(SearcherPart::by_quotes());
+        self.parts.push(SearchBy::quotes());
         self
     }
 
@@ -232,32 +232,32 @@ impl Default for PartKind {
 }
 
 #[derive(Debug, Clone, PartialEq)]
-enum SearcherPart {
-    ByWord(String),
-    ByKind(PartKind),
-    ByQuotes,
+enum SearchBy {
+    Word(String),
+    Kind(PartKind),
+    Quotes,
 }
 
-impl SearcherPart {
-    fn by_word<T: Into<String>>(inner: T) -> Self {
-        Self::ByWord(inner.into())
+impl SearchBy {
+    fn word<T: Into<String>>(inner: T) -> Self {
+        Self::Word(inner.into())
     }
 
-    fn by_kind(kind: PartKind) -> Self {
-        Self::ByKind(kind)
+    fn kind(kind: PartKind) -> Self {
+        Self::Kind(kind)
     }
 
-    fn by_quotes() -> Self {
-        Self::ByQuotes
+    fn quotes() -> Self {
+        Self::Quotes
     }
 }
 
-impl PartialEq<Part> for SearcherPart {
+impl PartialEq<Part> for SearchBy {
     fn eq(&self, other: &Part) -> bool {
         match self {
-            SearcherPart::ByWord(inner) => other.inner == *inner,
-            SearcherPart::ByKind(kind) => other.kind == *kind,
-            SearcherPart::ByQuotes => other.has_quotes,
+            SearchBy::Word(inner) => other.inner == *inner,
+            SearchBy::Kind(kind) => other.kind == *kind,
+            SearchBy::Quotes => other.has_quotes,
         }
     }
 }
