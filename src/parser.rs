@@ -277,6 +277,7 @@ impl Type {
                     .filter(|part| part.has_quotes())
                     .map(|part| part.as_inner())
                     .cloned()
+                    .dedup()
                     .collect(),
             )
         })?;

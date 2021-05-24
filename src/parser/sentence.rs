@@ -41,6 +41,16 @@ impl Pattern {
                     SearcherPattern::default().by_word("One").by_word("of"),
                     SearcherPattern::default().by_word("one").by_word("of"),
                     SearcherPattern::default().by_word("Can").by_word("be"),
+                    SearcherPattern::default()
+                        .by_word("can")
+                        .by_word("be")
+                        .by_quotes()
+                        .with_offset(-1),
+                    SearcherPattern::default()
+                        .by_quotes()
+                        .by_word("or")
+                        .by_quotes()
+                        .with_offset(-3),
                 ]
             }
         }
@@ -61,6 +71,11 @@ impl SearcherPattern {
 
     fn by_kind(mut self, kind: PartKind) -> Self {
         self.parts.push(SearcherPart::by_kind(kind));
+        self
+    }
+
+    fn by_quotes(mut self) -> Self {
+        self.parts.push(SearcherPart::by_quotes());
         self
     }
 
@@ -220,6 +235,7 @@ impl Default for PartKind {
 enum SearcherPart {
     ByWord(String),
     ByKind(PartKind),
+    ByQuotes,
 }
 
 impl SearcherPart {
@@ -230,6 +246,10 @@ impl SearcherPart {
     fn by_kind(kind: PartKind) -> Self {
         Self::ByKind(kind)
     }
+
+    fn by_quotes() -> Self {
+        Self::ByQuotes
+    }
 }
 
 impl PartialEq<Part> for SearcherPart {
@@ -237,6 +257,7 @@ impl PartialEq<Part> for SearcherPart {
         match self {
             SearcherPart::ByWord(inner) => other.inner == *inner,
             SearcherPart::ByKind(kind) => other.kind == *kind,
+            SearcherPart::ByQuotes => other.has_quotes,
         }
     }
 }
