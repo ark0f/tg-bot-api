@@ -91,10 +91,8 @@ enum SentenceLexer {
     #[error]
     #[token(",", logos::skip)]
     #[token(" ", logos::skip)]
-    #[token("(", logos::skip)]
-    #[token(")", logos::skip)]
     Error,
-    #[regex(r#"([^“., ]|\\.)+"#, |_| false)] // just word
+    #[regex(r#"([^“.,\(\) ]|\\.)+"#, |_| false)] // just word
     #[regex(r#""(?:[^"']|\\["'])*["']"#, |_| true)] // words in "", '", '' or "' quotes
     #[regex(r#"“(?:[^”]|\\”)*”"#, |_| true)] // words in unicode quotes
     Word(bool), // does word has quotes?
@@ -105,6 +103,10 @@ enum SentenceLexer {
     #[token("”")]
     /// In case line break between text and tag
     Quote,
+    #[token("(")]
+    LParen,
+    #[token(")")]
+    RParen,
 }
 
 #[derive(Debug)]
@@ -331,6 +333,7 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
     let mut sentences = vec![];
     let mut parts = vec![];
     let mut quote_part = false;
+    let mut paren = false;
 
     for node in elem.children() {
         match node.value() {
@@ -340,14 +343,14 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                     let lexeme = &text[span.start..span.end];
                     match token {
                         SentenceLexer::Error => {
-                            log::trace!(
+                            log::error!(
                                 "Unexpected lexer error: lexeme={:?}, text={}",
                                 lexeme,
                                 text.to_string(),
                             );
                             unreachable!()
                         }
-                        SentenceLexer::Word(has_quotes) => {
+                        SentenceLexer::Word(has_quotes) if !paren => {
                             let inner = lexeme
                                 .trim_matches('"')
                                 .trim_matches('\'')
@@ -356,18 +359,21 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                                 .to_string();
                             parts.push(Part::new(inner).with_quotes(has_quotes));
                         }
-                        SentenceLexer::Dot => {
+                        SentenceLexer::Dot if !paren => {
                             sentences.push(Sentence {
                                 parts: mem::take(&mut parts),
                             });
                         }
-                        SentenceLexer::Quote => {
+                        SentenceLexer::Quote if !paren => {
                             quote_part = !quote_part;
                         }
+                        SentenceLexer::LParen => paren = true,
+                        SentenceLexer::RParen => paren = false,
+                        _ => continue,
                     }
                 }
             }
-            Node::Element(elem) => {
+            Node::Element(elem) if !paren => {
                 let inner = node.first_child();
                 let text = inner
                     .as_ref()
@@ -441,6 +447,15 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn sentence_parser_parentheses_ignored() {
+        let sentences = Sentences::parse("Hello (really?), world!");
+        itertools::assert_equal(
+            sentences.inner[0].parts.iter().map(|part| part.as_inner()),
+            vec!["Hello", "world!"],
+        );
+    }
 
     #[test]
     fn sentence_parser_one_word() {
