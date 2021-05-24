@@ -1866,7 +1866,11 @@
           "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
           "required": false,
           "type": "string",
-          "default": "regular"
+          "default": "regular",
+          "enumeration": [
+            "quiz",
+            "regular"
+          ]
         },
         {
           "name": "allows_multiple_answers",
@@ -5578,7 +5582,11 @@
           "name": "type",
           "description": "Poll type, currently can be “regular” or “quiz”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "regular",
+            "quiz"
+          ]
         },
         {
           "name": "allows_multiple_answers",
@@ -7633,7 +7641,11 @@
           "name": "mime_type",
           "description": "Mime type of the content of video url, “text/html” or “video/mp4”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "enumeration": [
+            "text/html",
+            "video/mp4"
+          ]
         },
         {
           "name": "thumb_url",
