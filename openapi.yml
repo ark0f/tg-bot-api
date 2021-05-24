@@ -2163,12 +2163,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
+                  default: regular
                   type: string
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -2232,12 +2235,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
+                  default: regular
                   type: string
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -2301,12 +2307,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
+                  default: regular
                   type: string
                 allows_multiple_answers:
                   description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -8134,6 +8143,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *photo*"
+          default: photo
           type: string
         media:
           description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
@@ -8160,6 +8170,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *video*"
+          default: video
           type: string
         media:
           description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
@@ -8203,6 +8214,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *animation*"
+          default: animation
           type: string
         media:
           description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
@@ -8243,6 +8255,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *audio*"
+          default: audio
           type: string
         media:
           description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
@@ -8283,6 +8296,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *document*"
+          default: document
           type: string
         media:
           description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
@@ -8478,6 +8492,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *article*"
+          default: article
           type: string
         id:
           description: "Unique identifier for this result, 1-64 Bytes"
@@ -8520,6 +8535,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *photo*"
+          default: photo
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8570,6 +8586,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *gif*"
+          default: gif
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8628,6 +8645,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *mpeg4\\_gif*"
+          default: mpeg4_gif
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8686,6 +8704,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *video*"
+          default: video
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8744,6 +8763,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *audio*"
+          default: audio
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8788,6 +8808,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *voice*"
+          default: voice
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8829,6 +8850,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *document*"
+          default: document
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -8886,6 +8908,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *location*"
+          default: location
           type: string
         id:
           description: "Unique identifier for this result, 1-64 Bytes"
@@ -8938,6 +8961,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *venue*"
+          default: venue
           type: string
         id:
           description: "Unique identifier for this result, 1-64 Bytes"
@@ -8994,6 +9018,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *contact*"
+          default: contact
           type: string
         id:
           description: "Unique identifier for this result, 1-64 Bytes"
@@ -9036,6 +9061,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *game*"
+          default: game
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9057,6 +9083,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *photo*"
+          default: photo
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9097,6 +9124,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *gif*"
+          default: gif
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9134,6 +9162,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *mpeg4\\_gif*"
+          default: mpeg4_gif
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9171,6 +9200,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *sticker*"
+          default: sticker
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9194,6 +9224,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *document*"
+          default: document
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9235,6 +9266,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *video*"
+          default: video
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9276,6 +9308,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *voice*"
+          default: voice
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9314,6 +9347,7 @@ components:
       properties:
         type:
           description: "Type of the result, must be *audio*"
+          default: audio
           type: string
         id:
           description: "Unique identifier for this result, 1-64 bytes"
@@ -9885,6 +9919,7 @@ components:
       properties:
         source:
           description: "Error source, must be *data*"
+          default: data
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the error, one of “personal\\_details”, “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “address”"
@@ -9919,6 +9954,7 @@ components:
       properties:
         source:
           description: "Error source, must be *front\\_side*"
+          default: front_side
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the issue, one of “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”"
@@ -9947,6 +9983,7 @@ components:
       properties:
         source:
           description: "Error source, must be *reverse\\_side*"
+          default: reverse_side
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the issue, one of “driver\\_license”, “identity\\_card”"
@@ -9973,6 +10010,7 @@ components:
       properties:
         source:
           description: "Error source, must be *selfie*"
+          default: selfie
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the issue, one of “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”"
@@ -10001,6 +10039,7 @@ components:
       properties:
         source:
           description: "Error source, must be *file*"
+          default: file
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the issue, one of “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration”, “temporary\\_registration”"
@@ -10030,6 +10069,7 @@ components:
       properties:
         source:
           description: "Error source, must be *files*"
+          default: files
           type: string
         type:
           description: "The section of the user's Telegram Passport which has the issue, one of “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration”, “temporary\\_registration”"
@@ -10061,6 +10101,7 @@ components:
       properties:
         source:
           description: "Error source, must be *translation\\_file*"
+          default: translation_file
           type: string
         type:
           description: "Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration”, “temporary\\_registration”"
@@ -10094,6 +10135,7 @@ components:
       properties:
         source:
           description: "Error source, must be *translation\\_files*"
+          default: translation_files
           type: string
         type:
           description: "Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration”, “temporary\\_registration”"
@@ -10129,6 +10171,7 @@ components:
       properties:
         source:
           description: "Error source, must be *unspecified*"
+          default: unspecified
           type: string
         type:
           description: "Type of element of the user's Telegram Passport which has the issue"

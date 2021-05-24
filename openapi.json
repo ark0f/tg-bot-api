@@ -3530,14 +3530,17 @@
                   },
                   "is_anonymous": {
                     "description": "True, if the poll needs to be anonymous, defaults to *True*",
+                    "default": true,
                     "type": "boolean"
                   },
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
+                    "default": "regular",
                     "type": "string"
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
+                    "default": false,
                     "type": "boolean"
                   },
                   "correct_option_id": {
@@ -3636,14 +3639,17 @@
                   },
                   "is_anonymous": {
                     "description": "True, if the poll needs to be anonymous, defaults to *True*",
+                    "default": true,
                     "type": "boolean"
                   },
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
+                    "default": "regular",
                     "type": "string"
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
+                    "default": false,
                     "type": "boolean"
                   },
                   "correct_option_id": {
@@ -3742,14 +3748,17 @@
                   },
                   "is_anonymous": {
                     "description": "True, if the poll needs to be anonymous, defaults to *True*",
+                    "default": true,
                     "type": "boolean"
                   },
                   "type": {
                     "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
+                    "default": "regular",
                     "type": "string"
                   },
                   "allows_multiple_answers": {
                     "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
+                    "default": false,
                     "type": "boolean"
                   },
                   "correct_option_id": {
@@ -12765,6 +12774,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *photo*",
+            "default": "photo",
             "type": "string"
           },
           "media": {
@@ -12801,6 +12811,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *video*",
+            "default": "video",
             "type": "string"
           },
           "media": {
@@ -12864,6 +12875,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *animation*",
+            "default": "animation",
             "type": "string"
           },
           "media": {
@@ -12923,6 +12935,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *audio*",
+            "default": "audio",
             "type": "string"
           },
           "media": {
@@ -12982,6 +12995,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *document*",
+            "default": "document",
             "type": "string"
           },
           "media": {
@@ -13284,6 +13298,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *article*",
+            "default": "article",
             "type": "string"
           },
           "id": {
@@ -13341,6 +13356,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *photo*",
+            "default": "photo",
             "type": "string"
           },
           "id": {
@@ -13409,6 +13425,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *gif*",
+            "default": "gif",
             "type": "string"
           },
           "id": {
@@ -13487,6 +13504,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *mpeg4\\_gif*",
+            "default": "mpeg4_gif",
             "type": "string"
           },
           "id": {
@@ -13565,6 +13583,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *video*",
+            "default": "video",
             "type": "string"
           },
           "id": {
@@ -13643,6 +13662,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *audio*",
+            "default": "audio",
             "type": "string"
           },
           "id": {
@@ -13703,6 +13723,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *voice*",
+            "default": "voice",
             "type": "string"
           },
           "id": {
@@ -13759,6 +13780,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *document*",
+            "default": "document",
             "type": "string"
           },
           "id": {
@@ -13836,6 +13858,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *location*",
+            "default": "location",
             "type": "string"
           },
           "id": {
@@ -13906,6 +13929,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *venue*",
+            "default": "venue",
             "type": "string"
           },
           "id": {
@@ -13981,6 +14005,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *contact*",
+            "default": "contact",
             "type": "string"
           },
           "id": {
@@ -14038,6 +14063,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *game*",
+            "default": "game",
             "type": "string"
           },
           "id": {
@@ -14067,6 +14093,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *photo*",
+            "default": "photo",
             "type": "string"
           },
           "id": {
@@ -14122,6 +14149,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *gif*",
+            "default": "gif",
             "type": "string"
           },
           "id": {
@@ -14173,6 +14201,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *mpeg4\\_gif*",
+            "default": "mpeg4_gif",
             "type": "string"
           },
           "id": {
@@ -14224,6 +14253,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *sticker*",
+            "default": "sticker",
             "type": "string"
           },
           "id": {
@@ -14256,6 +14286,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *document*",
+            "default": "document",
             "type": "string"
           },
           "id": {
@@ -14312,6 +14343,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *video*",
+            "default": "video",
             "type": "string"
           },
           "id": {
@@ -14368,6 +14400,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *voice*",
+            "default": "voice",
             "type": "string"
           },
           "id": {
@@ -14420,6 +14453,7 @@
         "properties": {
           "type": {
             "description": "Type of the result, must be *audio*",
+            "default": "audio",
             "type": "string"
           },
           "id": {
@@ -15221,6 +15255,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *data*",
+            "default": "data",
             "type": "string"
           },
           "type": {
@@ -15265,6 +15300,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *front\\_side*",
+            "default": "front_side",
             "type": "string"
           },
           "type": {
@@ -15302,6 +15338,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *reverse\\_side*",
+            "default": "reverse_side",
             "type": "string"
           },
           "type": {
@@ -15337,6 +15374,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *selfie*",
+            "default": "selfie",
             "type": "string"
           },
           "type": {
@@ -15374,6 +15412,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *file*",
+            "default": "file",
             "type": "string"
           },
           "type": {
@@ -15412,6 +15451,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *files*",
+            "default": "files",
             "type": "string"
           },
           "type": {
@@ -15453,6 +15493,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *translation\\_file*",
+            "default": "translation_file",
             "type": "string"
           },
           "type": {
@@ -15495,6 +15536,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *translation\\_files*",
+            "default": "translation_files",
             "type": "string"
           },
           "type": {
@@ -15540,6 +15582,7 @@
         "properties": {
           "source": {
             "description": "Error source, must be *unspecified*",
+            "default": "unspecified",
             "type": "string"
           },
           "type": {
