@@ -12,6 +12,7 @@ use crate::{
 use chrono::NaiveDate;
 use ego_tree::iter::Edge;
 use itertools::Itertools;
+use logos::Span;
 use scraper::{node::Element, ElementRef, Node};
 use semver::Version;
 use sentence::{Pattern, SentenceRef, Sentences};
@@ -54,6 +55,12 @@ pub enum ParseError {
         #[source]
         ParseBoolError,
     ),
+    #[error("Lexer error: {lexeme:?} ({span:?}) in {input:?}")]
+    Lexer {
+        input: String,
+        lexeme: String,
+        span: Span,
+    },
 }
 
 pub fn parse(raw: Extracted) -> Result<Parsed> {

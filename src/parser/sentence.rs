@@ -349,12 +349,11 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                     let lexeme = &text[span.start..span.end];
                     match token {
                         SentenceLexer::Error => {
-                            log::error!(
-                                "Unexpected lexer error: lexeme={:?}, text={}",
-                                lexeme,
-                                text.to_string(),
-                            );
-                            unreachable!()
+                            return Err(ParseError::Lexer {
+                                lexeme: lexeme.to_string(),
+                                input: text.to_string(),
+                                span,
+                            });
                         }
                         SentenceLexer::Word(has_quotes) if !paren => {
                             let inner = lexeme
