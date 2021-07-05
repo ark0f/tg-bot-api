@@ -31,6 +31,10 @@ impl Pattern {
                     .by_word("be")
                     .by_kind(PartKind::Italic)
                     .with_offset(-1),
+                SearcherPattern::default()
+                    .by_word("always")
+                    .by_quotes()
+                    .with_offset(-1),
             ],
             Pattern::MinMax => vec![SearcherPattern::default()
                 .by_word("Values")
