@@ -362,7 +362,7 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
     for node in elem.children() {
         match node.value() {
             Node::Text(text) => {
-                let lexer = SentenceLexer::lexer(&text);
+                let lexer = SentenceLexer::lexer(text);
                 for (token, span) in lexer.spanned() {
                     let lexeme = &text[span.start..span.end];
                     match token {
