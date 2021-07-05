@@ -6352,7 +6352,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “creator”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "creator"
         },
         {
           "name": "user",
@@ -6385,7 +6386,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “administrator”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "administrator"
         },
         {
           "name": "user",
@@ -6484,7 +6486,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “member”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "member"
         },
         {
           "name": "user",
@@ -6505,7 +6508,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “restricted”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "restricted"
         },
         {
           "name": "user",
@@ -6534,7 +6538,7 @@
         },
         {
           "name": "can_pin_messages",
-          "description": "True, if the user is allowed to pin messages; groups and supergroups only",
+          "description": "True, if the user is allowed to pin messages",
           "required": true,
           "type": "bool"
         },
@@ -6586,7 +6590,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “left”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "left"
         },
         {
           "name": "user",
@@ -6607,7 +6612,8 @@
           "name": "status",
           "description": "The member's status in the chat, always “kicked”",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "default": "kicked"
         },
         {
           "name": "user",

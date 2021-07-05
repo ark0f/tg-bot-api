@@ -12718,6 +12718,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “creator”",
+            "default": "creator",
             "type": "string"
           },
           "user": {
@@ -12747,6 +12748,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “administrator”",
+            "default": "administrator",
             "type": "string"
           },
           "user": {
@@ -12828,6 +12830,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “member”",
+            "default": "member",
             "type": "string"
           },
           "user": {
@@ -12848,6 +12851,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “restricted”",
+            "default": "restricted",
             "type": "string"
           },
           "user": {
@@ -12866,7 +12870,7 @@
             "type": "boolean"
           },
           "can_pin_messages": {
-            "description": "True, if the user is allowed to pin messages; groups and supergroups only",
+            "description": "True, if the user is allowed to pin messages",
             "type": "boolean"
           },
           "can_send_messages": {
@@ -12918,6 +12922,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “left”",
+            "default": "left",
             "type": "string"
           },
           "user": {
@@ -12938,6 +12943,7 @@
         "properties": {
           "status": {
             "description": "The member's status in the chat, always “kicked”",
+            "default": "kicked",
             "type": "string"
           },
           "user": {
