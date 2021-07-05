@@ -525,7 +525,9 @@
                   },
                   "text": {
                     "description": "Text of the message to be sent, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -595,7 +597,9 @@
                   },
                   "text": {
                     "description": "Text of the message to be sent, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -665,7 +669,9 @@
                   },
                   "text": {
                     "description": "Text of the message to be sent, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -972,7 +978,9 @@
                   },
                   "caption": {
                     "description": "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1054,7 +1062,9 @@
                   },
                   "caption": {
                     "description": "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1136,7 +1146,9 @@
                   },
                   "caption": {
                     "description": "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1262,7 +1274,9 @@
                   },
                   "caption": {
                     "description": "Photo caption (may also be used when resending photos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1387,7 +1401,9 @@
                   },
                   "caption": {
                     "description": "Audio caption, 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1546,7 +1562,9 @@
                   },
                   "caption": {
                     "description": "Document caption (may also be used when resending documents by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1698,7 +1716,9 @@
                   },
                   "caption": {
                     "description": "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1850,7 +1870,9 @@
                   },
                   "caption": {
                     "description": "Animation caption (may also be used when resending animation by *file\\_id*), 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the animation caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -1975,7 +1997,9 @@
                   },
                   "caption": {
                     "description": "Voice message caption, 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -3519,7 +3543,9 @@
                   },
                   "question": {
                     "description": "Poll question, 1-300 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 300
                   },
                   "options": {
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
@@ -3553,7 +3579,9 @@
                   },
                   "explanation": {
                     "description": "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "explanation_parse_mode": {
                     "description": "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -3632,7 +3660,9 @@
                   },
                   "question": {
                     "description": "Poll question, 1-300 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 300
                   },
                   "options": {
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
@@ -3666,7 +3696,9 @@
                   },
                   "explanation": {
                     "description": "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "explanation_parse_mode": {
                     "description": "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -3745,7 +3777,9 @@
                   },
                   "question": {
                     "description": "Poll question, 1-300 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 300
                   },
                   "options": {
                     "description": "A JSON-serialized list of answer options, 2-10 strings 1-100 characters each",
@@ -3779,7 +3813,9 @@
                   },
                   "explanation": {
                     "description": "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "explanation_parse_mode": {
                     "description": "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -5187,7 +5223,9 @@
                   },
                   "custom_title": {
                     "description": "New custom title for the administrator; 0-16 characters, emoji are not allowed",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 16
                   }
                 },
                 "required": [
@@ -5218,7 +5256,9 @@
                   },
                   "custom_title": {
                     "description": "New custom title for the administrator; 0-16 characters, emoji are not allowed",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 16
                   }
                 },
                 "required": [
@@ -5249,7 +5289,9 @@
                   },
                   "custom_title": {
                     "description": "New custom title for the administrator; 0-16 characters, emoji are not allowed",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 16
                   }
                 },
                 "required": [
@@ -6157,7 +6199,9 @@
                   },
                   "title": {
                     "description": "New chat title, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -6183,7 +6227,9 @@
                   },
                   "title": {
                     "description": "New chat title, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -6209,7 +6255,9 @@
                   },
                   "title": {
                     "description": "New chat title, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -6284,7 +6332,9 @@
                   },
                   "description": {
                     "description": "New chat description, 0-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -6309,7 +6359,9 @@
                   },
                   "description": {
                     "description": "New chat description, 0-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -6334,7 +6386,9 @@
                   },
                   "description": {
                     "description": "New chat description, 0-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
                   }
                 },
                 "required": [
@@ -7589,7 +7643,9 @@
                   },
                   "text": {
                     "description": "Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "show_alert": {
                     "description": "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.",
@@ -7621,7 +7677,9 @@
                   },
                   "text": {
                     "description": "Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "show_alert": {
                     "description": "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.",
@@ -7653,7 +7711,9 @@
                   },
                   "text": {
                     "description": "Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 200
                   },
                   "show_alert": {
                     "description": "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.",
@@ -8054,7 +8114,9 @@
                   },
                   "text": {
                     "description": "New text of the message, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -8105,7 +8167,9 @@
                   },
                   "text": {
                     "description": "New text of the message, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -8156,7 +8220,9 @@
                   },
                   "text": {
                     "description": "New text of the message, 1-4096 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4096
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -8263,7 +8329,9 @@
                   },
                   "caption": {
                     "description": "New caption of the message, 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -8307,7 +8375,9 @@
                   },
                   "caption": {
                     "description": "New caption of the message, 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -8351,7 +8421,9 @@
                   },
                   "caption": {
                     "description": "New caption of the message, 0-1024 characters after entities parsing",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 1024
                   },
                   "parse_mode": {
                     "description": "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -9198,11 +9270,15 @@
                   },
                   "name": {
                     "description": "Short name of sticker set, to be used in `t.me/addstickers/` URLs (e.g., *animals*). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in *“\\_by\\_<bot username>”*. *<bot\\_username>* is case insensitive. 1-64 characters.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
                   },
                   "title": {
                     "description": "Sticker set title, 1-64 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
                   },
                   "png_sticker": {
                     "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
@@ -9687,7 +9763,9 @@
                   },
                   "switch_pm_parameter": {
                     "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an oauth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
                   }
                 },
                 "required": [
@@ -9730,7 +9808,9 @@
                   },
                   "switch_pm_parameter": {
                     "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an oauth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
                   }
                 },
                 "required": [
@@ -9773,7 +9853,9 @@
                   },
                   "switch_pm_parameter": {
                     "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an oauth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
                   }
                 },
                 "required": [
@@ -9848,11 +9930,15 @@
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32
                   },
                   "description": {
                     "description": "Product description, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   "payload": {
                     "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
@@ -9981,11 +10067,15 @@
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32
                   },
                   "description": {
                     "description": "Product description, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   "payload": {
                     "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
@@ -10114,11 +10204,15 @@
                   },
                   "title": {
                     "description": "Product name, 1-32 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 32
                   },
                   "description": {
                     "description": "Product description, 1-255 characters",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                   },
                   "payload": {
                     "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
@@ -11427,7 +11521,9 @@
           },
           "text": {
             "description": "*Optional*. For text messages, the actual UTF-8 text of the message, 0-4096 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4096
           },
           "entities": {
             "description": "*Optional*. For text messages, special entities like usernames, URLs, bot commands, etc. that appear in the text",
@@ -11466,7 +11562,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption for the animation, audio, document, photo, video or voice, 0-1024 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "caption_entities": {
             "description": "*Optional*. For messages with a caption, special entities like usernames, URLs, bot commands, etc. that appear in the caption",
@@ -12009,7 +12107,9 @@
         "properties": {
           "text": {
             "description": "Option text, 1-100 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
           },
           "voter_count": {
             "description": "Number of users that voted for this option",
@@ -12062,7 +12162,9 @@
           },
           "question": {
             "description": "Poll question, 1-300 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
           },
           "options": {
             "description": "List of poll options",
@@ -12101,7 +12203,9 @@
           },
           "explanation": {
             "description": "*Optional*. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 200
           },
           "explanation_entities": {
             "description": "*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*",
@@ -12387,7 +12491,9 @@
           },
           "input_field_placeholder": {
             "description": "*Optional*. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
           },
           "selective": {
             "description": "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.",
@@ -12603,7 +12709,9 @@
           },
           "input_field_placeholder": {
             "description": "*Optional*. The placeholder to be shown in the input field when the reply is active; 1-64 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
           },
           "selective": {
             "description": "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.",
@@ -13048,7 +13156,9 @@
           },
           "address": {
             "description": "Location address; 1-64 characters, as defined by the chat owner",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
           }
         },
         "required": [
@@ -13065,11 +13175,15 @@
         "properties": {
           "command": {
             "description": "Text of the command, 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
           },
           "description": {
             "description": "Description of the command, 3-256 characters.",
-            "type": "string"
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 256
           }
         },
         "required": [
@@ -13324,7 +13438,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -13372,7 +13488,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -13436,7 +13554,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the animation to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the animation caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -13496,7 +13616,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the audio to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -13556,7 +13678,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -13930,7 +14054,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14009,7 +14135,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14088,7 +14216,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14153,7 +14283,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14224,7 +14356,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14285,7 +14419,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14338,7 +14474,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14659,7 +14797,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14711,7 +14851,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14763,7 +14905,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14852,7 +14996,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14909,7 +15055,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -14962,7 +15110,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -15011,7 +15161,9 @@
           },
           "caption": {
             "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -15069,7 +15221,9 @@
         "properties": {
           "message_text": {
             "description": "Text of the message to be sent, 1-4096 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
           },
           "parse_mode": {
             "description": "*Optional*. Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
@@ -15213,11 +15367,15 @@
         "properties": {
           "title": {
             "description": "Product name, 1-32 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
           },
           "description": {
             "description": "Product description, 1-255 characters",
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
           },
           "payload": {
             "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
@@ -16174,7 +16332,9 @@
           },
           "text": {
             "description": "*Optional*. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls [setGameScore](https://core.telegram.org/bots/api/#setgamescore), or manually edited using [editMessageText](https://core.telegram.org/bots/api/#editmessagetext). 0-4096 characters.",
-            "type": "string"
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 4096
           },
           "text_entities": {
             "description": "*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.",

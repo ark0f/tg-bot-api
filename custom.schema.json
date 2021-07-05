@@ -88,6 +88,22 @@
                 "$ref": "#/definitions/Argument"
               }
             },
+            "max_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "min_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
             "type": {
               "type": "string",
               "enum": [
@@ -288,6 +304,22 @@
               "items": {
                 "$ref": "#/definitions/Argument"
               }
+            },
+            "max_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "min_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
             },
             "type": {
               "type": "string",
@@ -546,6 +578,22 @@
               "items": {
                 "$ref": "#/definitions/Argument"
               }
+            },
+            "max_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
+            },
+            "min_len": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "uint64",
+              "minimum": 0.0
             },
             "type": {
               "type": "string",

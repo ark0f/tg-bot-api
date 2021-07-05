@@ -189,7 +189,9 @@
           "name": "text",
           "description": "Text of the message to be sent, 1-4096 characters after entities parsing",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 4096
         },
         {
           "name": "parse_mode",
@@ -357,7 +359,9 @@
           "name": "caption",
           "description": "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -462,7 +466,9 @@
           "name": "caption",
           "description": "Photo caption (may also be used when resending photos by *file\\_id*), 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -567,7 +573,9 @@
           "name": "caption",
           "description": "Audio caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -720,7 +728,9 @@
           "name": "caption",
           "description": "Document caption (may also be used when resending documents by *file\\_id*), 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -864,7 +874,9 @@
           "name": "caption",
           "description": "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -1008,7 +1020,9 @@
           "name": "caption",
           "description": "Animation caption (may also be used when resending animation by *file\\_id*), 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -1113,7 +1127,9 @@
           "name": "caption",
           "description": "Voice message caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -1843,7 +1859,9 @@
           "name": "question",
           "description": "Poll question, 1-300 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 300
         },
         {
           "name": "options",
@@ -1889,7 +1907,9 @@
           "name": "explanation",
           "description": "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 200
         },
         {
           "name": "explanation_parse_mode",
@@ -2394,7 +2414,9 @@
           "name": "custom_title",
           "description": "New custom title for the administrator; 0-16 characters, emoji are not allowed",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 16
         }
       ],
       "multipart_only": false,
@@ -2657,7 +2679,9 @@
           "name": "title",
           "description": "New chat title, 1-255 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 255
         }
       ],
       "multipart_only": false,
@@ -2689,7 +2713,9 @@
           "name": "description",
           "description": "New chat description, 0-255 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 255
         }
       ],
       "multipart_only": false,
@@ -3005,7 +3031,9 @@
           "name": "text",
           "description": "Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 200
         },
         {
           "name": "show_alert",
@@ -3157,7 +3185,9 @@
           "name": "text",
           "description": "New text of the message, 1-4096 characters after entities parsing",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 4096
         },
         {
           "name": "parse_mode",
@@ -3239,7 +3269,9 @@
           "name": "caption",
           "description": "New caption of the message, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -3607,13 +3639,17 @@
           "name": "name",
           "description": "Short name of sticker set, to be used in `t.me/addstickers/` URLs (e.g., *animals*). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in *“\\_by\\_<bot username>”*. *<bot\\_username>* is case insensitive. 1-64 characters.",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         },
         {
           "name": "title",
           "description": "Sticker set title, 1-64 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         },
         {
           "name": "png_sticker",
@@ -3853,7 +3889,9 @@
           "name": "switch_pm_parameter",
           "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an oauth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         }
       ],
       "multipart_only": false,
@@ -3885,13 +3923,17 @@
           "name": "title",
           "description": "Product name, 1-32 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 32
         },
         {
           "name": "description",
           "description": "Product description, 1-255 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 255
         },
         {
           "name": "payload",
@@ -4763,7 +4805,9 @@
           "name": "text",
           "description": "*Optional*. For text messages, the actual UTF-8 text of the message, 0-4096 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 4096
         },
         {
           "name": "entities",
@@ -4838,7 +4882,9 @@
           "name": "caption",
           "description": "*Optional*. Caption for the animation, audio, document, photo, video or voice, 0-1024 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "caption_entities",
@@ -5545,7 +5591,9 @@
           "name": "text",
           "description": "Option text, 1-100 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 100
         },
         {
           "name": "voter_count",
@@ -5601,7 +5649,9 @@
           "name": "question",
           "description": "Poll question, 1-300 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 300
         },
         {
           "name": "options",
@@ -5657,7 +5707,9 @@
           "name": "explanation",
           "description": "*Optional*. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 200
         },
         {
           "name": "explanation_entities",
@@ -5967,7 +6019,9 @@
           "name": "input_field_placeholder",
           "description": "*Optional*. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         },
         {
           "name": "selective",
@@ -6223,7 +6277,9 @@
           "name": "input_field_placeholder",
           "description": "*Optional*. The placeholder to be shown in the input field when the reply is active; 1-64 characters",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         },
         {
           "name": "selective",
@@ -6752,7 +6808,9 @@
           "name": "address",
           "description": "Location address; 1-64 characters, as defined by the chat owner",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 64
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatlocation"
@@ -6766,13 +6824,17 @@
           "name": "command",
           "description": "Text of the command, 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 32
         },
         {
           "name": "description",
           "description": "Description of the command, 3-256 characters.",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 3,
+          "max_len": 256
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#botcommand"
@@ -7036,7 +7098,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7094,7 +7158,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7176,7 +7242,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the animation to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7252,7 +7320,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the audio to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7328,7 +7398,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7793,7 +7865,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -7898,7 +7972,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8003,7 +8079,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8088,7 +8166,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8181,7 +8261,9 @@
           "name": "caption",
           "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8262,7 +8344,9 @@
           "name": "caption",
           "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8331,7 +8415,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8753,7 +8839,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8822,7 +8910,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -8891,7 +8981,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -9007,7 +9099,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -9082,7 +9176,9 @@
           "name": "caption",
           "description": "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -9151,7 +9247,9 @@
           "name": "caption",
           "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -9214,7 +9312,9 @@
           "name": "caption",
           "description": "*Optional*. Caption, 0-1024 characters after entities parsing",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
         },
         {
           "name": "parse_mode",
@@ -9286,7 +9386,9 @@
           "name": "message_text",
           "description": "Text of the message to be sent, 1-4096 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 4096
         },
         {
           "name": "parse_mode",
@@ -9454,13 +9556,17 @@
           "name": "title",
           "description": "Product name, 1-32 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 32
         },
         {
           "name": "description",
           "description": "Product description, 1-255 characters",
           "required": true,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 255
         },
         {
           "name": "payload",
@@ -10544,7 +10650,9 @@
           "name": "text",
           "description": "*Optional*. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls [setGameScore](https://core.telegram.org/bots/api/#setgamescore), or manually edited using [editMessageText](https://core.telegram.org/bots/api/#editmessagetext). 0-4096 characters.",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 0,
+          "max_len": 4096
         },
         {
           "name": "text_entities",
