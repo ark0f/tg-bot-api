@@ -36,9 +36,14 @@ impl Pattern {
                     .by_quotes()
                     .with_offset(-1),
             ],
-            Pattern::MinMax => vec![SearcherPattern::default()
-                .by_word("Values")
-                .by_word("between")],
+            Pattern::MinMax => vec![
+                SearcherPattern::default()
+                    .by_word("Values")
+                    .by_word("between"),
+                SearcherPattern::default()
+                    .by_word("characters")
+                    .with_offset(-2),
+            ],
             Pattern::OneOf => {
                 vec![
                     SearcherPattern::default().by_word("either"),
@@ -270,6 +275,15 @@ impl PartialEq<Part> for SearchBy {
             SearchBy::Word(inner) => other.inner == *inner,
             SearchBy::Kind(kind) => other.kind == *kind,
             SearchBy::Quotes => other.has_quotes,
+        }
+    }
+}
+
+impl PartialEq<&str> for SearchBy {
+    fn eq(&self, other: &&str) -> bool {
+        match self {
+            SearchBy::Word(s) => s == other,
+            _ => false,
         }
     }
 }

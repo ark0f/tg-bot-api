@@ -228,7 +228,14 @@ impl TypeExt for ParserType {
                         maximum: max,
                         ..IntegerType::default()
                     }),
-                    ParserType::String { one_of, .. } => Type::String(StringType {
+                    ParserType::String {
+                        one_of,
+                        min_len,
+                        max_len,
+                        ..
+                    } => Type::String(StringType {
+                        min_length: min_len.map(|x| x as usize),
+                        max_length: max_len.map(|x| x as usize),
                         enumeration: one_of,
                         ..StringType::default()
                     }),
