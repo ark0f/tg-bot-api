@@ -12723,19 +12723,18 @@
           "user": {
             "$ref": "#/components/schemas/User"
           },
-          "custom_title": {
-            "description": "Custom title for this user",
-            "type": "string"
-          },
           "is_anonymous": {
             "description": "True, if the user's presence in the chat is hidden",
             "type": "boolean"
+          },
+          "custom_title": {
+            "description": "*Optional*. Custom title for this user",
+            "type": "string"
           }
         },
         "required": [
           "status",
           "user",
-          "custom_title",
           "is_anonymous"
         ]
       },
@@ -12757,24 +12756,12 @@
             "description": "True, if the bot is allowed to edit administrator privileges of that user",
             "type": "boolean"
           },
-          "custom_title": {
-            "description": "Custom title for this user",
-            "type": "string"
-          },
           "is_anonymous": {
             "description": "True, if the user's presence in the chat is hidden",
             "type": "boolean"
           },
           "can_manage_chat": {
             "description": "True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
-            "type": "boolean"
-          },
-          "can_post_messages": {
-            "description": "True, if the administrator can post in the channel; channels only",
-            "type": "boolean"
-          },
-          "can_edit_messages": {
-            "description": "True, if the administrator can edit messages of other users and can pin messages; channels only",
             "type": "boolean"
           },
           "can_delete_messages": {
@@ -12801,27 +12788,35 @@
             "description": "True, if the user is allowed to invite new users to the chat",
             "type": "boolean"
           },
-          "can_pin_messages": {
-            "description": "True, if the user is allowed to pin messages; groups and supergroups only",
+          "can_post_messages": {
+            "description": "*Optional*. True, if the administrator can post in the channel; channels only",
             "type": "boolean"
+          },
+          "can_edit_messages": {
+            "description": "*Optional*. True, if the administrator can edit messages of other users and can pin messages; channels only",
+            "type": "boolean"
+          },
+          "can_pin_messages": {
+            "description": "*Optional*. True, if the user is allowed to pin messages; groups and supergroups only",
+            "type": "boolean"
+          },
+          "custom_title": {
+            "description": "*Optional*. Custom title for this user",
+            "type": "string"
           }
         },
         "required": [
           "status",
           "user",
           "can_be_edited",
-          "custom_title",
           "is_anonymous",
           "can_manage_chat",
-          "can_post_messages",
-          "can_edit_messages",
           "can_delete_messages",
           "can_manage_voice_chats",
           "can_restrict_members",
           "can_promote_members",
           "can_change_info",
-          "can_invite_users",
-          "can_pin_messages"
+          "can_invite_users"
         ]
       },
       "ChatMemberMember": {

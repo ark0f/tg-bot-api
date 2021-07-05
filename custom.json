@@ -6362,16 +6362,16 @@
           "reference": "User"
         },
         {
-          "name": "custom_title",
-          "description": "Custom title for this user",
-          "required": true,
-          "type": "string"
-        },
-        {
           "name": "is_anonymous",
           "description": "True, if the user's presence in the chat is hidden",
           "required": true,
           "type": "bool"
+        },
+        {
+          "name": "custom_title",
+          "description": "*Optional*. Custom title for this user",
+          "required": false,
+          "type": "string"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatmemberowner"
@@ -6401,12 +6401,6 @@
           "type": "bool"
         },
         {
-          "name": "custom_title",
-          "description": "Custom title for this user",
-          "required": true,
-          "type": "string"
-        },
-        {
           "name": "is_anonymous",
           "description": "True, if the user's presence in the chat is hidden",
           "required": true,
@@ -6415,18 +6409,6 @@
         {
           "name": "can_manage_chat",
           "description": "True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
-          "required": true,
-          "type": "bool"
-        },
-        {
-          "name": "can_post_messages",
-          "description": "True, if the administrator can post in the channel; channels only",
-          "required": true,
-          "type": "bool"
-        },
-        {
-          "name": "can_edit_messages",
-          "description": "True, if the administrator can edit messages of other users and can pin messages; channels only",
           "required": true,
           "type": "bool"
         },
@@ -6467,10 +6449,28 @@
           "type": "bool"
         },
         {
-          "name": "can_pin_messages",
-          "description": "True, if the user is allowed to pin messages; groups and supergroups only",
-          "required": true,
+          "name": "can_post_messages",
+          "description": "*Optional*. True, if the administrator can post in the channel; channels only",
+          "required": false,
           "type": "bool"
+        },
+        {
+          "name": "can_edit_messages",
+          "description": "*Optional*. True, if the administrator can edit messages of other users and can pin messages; channels only",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_pin_messages",
+          "description": "*Optional*. True, if the user is allowed to pin messages; groups and supergroups only",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "custom_title",
+          "description": "*Optional*. Custom title for this user",
+          "required": false,
+          "type": "string"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatmemberadministrator"
