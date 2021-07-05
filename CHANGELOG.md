@@ -1,5 +1,8 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.4.0 (05.07.2021)
+Yank v0.3.1 because of breaking changes
+
 # v0.3.1 (05.07.2021)
 * Add `min-max characters` min-max pattern for strings
 * Add `always "something"` default pattern
