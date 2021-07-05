@@ -31,10 +31,19 @@ impl Pattern {
                     .by_word("be")
                     .by_kind(PartKind::Italic)
                     .with_offset(-1),
+                SearcherPattern::default()
+                    .by_word("always")
+                    .by_quotes()
+                    .with_offset(-1),
             ],
-            Pattern::MinMax => vec![SearcherPattern::default()
-                .by_word("Values")
-                .by_word("between")],
+            Pattern::MinMax => vec![
+                SearcherPattern::default()
+                    .by_word("Values")
+                    .by_word("between"),
+                SearcherPattern::default()
+                    .by_word("characters")
+                    .with_offset(-2),
+            ],
             Pattern::OneOf => {
                 vec![
                     SearcherPattern::default().by_word("either"),
@@ -270,6 +279,15 @@ impl PartialEq<Part> for SearchBy {
     }
 }
 
+impl PartialEq<&str> for SearchBy {
+    fn eq(&self, other: &&str) -> bool {
+        match self {
+            SearchBy::Word(s) => s == other,
+            _ => false,
+        }
+    }
+}
+
 #[derive(Debug)]
 pub struct Sentence {
     parts: Vec<Part>,
@@ -344,7 +362,7 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
     for node in elem.children() {
         match node.value() {
             Node::Text(text) => {
-                let lexer = SentenceLexer::lexer(&text);
+                let lexer = SentenceLexer::lexer(text);
                 for (token, span) in lexer.spanned() {
                     let lexeme = &text[span.start..span.end];
                     match token {

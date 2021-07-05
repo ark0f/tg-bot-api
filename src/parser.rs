@@ -196,6 +196,8 @@ pub enum Type {
     },
     String {
         default: Option<String>,
+        min_len: Option<u64>,
+        max_len: Option<u64>,
         one_of: Vec<String>,
     },
     Bool {
@@ -230,6 +232,8 @@ impl Type {
             },
             "String" => Self::String {
                 default: None,
+                min_len: None,
+                max_len: None,
                 one_of: vec![],
             },
             "Boolean" => Self::Bool { default: None },
@@ -309,10 +313,16 @@ impl Type {
                     .map(str::parse)
                     .transpose()?,
             },
-            Type::String { .. } if default.is_some() || one_of.is_some() => Type::String {
-                default,
-                one_of: one_of.unwrap_or_default(),
-            },
+            Type::String { .. }
+                if default.is_some() || min.is_some() || max.is_some() || one_of.is_some() =>
+            {
+                Type::String {
+                    default,
+                    min_len: min.as_deref().map(str::parse).transpose()?,
+                    max_len: max.as_deref().map(str::parse).transpose()?,
+                    one_of: one_of.unwrap_or_default(),
+                }
+            }
             x => x,
         };
 
@@ -560,6 +570,8 @@ mod tests {
                 },
                 Type::String {
                     default: None,
+                    min_len: None,
+                    max_len: None,
                     one_of: vec![]
                 }
             ])

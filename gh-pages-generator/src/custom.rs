@@ -63,6 +63,10 @@ enum Kind {
     String {
         #[serde(skip_serializing_if = "Option::is_none")]
         default: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        min_len: Option<u64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        max_len: Option<u64>,
         #[schemars(with = "Option<Vec<Argument>>")]
         #[serde(skip_serializing_if = "Vec::is_empty")]
         enumeration: Vec<String>,
@@ -113,8 +117,15 @@ impl From<tg_bot_api::Type> for KindWrapper {
     fn from(ty: tg_bot_api::Type) -> Self {
         let base = match ty {
             Type::Integer { default, min, max } => Kind::Integer { default, min, max },
-            Type::String { default, one_of } => Kind::String {
+            Type::String {
                 default,
+                min_len,
+                max_len,
+                one_of,
+            } => Kind::String {
+                default,
+                min_len,
+                max_len,
                 enumeration: one_of,
             },
             Type::Bool { default } => Kind::Bool { default },

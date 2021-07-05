@@ -1,5 +1,9 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.3.1 (05.07.2021)
+* Add `min-max characters` min-max pattern for strings
+* Add `always "something"` default pattern
+
 # v0.3.0 (26.05.2021)
 * Yank v0.2.6 because of breaking changes
 * Return lexer error instead of panicking
