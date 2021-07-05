@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 5.2.0
+  version: 5.3.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -2753,11 +2753,11 @@ paths:
                 required:
                   - ok
                   - result
-  /kickChatMember:
+  /banChatMember:
     post:
-      description: "Use this method to kick a user from a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#kickchatmember"
+        url: "https://core.telegram.org/bots/api/#banchatmember"
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2849,7 +2849,7 @@ paths:
                   - result
   /unbanChatMember:
     post:
-      description: "Use this method to unban a previously kicked user in a supergroup or channel. The user will **not** return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be **removed** from the chat. If you don't want this, use the parameter *only\\_if\\_banned*. Returns *True* on success."
+      description: "Use this method to unban a previously banned user in a supergroup or channel. The user will **not** return to the group or channel automatically, but will be able to join via link, etc. The bot must be an administrator for this to work. By default, this method guarantees that after the call the user is not a member of the chat, but will be able to join it. So if the user is a member of the chat they will also be **removed** from the chat. If you don't want this, use the parameter *only\\_if\\_banned*. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#unbanchatmember"
       requestBody:
@@ -4346,11 +4346,11 @@ paths:
                 required:
                   - ok
                   - result
-  /getChatMembersCount:
+  /getChatMemberCount:
     post:
       description: Use this method to get the number of members in a chat. Returns *Int* on success.
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#getchatmemberscount"
+        url: "https://core.telegram.org/bots/api/#getchatmembercount"
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -4726,7 +4726,7 @@ paths:
                   - result
   /setMyCommands:
     post:
-      description: "Use this method to change the list of the bot's commands. Returns *True* on success."
+      description: "Use this method to change the list of the bot's commands. See [https://core.telegram.org/bots#commands](https://core.telegram.org/bots#commands) for more details about bot commands. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setmycommands"
       requestBody:
@@ -4740,6 +4740,11 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/BotCommand"
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
               required:
                 - commands
           multipart/form-data:
@@ -4751,6 +4756,11 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/BotCommand"
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
               required:
                 - commands
           application/json:
@@ -4762,6 +4772,11 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/BotCommand"
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
               required:
                 - commands
         required: true
@@ -4788,11 +4803,99 @@ paths:
                 required:
                   - ok
                   - result
+  /deleteMyCommands:
+    post:
+      description: "Use this method to delete the list of the bot's commands for the given scope and user language. After deletion, [higher level commands](https://core.telegram.org/bots/api/#determining-list-of-commands) will be shown to affected users. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#deletemycommands"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
+          application/json:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: "A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands"
+                  type: string
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
   /getMyCommands:
     post:
-      description: "Use this method to get the current list of the bot's commands. Requires no parameters. Returns Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) on success."
+      description: "Use this method to get the current list of the bot's commands for the given scope and user language. Returns Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) on success. If commands aren't set, an empty list is returned."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getmycommands"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: A two-letter ISO 639-1 language code or an empty string
+                  type: string
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: A two-letter ISO 639-1 language code or an empty string
+                  type: string
+          application/json:
+            schema:
+              type: object
+              properties:
+                scope:
+                  $ref: "#/components/schemas/BotCommandScope"
+                language_code:
+                  description: A two-letter ISO 639-1 language code or an empty string
+                  type: string
+        required: true
       responses:
         default:
           description: ""
@@ -7754,6 +7857,9 @@ components:
           description: "*Optional*. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to *false*."
           default: false
           type: boolean
+        input_field_placeholder:
+          description: "*Optional*. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters"
+          type: string
         selective:
           description: "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard."
           type: boolean
@@ -7904,6 +8010,9 @@ components:
         force_reply:
           description: "Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'"
           type: boolean
+        input_field_placeholder:
+          description: "*Optional*. The placeholder to be shown in the input field when the reply is active; 1-64 characters"
+          type: string
         selective:
           description: "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message."
           type: boolean
@@ -7963,84 +8072,203 @@ components:
     ChatMember:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatmember"
-      description: This object contains information about one member of a chat.
+      description: "This object contains information about one member of a chat. Currently, the following 6 types of chat members are supported:"
+      anyOf:
+        - $ref: "#/components/schemas/ChatMemberOwner"
+        - $ref: "#/components/schemas/ChatMemberAdministrator"
+        - $ref: "#/components/schemas/ChatMemberMember"
+        - $ref: "#/components/schemas/ChatMemberRestricted"
+        - $ref: "#/components/schemas/ChatMemberLeft"
+        - $ref: "#/components/schemas/ChatMemberBanned"
+    ChatMemberOwner:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmemberowner"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that owns the chat and has all administrator privileges."
       type: object
       properties:
+        status:
+          description: "The member's status in the chat, always “creator”"
+          default: creator
+          type: string
         user:
           $ref: "#/components/schemas/User"
-        status:
-          description: "The member's status in the chat. Can be “creator”, “administrator”, “member”, “restricted”, “left” or “kicked”"
-          type: string
-          enum:
-            - creator
-            - administrator
-            - member
-            - restricted
-            - left
-            - kicked
-        custom_title:
-          description: "*Optional*. Owner and administrators only. Custom title for this user"
-          type: string
         is_anonymous:
-          description: "*Optional*. Owner and administrators only. True, if the user's presence in the chat is hidden"
+          description: "True, if the user's presence in the chat is hidden"
           type: boolean
+        custom_title:
+          description: "*Optional*. Custom title for this user"
+          type: string
+      required:
+        - status
+        - user
+        - is_anonymous
+    ChatMemberAdministrator:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmemberadministrator"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that has some additional privileges."
+      type: object
+      properties:
+        status:
+          description: "The member's status in the chat, always “administrator”"
+          default: administrator
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
         can_be_edited:
-          description: "*Optional*. Administrators only. True, if the bot is allowed to edit administrator privileges of that user"
+          description: "True, if the bot is allowed to edit administrator privileges of that user"
+          type: boolean
+        is_anonymous:
+          description: "True, if the user's presence in the chat is hidden"
           type: boolean
         can_manage_chat:
-          description: "*Optional*. Administrators only. True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
-          type: boolean
-        can_post_messages:
-          description: "*Optional*. Administrators only. True, if the administrator can post in the channel; channels only"
-          type: boolean
-        can_edit_messages:
-          description: "*Optional*. Administrators only. True, if the administrator can edit messages of other users and can pin messages; channels only"
+          description: "True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
           type: boolean
         can_delete_messages:
-          description: "*Optional*. Administrators only. True, if the administrator can delete messages of other users"
+          description: "True, if the administrator can delete messages of other users"
           type: boolean
         can_manage_voice_chats:
-          description: "*Optional*. Administrators only. True, if the administrator can manage voice chats"
+          description: "True, if the administrator can manage voice chats"
           type: boolean
         can_restrict_members:
-          description: "*Optional*. Administrators only. True, if the administrator can restrict, ban or unban chat members"
+          description: "True, if the administrator can restrict, ban or unban chat members"
           type: boolean
         can_promote_members:
-          description: "*Optional*. Administrators only. True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+          description: "True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
           type: boolean
         can_change_info:
-          description: "*Optional*. Administrators and restricted only. True, if the user is allowed to change the chat title, photo and other settings"
+          description: "True, if the user is allowed to change the chat title, photo and other settings"
           type: boolean
         can_invite_users:
-          description: "*Optional*. Administrators and restricted only. True, if the user is allowed to invite new users to the chat"
+          description: "True, if the user is allowed to invite new users to the chat"
+          type: boolean
+        can_post_messages:
+          description: "*Optional*. True, if the administrator can post in the channel; channels only"
+          type: boolean
+        can_edit_messages:
+          description: "*Optional*. True, if the administrator can edit messages of other users and can pin messages; channels only"
           type: boolean
         can_pin_messages:
-          description: "*Optional*. Administrators and restricted only. True, if the user is allowed to pin messages; groups and supergroups only"
+          description: "*Optional*. True, if the user is allowed to pin messages; groups and supergroups only"
           type: boolean
+        custom_title:
+          description: "*Optional*. Custom title for this user"
+          type: string
+      required:
+        - status
+        - user
+        - can_be_edited
+        - is_anonymous
+        - can_manage_chat
+        - can_delete_messages
+        - can_manage_voice_chats
+        - can_restrict_members
+        - can_promote_members
+        - can_change_info
+        - can_invite_users
+    ChatMemberMember:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmembermember"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that has no additional privileges or restrictions."
+      type: object
+      properties:
+        status:
+          description: "The member's status in the chat, always “member”"
+          default: member
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+      required:
+        - status
+        - user
+    ChatMemberRestricted:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmemberrestricted"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that is under certain restrictions in the chat. Supergroups only."
+      type: object
+      properties:
+        status:
+          description: "The member's status in the chat, always “restricted”"
+          default: restricted
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
         is_member:
-          description: "*Optional*. Restricted only. True, if the user is a member of the chat at the moment of the request"
+          description: "True, if the user is a member of the chat at the moment of the request"
+          type: boolean
+        can_change_info:
+          description: "True, if the user is allowed to change the chat title, photo and other settings"
+          type: boolean
+        can_invite_users:
+          description: "True, if the user is allowed to invite new users to the chat"
+          type: boolean
+        can_pin_messages:
+          description: "True, if the user is allowed to pin messages"
           type: boolean
         can_send_messages:
-          description: "*Optional*. Restricted only. True, if the user is allowed to send text messages, contacts, locations and venues"
+          description: "True, if the user is allowed to send text messages, contacts, locations and venues"
           type: boolean
         can_send_media_messages:
-          description: "*Optional*. Restricted only. True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes"
+          description: "True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes"
           type: boolean
         can_send_polls:
-          description: "*Optional*. Restricted only. True, if the user is allowed to send polls"
+          description: "True, if the user is allowed to send polls"
           type: boolean
         can_send_other_messages:
-          description: "*Optional*. Restricted only. True, if the user is allowed to send animations, games, stickers and use inline bots"
+          description: "True, if the user is allowed to send animations, games, stickers and use inline bots"
           type: boolean
         can_add_web_page_previews:
-          description: "*Optional*. Restricted only. True, if the user is allowed to add web page previews to their messages"
+          description: "True, if the user is allowed to add web page previews to their messages"
           type: boolean
         until_date:
-          description: "*Optional*. Restricted and kicked only. Date when restrictions will be lifted for this user; unix time"
+          description: Date when restrictions will be lifted for this user; unix time
           type: integer
       required:
-        - user
         - status
+        - user
+        - is_member
+        - can_change_info
+        - can_invite_users
+        - can_pin_messages
+        - can_send_messages
+        - can_send_media_messages
+        - can_send_polls
+        - can_send_other_messages
+        - can_add_web_page_previews
+        - until_date
+    ChatMemberLeft:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmemberleft"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that isn't currently a member of the chat, but may join it themselves."
+      type: object
+      properties:
+        status:
+          description: "The member's status in the chat, always “left”"
+          default: left
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+      required:
+        - status
+        - user
+    ChatMemberBanned:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatmemberbanned"
+      description: "Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that was banned in the chat and can't return to the chat or view chat messages."
+      type: object
+      properties:
+        status:
+          description: "The member's status in the chat, always “kicked”"
+          default: kicked
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+        until_date:
+          description: Date when restrictions will be lifted for this user; unix time
+          type: integer
+      required:
+        - status
+        - user
+        - until_date
     ChatMemberUpdated:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatmemberupdated"
@@ -8125,6 +8353,124 @@ components:
       required:
         - command
         - description
+    BotCommandScope:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscope"
+      description: "This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported:"
+      anyOf:
+        - $ref: "#/components/schemas/BotCommandScopeDefault"
+        - $ref: "#/components/schemas/BotCommandScopeAllPrivateChats"
+        - $ref: "#/components/schemas/BotCommandScopeAllGroupChats"
+        - $ref: "#/components/schemas/BotCommandScopeAllChatAdministrators"
+        - $ref: "#/components/schemas/BotCommandScopeChat"
+        - $ref: "#/components/schemas/BotCommandScopeChatAdministrators"
+        - $ref: "#/components/schemas/BotCommandScopeChatMember"
+    BotCommandScopeDefault:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopedefault"
+      description: "Represents the default [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands. Default commands are used if no commands with a [narrower scope](https://core.telegram.org/bots/api/#determining-list-of-commands) are specified for the user."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *default*"
+          default: default
+          type: string
+      required:
+        - type
+    BotCommandScopeAllPrivateChats:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopeallprivatechats"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all private chats."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *all\\_private\\_chats*"
+          default: all_private_chats
+          type: string
+      required:
+        - type
+    BotCommandScopeAllGroupChats:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopeallgroupchats"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all group and supergroup chats."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *all\\_group\\_chats*"
+          default: all_group_chats
+          type: string
+      required:
+        - type
+    BotCommandScopeAllChatAdministrators:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all group and supergroup chat administrators."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *all\\_chat\\_administrators*"
+          default: all_chat_administrators
+          type: string
+      required:
+        - type
+    BotCommandScopeChat:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopechat"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering a specific chat."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *chat*"
+          default: chat
+          type: string
+        chat_id:
+          description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+          anyOf:
+            - type: integer
+            - type: string
+      required:
+        - type
+        - chat_id
+    BotCommandScopeChatAdministrators:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopechatadministrators"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all administrators of a specific group or supergroup chat."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *chat\\_administrators*"
+          default: chat_administrators
+          type: string
+        chat_id:
+          description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+          anyOf:
+            - type: integer
+            - type: string
+      required:
+        - type
+        - chat_id
+    BotCommandScopeChatMember:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#botcommandscopechatmember"
+      description: "Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering a specific member of a group or supergroup chat."
+      type: object
+      properties:
+        type:
+          description: "Scope type, must be *chat\\_member*"
+          default: chat_member
+          type: string
+        chat_id:
+          description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+          anyOf:
+            - type: integer
+            - type: string
+        user_id:
+          description: Unique identifier of the target user
+          type: integer
+      required:
+        - type
+        - chat_id
+        - user_id
     ResponseParameters:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#responseparameters"
