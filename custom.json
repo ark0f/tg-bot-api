@@ -6630,7 +6630,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when restrictions will be lifted for this user; unix time",
+          "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever",
           "required": true,
           "type": "integer"
         }
@@ -6680,7 +6680,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when restrictions will be lifted for this user; unix time",
+          "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is banned forever",
           "required": true,
           "type": "integer"
         }

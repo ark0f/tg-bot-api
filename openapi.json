@@ -13002,7 +13002,7 @@
             "type": "boolean"
           },
           "until_date": {
-            "description": "Date when restrictions will be lifted for this user; unix time",
+            "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever",
             "type": "integer"
           }
         },
@@ -13058,7 +13058,7 @@
             "$ref": "#/components/schemas/User"
           },
           "until_date": {
-            "description": "Date when restrictions will be lifted for this user; unix time",
+            "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is banned forever",
             "type": "integer"
           }
         },
