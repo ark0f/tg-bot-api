@@ -7,7 +7,7 @@ use structopt::StructOpt;
 use tg_bot_api::BOT_API_DOCS_URL;
 
 fn md_to_html(md: &str) -> String {
-    let parser = pulldown_cmark::Parser::new(&md);
+    let parser = pulldown_cmark::Parser::new(md);
     let mut buf = String::new();
     pulldown_cmark::html::push_html(&mut buf, parser);
     buf
