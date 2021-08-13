@@ -22,6 +22,11 @@ jobs:
         with:
           command: run
           args: --package gh-pages-generator --bin gh-pages-generator -- production
+      - name: Generate (dev) schemas
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --package gh-pages-generator --bin gh-pages-generator -- dev
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
