@@ -534,7 +534,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -606,7 +606,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -678,7 +678,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -987,7 +987,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1071,7 +1071,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1155,7 +1155,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1283,7 +1283,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1410,7 +1410,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1571,7 +1571,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1725,7 +1725,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -1879,7 +1879,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -2006,7 +2006,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -3588,7 +3588,7 @@
                     "type": "string"
                   },
                   "explanation_entities": {
-                    "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -3705,7 +3705,7 @@
                     "type": "string"
                   },
                   "explanation_entities": {
-                    "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -3822,7 +3822,7 @@
                     "type": "string"
                   },
                   "explanation_entities": {
-                    "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8123,7 +8123,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8176,7 +8176,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8229,7 +8229,7 @@
                     "type": "string"
                   },
                   "entities": {
-                    "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8338,7 +8338,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8384,7 +8384,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"
@@ -8430,7 +8430,7 @@
                     "type": "string"
                   },
                   "caption_entities": {
-                    "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+                    "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
                     "type": "array",
                     "items": {
                       "$ref": "#/components/schemas/MessageEntity"

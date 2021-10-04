@@ -353,7 +353,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -397,7 +397,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -441,7 +441,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -625,7 +625,7 @@ paths:
                   description: "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -675,7 +675,7 @@ paths:
                   description: "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -725,7 +725,7 @@ paths:
                   description: "Mode for parsing entities in the new caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -802,7 +802,7 @@ paths:
                   description: "Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -878,7 +878,7 @@ paths:
                   description: "Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -973,7 +973,7 @@ paths:
                   description: "Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -1066,7 +1066,7 @@ paths:
                   description: "Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -1159,7 +1159,7 @@ paths:
                   description: "Mode for parsing entities in the animation caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -1235,7 +1235,7 @@ paths:
                   description: "Mode for parsing entities in the voice message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -2214,7 +2214,7 @@ paths:
                   description: "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 explanation_entities:
-                  description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -2293,7 +2293,7 @@ paths:
                   description: "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 explanation_entities:
-                  description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -2372,7 +2372,7 @@ paths:
                   description: "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 explanation_entities:
-                  description: "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5011,7 +5011,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5046,7 +5046,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5081,7 +5081,7 @@ paths:
                   description: "Mode for parsing entities in the message text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 entities:
-                  description: "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5149,7 +5149,7 @@ paths:
                   description: "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5179,7 +5179,7 @@ paths:
                   description: "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"
@@ -5209,7 +5209,7 @@ paths:
                   description: "Mode for parsing entities in the message caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
                   type: string
                 caption_entities:
-                  description: "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
+                  description: "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*"
                   type: array
                   items:
                     $ref: "#/components/schemas/MessageEntity"

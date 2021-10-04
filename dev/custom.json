@@ -201,7 +201,7 @@
         },
         {
           "name": "entities",
-          "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -371,7 +371,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -478,7 +478,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -585,7 +585,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -740,7 +740,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -886,7 +886,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -1032,7 +1032,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -1139,7 +1139,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -1919,7 +1919,7 @@
         },
         {
           "name": "explanation_entities",
-          "description": "List of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -2446,7 +2446,7 @@
         },
         {
           "name": "permissions",
-          "description": "New default chat permissions",
+          "description": "A JSON-serialized object for new default chat permissions",
           "required": true,
           "type": "reference",
           "reference": "ChatPermissions"
@@ -3197,7 +3197,7 @@
         },
         {
           "name": "entities",
-          "description": "List of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
@@ -3281,7 +3281,7 @@
         },
         {
           "name": "caption_entities",
-          "description": "List of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
           "required": false,
           "type": "array",
           "array": {
