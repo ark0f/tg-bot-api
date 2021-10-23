@@ -7439,7 +7439,7 @@ components:
           description: Photo height
           type: integer
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7476,7 +7476,7 @@ components:
           description: "*Optional*. MIME type of the file as defined by sender"
           type: string
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7512,7 +7512,7 @@ components:
           description: "*Optional*. MIME type of the file as defined by sender"
           type: string
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
         thumb:
           $ref: "#/components/schemas/PhotoSize"
@@ -7541,7 +7541,7 @@ components:
           description: "*Optional*. MIME type of the file as defined by sender"
           type: string
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7576,7 +7576,7 @@ components:
           description: "*Optional*. Mime type of a file as defined by sender"
           type: string
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7605,7 +7605,7 @@ components:
         thumb:
           $ref: "#/components/schemas/PhotoSize"
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7631,7 +7631,7 @@ components:
           description: "*Optional*. MIME type of the file as defined by sender"
           type: string
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -7885,7 +7885,7 @@ components:
       type: object
       properties:
         duration:
-          description: Voice chat duration; in seconds
+          description: Voice chat duration in seconds
           type: integer
       required:
         - duration
@@ -7932,7 +7932,7 @@ components:
           description: "Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file."
           type: string
         file_size:
-          description: "*Optional*. File size, if known"
+          description: "*Optional*. File size in bytes, if known"
           type: integer
         file_path:
           description: "*Optional*. File path. Use `https://api.telegram.org/file/bot<token>/<file_path>` to get the file."
@@ -8674,7 +8674,7 @@ components:
           description: "*Optional*. Video height"
           type: integer
         duration:
-          description: "*Optional*. Video duration"
+          description: "*Optional*. Video duration in seconds"
           type: integer
         supports_streaming:
           description: "*Optional*. Pass *True*, if the uploaded video is suitable for streaming"
@@ -8720,7 +8720,7 @@ components:
           description: "*Optional*. Animation height"
           type: integer
         duration:
-          description: "*Optional*. Animation duration"
+          description: "*Optional*. Animation duration in seconds"
           type: integer
       required:
         - type
@@ -8841,7 +8841,7 @@ components:
         mask_position:
           $ref: "#/components/schemas/MaskPosition"
         file_size:
-          description: "*Optional*. File size"
+          description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
@@ -9023,7 +9023,7 @@ components:
           description: "Unique identifier for this result, 1-64 bytes"
           type: string
         photo_url:
-          description: A valid URL of the photo. Photo must be in **jpeg** format. Photo size must not exceed 5MB
+          description: A valid URL of the photo. Photo must be in **JPEG** format. Photo size must not exceed 5MB
           type: string
         thumb_url:
           description: URL of the thumbnail for the photo
@@ -9085,7 +9085,7 @@ components:
           description: "*Optional*. Height of the GIF"
           type: integer
         gif_duration:
-          description: "*Optional*. Duration of the GIF"
+          description: "*Optional*. Duration of the GIF in seconds"
           type: integer
         thumb_url:
           description: URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result
@@ -9146,7 +9146,7 @@ components:
           description: "*Optional*. Video height"
           type: integer
         mpeg4_duration:
-          description: "*Optional*. Video duration"
+          description: "*Optional*. Video duration in seconds"
           type: integer
         thumb_url:
           description: URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result
@@ -9207,7 +9207,7 @@ components:
             - text/html
             - video/mp4
         thumb_url:
-          description: URL of the thumbnail (jpeg only) for the video
+          description: URL of the thumbnail (JPEG only) for the video
           type: string
         title:
           description: Title for the result
@@ -9385,7 +9385,7 @@ components:
         input_message_content:
           $ref: "#/components/schemas/InputMessageContent"
         thumb_url:
-          description: "*Optional*. URL of the thumbnail (jpeg only) for the file"
+          description: "*Optional*. URL of the thumbnail (JPEG only) for the file"
           type: string
         thumb_width:
           description: "*Optional*. Thumbnail width"
@@ -10333,7 +10333,7 @@ components:
           description: "Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file."
           type: string
         file_size:
-          description: File size
+          description: File size in bytes
           type: integer
         file_date:
           description: Unix time when the file was uploaded

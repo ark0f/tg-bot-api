@@ -11774,7 +11774,7 @@
             "type": "integer"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -11824,7 +11824,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -11872,7 +11872,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           },
           "thumb": {
@@ -11912,7 +11912,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -11960,7 +11960,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -11999,7 +11999,7 @@
             "$ref": "#/components/schemas/PhotoSize"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -12034,7 +12034,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -12382,7 +12382,7 @@
         "type": "object",
         "properties": {
           "duration": {
-            "description": "Voice chat duration; in seconds",
+            "description": "Voice chat duration in seconds",
             "type": "integer"
           }
         },
@@ -12449,7 +12449,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "*Optional*. File size, if known",
+            "description": "*Optional*. File size in bytes, if known",
             "type": "integer"
           },
           "file_path": {
@@ -13512,7 +13512,7 @@
             "type": "integer"
           },
           "duration": {
-            "description": "*Optional*. Video duration",
+            "description": "*Optional*. Video duration in seconds",
             "type": "integer"
           },
           "supports_streaming": {
@@ -13578,7 +13578,7 @@
             "type": "integer"
           },
           "duration": {
-            "description": "*Optional*. Animation duration",
+            "description": "*Optional*. Animation duration in seconds",
             "type": "integer"
           }
         },
@@ -13751,7 +13751,7 @@
             "$ref": "#/components/schemas/MaskPosition"
           },
           "file_size": {
-            "description": "*Optional*. File size",
+            "description": "*Optional*. File size in bytes",
             "type": "integer"
           }
         },
@@ -14029,7 +14029,7 @@
             "type": "string"
           },
           "photo_url": {
-            "description": "A valid URL of the photo. Photo must be in **jpeg** format. Photo size must not exceed 5MB",
+            "description": "A valid URL of the photo. Photo must be in **JPEG** format. Photo size must not exceed 5MB",
             "type": "string"
           },
           "thumb_url": {
@@ -14112,7 +14112,7 @@
             "type": "integer"
           },
           "gif_duration": {
-            "description": "*Optional*. Duration of the GIF",
+            "description": "*Optional*. Duration of the GIF in seconds",
             "type": "integer"
           },
           "thumb_url": {
@@ -14193,7 +14193,7 @@
             "type": "integer"
           },
           "mpeg4_duration": {
-            "description": "*Optional*. Video duration",
+            "description": "*Optional*. Video duration in seconds",
             "type": "integer"
           },
           "thumb_url": {
@@ -14274,7 +14274,7 @@
             ]
           },
           "thumb_url": {
-            "description": "URL of the thumbnail (jpeg only) for the video",
+            "description": "URL of the thumbnail (JPEG only) for the video",
             "type": "string"
           },
           "title": {
@@ -14512,7 +14512,7 @@
             "$ref": "#/components/schemas/InputMessageContent"
           },
           "thumb_url": {
-            "description": "*Optional*. URL of the thumbnail (jpeg only) for the file",
+            "description": "*Optional*. URL of the thumbnail (JPEG only) for the file",
             "type": "string"
           },
           "thumb_width": {
@@ -15802,7 +15802,7 @@
             "type": "string"
           },
           "file_size": {
-            "description": "File size",
+            "description": "File size in bytes",
             "type": "integer"
           },
           "file_date": {
