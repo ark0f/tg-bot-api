@@ -4655,7 +4655,7 @@
         },
         {
           "name": "slow_mode_delay",
-          "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "integer"
         },
@@ -5761,7 +5761,7 @@
         },
         {
           "name": "live_period",
-          "description": "*Optional*. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only.",
+          "description": "*Optional*. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only.",
           "required": false,
           "type": "integer"
         },
@@ -5866,7 +5866,7 @@
       "properties": [
         {
           "name": "message_auto_delete_time",
-          "description": "New auto-delete time for messages in the chat",
+          "description": "New auto-delete time for messages in the chat; in seconds",
           "required": true,
           "type": "integer"
         }

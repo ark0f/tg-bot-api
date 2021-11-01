@@ -7187,7 +7187,7 @@ components:
         permissions:
           $ref: "#/components/schemas/ChatPermissions"
         slow_mode_delay:
-          description: "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          description: "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: integer
         message_auto_delete_time:
           description: "*Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
@@ -7794,7 +7794,7 @@ components:
           description: "*Optional*. The radius of uncertainty for the location, measured in meters; 0-1500"
           type: number
         live_period:
-          description: "*Optional*. Time relative to the message sending date, during which the location can be updated, in seconds. For active live locations only."
+          description: "*Optional*. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only."
           type: integer
         heading:
           description: "*Optional*. The direction in which user is moving, in degrees; 1-360. For active live locations only."
@@ -7859,7 +7859,7 @@ components:
       type: object
       properties:
         message_auto_delete_time:
-          description: New auto-delete time for messages in the chat
+          description: New auto-delete time for messages in the chat; in seconds
           type: integer
       required:
         - message_auto_delete_time
