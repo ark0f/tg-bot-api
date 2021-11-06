@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 5,
-    "minor": 3,
+    "minor": 4,
     "patch": 0
   },
   "recent_changes": {
     "year": 2021,
-    "month": 6,
-    "day": 25
+    "month": 11,
+    "day": 5
   },
   "methods": [
     {
@@ -1874,7 +1874,7 @@
         },
         {
           "name": "is_anonymous",
-          "description": "True, if the poll needs to be anonymous, defaults to *True*",
+          "description": "*True*, if the poll needs to be anonymous, defaults to *True*",
           "required": false,
           "type": "bool",
           "default": true
@@ -1892,7 +1892,7 @@
         },
         {
           "name": "allows_multiple_answers",
-          "description": "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
+          "description": "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
           "required": false,
           "type": "bool",
           "default": false
@@ -2098,7 +2098,7 @@
         },
         {
           "name": "action",
-          "description": "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote).",
+          "description": "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote).",
           "required": true,
           "type": "string"
         }
@@ -2163,7 +2163,7 @@
     },
     {
       "name": "banChatMember",
-      "description": "Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2245,7 +2245,7 @@
     },
     {
       "name": "restrictChatMember",
-      "description": "Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate admin rights. Pass *True* for all permissions to lift restrictions from a user. Returns *True* on success.",
+      "description": "Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights. Pass *True* for all permissions to lift restrictions from a user. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2290,7 +2290,7 @@
     },
     {
       "name": "promoteChatMember",
-      "description": "Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Pass *False* for all boolean parameters to demote a user. Returns *True* on success.",
+      "description": "Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass *False* for all boolean parameters to demote a user. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2320,61 +2320,61 @@
         },
         {
           "name": "can_manage_chat",
-          "description": "Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+          "description": "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_post_messages",
-          "description": "Pass True, if the administrator can create channel posts, channels only",
+          "description": "Pass *True*, if the administrator can create channel posts, channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "Pass True, if the administrator can edit messages of other users and can pin messages, channels only",
+          "description": "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_delete_messages",
-          "description": "Pass True, if the administrator can delete messages of other users",
+          "description": "Pass *True*, if the administrator can delete messages of other users",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_voice_chats",
-          "description": "Pass True, if the administrator can manage voice chats",
+          "description": "Pass *True*, if the administrator can manage voice chats",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_restrict_members",
-          "description": "Pass True, if the administrator can restrict, ban or unban chat members",
+          "description": "Pass *True*, if the administrator can restrict, ban or unban chat members",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_promote_members",
-          "description": "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
+          "description": "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_change_info",
-          "description": "Pass True, if the administrator can change chat title, photo and other settings",
+          "description": "Pass *True*, if the administrator can change chat title, photo and other settings",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_invite_users",
-          "description": "Pass True, if the administrator can invite new users to the chat",
+          "description": "Pass *True*, if the administrator can invite new users to the chat",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "Pass True, if the administrator can pin messages, supergroups only",
+          "description": "Pass *True*, if the administrator can pin messages, supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -2428,7 +2428,7 @@
     },
     {
       "name": "setChatPermissions",
-      "description": "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the *can\\_restrict\\_members* admin rights. Returns *True* on success.",
+      "description": "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the *can\\_restrict\\_members* administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2461,7 +2461,7 @@
     },
     {
       "name": "exportChatInviteLink",
-      "description": "Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the new invite link as *String* on success.",
+      "description": "Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the new invite link as *String* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2486,7 +2486,7 @@
     },
     {
       "name": "createChatInviteLink",
-      "description": "Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "description": "Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2503,6 +2503,14 @@
           ]
         },
         {
+          "name": "name",
+          "description": "Invite link name; 0-32 characters",
+          "required": false,
+          "type": "string",
+          "min_len": 0,
+          "max_len": 32
+        },
+        {
           "name": "expire_date",
           "description": "Point in time (Unix timestamp) when the link will expire",
           "required": false,
@@ -2513,6 +2521,12 @@
           "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type": "integer"
+        },
+        {
+          "name": "creates_join_request",
+          "description": "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified",
+          "required": false,
+          "type": "bool"
         }
       ],
       "multipart_only": false,
@@ -2524,7 +2538,7 @@
     },
     {
       "name": "editChatInviteLink",
-      "description": "Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "description": "Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2547,6 +2561,14 @@
           "type": "string"
         },
         {
+          "name": "name",
+          "description": "Invite link name; 0-32 characters",
+          "required": false,
+          "type": "string",
+          "min_len": 0,
+          "max_len": 32
+        },
+        {
           "name": "expire_date",
           "description": "Point in time (Unix timestamp) when the link will expire",
           "required": false,
@@ -2557,6 +2579,12 @@
           "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type": "integer"
+        },
+        {
+          "name": "creates_join_request",
+          "description": "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified",
+          "required": false,
+          "type": "bool"
         }
       ],
       "multipart_only": false,
@@ -2568,7 +2596,7 @@
     },
     {
       "name": "revokeChatInviteLink",
-      "description": "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "description": "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2599,8 +2627,72 @@
       "documentation_link": "https://core.telegram.org/bots/api/#revokechatinvitelink"
     },
     {
+      "name": "approveChatJoinRequest",
+      "description": "Use this method to approve a chat join request. The bot must be an administrator in the chat for this to work and must have the *can\\_invite\\_users* administrator right. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "user_id",
+          "description": "Unique identifier of the target user",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#approvechatjoinrequest"
+    },
+    {
+      "name": "declineChatJoinRequest",
+      "description": "Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the *can\\_invite\\_users* administrator right. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "user_id",
+          "description": "Unique identifier of the target user",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#declinechatjoinrequest"
+    },
+    {
       "name": "setChatPhoto",
-      "description": "Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2633,7 +2725,7 @@
     },
     {
       "name": "deleteChatPhoto",
-      "description": "Use this method to delete a chat photo. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to delete a chat photo. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2659,7 +2751,7 @@
     },
     {
       "name": "setChatTitle",
-      "description": "Use this method to change the title of a chat. Titles can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to change the title of a chat. Titles can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2693,7 +2785,7 @@
     },
     {
       "name": "setChatDescription",
-      "description": "Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success.",
+      "description": "Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2727,7 +2819,7 @@
     },
     {
       "name": "pinChatMessage",
-      "description": "Use this method to add a message to the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success.",
+      "description": "Use this method to add a message to the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2765,7 +2857,7 @@
     },
     {
       "name": "unpinChatMessage",
-      "description": "Use this method to remove a message from the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success.",
+      "description": "Use this method to remove a message from the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2797,7 +2889,7 @@
     },
     {
       "name": "unpinAllChatMessages",
-      "description": "Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success.",
+      "description": "Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2961,7 +3053,7 @@
     },
     {
       "name": "setChatStickerSet",
-      "description": "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success.",
+      "description": "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2993,7 +3085,7 @@
     },
     {
       "name": "deleteChatStickerSet",
-      "description": "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success.",
+      "description": "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -3037,7 +3129,7 @@
         },
         {
           "name": "show_alert",
-          "description": "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.",
+          "description": "If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.",
           "required": false,
           "type": "bool",
           "default": false
@@ -4092,7 +4184,7 @@
     },
     {
       "name": "answerShippingQuery",
-      "description": "If you sent an invoice requesting a shipping address and the parameter *is\\_flexible* was specified, the Bot API will send an [Update](https://core.telegram.org/bots/api/#update) with a *shipping\\_query* field to the bot. Use this method to reply to shipping queries. On success, True is returned.",
+      "description": "If you sent an invoice requesting a shipping address and the parameter *is\\_flexible* was specified, the Bot API will send an [Update](https://core.telegram.org/bots/api/#update) with a *shipping\\_query* field to the bot. Use this method to reply to shipping queries. On success, *True* is returned.",
       "arguments": [
         {
           "name": "shipping_query_id",
@@ -4102,13 +4194,13 @@
         },
         {
           "name": "ok",
-          "description": "Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)",
+          "description": "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)",
           "required": true,
           "type": "bool"
         },
         {
           "name": "shipping_options",
-          "description": "Required if *ok* is True. A JSON-serialized array of available shipping options.",
+          "description": "Required if *ok* is *True*. A JSON-serialized array of available shipping options.",
           "required": false,
           "type": "array",
           "array": {
@@ -4132,7 +4224,7 @@
     },
     {
       "name": "answerPreCheckoutQuery",
-      "description": "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an [Update](https://core.telegram.org/bots/api/#update) with the field *pre\\_checkout\\_query*. Use this method to respond to such pre-checkout queries. On success, True is returned. **Note:** The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.",
+      "description": "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an [Update](https://core.telegram.org/bots/api/#update) with the field *pre\\_checkout\\_query*. Use this method to respond to such pre-checkout queries. On success, *True* is returned. **Note:** The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent.",
       "arguments": [
         {
           "name": "pre_checkout_query_id",
@@ -4255,13 +4347,13 @@
         },
         {
           "name": "force",
-          "description": "Pass True, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters",
+          "description": "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters",
           "required": false,
           "type": "bool"
         },
         {
           "name": "disable_edit_message",
-          "description": "Pass True, if the game message should not be automatically edited to include the current scoreboard",
+          "description": "Pass *True*, if the game message should not be automatically edited to include the current scoreboard",
           "required": false,
           "type": "bool"
         },
@@ -4442,6 +4534,13 @@
           "required": false,
           "type": "reference",
           "reference": "ChatMemberUpdated"
+        },
+        {
+          "name": "chat_join_request",
+          "description": "*Optional*. A request to join the chat has been sent. The bot must have the *can\\_invite\\_users* administrator right in the chat to receive these updates.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatJoinRequest"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#update"
@@ -4459,7 +4558,7 @@
         },
         {
           "name": "has_custom_certificate",
-          "description": "True, if a custom certificate was provided for webhook certificate checks",
+          "description": "*True*, if a custom certificate was provided for webhook certificate checks",
           "required": true,
           "type": "bool"
         },
@@ -4518,7 +4617,7 @@
         },
         {
           "name": "is_bot",
-          "description": "True, if this user is a bot",
+          "description": "*True*, if this user is a bot",
           "required": true,
           "type": "bool"
         },
@@ -4548,19 +4647,19 @@
         },
         {
           "name": "can_join_groups",
-          "description": "*Optional*. True, if the bot can be invited to groups. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
+          "description": "*Optional*. *True*, if the bot can be invited to groups. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_read_all_group_messages",
-          "description": "*Optional*. True, if [privacy mode](https://core.telegram.org/bots#privacy-mode) is disabled for the bot. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
+          "description": "*Optional*. *True*, if [privacy mode](https://core.telegram.org/bots#privacy-mode) is disabled for the bot. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
           "required": false,
           "type": "bool"
         },
         {
           "name": "supports_inline_queries",
-          "description": "*Optional*. True, if the bot supports inline queries. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
+          "description": "*Optional*. *True*, if the bot supports inline queries. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).",
           "required": false,
           "type": "bool"
         }
@@ -4673,7 +4772,7 @@
         },
         {
           "name": "can_set_sticker_set",
-          "description": "*Optional*. True, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. *True*, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "bool"
         },
@@ -5671,13 +5770,13 @@
         },
         {
           "name": "is_closed",
-          "description": "True, if the poll is closed",
+          "description": "*True*, if the poll is closed",
           "required": true,
           "type": "bool"
         },
         {
           "name": "is_anonymous",
-          "description": "True, if the poll is anonymous",
+          "description": "*True*, if the poll is anonymous",
           "required": true,
           "type": "bool"
         },
@@ -5693,7 +5792,7 @@
         },
         {
           "name": "allows_multiple_answers",
-          "description": "True, if the poll allows multiple answers",
+          "description": "*True*, if the poll allows multiple answers",
           "required": true,
           "type": "bool"
         },
@@ -6171,7 +6270,7 @@
         },
         {
           "name": "pay",
-          "description": "*Optional*. Specify True, to send a [Pay button](https://core.telegram.org/bots/api/#payments).  \n\n**NOTE:** This type of button **must** always be the first button in the first row.",
+          "description": "*Optional*. Specify *True*, to send a [Pay button](https://core.telegram.org/bots/api/#payments).  \n\n**NOTE:** This type of button **must** always be the first button in the first row.",
           "required": false,
           "type": "bool"
         }
@@ -6203,7 +6302,7 @@
         },
         {
           "name": "request_write_access",
-          "description": "*Optional*. Pass True to request the permission for your bot to send messages to the user.",
+          "description": "*Optional*. Pass *True* to request the permission for your bot to send messages to the user.",
           "required": false,
           "type": "bool"
         }
@@ -6341,16 +6440,28 @@
           "reference": "User"
         },
         {
+          "name": "creates_join_request",
+          "description": "*True*, if users joining the chat via the link need to be approved by chat administrators",
+          "required": true,
+          "type": "bool"
+        },
+        {
           "name": "is_primary",
-          "description": "True, if the link is primary",
+          "description": "*True*, if the link is primary",
           "required": true,
           "type": "bool"
         },
         {
           "name": "is_revoked",
-          "description": "True, if the link is revoked",
+          "description": "*True*, if the link is revoked",
           "required": true,
           "type": "bool"
+        },
+        {
+          "name": "name",
+          "description": "*Optional*. Invite link name",
+          "required": false,
+          "type": "string"
         },
         {
           "name": "expire_date",
@@ -6361,6 +6472,12 @@
         {
           "name": "member_limit",
           "description": "*Optional*. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "pending_join_request_count",
+          "description": "*Optional*. Number of pending join requests created using this link",
           "required": false,
           "type": "integer"
         }
@@ -6420,7 +6537,7 @@
         },
         {
           "name": "is_anonymous",
-          "description": "True, if the user's presence in the chat is hidden",
+          "description": "*True*, if the user's presence in the chat is hidden",
           "required": true,
           "type": "bool"
         },
@@ -6454,73 +6571,73 @@
         },
         {
           "name": "can_be_edited",
-          "description": "True, if the bot is allowed to edit administrator privileges of that user",
+          "description": "*True*, if the bot is allowed to edit administrator privileges of that user",
           "required": true,
           "type": "bool"
         },
         {
           "name": "is_anonymous",
-          "description": "True, if the user's presence in the chat is hidden",
+          "description": "*True*, if the user's presence in the chat is hidden",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_manage_chat",
-          "description": "True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+          "description": "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_delete_messages",
-          "description": "True, if the administrator can delete messages of other users",
+          "description": "*True*, if the administrator can delete messages of other users",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_manage_voice_chats",
-          "description": "True, if the administrator can manage voice chats",
+          "description": "*True*, if the administrator can manage voice chats",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_restrict_members",
-          "description": "True, if the administrator can restrict, ban or unban chat members",
+          "description": "*True*, if the administrator can restrict, ban or unban chat members",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_promote_members",
-          "description": "True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)",
+          "description": "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_change_info",
-          "description": "True, if the user is allowed to change the chat title, photo and other settings",
+          "description": "*True*, if the user is allowed to change the chat title, photo and other settings",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_invite_users",
-          "description": "True, if the user is allowed to invite new users to the chat",
+          "description": "*True*, if the user is allowed to invite new users to the chat",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_post_messages",
-          "description": "*Optional*. True, if the administrator can post in the channel; channels only",
+          "description": "*Optional*. *True*, if the administrator can post in the channel; channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "*Optional*. True, if the administrator can edit messages of other users and can pin messages; channels only",
+          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "*Optional*. True, if the user is allowed to pin messages; groups and supergroups only",
+          "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
           "required": false,
           "type": "bool"
         },
@@ -6576,55 +6693,55 @@
         },
         {
           "name": "is_member",
-          "description": "True, if the user is a member of the chat at the moment of the request",
+          "description": "*True*, if the user is a member of the chat at the moment of the request",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_change_info",
-          "description": "True, if the user is allowed to change the chat title, photo and other settings",
+          "description": "*True*, if the user is allowed to change the chat title, photo and other settings",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_invite_users",
-          "description": "True, if the user is allowed to invite new users to the chat",
+          "description": "*True*, if the user is allowed to invite new users to the chat",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "True, if the user is allowed to pin messages",
+          "description": "*True*, if the user is allowed to pin messages",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_send_messages",
-          "description": "True, if the user is allowed to send text messages, contacts, locations and venues",
+          "description": "*True*, if the user is allowed to send text messages, contacts, locations and venues",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_send_media_messages",
-          "description": "True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes",
+          "description": "*True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_send_polls",
-          "description": "True, if the user is allowed to send polls",
+          "description": "*True*, if the user is allowed to send polls",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_send_other_messages",
-          "description": "True, if the user is allowed to send animations, games, stickers and use inline bots",
+          "description": "*True*, if the user is allowed to send animations, games, stickers and use inline bots",
           "required": true,
           "type": "bool"
         },
         {
           "name": "can_add_web_page_previews",
-          "description": "True, if the user is allowed to add web page previews to their messages",
+          "description": "*True*, if the user is allowed to add web page previews to their messages",
           "required": true,
           "type": "bool"
         },
@@ -6737,55 +6854,96 @@
       "documentation_link": "https://core.telegram.org/bots/api/#chatmemberupdated"
     },
     {
+      "name": "ChatJoinRequest",
+      "description": "Represents a join request sent to a chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat to which the request was sent",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "from",
+          "description": "User that sent the join request",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "date",
+          "description": "Date the request was sent in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "bio",
+          "description": "*Optional*. Bio of the user.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "invite_link",
+          "description": "*Optional*. Chat invite link that was used by the user to send the join request",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatInviteLink"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatjoinrequest"
+    },
+    {
       "name": "ChatPermissions",
       "description": "Describes actions that a non-administrator user is allowed to take in a chat.",
       "type": "properties",
       "properties": [
         {
           "name": "can_send_messages",
-          "description": "*Optional*. True, if the user is allowed to send text messages, contacts, locations and venues",
+          "description": "*Optional*. *True*, if the user is allowed to send text messages, contacts, locations and venues",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_send_media_messages",
-          "description": "*Optional*. True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\\_send\\_messages",
+          "description": "*Optional*. *True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\\_send\\_messages",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_send_polls",
-          "description": "*Optional*. True, if the user is allowed to send polls, implies can\\_send\\_messages",
+          "description": "*Optional*. *True*, if the user is allowed to send polls, implies can\\_send\\_messages",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_send_other_messages",
-          "description": "*Optional*. True, if the user is allowed to send animations, games, stickers and use inline bots, implies can\\_send\\_media\\_messages",
+          "description": "*Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots, implies can\\_send\\_media\\_messages",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_add_web_page_previews",
-          "description": "*Optional*. True, if the user is allowed to add web page previews to their messages, implies can\\_send\\_media\\_messages",
+          "description": "*Optional*. *True*, if the user is allowed to add web page previews to their messages, implies can\\_send\\_media\\_messages",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_change_info",
-          "description": "*Optional*. True, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups",
+          "description": "*Optional*. *True*, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_invite_users",
-          "description": "*Optional*. True, if the user is allowed to invite new users to the chat",
+          "description": "*Optional*. *True*, if the user is allowed to invite new users to the chat",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "*Optional*. True, if the user is allowed to pin messages. Ignored in public supergroups",
+          "description": "*Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups",
           "required": false,
           "type": "bool"
         }
@@ -7420,7 +7578,7 @@
         },
         {
           "name": "disable_content_type_detection",
-          "description": "*Optional*. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album.",
+          "description": "*Optional*. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always *True*, if the document is sent as part of an album.",
           "required": false,
           "type": "bool"
         }

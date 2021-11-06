@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 5.3.0
+  version: 5.4.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -2188,7 +2188,7 @@ paths:
                   items:
                     type: string
                 is_anonymous:
-                  description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  description: "*True*, if the poll needs to be anonymous, defaults to *True*"
                   default: true
                   type: boolean
                 type:
@@ -2199,7 +2199,7 @@ paths:
                     - quiz
                     - regular
                 allows_multiple_answers:
-                  description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
                   type: boolean
                 correct_option_id:
@@ -2267,7 +2267,7 @@ paths:
                   items:
                     type: string
                 is_anonymous:
-                  description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  description: "*True*, if the poll needs to be anonymous, defaults to *True*"
                   default: true
                   type: boolean
                 type:
@@ -2278,7 +2278,7 @@ paths:
                     - quiz
                     - regular
                 allows_multiple_answers:
-                  description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
                   type: boolean
                 correct_option_id:
@@ -2346,7 +2346,7 @@ paths:
                   items:
                     type: string
                 is_anonymous:
-                  description: "True, if the poll needs to be anonymous, defaults to *True*"
+                  description: "*True*, if the poll needs to be anonymous, defaults to *True*"
                   default: true
                   type: boolean
                 type:
@@ -2357,7 +2357,7 @@ paths:
                     - quiz
                     - regular
                 allows_multiple_answers:
-                  description: "True, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
                   default: false
                   type: boolean
                 correct_option_id:
@@ -2589,7 +2589,7 @@ paths:
                     - type: integer
                     - type: string
                 action:
-                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
+                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
               required:
                 - chat_id
@@ -2604,7 +2604,7 @@ paths:
                     - type: integer
                     - type: string
                 action:
-                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
+                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
               required:
                 - chat_id
@@ -2619,7 +2619,7 @@ paths:
                     - type: integer
                     - type: string
                 action:
-                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
+                  description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
                   type: string
               required:
                 - chat_id
@@ -2791,7 +2791,7 @@ paths:
                   - result
   /banChatMember:
     post:
-      description: "Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to ban a user in a group, a supergroup or a channel. In the case of supergroups and channels, the user will not be able to return to the chat on their own using invite links, etc., unless [unbanned](https://core.telegram.org/bots/api/#unbanchatmember) first. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#banchatmember"
       requestBody:
@@ -2970,7 +2970,7 @@ paths:
                   - result
   /restrictChatMember:
     post:
-      description: Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate admin rights. Pass *True* for all permissions to lift restrictions from a user. Returns *True* on success.
+      description: Use this method to restrict a user in a supergroup. The bot must be an administrator in the supergroup for this to work and must have the appropriate administrator rights. Pass *True* for all permissions to lift restrictions from a user. Returns *True* on success.
       externalDocs:
         url: "https://core.telegram.org/bots/api/#restrictchatmember"
       requestBody:
@@ -3064,7 +3064,7 @@ paths:
                   - result
   /promoteChatMember:
     post:
-      description: Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Pass *False* for all boolean parameters to demote a user. Returns *True* on success.
+      description: Use this method to promote or demote a user in a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Pass *False* for all boolean parameters to demote a user. Returns *True* on success.
       externalDocs:
         url: "https://core.telegram.org/bots/api/#promotechatmember"
       requestBody:
@@ -3085,34 +3085,34 @@ paths:
                   description: "Pass *True*, if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass True, if the administrator can create channel posts, channels only"
+                  description: "Pass *True*, if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass True, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass True, if the administrator can delete messages of other users"
+                  description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats"
+                  description: "Pass *True*, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
-                  description: "Pass True, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass True, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass True, if the administrator can invite new users to the chat"
+                  description: "Pass *True*, if the administrator can invite new users to the chat"
                   type: boolean
                 can_pin_messages:
-                  description: "Pass True, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3133,34 +3133,34 @@ paths:
                   description: "Pass *True*, if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass True, if the administrator can create channel posts, channels only"
+                  description: "Pass *True*, if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass True, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass True, if the administrator can delete messages of other users"
+                  description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats"
+                  description: "Pass *True*, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
-                  description: "Pass True, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass True, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass True, if the administrator can invite new users to the chat"
+                  description: "Pass *True*, if the administrator can invite new users to the chat"
                   type: boolean
                 can_pin_messages:
-                  description: "Pass True, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3181,34 +3181,34 @@ paths:
                   description: "Pass *True*, if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass True, if the administrator can create channel posts, channels only"
+                  description: "Pass *True*, if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass True, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass True, if the administrator can delete messages of other users"
+                  description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
                 can_manage_voice_chats:
-                  description: "Pass True, if the administrator can manage voice chats"
+                  description: "Pass *True*, if the administrator can manage voice chats"
                   type: boolean
                 can_restrict_members:
-                  description: "Pass True, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass True, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass True, if the administrator can invite new users to the chat"
+                  description: "Pass *True*, if the administrator can invite new users to the chat"
                   type: boolean
                 can_pin_messages:
-                  description: "Pass True, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3333,7 +3333,7 @@ paths:
                   - result
   /setChatPermissions:
     post:
-      description: "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the *can\\_restrict\\_members* admin rights. Returns *True* on success."
+      description: "Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the *can\\_restrict\\_members* administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setchatpermissions"
       requestBody:
@@ -3406,7 +3406,7 @@ paths:
                   - result
   /exportChatInviteLink:
     post:
-      description: Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the new invite link as *String* on success.
+      description: Use this method to generate a new primary invite link for a chat; any previously generated primary link is revoked. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the new invite link as *String* on success.
       externalDocs:
         url: "https://core.telegram.org/bots/api/#exportchatinvitelink"
       requestBody:
@@ -3469,7 +3469,7 @@ paths:
                   - result
   /createChatInviteLink:
     post:
-      description: "Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. The link can be revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
+      description: "Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#createchatinvitelink"
       requestBody:
@@ -3483,12 +3483,20 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
           multipart/form-data:
@@ -3500,12 +3508,20 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
           application/json:
@@ -3517,12 +3533,20 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
         required: true
@@ -3550,7 +3574,7 @@ paths:
                   - result
   /editChatInviteLink:
     post:
-      description: "Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
+      description: "Use this method to edit a non-primary invite link created by the bot. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editchatinvitelink"
       requestBody:
@@ -3567,12 +3591,20 @@ paths:
                 invite_link:
                   description: The invite link to edit
                   type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
                 - invite_link
@@ -3588,12 +3620,20 @@ paths:
                 invite_link:
                   description: The invite link to edit
                   type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
                 - invite_link
@@ -3609,12 +3649,20 @@ paths:
                 invite_link:
                   description: The invite link to edit
                   type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
                 expire_date:
                   description: Point in time (Unix timestamp) when the link will expire
                   type: integer
                 member_limit:
                   description: Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
                   type: integer
+                creates_join_request:
+                  description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
+                  type: boolean
               required:
                 - chat_id
                 - invite_link
@@ -3643,7 +3691,7 @@ paths:
                   - result
   /revokeChatInviteLink:
     post:
-      description: "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
+      description: "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#revokechatinvitelink"
       requestBody:
@@ -3716,9 +3764,161 @@ paths:
                 required:
                   - ok
                   - result
+  /approveChatJoinRequest:
+    post:
+      description: "Use this method to approve a chat join request. The bot must be an administrator in the chat for this to work and must have the *can\\_invite\\_users* administrator right. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#approvechatjoinrequest"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /declineChatJoinRequest:
+    post:
+      description: "Use this method to decline a chat join request. The bot must be an administrator in the chat for this to work and must have the *can\\_invite\\_users* administrator right. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#declinechatjoinrequest"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+              required:
+                - chat_id
+                - user_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
   /setChatPhoto:
     post:
-      description: "Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to set a new profile photo for the chat. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setchatphoto"
       requestBody:
@@ -3763,7 +3963,7 @@ paths:
                   - result
   /deleteChatPhoto:
     post:
-      description: "Use this method to delete a chat photo. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to delete a chat photo. Photos can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#deletechatphoto"
       requestBody:
@@ -3827,7 +4027,7 @@ paths:
                   - result
   /setChatTitle:
     post:
-      description: "Use this method to change the title of a chat. Titles can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to change the title of a chat. Titles can't be changed for private chats. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setchattitle"
       requestBody:
@@ -3909,7 +4109,7 @@ paths:
                   - result
   /setChatDescription:
     post:
-      description: "Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Returns *True* on success."
+      description: "Use this method to change the description of a group, a supergroup or a channel. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setchatdescription"
       requestBody:
@@ -3988,7 +4188,7 @@ paths:
                   - result
   /pinChatMessage:
     post:
-      description: "Use this method to add a message to the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success."
+      description: "Use this method to add a message to the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#pinchatmessage"
       requestBody:
@@ -4073,7 +4273,7 @@ paths:
                   - result
   /unpinChatMessage:
     post:
-      description: "Use this method to remove a message from the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success."
+      description: "Use this method to remove a message from the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#unpinchatmessage"
       requestBody:
@@ -4146,7 +4346,7 @@ paths:
                   - result
   /unpinAllChatMessages:
     post:
-      description: "Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' admin right in a supergroup or 'can\\_edit\\_messages' admin right in a channel. Returns *True* on success."
+      description: "Use this method to clear the list of pinned messages in a chat. If the chat is not a private chat, the bot must be an administrator in the chat for this to work and must have the 'can\\_pin\\_messages' administrator right in a supergroup or 'can\\_edit\\_messages' administrator right in a channel. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#unpinallchatmessages"
       requestBody:
@@ -4540,7 +4740,7 @@ paths:
                   - result
   /setChatStickerSet:
     post:
-      description: "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success."
+      description: "Use this method to set a new group sticker set for a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setchatstickerset"
       requestBody:
@@ -4616,7 +4816,7 @@ paths:
                   - result
   /deleteChatStickerSet:
     post:
-      description: "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate admin rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success."
+      description: "Use this method to delete a group sticker set from a supergroup. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Use the field *can\\_set\\_sticker\\_set* optionally returned in [getChat](https://core.telegram.org/bots/api/#getchat) requests to check if the bot can use this method. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#deletechatstickerset"
       requestBody:
@@ -4698,7 +4898,7 @@ paths:
                   minLength: 0
                   maxLength: 200
                 show_alert:
-                  description: "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
+                  description: "If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
                   default: false
                   type: boolean
                 url:
@@ -4723,7 +4923,7 @@ paths:
                   minLength: 0
                   maxLength: 200
                 show_alert:
-                  description: "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
+                  description: "If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
                   default: false
                   type: boolean
                 url:
@@ -4748,7 +4948,7 @@ paths:
                   minLength: 0
                   maxLength: 200
                 show_alert:
-                  description: "If *true*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
+                  description: "If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*."
                   default: false
                   type: boolean
                 url:
@@ -6462,7 +6662,7 @@ paths:
                   - result
   /answerShippingQuery:
     post:
-      description: "If you sent an invoice requesting a shipping address and the parameter *is\\_flexible* was specified, the Bot API will send an [Update](https://core.telegram.org/bots/api/#update) with a *shipping\\_query* field to the bot. Use this method to reply to shipping queries. On success, True is returned."
+      description: "If you sent an invoice requesting a shipping address and the parameter *is\\_flexible* was specified, the Bot API will send an [Update](https://core.telegram.org/bots/api/#update) with a *shipping\\_query* field to the bot. Use this method to reply to shipping queries. On success, *True* is returned."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#answershippingquery"
       requestBody:
@@ -6475,10 +6675,10 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
-                  description: Required if *ok* is True. A JSON-serialized array of available shipping options.
+                  description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
                   type: array
                   items:
                     $ref: "#/components/schemas/ShippingOption"
@@ -6496,10 +6696,10 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
-                  description: Required if *ok* is True. A JSON-serialized array of available shipping options.
+                  description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
                   type: array
                   items:
                     $ref: "#/components/schemas/ShippingOption"
@@ -6517,10 +6717,10 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
-                  description: Required if *ok* is True. A JSON-serialized array of available shipping options.
+                  description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
                   type: array
                   items:
                     $ref: "#/components/schemas/ShippingOption"
@@ -6556,7 +6756,7 @@ paths:
                   - result
   /answerPreCheckoutQuery:
     post:
-      description: "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an [Update](https://core.telegram.org/bots/api/#update) with the field *pre\\_checkout\\_query*. Use this method to respond to such pre-checkout queries. On success, True is returned. **Note:** The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent."
+      description: "Once the user has confirmed their payment and shipping details, the Bot API sends the final confirmation in the form of an [Update](https://core.telegram.org/bots/api/#update) with the field *pre\\_checkout\\_query*. Use this method to respond to such pre-checkout queries. On success, *True* is returned. **Note:** The Bot API must receive an answer within 10 seconds after the pre-checkout query was sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#answerprecheckoutquery"
       requestBody:
@@ -6829,10 +7029,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass True, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
                   type: boolean
                 disable_edit_message:
-                  description: "Pass True, if the game message should not be automatically edited to include the current scoreboard"
+                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -6857,10 +7057,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass True, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
                   type: boolean
                 disable_edit_message:
-                  description: "Pass True, if the game message should not be automatically edited to include the current scoreboard"
+                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -6885,10 +7085,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass True, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
                   type: boolean
                 disable_edit_message:
-                  description: "Pass True, if the game message should not be automatically edited to include the current scoreboard"
+                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -7067,6 +7267,8 @@ components:
           $ref: "#/components/schemas/ChatMemberUpdated"
         chat_member:
           $ref: "#/components/schemas/ChatMemberUpdated"
+        chat_join_request:
+          $ref: "#/components/schemas/ChatJoinRequest"
       required:
         - update_id
     WebhookInfo:
@@ -7079,7 +7281,7 @@ components:
           description: "Webhook URL, may be empty if webhook is not set up"
           type: string
         has_custom_certificate:
-          description: "True, if a custom certificate was provided for webhook certificate checks"
+          description: "*True*, if a custom certificate was provided for webhook certificate checks"
           type: boolean
         pending_update_count:
           description: Number of updates awaiting delivery
@@ -7115,7 +7317,7 @@ components:
           description: "Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier."
           type: integer
         is_bot:
-          description: "True, if this user is a bot"
+          description: "*True*, if this user is a bot"
           type: boolean
         first_name:
           description: "User's or bot's first name"
@@ -7130,13 +7332,13 @@ components:
           description: "*Optional*. [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) of the user's language"
           type: string
         can_join_groups:
-          description: "*Optional*. True, if the bot can be invited to groups. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
+          description: "*Optional*. *True*, if the bot can be invited to groups. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
           type: boolean
         can_read_all_group_messages:
-          description: "*Optional*. True, if [privacy mode](https://core.telegram.org/bots#privacy-mode) is disabled for the bot. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
+          description: "*Optional*. *True*, if [privacy mode](https://core.telegram.org/bots#privacy-mode) is disabled for the bot. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
           type: boolean
         supports_inline_queries:
-          description: "*Optional*. True, if the bot supports inline queries. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
+          description: "*Optional*. *True*, if the bot supports inline queries. Returned only in [getMe](https://core.telegram.org/bots/api/#getme)."
           type: boolean
       required:
         - id
@@ -7196,7 +7398,7 @@ components:
           description: "*Optional*. For supergroups, name of group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: string
         can_set_sticker_set:
-          description: "*Optional*. True, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          description: "*Optional*. *True*, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: boolean
         linked_chat_id:
           description: "*Optional*. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
@@ -7736,10 +7938,10 @@ components:
           description: Total number of users that voted in the poll
           type: integer
         is_closed:
-          description: "True, if the poll is closed"
+          description: "*True*, if the poll is closed"
           type: boolean
         is_anonymous:
-          description: "True, if the poll is anonymous"
+          description: "*True*, if the poll is anonymous"
           type: boolean
         type:
           description: "Poll type, currently can be “regular” or “quiz”"
@@ -7748,7 +7950,7 @@ components:
             - regular
             - quiz
         allows_multiple_answers:
-          description: "True, if the poll allows multiple answers"
+          description: "*True*, if the poll allows multiple answers"
           type: boolean
         correct_option_id:
           description: "*Optional*. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot."
@@ -8054,7 +8256,7 @@ components:
         callback_game:
           $ref: "#/components/schemas/CallbackGame"
         pay:
-          description: "*Optional*. Specify True, to send a [Pay button](https://core.telegram.org/bots/api/#payments).  \n\n**NOTE:** This type of button **must** always be the first button in the first row."
+          description: "*Optional*. Specify *True*, to send a [Pay button](https://core.telegram.org/bots/api/#payments).  \n\n**NOTE:** This type of button **must** always be the first button in the first row."
           type: boolean
       required:
         - text
@@ -8074,7 +8276,7 @@ components:
           description: "*Optional*. Username of a bot, which will be used for user authorization. See [Setting up a bot](https://core.telegram.org/widgets/login#setting-up-a-bot) for more details. If not specified, the current bot's username will be assumed. The *url*'s domain must be the same as the domain linked with the bot. See [Linking your domain to the bot](https://core.telegram.org/widgets/login#linking-your-domain-to-the-bot) for more details."
           type: string
         request_write_access:
-          description: "*Optional*. Pass True to request the permission for your bot to send messages to the user."
+          description: "*Optional*. Pass *True* to request the permission for your bot to send messages to the user."
           type: boolean
       required:
         - url
@@ -8160,21 +8362,31 @@ components:
           type: string
         creator:
           $ref: "#/components/schemas/User"
+        creates_join_request:
+          description: "*True*, if users joining the chat via the link need to be approved by chat administrators"
+          type: boolean
         is_primary:
-          description: "True, if the link is primary"
+          description: "*True*, if the link is primary"
           type: boolean
         is_revoked:
-          description: "True, if the link is revoked"
+          description: "*True*, if the link is revoked"
           type: boolean
+        name:
+          description: "*Optional*. Invite link name"
+          type: string
         expire_date:
           description: "*Optional*. Point in time (Unix timestamp) when the link will expire or has been expired"
           type: integer
         member_limit:
           description: "*Optional*. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999"
           type: integer
+        pending_join_request_count:
+          description: "*Optional*. Number of pending join requests created using this link"
+          type: integer
       required:
         - invite_link
         - creator
+        - creates_join_request
         - is_primary
         - is_revoked
     ChatMember:
@@ -8201,7 +8413,7 @@ components:
         user:
           $ref: "#/components/schemas/User"
         is_anonymous:
-          description: "True, if the user's presence in the chat is hidden"
+          description: "*True*, if the user's presence in the chat is hidden"
           type: boolean
         custom_title:
           description: "*Optional*. Custom title for this user"
@@ -8223,40 +8435,40 @@ components:
         user:
           $ref: "#/components/schemas/User"
         can_be_edited:
-          description: "True, if the bot is allowed to edit administrator privileges of that user"
+          description: "*True*, if the bot is allowed to edit administrator privileges of that user"
           type: boolean
         is_anonymous:
-          description: "True, if the user's presence in the chat is hidden"
+          description: "*True*, if the user's presence in the chat is hidden"
           type: boolean
         can_manage_chat:
-          description: "True, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+          description: "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
           type: boolean
         can_delete_messages:
-          description: "True, if the administrator can delete messages of other users"
+          description: "*True*, if the administrator can delete messages of other users"
           type: boolean
         can_manage_voice_chats:
-          description: "True, if the administrator can manage voice chats"
+          description: "*True*, if the administrator can manage voice chats"
           type: boolean
         can_restrict_members:
-          description: "True, if the administrator can restrict, ban or unban chat members"
+          description: "*True*, if the administrator can restrict, ban or unban chat members"
           type: boolean
         can_promote_members:
-          description: "True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
           type: boolean
         can_change_info:
-          description: "True, if the user is allowed to change the chat title, photo and other settings"
+          description: "*True*, if the user is allowed to change the chat title, photo and other settings"
           type: boolean
         can_invite_users:
-          description: "True, if the user is allowed to invite new users to the chat"
+          description: "*True*, if the user is allowed to invite new users to the chat"
           type: boolean
         can_post_messages:
-          description: "*Optional*. True, if the administrator can post in the channel; channels only"
+          description: "*Optional*. *True*, if the administrator can post in the channel; channels only"
           type: boolean
         can_edit_messages:
-          description: "*Optional*. True, if the administrator can edit messages of other users and can pin messages; channels only"
+          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only"
           type: boolean
         can_pin_messages:
-          description: "*Optional*. True, if the user is allowed to pin messages; groups and supergroups only"
+          description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
           type: boolean
         custom_title:
           description: "*Optional*. Custom title for this user"
@@ -8301,31 +8513,31 @@ components:
         user:
           $ref: "#/components/schemas/User"
         is_member:
-          description: "True, if the user is a member of the chat at the moment of the request"
+          description: "*True*, if the user is a member of the chat at the moment of the request"
           type: boolean
         can_change_info:
-          description: "True, if the user is allowed to change the chat title, photo and other settings"
+          description: "*True*, if the user is allowed to change the chat title, photo and other settings"
           type: boolean
         can_invite_users:
-          description: "True, if the user is allowed to invite new users to the chat"
+          description: "*True*, if the user is allowed to invite new users to the chat"
           type: boolean
         can_pin_messages:
-          description: "True, if the user is allowed to pin messages"
+          description: "*True*, if the user is allowed to pin messages"
           type: boolean
         can_send_messages:
-          description: "True, if the user is allowed to send text messages, contacts, locations and venues"
+          description: "*True*, if the user is allowed to send text messages, contacts, locations and venues"
           type: boolean
         can_send_media_messages:
-          description: "True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes"
+          description: "*True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes"
           type: boolean
         can_send_polls:
-          description: "True, if the user is allowed to send polls"
+          description: "*True*, if the user is allowed to send polls"
           type: boolean
         can_send_other_messages:
-          description: "True, if the user is allowed to send animations, games, stickers and use inline bots"
+          description: "*True*, if the user is allowed to send animations, games, stickers and use inline bots"
           type: boolean
         can_add_web_page_previews:
-          description: "True, if the user is allowed to add web page previews to their messages"
+          description: "*True*, if the user is allowed to add web page previews to their messages"
           type: boolean
         until_date:
           description: "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever"
@@ -8402,6 +8614,28 @@ components:
         - date
         - old_chat_member
         - new_chat_member
+    ChatJoinRequest:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatjoinrequest"
+      description: Represents a join request sent to a chat.
+      type: object
+      properties:
+        chat:
+          $ref: "#/components/schemas/Chat"
+        from:
+          $ref: "#/components/schemas/User"
+        date:
+          description: Date the request was sent in Unix time
+          type: integer
+        bio:
+          description: "*Optional*. Bio of the user."
+          type: string
+        invite_link:
+          $ref: "#/components/schemas/ChatInviteLink"
+      required:
+        - chat
+        - from
+        - date
     ChatPermissions:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatpermissions"
@@ -8409,28 +8643,28 @@ components:
       type: object
       properties:
         can_send_messages:
-          description: "*Optional*. True, if the user is allowed to send text messages, contacts, locations and venues"
+          description: "*Optional*. *True*, if the user is allowed to send text messages, contacts, locations and venues"
           type: boolean
         can_send_media_messages:
-          description: "*Optional*. True, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\\_send\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\\_send\\_messages"
           type: boolean
         can_send_polls:
-          description: "*Optional*. True, if the user is allowed to send polls, implies can\\_send\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to send polls, implies can\\_send\\_messages"
           type: boolean
         can_send_other_messages:
-          description: "*Optional*. True, if the user is allowed to send animations, games, stickers and use inline bots, implies can\\_send\\_media\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots, implies can\\_send\\_media\\_messages"
           type: boolean
         can_add_web_page_previews:
-          description: "*Optional*. True, if the user is allowed to add web page previews to their messages, implies can\\_send\\_media\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to add web page previews to their messages, implies can\\_send\\_media\\_messages"
           type: boolean
         can_change_info:
-          description: "*Optional*. True, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups"
+          description: "*Optional*. *True*, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups"
           type: boolean
         can_invite_users:
-          description: "*Optional*. True, if the user is allowed to invite new users to the chat"
+          description: "*Optional*. *True*, if the user is allowed to invite new users to the chat"
           type: boolean
         can_pin_messages:
-          description: "*Optional*. True, if the user is allowed to pin messages. Ignored in public supergroups"
+          description: "*Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups"
           type: boolean
     ChatLocation:
       externalDocs:
@@ -8800,7 +9034,7 @@ components:
           items:
             $ref: "#/components/schemas/MessageEntity"
         disable_content_type_detection:
-          description: "*Optional*. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always true, if the document is sent as part of an album."
+          description: "*Optional*. Disables automatic server-side content type detection for files uploaded using multipart/form-data. Always *True*, if the document is sent as part of an album."
           type: boolean
       required:
         - type
