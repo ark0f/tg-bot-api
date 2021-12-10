@@ -1,6 +1,8 @@
 name: GitHub Pages
 
 on:
+  repository_dispatch:
+    types: telegram_bot_api
   push:
     branches:
       - master
