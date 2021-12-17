@@ -13805,15 +13805,15 @@
         "type": "object",
         "properties": {
           "command": {
-            "description": "Text of the command, 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
+            "description": "Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
             "type": "string",
             "minLength": 1,
             "maxLength": 32
           },
           "description": {
-            "description": "Description of the command, 3-256 characters.",
+            "description": "Description of the command; 1-256 characters.",
             "type": "string",
-            "minLength": 3,
+            "minLength": 1,
             "maxLength": 256
           }
         },

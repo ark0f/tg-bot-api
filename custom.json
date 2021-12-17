@@ -7068,7 +7068,7 @@
       "properties": [
         {
           "name": "command",
-          "description": "Text of the command, 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
+          "description": "Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.",
           "required": true,
           "type": "string",
           "min_len": 1,
@@ -7076,10 +7076,10 @@
         },
         {
           "name": "description",
-          "description": "Description of the command, 3-256 characters.",
+          "description": "Description of the command; 1-256 characters.",
           "required": true,
           "type": "string",
-          "min_len": 3,
+          "min_len": 1,
           "max_len": 256
         }
       ],
