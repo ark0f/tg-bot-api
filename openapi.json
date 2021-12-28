@@ -12069,7 +12069,7 @@
             "type": "integer"
           },
           "forward_signature": {
-            "description": "*Optional*. For messages forwarded from channels, signature of the post author if present",
+            "description": "*Optional*. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present",
             "type": "string"
           },
           "forward_sender_name": {
