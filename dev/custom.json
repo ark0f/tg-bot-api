@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 5,
-    "minor": 5,
+    "minor": 6,
     "patch": 0
   },
   "recent_changes": {
     "year": 2021,
     "month": 12,
-    "day": 7
+    "day": 30
   },
   "methods": [
     {
@@ -222,6 +222,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of sent messages from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -304,6 +310,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the forwarded message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "message_id",
           "description": "Message identifier in the chat specified in *from\\_chat\\_id*",
           "required": true,
@@ -382,6 +394,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -489,6 +507,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -633,6 +657,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -757,6 +787,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -907,6 +943,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -1047,6 +1089,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -1156,6 +1204,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -1270,6 +1324,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -1365,6 +1425,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent messages from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the messages are a reply, ID of the original message",
           "required": false,
@@ -1444,6 +1510,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -1702,6 +1774,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -1790,6 +1868,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -1952,6 +2036,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -2031,6 +2121,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding",
           "required": false,
           "type": "bool"
         },
@@ -3695,6 +3791,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -4220,6 +4322,12 @@
           "type": "bool"
         },
         {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "reply_to_message_id",
           "description": "If the message is a reply, ID of the original message",
           "required": false,
@@ -4363,6 +4471,12 @@
         {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },
@@ -5301,7 +5415,7 @@
       "properties": [
         {
           "name": "type",
-          "description": "Type of the entity. Can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions))",
+          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions))",
           "required": true,
           "type": "string",
           "enumeration": [
@@ -5316,6 +5430,7 @@
             "italic",
             "underline",
             "strikethrough",
+            "spoiler",
             "code",
             "pre",
             "text_link",
