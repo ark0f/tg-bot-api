@@ -223,7 +223,7 @@
         },
         {
           "name": "protect_content",
-          "description": "Protects the contents of sent messages from forwarding and saving",
+          "description": "Protects the contents of the sent message from forwarding and saving",
           "required": false,
           "type": "bool"
         },

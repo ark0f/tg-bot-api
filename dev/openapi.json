@@ -549,7 +549,7 @@
                     "type": "boolean"
                   },
                   "protect_content": {
-                    "description": "Protects the contents of sent messages from forwarding and saving",
+                    "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
                   "reply_to_message_id": {
@@ -625,7 +625,7 @@
                     "type": "boolean"
                   },
                   "protect_content": {
-                    "description": "Protects the contents of sent messages from forwarding and saving",
+                    "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
                   "reply_to_message_id": {
@@ -701,7 +701,7 @@
                     "type": "boolean"
                   },
                   "protect_content": {
-                    "description": "Protects the contents of sent messages from forwarding and saving",
+                    "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
                   "reply_to_message_id": {
