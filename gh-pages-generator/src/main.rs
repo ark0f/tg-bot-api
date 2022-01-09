@@ -1,4 +1,5 @@
 mod custom;
+mod custom2;
 mod openapi;
 
 use serde::Serialize;
@@ -109,7 +110,7 @@ fn main() -> anyhow::Result<()> {
         ],
     )?;
 
-    let (custom_schema, json_schema) = custom::generate(parsed);
+    let (custom_schema, json_schema) = custom::generate(parsed.clone());
     indexer.add(
         &custom_schema,
         vec![
@@ -122,6 +123,22 @@ fn main() -> anyhow::Result<()> {
         vec![
             Format::Json("custom.schema.json"),
             Format::MinimizedJson("custom.schema.min.json"),
+        ],
+    )?;
+
+    let (custom_schema, json_schema) = custom2::generate(parsed);
+    indexer.add(
+        &custom_schema,
+        vec![
+            Format::Json("custom_v2.json"),
+            Format::MinimizedJson("custom_v2.min.json"),
+        ],
+    )?;
+    indexer.add(
+        &&json_schema,
+        vec![
+            Format::Json("custom_v2.schema.json"),
+            Format::MinimizedJson("custom_v2.schema.min.json"),
         ],
     )?;
 
