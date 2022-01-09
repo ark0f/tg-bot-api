@@ -11,8 +11,9 @@ Generated schemas can be found at `ark0f.github.io/tg-bot-api`:
 
 * [`/openapi.yml`](https://ark0f.github.io/tg-bot-api/openapi.yml) or
   [`/openapi.json`](https://ark0f.github.io/tg-bot-api/openapi.json) - OpenAPI 3.0.0
-* [`/custom.json`](https://ark0f.github.io/tg-bot-api/custom.json) - custom schema that more convenient to work with
-* [`/custom.schema.json`](https://ark0f.github.io/tg-bot-api/custom.schema.json) - JSON Schema Draft #7
+* [`/custom_v2.json`](https://ark0f.github.io/tg-bot-api/custom_v2.json) - custom schema that more convenient to work
+  with
+* [`/custom_v2.json`](https://ark0f.github.io/tg-bot-api/custom_v2.schema.json) - JSON Schema Draft #7
   for `/custom.json`
 
 `.min.json` suffix can be used to fetch minimized JSON. For example: `openapi.min.json`, etc.
@@ -20,3 +21,14 @@ Generated schemas can be found at `ark0f.github.io/tg-bot-api`:
 ## Automatic deploy
 
 Schemas are deployed automatically every midnight at UTC+0 and when there is a new commit in tdlib/telegram-bot-api.
+
+## Custom custom schema v1
+
+This is a note for old users.
+
+Schema still remains at old URLs as earlier:
+
+* [`/custom.json`](https://ark0f.github.io/tg-bot-api/custom.json)
+* [`/custom.schema.json`](https://ark0f.github.io/tg-bot-api/custom.schema.json)
+
+See [v2 changes](V2_CHANGES.md) for more details.
