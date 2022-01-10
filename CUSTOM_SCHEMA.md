@@ -83,7 +83,7 @@ Basic structure:
 
 ### "type": "float"
 
-No additional fields
+No additional fields.
 
 ### "type": "any_of"
 
@@ -161,13 +161,13 @@ No additional fields
 {
   "name": "GameHighScore",
   "description": "This object represents one row of the high scores table for a game.",
-  // type of object. Can be "properties", "any_of" or "unknown"
+  // type of Object. Can be "properties", "any_of" or "unknown"
   "type": "properties",
   "documentation_link": "https://core.telegram.org/bots/api/#gamehighscore"
 }
 ```
 
-### Explanation of Object's `type` field
+Explanation of Object's `type` field:
 
 ### "type": "properties"
 
