@@ -143,14 +143,14 @@ struct Method {
     name: String,
     description: String,
     arguments: Vec<Argument>,
-    multipart_only: bool,
+    maybe_multipart: bool,
     return_type: KindWrapper,
     documentation_link: String,
 }
 
 impl From<tg_bot_api::Method> for Method {
     fn from(method: tg_bot_api::Method) -> Self {
-        let (multipart_only, args) = match method.args {
+        let (maybe_multipart, args) = match method.args {
             MethodArgs::No => (false, vec![]),
             MethodArgs::Yes(args) => (false, args),
             MethodArgs::WithMultipart(args) => (true, args),
@@ -159,7 +159,7 @@ impl From<tg_bot_api::Method> for Method {
             name: method.name,
             description: method.description,
             arguments: args.into_iter().map(Argument::from).collect(),
-            multipart_only,
+            maybe_multipart,
             return_type: KindWrapper::from(method.return_type),
             documentation_link: method.docs_link,
         }
