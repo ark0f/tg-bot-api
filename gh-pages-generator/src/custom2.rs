@@ -1,6 +1,6 @@
 use chrono::Datelike;
 use schemars::{gen::SchemaGenerator, schema::RootSchema, schema_for, JsonSchema};
-use serde::{Serialize, Serializer};
+use serde::Serialize;
 use tg_bot_api::{MethodArgs, Parsed, Type};
 
 pub fn generate(parsed: Parsed) -> (Schema, RootSchema) {
@@ -87,17 +87,9 @@ enum Kind {
 
 // this type used to avoid recursion type
 // because serde and schemars don't support such types
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
+#[serde(transparent)]
 struct KindWrapper(Kind);
-
-impl Serialize for KindWrapper {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        self.0.serialize(serializer)
-    }
-}
 
 impl JsonSchema for KindWrapper {
     fn schema_name() -> String {
