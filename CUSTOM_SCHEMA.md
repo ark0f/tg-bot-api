@@ -63,7 +63,7 @@ Basic structure:
   "min_len": 0,
   // optional
   "max_len": 100,
-  // optional
+  // there can be variants or list is empty
   "enumeration": [
     "apple",
     "orange"
