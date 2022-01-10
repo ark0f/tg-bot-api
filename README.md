@@ -13,7 +13,7 @@ Generated schemas can be found at `ark0f.github.io/tg-bot-api`:
   [`/openapi.json`](https://ark0f.github.io/tg-bot-api/openapi.json) - OpenAPI 3.0.0
 * [`/custom_v2.json`](https://ark0f.github.io/tg-bot-api/custom_v2.json) - custom schema that more convenient to work
   with
-* [`/custom_v2.json`](https://ark0f.github.io/tg-bot-api/custom_v2.schema.json) - JSON Schema Draft #7
+* [`/custom_v2.schema.json`](https://ark0f.github.io/tg-bot-api/custom_v2.schema.json) - JSON Schema Draft #7
   for `/custom.json`
 
 `.min.json` suffix can be used to fetch minimized JSON. For example: `openapi.min.json`, etc.
