@@ -255,7 +255,7 @@
         "arguments",
         "description",
         "documentation_link",
-        "multipart_only",
+        "maybe_multipart",
         "name",
         "return_type"
       ],
@@ -272,7 +272,7 @@
         "documentation_link": {
           "type": "string"
         },
-        "multipart_only": {
+        "maybe_multipart": {
           "type": "boolean"
         },
         "name": {

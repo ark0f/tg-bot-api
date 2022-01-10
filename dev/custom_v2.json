@@ -55,7 +55,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "array",
         "array": {
@@ -126,7 +126,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -146,7 +146,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -157,7 +157,7 @@
       "name": "getWebhookInfo",
       "description": "Use this method to get current webhook status. Requires no parameters. On success, returns a [WebhookInfo](https://core.telegram.org/bots/api/#webhookinfo) object. If the bot is using [getUpdates](https://core.telegram.org/bots/api/#getupdates), will return an object with the *url* field empty.",
       "arguments": [],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "WebhookInfo"
@@ -168,7 +168,7 @@
       "name": "getMe",
       "description": "A simple method for testing your bot's authentication token. Requires no parameters. Returns basic information about the bot in form of a [User](https://core.telegram.org/bots/api/#user) object.",
       "arguments": [],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "User"
@@ -179,7 +179,7 @@
       "name": "logOut",
       "description": "Use this method to log out from the cloud Bot API server before launching the bot locally. You **must** log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes. Returns *True* on success. Requires no parameters.",
       "arguments": [],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -190,7 +190,7 @@
       "name": "close",
       "description": "Use this method to close the bot instance before moving it from one local server to another. You need to delete the webhook before calling this method to ensure that the bot isn't launched again after server restart. The method will return error 429 in the first 10 minutes after the bot is launched. Returns *True* on success. Requires no parameters.",
       "arguments": [],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -317,7 +317,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -387,7 +387,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -531,7 +531,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "MessageId"
@@ -668,7 +668,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -849,7 +849,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1012,7 +1012,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1199,7 +1199,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1378,7 +1378,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1523,7 +1523,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1662,7 +1662,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1752,7 +1752,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "array",
         "array": {
@@ -1890,7 +1890,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -1985,7 +1985,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -2049,7 +2049,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -2215,7 +2215,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -2338,7 +2338,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -2543,7 +2543,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -2647,7 +2647,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -2685,7 +2685,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -2724,7 +2724,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "UserProfilePhotos"
@@ -2745,7 +2745,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "File"
@@ -2798,7 +2798,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -2843,7 +2843,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -2897,7 +2897,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3022,7 +3022,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3070,7 +3070,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3107,7 +3107,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3144,7 +3144,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3182,7 +3182,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3211,7 +3211,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "string",
         "enumeration": []
@@ -3275,7 +3275,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "ChatInviteLink"
@@ -3348,7 +3348,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "ChatInviteLink"
@@ -3386,7 +3386,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "ChatInviteLink"
@@ -3423,7 +3423,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3460,7 +3460,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3498,7 +3498,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3527,7 +3527,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3567,7 +3567,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3607,7 +3607,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3652,7 +3652,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3689,7 +3689,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3718,7 +3718,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3747,7 +3747,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3776,7 +3776,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Chat"
@@ -3805,7 +3805,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "array",
         "array": {
@@ -3837,7 +3837,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "integer"
       },
@@ -3873,7 +3873,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "ChatMember"
@@ -3911,7 +3911,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3940,7 +3940,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -3999,7 +3999,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4041,7 +4041,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4071,7 +4071,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4101,7 +4101,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "array",
         "array": {
@@ -4199,7 +4199,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -4295,7 +4295,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -4368,7 +4368,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -4432,7 +4432,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -4487,7 +4487,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Poll"
@@ -4524,7 +4524,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4629,7 +4629,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -4650,7 +4650,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "StickerSet"
@@ -4679,7 +4679,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "reference",
         "reference": "File"
@@ -4774,7 +4774,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4848,7 +4848,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4877,7 +4877,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4898,7 +4898,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -4945,7 +4945,7 @@
           }
         }
       ],
-      "multipart_only": true,
+      "maybe_multipart": true,
       "return_type": {
         "type": "bool",
         "default": true
@@ -5024,7 +5024,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -5282,7 +5282,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -5332,7 +5332,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -5370,7 +5370,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -5402,7 +5402,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "bool",
         "default": true
@@ -5472,7 +5472,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "reference",
         "reference": "Message"
@@ -5541,7 +5541,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "any_of",
         "any_of": [
@@ -5595,7 +5595,7 @@
           }
         }
       ],
-      "multipart_only": false,
+      "maybe_multipart": false,
       "return_type": {
         "type": "array",
         "array": {
