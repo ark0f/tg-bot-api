@@ -87,3 +87,7 @@ So I added `unknown` value for consistency:
   "documentation_link": "https://core.telegram.org/bots/api/#voicechatstarted"
 }
 ```
+
+## "maybe_multipart"
+
+Field `only_multipart` from `Method` object was renamed to `maybe_multipart` to be clearer about its meaning.
