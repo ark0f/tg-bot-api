@@ -91,19 +91,9 @@ enum Kind {
 
 // this type used to avoid recursion type
 // because serde and schemars don't support such types
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, JsonSchema)]
 #[serde(transparent)]
 struct KindWrapper(Kind);
-
-impl JsonSchema for KindWrapper {
-    fn schema_name() -> String {
-        Kind::schema_name()
-    }
-
-    fn json_schema(gen: &mut SchemaGenerator) -> schemars::schema::Schema {
-        Kind::json_schema(gen)
-    }
-}
 
 impl From<tg_bot_api::Type> for KindWrapper {
     fn from(ty: tg_bot_api::Type) -> Self {
