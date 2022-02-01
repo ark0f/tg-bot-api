@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "5.6.0"
+    "version": "5.7.0"
   },
   "servers": [
     {
@@ -4786,7 +4786,7 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
+                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
                         "type": "integer"
@@ -4816,7 +4816,7 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
+                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
                         "type": "integer"
@@ -4846,7 +4846,7 @@
                 "type": "object",
                 "properties": {
                   "chat_id": {
-                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@username`)",
+                    "description": "Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)",
                     "anyOf": [
                       {
                         "type": "integer"
@@ -9684,7 +9684,7 @@
     },
     "/sendSticker": {
       "post": {
-        "description": "Use this method to send static .WEBP or [animated](https://telegram.org/blog/animated-stickers) .TGS stickers. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+        "description": "Use this method to send static .WEBP, [animated](https://telegram.org/blog/animated-stickers) .TGS, or [video](https://telegram.org/blog/video-stickers-better-reactions) .WEBM stickers. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#sendsticker"
         },
@@ -9954,7 +9954,7 @@
     },
     "/createNewStickerSet": {
       "post": {
-        "description": "Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You **must** use exactly one of the fields *png\\_sticker* or *tgs\\_sticker*. Returns *True* on success.",
+        "description": "Use this method to create a new sticker set owned by a user. The bot will be able to edit the sticker set thus created. You **must** use exactly one of the fields *png\\_sticker*, *tgs\\_sticker*, or *webm\\_sticker*. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#createnewstickerset"
         },
@@ -9992,6 +9992,9 @@
                     ]
                   },
                   "tgs_sticker": {
+                    "$ref": "#/components/schemas/InputFile"
+                  },
+                  "webm_sticker": {
                     "$ref": "#/components/schemas/InputFile"
                   },
                   "emojis": {
@@ -10057,7 +10060,7 @@
     },
     "/addStickerToSet": {
       "post": {
-        "description": "Use this method to add a new sticker to a set created by the bot. You **must** use exactly one of the fields *png\\_sticker* or *tgs\\_sticker*. Animated stickers can be added to animated sticker sets and only to them. Animated sticker sets can have up to 50 stickers. Static sticker sets can have up to 120 stickers. Returns *True* on success.",
+        "description": "Use this method to add a new sticker to a set created by the bot. You **must** use exactly one of the fields *png\\_sticker*, *tgs\\_sticker*, or *webm\\_sticker*. Animated stickers can be added to animated sticker sets and only to them. Animated sticker sets can have up to 50 stickers. Static sticker sets can have up to 120 stickers. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#addstickertoset"
         },
@@ -10087,6 +10090,9 @@
                     ]
                   },
                   "tgs_sticker": {
+                    "$ref": "#/components/schemas/InputFile"
+                  },
+                  "webm_sticker": {
                     "$ref": "#/components/schemas/InputFile"
                   },
                   "emojis": {
@@ -10344,7 +10350,7 @@
     },
     "/setStickerSetThumb": {
       "post": {
-        "description": "Use this method to set the thumbnail of a sticker set. Animated thumbnails can be set for animated sticker sets only. Returns *True* on success.",
+        "description": "Use this method to set the thumbnail of a sticker set. Animated thumbnails can be set for animated sticker sets only. Video thumbnails can be set only for video sticker sets only. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#setstickersetthumb"
         },
@@ -10363,7 +10369,7 @@
                     "type": "integer"
                   },
                   "thumb": {
-                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/animated\\_stickers#technical-requirements](https://core.telegram.org/animated_stickers#technical-requirements) for animated sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnail can't be uploaded via HTTP URL.",
+                    "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#animated-sticker-requirements](https://core.telegram.org/stickers#animated-sticker-requirements) for animated sticker technical requirements, or a **WEBM** video with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#video-sticker-requirements](https://core.telegram.org/stickers#video-sticker-requirements) for video sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnails can't be uploaded via HTTP URL.",
                     "anyOf": [
                       {
                         "$ref": "#/components/schemas/InputFile"
@@ -14524,6 +14530,10 @@
             "description": "*True*, if the sticker is [animated](https://telegram.org/blog/animated-stickers)",
             "type": "boolean"
           },
+          "is_video": {
+            "description": "*True*, if the sticker is a [video sticker](https://telegram.org/blog/video-stickers-better-reactions)",
+            "type": "boolean"
+          },
           "thumb": {
             "$ref": "#/components/schemas/PhotoSize"
           },
@@ -14548,7 +14558,8 @@
           "file_unique_id",
           "width",
           "height",
-          "is_animated"
+          "is_animated",
+          "is_video"
         ]
       },
       "StickerSet": {
@@ -14570,6 +14581,10 @@
             "description": "*True*, if the sticker set contains [animated stickers](https://telegram.org/blog/animated-stickers)",
             "type": "boolean"
           },
+          "is_video": {
+            "description": "*True*, if the sticker set contains [video stickers](https://telegram.org/blog/video-stickers-better-reactions)",
+            "type": "boolean"
+          },
           "contains_masks": {
             "description": "*True*, if the sticker set contains masks",
             "type": "boolean"
@@ -14589,6 +14604,7 @@
           "name",
           "title",
           "is_animated",
+          "is_video",
           "contains_masks",
           "stickers"
         ]
