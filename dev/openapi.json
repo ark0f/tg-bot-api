@@ -9561,6 +9561,89 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#deletemessage"
         },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the message to delete",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the message to delete",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the message to delete",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "default": {
             "description": "",

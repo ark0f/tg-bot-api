@@ -3722,6 +3722,28 @@
     {
       "name": "deleteMessage",
       "description": "Use this method to delete a message, including service messages, with the following limitations:\n\n* A message can only be deleted if it was sent less than 48 hours ago.\n* A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.\n* Bots can delete outgoing messages in private chats, groups, and supergroups.\n* Bots can delete incoming messages in private chats.\n* Bots granted *can\\_post\\_messages* permissions can delete outgoing messages in channels.\n* If the bot is an administrator of a group, it can delete any message there.\n* If the bot has *can\\_delete\\_messages* permission in a supergroup or a channel, it can delete any message there.\n  Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_id",
+          "description": "Identifier of the message to delete",
+          "required": true,
+          "type": "integer"
+        }
+      ],
       "multipart_only": false,
       "return_type": {
         "type": "bool",
