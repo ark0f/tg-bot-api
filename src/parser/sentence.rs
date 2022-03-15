@@ -1,6 +1,7 @@
 use super::{ParseError, TypeParsingUnit};
 use crate::parser::ElementExt;
 use ego_tree::NodeRef;
+use itertools::Itertools;
 use logos::Logos;
 use scraper::{node::Text, Node};
 use std::{mem, ops::Index, slice, slice::SliceIndex};
@@ -107,8 +108,8 @@ enum SentenceLexer {
     #[regex(r"[!?, ;:\[\]=]", logos::skip)]
     #[regex("\n", logos::skip)]
     Error,
-    #[regex(r#"[\w\-–'/—@<>]+"#, |_| false)]
-    Word(bool), // does word has quotes?
+    #[regex(r#"[\w\-–—'/@<>]+"#)]
+    Word,
     #[token(".")]
     Dot,
     #[token("\"")]
@@ -351,10 +352,28 @@ where
     }
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+enum QuoteState {
+    Left,
+    Right,
+    None,
+}
+
+impl QuoteState {
+    fn next_state(self) -> Self {
+        match self {
+            QuoteState::Left => QuoteState::Right,
+            QuoteState::Right => QuoteState::None,
+            QuoteState::None => QuoteState::Left,
+        }
+    }
+}
+
 pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseError> {
     let mut sentences = vec![];
     let mut parts = vec![];
-    let mut quote_part = false;
+    let mut quote = QuoteState::None;
+    let mut quote_part_start = 0;
     let mut paren = false;
 
     for node in elem.children() {
@@ -371,22 +390,35 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                                 span,
                             });
                         }
-                        SentenceLexer::Word(has_quotes) if !paren => {
-                            let inner = lexeme
-                                .trim_matches('"')
-                                .trim_matches('\'')
-                                .trim_start_matches('“')
-                                .trim_end_matches('”')
-                                .to_string();
-                            parts.push(Part::new(inner).with_quotes(has_quotes));
+                        SentenceLexer::Word if !paren => {
+                            let part = Part::new(lexeme.to_string());
+                            parts.push(part);
                         }
-                        SentenceLexer::Dot if !paren => {
+                        SentenceLexer::Dot if !paren && quote != QuoteState::Left => {
                             sentences.push(Sentence {
                                 parts: mem::take(&mut parts),
                             });
                         }
                         SentenceLexer::Quote if !paren => {
-                            quote_part = !quote_part;
+                            quote = quote.next_state();
+
+                            match quote {
+                                QuoteState::Left => {
+                                    quote_part_start = parts.len();
+                                }
+                                QuoteState::Right => {
+                                    let part = parts
+                                        .drain(quote_part_start..)
+                                        .map(|part| part.inner)
+                                        .join(" ");
+                                    let part = Part::new(part).with_quotes(true);
+                                    parts.push(part);
+
+                                    quote_part_start = 0;
+                                    quote = QuoteState::None;
+                                }
+                                QuoteState::None => unreachable!(),
+                            }
                         }
                         SentenceLexer::LParen => paren = true,
                         SentenceLexer::RParen => paren = false,
@@ -415,7 +447,7 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                     ("strong", Some(text)) => Some(Part::bold(text)),
                     ("img", _) => {
                         let alt = elem.attr("alt").ok_or(ParseError::MissingAlt)?;
-                        Some(Part::new(alt.to_string()).with_quotes(quote_part))
+                        Some(Part::new(alt.to_string()).with_quotes(quote == QuoteState::Left))
                     }
                     ("br", _) => None,
                     ("li", _) => {
@@ -483,8 +515,8 @@ mod tests {
     fn sentence_lexer_quote_and_words() {
         let mut sentence = SentenceLexer::lexer("\" base quote");
         assert_eq!(sentence.next(), Some(SentenceLexer::Quote));
-        assert_eq!(sentence.next(), Some(SentenceLexer::Word(false)));
-        assert_eq!(sentence.next(), Some(SentenceLexer::Word(false)));
+        assert_eq!(sentence.next(), Some(SentenceLexer::Word));
+        assert_eq!(sentence.next(), Some(SentenceLexer::Word));
     }
 
     #[test]
