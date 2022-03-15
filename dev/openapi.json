@@ -9561,89 +9561,6 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#deletemessage"
         },
-        "requestBody": {
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "message_id": {
-                    "description": "Identifier of the message to delete",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "message_id"
-                ]
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "message_id": {
-                    "description": "Identifier of the message to delete",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "message_id"
-                ]
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chat_id": {
-                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
-                    "anyOf": [
-                      {
-                        "type": "integer"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "message_id": {
-                    "description": "Identifier of the message to delete",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "chat_id",
-                  "message_id"
-                ]
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "default": {
             "description": "",
@@ -13558,7 +13475,27 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#chatmember"
         },
-        "description": "This object contains information about one member of a chat. Currently, the following 6 types of chat members are supported:\n\n* [ChatMemberOwner](https://core.telegram.org/bots/api/#chatmemberowner)\n* [ChatMemberAdministrator](https://core.telegram.org/bots/api/#chatmemberadministrator)\n* [ChatMemberMember](https://core.telegram.org/bots/api/#chatmembermember)\n* [ChatMemberRestricted](https://core.telegram.org/bots/api/#chatmemberrestricted)\n* [ChatMemberLeft](https://core.telegram.org/bots/api/#chatmemberleft)\n* [ChatMemberBanned](https://core.telegram.org/bots/api/#chatmemberbanned)"
+        "description": "This object contains information about one member of a chat. Currently, the following 6 types of chat members are supported:\n\n* [ChatMemberOwner](https://core.telegram.org/bots/api/#chatmemberowner)\n* [ChatMemberAdministrator](https://core.telegram.org/bots/api/#chatmemberadministrator)\n* [ChatMemberMember](https://core.telegram.org/bots/api/#chatmembermember)\n* [ChatMemberRestricted](https://core.telegram.org/bots/api/#chatmemberrestricted)\n* [ChatMemberLeft](https://core.telegram.org/bots/api/#chatmemberleft)\n* [ChatMemberBanned](https://core.telegram.org/bots/api/#chatmemberbanned)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ChatMemberOwner"
+          },
+          {
+            "$ref": "#/components/schemas/ChatMemberAdministrator"
+          },
+          {
+            "$ref": "#/components/schemas/ChatMemberMember"
+          },
+          {
+            "$ref": "#/components/schemas/ChatMemberRestricted"
+          },
+          {
+            "$ref": "#/components/schemas/ChatMemberLeft"
+          },
+          {
+            "$ref": "#/components/schemas/ChatMemberBanned"
+          }
+        ]
       },
       "ChatMemberOwner": {
         "externalDocs": {
@@ -13969,7 +13906,30 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#botcommandscope"
         },
-        "description": "This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported:\n\n* [BotCommandScopeDefault](https://core.telegram.org/bots/api/#botcommandscopedefault)\n* [BotCommandScopeAllPrivateChats](https://core.telegram.org/bots/api/#botcommandscopeallprivatechats)\n* [BotCommandScopeAllGroupChats](https://core.telegram.org/bots/api/#botcommandscopeallgroupchats)\n* [BotCommandScopeAllChatAdministrators](https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators)\n* [BotCommandScopeChat](https://core.telegram.org/bots/api/#botcommandscopechat)\n* [BotCommandScopeChatAdministrators](https://core.telegram.org/bots/api/#botcommandscopechatadministrators)\n* [BotCommandScopeChatMember](https://core.telegram.org/bots/api/#botcommandscopechatmember)"
+        "description": "This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported:\n\n* [BotCommandScopeDefault](https://core.telegram.org/bots/api/#botcommandscopedefault)\n* [BotCommandScopeAllPrivateChats](https://core.telegram.org/bots/api/#botcommandscopeallprivatechats)\n* [BotCommandScopeAllGroupChats](https://core.telegram.org/bots/api/#botcommandscopeallgroupchats)\n* [BotCommandScopeAllChatAdministrators](https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators)\n* [BotCommandScopeChat](https://core.telegram.org/bots/api/#botcommandscopechat)\n* [BotCommandScopeChatAdministrators](https://core.telegram.org/bots/api/#botcommandscopechatadministrators)\n* [BotCommandScopeChatMember](https://core.telegram.org/bots/api/#botcommandscopechatmember)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/BotCommandScopeDefault"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeAllPrivateChats"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeAllGroupChats"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeAllChatAdministrators"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeChat"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeChatAdministrators"
+          },
+          {
+            "$ref": "#/components/schemas/BotCommandScopeChatMember"
+          }
+        ]
       },
       "BotCommandScopeDefault": {
         "externalDocs": {
@@ -14152,7 +14112,24 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#inputmedia"
         },
-        "description": "This object represents the content of a media message to be sent. It should be one of\n\n* [InputMediaAnimation](https://core.telegram.org/bots/api/#inputmediaanimation)\n* [InputMediaDocument](https://core.telegram.org/bots/api/#inputmediadocument)\n* [InputMediaAudio](https://core.telegram.org/bots/api/#inputmediaaudio)\n* [InputMediaPhoto](https://core.telegram.org/bots/api/#inputmediaphoto)\n* [InputMediaVideo](https://core.telegram.org/bots/api/#inputmediavideo)"
+        "description": "This object represents the content of a media message to be sent. It should be one of\n\n* [InputMediaAnimation](https://core.telegram.org/bots/api/#inputmediaanimation)\n* [InputMediaDocument](https://core.telegram.org/bots/api/#inputmediadocument)\n* [InputMediaAudio](https://core.telegram.org/bots/api/#inputmediaaudio)\n* [InputMediaPhoto](https://core.telegram.org/bots/api/#inputmediaphoto)\n* [InputMediaVideo](https://core.telegram.org/bots/api/#inputmediavideo)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InputMediaAnimation"
+          },
+          {
+            "$ref": "#/components/schemas/InputMediaDocument"
+          },
+          {
+            "$ref": "#/components/schemas/InputMediaAudio"
+          },
+          {
+            "$ref": "#/components/schemas/InputMediaPhoto"
+          },
+          {
+            "$ref": "#/components/schemas/InputMediaVideo"
+          }
+        ]
       },
       "InputMediaPhoto": {
         "externalDocs": {
@@ -14634,7 +14611,69 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#inlinequeryresult"
         },
-        "description": "This object represents one result of an inline query. Telegram clients currently support results of the following 20 types:\n\n* [InlineQueryResultCachedAudio](https://core.telegram.org/bots/api/#inlinequeryresultcachedaudio)\n* [InlineQueryResultCachedDocument](https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument)\n* [InlineQueryResultCachedGif](https://core.telegram.org/bots/api/#inlinequeryresultcachedgif)\n* [InlineQueryResultCachedMpeg4Gif](https://core.telegram.org/bots/api/#inlinequeryresultcachedmpeg4gif)\n* [InlineQueryResultCachedPhoto](https://core.telegram.org/bots/api/#inlinequeryresultcachedphoto)\n* [InlineQueryResultCachedSticker](https://core.telegram.org/bots/api/#inlinequeryresultcachedsticker)\n* [InlineQueryResultCachedVideo](https://core.telegram.org/bots/api/#inlinequeryresultcachedvideo)\n* [InlineQueryResultCachedVoice](https://core.telegram.org/bots/api/#inlinequeryresultcachedvoice)\n* [InlineQueryResultArticle](https://core.telegram.org/bots/api/#inlinequeryresultarticle)\n* [InlineQueryResultAudio](https://core.telegram.org/bots/api/#inlinequeryresultaudio)\n* [InlineQueryResultContact](https://core.telegram.org/bots/api/#inlinequeryresultcontact)\n* [InlineQueryResultGame](https://core.telegram.org/bots/api/#inlinequeryresultgame)\n* [InlineQueryResultDocument](https://core.telegram.org/bots/api/#inlinequeryresultdocument)\n* [InlineQueryResultGif](https://core.telegram.org/bots/api/#inlinequeryresultgif)\n* [InlineQueryResultLocation](https://core.telegram.org/bots/api/#inlinequeryresultlocation)\n* [InlineQueryResultMpeg4Gif](https://core.telegram.org/bots/api/#inlinequeryresultmpeg4gif)\n* [InlineQueryResultPhoto](https://core.telegram.org/bots/api/#inlinequeryresultphoto)\n* [InlineQueryResultVenue](https://core.telegram.org/bots/api/#inlinequeryresultvenue)\n* [InlineQueryResultVideo](https://core.telegram.org/bots/api/#inlinequeryresultvideo)\n* [InlineQueryResultVoice](https://core.telegram.org/bots/api/#inlinequeryresultvoice)\n\n**Note:** All URLs passed in inline query results will be available to end users and therefore must be assumed to be **public**."
+        "description": "This object represents one result of an inline query. Telegram clients currently support results of the following 20 types:\n\n* [InlineQueryResultCachedAudio](https://core.telegram.org/bots/api/#inlinequeryresultcachedaudio)\n* [InlineQueryResultCachedDocument](https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument)\n* [InlineQueryResultCachedGif](https://core.telegram.org/bots/api/#inlinequeryresultcachedgif)\n* [InlineQueryResultCachedMpeg4Gif](https://core.telegram.org/bots/api/#inlinequeryresultcachedmpeg4gif)\n* [InlineQueryResultCachedPhoto](https://core.telegram.org/bots/api/#inlinequeryresultcachedphoto)\n* [InlineQueryResultCachedSticker](https://core.telegram.org/bots/api/#inlinequeryresultcachedsticker)\n* [InlineQueryResultCachedVideo](https://core.telegram.org/bots/api/#inlinequeryresultcachedvideo)\n* [InlineQueryResultCachedVoice](https://core.telegram.org/bots/api/#inlinequeryresultcachedvoice)\n* [InlineQueryResultArticle](https://core.telegram.org/bots/api/#inlinequeryresultarticle)\n* [InlineQueryResultAudio](https://core.telegram.org/bots/api/#inlinequeryresultaudio)\n* [InlineQueryResultContact](https://core.telegram.org/bots/api/#inlinequeryresultcontact)\n* [InlineQueryResultGame](https://core.telegram.org/bots/api/#inlinequeryresultgame)\n* [InlineQueryResultDocument](https://core.telegram.org/bots/api/#inlinequeryresultdocument)\n* [InlineQueryResultGif](https://core.telegram.org/bots/api/#inlinequeryresultgif)\n* [InlineQueryResultLocation](https://core.telegram.org/bots/api/#inlinequeryresultlocation)\n* [InlineQueryResultMpeg4Gif](https://core.telegram.org/bots/api/#inlinequeryresultmpeg4gif)\n* [InlineQueryResultPhoto](https://core.telegram.org/bots/api/#inlinequeryresultphoto)\n* [InlineQueryResultVenue](https://core.telegram.org/bots/api/#inlinequeryresultvenue)\n* [InlineQueryResultVideo](https://core.telegram.org/bots/api/#inlinequeryresultvideo)\n* [InlineQueryResultVoice](https://core.telegram.org/bots/api/#inlinequeryresultvoice)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedAudio"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedDocument"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedGif"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedMpeg4Gif"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedPhoto"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedSticker"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedVideo"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultCachedVoice"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultArticle"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultAudio"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultContact"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultGame"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultDocument"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultGif"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultLocation"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultMpeg4Gif"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultPhoto"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultVenue"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultVideo"
+          },
+          {
+            "$ref": "#/components/schemas/InlineQueryResultVoice"
+          }
+        ]
       },
       "InlineQueryResultArticle": {
         "externalDocs": {
@@ -15875,7 +15914,24 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#inputmessagecontent"
         },
-        "description": "This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 5 types:\n\n* [InputTextMessageContent](https://core.telegram.org/bots/api/#inputtextmessagecontent)\n* [InputLocationMessageContent](https://core.telegram.org/bots/api/#inputlocationmessagecontent)\n* [InputVenueMessageContent](https://core.telegram.org/bots/api/#inputvenuemessagecontent)\n* [InputContactMessageContent](https://core.telegram.org/bots/api/#inputcontactmessagecontent)\n* [InputInvoiceMessageContent](https://core.telegram.org/bots/api/#inputinvoicemessagecontent)"
+        "description": "This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 5 types:\n\n* [InputTextMessageContent](https://core.telegram.org/bots/api/#inputtextmessagecontent)\n* [InputLocationMessageContent](https://core.telegram.org/bots/api/#inputlocationmessagecontent)\n* [InputVenueMessageContent](https://core.telegram.org/bots/api/#inputvenuemessagecontent)\n* [InputContactMessageContent](https://core.telegram.org/bots/api/#inputcontactmessagecontent)\n* [InputInvoiceMessageContent](https://core.telegram.org/bots/api/#inputinvoicemessagecontent)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InputTextMessageContent"
+          },
+          {
+            "$ref": "#/components/schemas/InputLocationMessageContent"
+          },
+          {
+            "$ref": "#/components/schemas/InputVenueMessageContent"
+          },
+          {
+            "$ref": "#/components/schemas/InputContactMessageContent"
+          },
+          {
+            "$ref": "#/components/schemas/InputInvoiceMessageContent"
+          }
+        ]
       },
       "InputTextMessageContent": {
         "externalDocs": {
@@ -16583,7 +16639,36 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#passportelementerror"
         },
-        "description": "This object represents an error in the Telegram Passport element which was submitted that should be resolved by the user. It should be one of:\n\n* [PassportElementErrorDataField](https://core.telegram.org/bots/api/#passportelementerrordatafield)\n* [PassportElementErrorFrontSide](https://core.telegram.org/bots/api/#passportelementerrorfrontside)\n* [PassportElementErrorReverseSide](https://core.telegram.org/bots/api/#passportelementerrorreverseside)\n* [PassportElementErrorSelfie](https://core.telegram.org/bots/api/#passportelementerrorselfie)\n* [PassportElementErrorFile](https://core.telegram.org/bots/api/#passportelementerrorfile)\n* [PassportElementErrorFiles](https://core.telegram.org/bots/api/#passportelementerrorfiles)\n* [PassportElementErrorTranslationFile](https://core.telegram.org/bots/api/#passportelementerrortranslationfile)\n* [PassportElementErrorTranslationFiles](https://core.telegram.org/bots/api/#passportelementerrortranslationfiles)\n* [PassportElementErrorUnspecified](https://core.telegram.org/bots/api/#passportelementerrorunspecified)"
+        "description": "This object represents an error in the Telegram Passport element which was submitted that should be resolved by the user. It should be one of:\n\n* [PassportElementErrorDataField](https://core.telegram.org/bots/api/#passportelementerrordatafield)\n* [PassportElementErrorFrontSide](https://core.telegram.org/bots/api/#passportelementerrorfrontside)\n* [PassportElementErrorReverseSide](https://core.telegram.org/bots/api/#passportelementerrorreverseside)\n* [PassportElementErrorSelfie](https://core.telegram.org/bots/api/#passportelementerrorselfie)\n* [PassportElementErrorFile](https://core.telegram.org/bots/api/#passportelementerrorfile)\n* [PassportElementErrorFiles](https://core.telegram.org/bots/api/#passportelementerrorfiles)\n* [PassportElementErrorTranslationFile](https://core.telegram.org/bots/api/#passportelementerrortranslationfile)\n* [PassportElementErrorTranslationFiles](https://core.telegram.org/bots/api/#passportelementerrortranslationfiles)\n* [PassportElementErrorUnspecified](https://core.telegram.org/bots/api/#passportelementerrorunspecified)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/PassportElementErrorDataField"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorFrontSide"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorReverseSide"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorSelfie"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorFile"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorFiles"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorTranslationFile"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorTranslationFiles"
+          },
+          {
+            "$ref": "#/components/schemas/PassportElementErrorUnspecified"
+          }
+        ]
       },
       "PassportElementErrorDataField": {
         "externalDocs": {
