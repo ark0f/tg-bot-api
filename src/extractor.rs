@@ -73,16 +73,17 @@ impl Extractor {
                 State::GetDescription {
                     name,
                     mut description,
-                } if p.matches(&elem) => {
+                } if p.matches(&elem) || ul.matches(&elem) => {
                     description.push(elem);
 
                     let has_p = select_any.peek().matches(&p);
-                    if has_p {
+                    let has_ul = select_any.peek().matches(&ul);
+                    if has_p || has_ul {
                         State::GetDescription { name, description }
                     } else {
                         let is_method = name.plain_text().is_first_letter_lowercase();
                         let has_table = select_any.peek().matches(&table);
-                        let has_ul = select_any.peek().matches(&ul);
+
                         match (is_method, has_table, has_ul) {
                             (true, true, false) => State::GetMethodFields { name, description },
                             (false, true, false) => State::GetObjectFields { name, description },
