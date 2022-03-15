@@ -101,15 +101,13 @@ impl PartialEq<&[Part]> for SearcherPattern {
     }
 }
 
-#[derive(Debug, Clone, Logos)]
+#[derive(Debug, Clone, Logos, Eq, PartialEq)]
 enum SentenceLexer {
     #[error]
-    #[token(",", logos::skip)]
-    #[token(" ", logos::skip)]
+    #[regex(r"[!?, ;:\[\]=]", logos::skip)]
+    #[regex("\n", logos::skip)]
     Error,
-    #[regex(r#"([^“.,\(\) ]|\\.)+"#, |_| false)] // just word
-    #[regex(r#""(?:[^"']|\\["'])*["']"#, |_| true)] // words in "", '", '' or "' quotes
-    #[regex(r#"“(?:[^”]|\\”)*”"#, |_| true)] // words in unicode quotes
+    #[regex(r#"[\w\-–'/—@<>]+"#, |_| false)]
     Word(bool), // does word has quotes?
     #[token(".")]
     Dot,
@@ -420,6 +418,16 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                         Some(Part::new(alt.to_string()).with_quotes(quote_part))
                     }
                     ("br", _) => None,
+                    ("li", _) => {
+                        if !parts.is_empty() {
+                            sentences.push(Sentence {
+                                parts: parts.drain(..).collect(),
+                            });
+                        }
+
+                        sentences.extend(parse_node(node)?);
+                        None
+                    }
                     _ => {
                         log::warn!("Tag {} skipped", elem.name());
                         None
@@ -470,6 +478,14 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn sentence_lexer_quote_and_words() {
+        let mut sentence = SentenceLexer::lexer("\" base quote");
+        assert_eq!(sentence.next(), Some(SentenceLexer::Quote));
+        assert_eq!(sentence.next(), Some(SentenceLexer::Word(false)));
+        assert_eq!(sentence.next(), Some(SentenceLexer::Word(false)));
+    }
 
     #[test]
     fn sentence_parser_parentheses_ignored() {
