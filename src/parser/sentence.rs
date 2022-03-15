@@ -105,10 +105,10 @@ impl PartialEq<&[Part]> for SearcherPattern {
 #[derive(Debug, Clone, Logos, Eq, PartialEq)]
 enum SentenceLexer {
     #[error]
-    #[regex(r"[!?, ;:\[\]=]", logos::skip)]
+    #[regex(r"[, ]", logos::skip)]
     #[regex("\n", logos::skip)]
     Error,
-    #[regex(r#"[\w\-–—'/@<>]+"#)]
+    #[regex(r#"[^, "“”\(\)\.\n]+"#)]
     Word,
     #[token(".")]
     Dot,
