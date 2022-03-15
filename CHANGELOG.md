@@ -1,5 +1,10 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.4.1 (16.03.2022)
+* Fix `deleteMessage` cannot be extracted
+* Fix `" base quote` sentence cannot be parsed
+* Fix description is not full for types like `PassportElementError`
+
 # v0.4.0 (05.07.2021)
 Yank v0.3.1 because of breaking changes
 
