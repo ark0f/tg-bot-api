@@ -8323,7 +8323,7 @@
     },
     "/answerCallbackQuery": {
       "post": {
-        "description": "Use this method to send answers to callback queries sent from [inline keyboards](/bots#inline-keyboards-and-on-the-fly-updating). The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.\n\nAlternatively, the user can be redirected to the specified Game URL. For this option to work, you must first create a game for your bot via [@Botfather](https://t.me/botfather) and accept the terms. Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.",
+        "description": "Use this method to send answers to callback queries sent from [inline keyboards](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating). The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.\n\nAlternatively, the user can be redirected to the specified Game URL. For this option to work, you must first create a game for your bot via [@Botfather](https://t.me/botfather) and accept the terms. Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#answercallbackquery"
         },
@@ -10812,7 +10812,7 @@
                     "type": "string"
                   },
                   "switch_pm_parameter": {
-                    "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
+                    "description": "[Deep-linking](https://core.telegram.org/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 64
@@ -10857,7 +10857,7 @@
                     "type": "string"
                   },
                   "switch_pm_parameter": {
-                    "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
+                    "description": "[Deep-linking](https://core.telegram.org/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 64
@@ -10902,7 +10902,7 @@
                     "type": "string"
                   },
                   "switch_pm_parameter": {
-                    "description": "[Deep-linking](/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
+                    "description": "[Deep-linking](https://core.telegram.org/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  \n\n*Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.",
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 64
@@ -10957,7 +10957,7 @@
     },
     "/answerWebAppQuery": {
       "post": {
-        "description": "Use this method to set the result of an interaction with a [Web App](/bots/webapps) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](https://core.telegram.org/bots/api/#sentwebappmessage) object is returned.",
+        "description": "Use this method to set the result of an interaction with a [Web App](https://core.telegram.org/bots/webapps) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](https://core.telegram.org/bots/api/#sentwebappmessage) object is returned.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#answerwebappquery"
         },
@@ -11101,7 +11101,7 @@
                     "type": "string"
                   },
                   "currency": {
-                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
+                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
                     "type": "string"
                   },
                   "prices": {
@@ -11242,7 +11242,7 @@
                     "type": "string"
                   },
                   "currency": {
-                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
+                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
                     "type": "string"
                   },
                   "prices": {
@@ -11383,7 +11383,7 @@
                     "type": "string"
                   },
                   "currency": {
-                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
+                    "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
                     "type": "string"
                   },
                   "prices": {
@@ -12848,7 +12848,7 @@
             "$ref": "#/components/schemas/SuccessfulPayment"
           },
           "connected_website": {
-            "description": "*Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](/widgets/login)",
+            "description": "*Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](https://core.telegram.org/widgets/login)",
             "type": "string"
           },
           "passport_data": {
@@ -13519,7 +13519,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#webappdata"
         },
-        "description": "Contains data sent from a [Web App](/bots/webapps) to the bot.",
+        "description": "Contains data sent from a [Web App](https://core.telegram.org/bots/webapps) to the bot.",
         "type": "object",
         "properties": {
           "data": {
@@ -13693,11 +13693,11 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#webappinfo"
         },
-        "description": "Contains information about a [Web App](/bots/webapps).",
+        "description": "Contains information about a [Web App](https://core.telegram.org/bots/webapps).",
         "type": "object",
         "properties": {
           "url": {
-            "description": "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](/bots/webapps#initializing-web-apps)",
+            "description": "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](https://core.telegram.org/bots/webapps#initializing-web-apps)",
             "type": "string"
           }
         },
@@ -13858,7 +13858,7 @@
             "$ref": "#/components/schemas/LoginUrl"
           },
           "switch_inline_query": {
-            "description": "*Optional*. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. Can be empty, in which case just the bot's username will be inserted.  \n\n**Note:** This offers an easy way for users to start using your bot in [inline mode](/bots/inline) when they are currently in a private chat with it. Especially useful when combined with [*switch\\_pm…*](https://core.telegram.org/bots/api/#answerinlinequery) actions – in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen.",
+            "description": "*Optional*. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. Can be empty, in which case just the bot's username will be inserted.  \n\n**Note:** This offers an easy way for users to start using your bot in [inline mode](https://core.telegram.org/bots/inline) when they are currently in a private chat with it. Especially useful when combined with [*switch\\_pm…*](https://core.telegram.org/bots/api/#answerinlinequery) actions – in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen.",
             "type": "string"
           },
           "switch_inline_query_current_chat": {
@@ -13909,7 +13909,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#callbackquery"
         },
-        "description": "This object represents an incoming callback query from a callback button in an [inline keyboard](/bots#inline-keyboards-and-on-the-fly-updating). If the button that originated the query was attached to a message sent by the bot, the field *message* will be present. If the button was attached to a message sent via the bot (in [inline mode](https://core.telegram.org/bots/api/#inline-mode)), the field *inline\\_message\\_id* will be present. Exactly one of the fields *data* or *game\\_short\\_name* will be present.",
+        "description": "This object represents an incoming callback query from a callback button in an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating). If the button that originated the query was attached to a message sent by the bot, the field *message* will be present. If the button was attached to a message sent via the bot (in [inline mode](https://core.telegram.org/bots/api/#inline-mode)), the field *inline\\_message\\_id* will be present. Exactly one of the fields *data* or *game\\_short\\_name* will be present.",
         "type": "object",
         "properties": {
           "id": {
@@ -13949,7 +13949,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#forcereply"
         },
-        "description": "Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice [privacy mode](/bots#privacy-mode).",
+        "description": "Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice [privacy mode](https://core.telegram.org/bots#privacy-mode).",
         "type": "object",
         "properties": {
           "force_reply": {
@@ -14774,7 +14774,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#menubuttonwebapp"
         },
-        "description": "Represents a menu button, which launches a [Web App](/bots/webapps).",
+        "description": "Represents a menu button, which launches a [Web App](https://core.telegram.org/bots/webapps).",
         "type": "object",
         "properties": {
           "type": {
@@ -16829,7 +16829,7 @@
             "type": "string"
           },
           "currency": {
-            "description": "Three-letter ISO 4217 currency code, see [more on currencies](/bots/payments#supported-currencies)",
+            "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
             "type": "string"
           },
           "prices": {
@@ -16945,7 +16945,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#sentwebappmessage"
         },
-        "description": "Contains information about an inline message sent by a [Web App](/bots/webapps) on behalf of a user.",
+        "description": "Contains information about an inline message sent by a [Web App](https://core.telegram.org/bots/webapps) on behalf of a user.",
         "type": "object",
         "properties": {
           "inline_message_id": {
@@ -16966,7 +16966,7 @@
             "type": "string"
           },
           "amount": {
-            "description": "Price of the product in the *smallest units* of the [currency](/bots/payments#supported-currencies) (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+            "description": "Price of the product in the *smallest units* of the [currency](https://core.telegram.org/bots/payments#supported-currencies) (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
             "type": "integer"
           }
         },
@@ -16995,7 +16995,7 @@
             "type": "string"
           },
           "currency": {
-            "description": "Three-letter ISO 4217 [currency](/bots/payments#supported-currencies) code",
+            "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
             "type": "string"
           },
           "total_amount": {
@@ -17113,7 +17113,7 @@
         "type": "object",
         "properties": {
           "currency": {
-            "description": "Three-letter ISO 4217 [currency](/bots/payments#supported-currencies) code",
+            "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
             "type": "string"
           },
           "total_amount": {
@@ -17192,7 +17192,7 @@
             "$ref": "#/components/schemas/User"
           },
           "currency": {
-            "description": "Three-letter ISO 4217 [currency](/bots/payments#supported-currencies) code",
+            "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
             "type": "string"
           },
           "total_amount": {
