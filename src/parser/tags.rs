@@ -1,4 +1,4 @@
-use crate::parser::make_url_from_fragment;
+use crate::{parser::make_url_from_fragment, CORE_TELEGRAM_URL};
 use html2md::{common::get_tag_attr, Handle, StructuredPrinter, TagHandler, TagHandlerFactory};
 use percent_encoding::{utf8_percent_encode, AsciiSet, CONTROLS};
 use std::collections::HashMap;
@@ -37,6 +37,8 @@ impl TagHandler for AnchorHandler {
             .map(|value| {
                 if value.starts_with('#') {
                     make_url_from_fragment(value)
+                } else if value.starts_with('/') {
+                    [CORE_TELEGRAM_URL, &value].concat()
                 } else {
                     value
                 }
@@ -138,6 +140,12 @@ mod tests {
         assert_eq!(
             md,
             format!("[This is a link]({}#fragment)", BOT_API_DOCS_URL)
+        );
+        let md =
+            html2md::parse_html_custom(r##"<a href="/bots/webapps">This is a link</a>"##, &map);
+        assert_eq!(
+            md,
+            format!("[This is a link]({}/bots/webapps)", CORE_TELEGRAM_URL)
         )
     }
 
