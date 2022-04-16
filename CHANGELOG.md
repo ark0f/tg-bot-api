@@ -1,5 +1,8 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.4.2 (17.04.2022)
+Fix links like `/bots/webapps` are not handled
+
 # v0.4.1 (16.03.2022)
 * Fix `deleteMessage` cannot be extracted
 * Fix `" base quote` sentence cannot be parsed
