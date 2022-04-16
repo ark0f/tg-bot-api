@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 5.7.0
+  version: 6.0.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -3192,8 +3192,8 @@ paths:
                 can_delete_messages:
                   description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
-                can_manage_voice_chats:
-                  description: "Pass *True*, if the administrator can manage voice chats"
+                can_manage_video_chats:
+                  description: "Pass *True*, if the administrator can manage video chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
@@ -3240,8 +3240,8 @@ paths:
                 can_delete_messages:
                   description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
-                can_manage_voice_chats:
-                  description: "Pass *True*, if the administrator can manage voice chats"
+                can_manage_video_chats:
+                  description: "Pass *True*, if the administrator can manage video chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
@@ -3288,8 +3288,8 @@ paths:
                 can_delete_messages:
                   description: "Pass *True*, if the administrator can delete messages of other users"
                   type: boolean
-                can_manage_voice_chats:
-                  description: "Pass *True*, if the administrator can manage voice chats"
+                can_manage_video_chats:
+                  description: "Pass *True*, if the administrator can manage video chats"
                   type: boolean
                 can_restrict_members:
                   description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
@@ -5428,6 +5428,224 @@ paths:
                 required:
                   - ok
                   - result
+  /setChatMenuButton:
+    post:
+      description: "Use this method to change the bot's menu button in a private chat, or the default menu button. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#setchatmenubutton"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be changed"
+                  type: integer
+                menu_button:
+                  $ref: "#/components/schemas/MenuButton"
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be changed"
+                  type: integer
+                menu_button:
+                  $ref: "#/components/schemas/MenuButton"
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be changed"
+                  type: integer
+                menu_button:
+                  $ref: "#/components/schemas/MenuButton"
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /getChatMenuButton:
+    post:
+      description: "Use this method to get the current value of the bot's menu button in a private chat, or the default menu button. Returns [MenuButton](https://core.telegram.org/bots/api/#menubutton) on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getchatmenubutton"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be returned"
+                  type: integer
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be returned"
+                  type: integer
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target private chat. If not specified, default bot's menu button will be returned"
+                  type: integer
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/MenuButton"
+                required:
+                  - ok
+                  - result
+  /setMyDefaultAdministratorRights:
+    post:
+      description: "Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels. These rights will be suggested to users, but they are are free to modify the list before adding the bot. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#setmydefaultadministratorrights"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                rights:
+                  $ref: "#/components/schemas/ChatAdministratorRights"
+                for_channels:
+                  description: "Pass *True* to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed."
+                  type: boolean
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                rights:
+                  $ref: "#/components/schemas/ChatAdministratorRights"
+                for_channels:
+                  description: "Pass *True* to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed."
+                  type: boolean
+          application/json:
+            schema:
+              type: object
+              properties:
+                rights:
+                  $ref: "#/components/schemas/ChatAdministratorRights"
+                for_channels:
+                  description: "Pass *True* to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed."
+                  type: boolean
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /getMyDefaultAdministratorRights:
+    post:
+      description: "Use this method to get the current default administrator rights of the bot. Returns [ChatAdministratorRights](https://core.telegram.org/bots/api/#chatadministratorrights) on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getmydefaultadministratorrights"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                for_channels:
+                  description: "Pass *True* to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned."
+                  type: boolean
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                for_channels:
+                  description: "Pass *True* to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned."
+                  type: boolean
+          application/json:
+            schema:
+              type: object
+              properties:
+                for_channels:
+                  description: "Pass *True* to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned."
+                  type: boolean
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/ChatAdministratorRights"
+                required:
+                  - ok
+                  - result
   /editMessageText:
     post:
       description: "Use this method to edit text and [game](https://core.telegram.org/bots/api/#games) messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned."
@@ -6585,6 +6803,72 @@ paths:
                 required:
                   - ok
                   - result
+  /answerWebAppQuery:
+    post:
+      description: "Use this method to set the result of an interaction with a [Web App](/bots/webapps) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](https://core.telegram.org/bots/api/#sentwebappmessage) object is returned."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#answerwebappquery"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                web_app_query_id:
+                  description: Unique identifier for the query to be answered
+                  type: string
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+              required:
+                - web_app_query_id
+                - result
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                web_app_query_id:
+                  description: Unique identifier for the query to be answered
+                  type: string
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+              required:
+                - web_app_query_id
+                - result
+          application/json:
+            schema:
+              type: object
+              properties:
+                web_app_query_id:
+                  description: Unique identifier for the query to be answered
+                  type: string
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+              required:
+                - web_app_query_id
+                - result
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/SentWebAppMessage"
+                required:
+                  - ok
+                  - result
   /sendInvoice:
     post:
       description: "Use this method to send invoices. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned."
@@ -7568,6 +7852,9 @@ components:
         last_error_message:
           description: "*Optional*. Error message in human-readable format for the most recent error that happened when trying to deliver an update via webhook"
           type: string
+        last_synchronization_error_date:
+          description: "*Optional*. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters"
+          type: integer
         max_connections:
           description: "*Optional*. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery"
           type: integer
@@ -7839,14 +8126,16 @@ components:
           $ref: "#/components/schemas/PassportData"
         proximity_alert_triggered:
           $ref: "#/components/schemas/ProximityAlertTriggered"
-        voice_chat_scheduled:
-          $ref: "#/components/schemas/VoiceChatScheduled"
-        voice_chat_started:
-          $ref: "#/components/schemas/VoiceChatStarted"
-        voice_chat_ended:
-          $ref: "#/components/schemas/VoiceChatEnded"
-        voice_chat_participants_invited:
-          $ref: "#/components/schemas/VoiceChatParticipantsInvited"
+        video_chat_scheduled:
+          $ref: "#/components/schemas/VideoChatScheduled"
+        video_chat_started:
+          $ref: "#/components/schemas/VideoChatStarted"
+        video_chat_ended:
+          $ref: "#/components/schemas/VideoChatEnded"
+        video_chat_participants_invited:
+          $ref: "#/components/schemas/VideoChatParticipantsInvited"
+        web_app_data:
+          $ref: "#/components/schemas/WebAppData"
         reply_markup:
           $ref: "#/components/schemas/InlineKeyboardMarkup"
       required:
@@ -8323,6 +8612,21 @@ components:
         - location
         - title
         - address
+    WebAppData:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#webappdata"
+      description: "Contains data sent from a [Web App](/bots/webapps) to the bot."
+      type: object
+      properties:
+        data:
+          description: The data. Be aware that a bad client can send arbitrary data in this field.
+          type: string
+        button_text:
+          description: "Text of the *web\\_app* keyboard button, from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field."
+          type: string
+      required:
+        - data
+        - button_text
     ProximityAlertTriggered:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#proximityalerttriggered"
@@ -8351,43 +8655,45 @@ components:
           type: integer
       required:
         - message_auto_delete_time
-    VoiceChatScheduled:
+    VideoChatScheduled:
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#voicechatscheduled"
-      description: This object represents a service message about a voice chat scheduled in the chat.
+        url: "https://core.telegram.org/bots/api/#videochatscheduled"
+      description: This object represents a service message about a video chat scheduled in the chat.
       type: object
       properties:
         start_date:
-          description: Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator
+          description: Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator
           type: integer
       required:
         - start_date
-    VoiceChatStarted:
+    VideoChatStarted:
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#voicechatstarted"
-      description: This object represents a service message about a voice chat started in the chat. Currently holds no information.
-    VoiceChatEnded:
+        url: "https://core.telegram.org/bots/api/#videochatstarted"
+      description: This object represents a service message about a video chat started in the chat. Currently holds no information.
+    VideoChatEnded:
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#voicechatended"
-      description: This object represents a service message about a voice chat ended in the chat.
+        url: "https://core.telegram.org/bots/api/#videochatended"
+      description: This object represents a service message about a video chat ended in the chat.
       type: object
       properties:
         duration:
-          description: Voice chat duration in seconds
+          description: Video chat duration in seconds
           type: integer
       required:
         - duration
-    VoiceChatParticipantsInvited:
+    VideoChatParticipantsInvited:
       externalDocs:
-        url: "https://core.telegram.org/bots/api/#voicechatparticipantsinvited"
-      description: This object represents a service message about new members invited to a voice chat.
+        url: "https://core.telegram.org/bots/api/#videochatparticipantsinvited"
+      description: This object represents a service message about new members invited to a video chat.
       type: object
       properties:
         users:
-          description: "*Optional*. New members that were invited to the voice chat"
+          description: New members that were invited to the video chat
           type: array
           items:
             $ref: "#/components/schemas/User"
+      required:
+        - users
     UserProfilePhotos:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#userprofilephotos"
@@ -8428,6 +8734,17 @@ components:
       required:
         - file_id
         - file_unique_id
+    WebAppInfo:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#webappinfo"
+      description: "Contains information about a [Web App](/bots/webapps)."
+      type: object
+      properties:
+        url:
+          description: "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](/bots/webapps#initializing-web-apps)"
+          type: string
+      required:
+        - url
     ReplyKeyboardMarkup:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#replykeyboardmarkup"
@@ -8462,20 +8779,22 @@ components:
     KeyboardButton:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbutton"
-      description: "This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive."
+      description: "This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *web\\_app*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive."
       type: object
       properties:
         text:
           description: "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed"
           type: string
         request_contact:
-          description: "*Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only"
+          description: "*Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only."
           type: boolean
         request_location:
-          description: "*Optional*. If *True*, the user's current location will be sent when the button is pressed. Available in private chats only"
+          description: "*Optional*. If *True*, the user's current location will be sent when the button is pressed. Available in private chats only."
           type: boolean
         request_poll:
           $ref: "#/components/schemas/KeyboardButtonPollType"
+        web_app:
+          $ref: "#/components/schemas/WebAppInfo"
       required:
         - text
     KeyboardButtonPollType:
@@ -8528,11 +8847,13 @@ components:
         url:
           description: "*Optional*. HTTP or tg:// url to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their ID without using a username, if this is allowed by their privacy settings."
           type: string
-        login_url:
-          $ref: "#/components/schemas/LoginUrl"
         callback_data:
           description: "*Optional*. Data to be sent in a [callback query](https://core.telegram.org/bots/api/#callbackquery) to the bot when button is pressed, 1-64 bytes"
           type: string
+        web_app:
+          $ref: "#/components/schemas/WebAppInfo"
+        login_url:
+          $ref: "#/components/schemas/LoginUrl"
         switch_inline_query:
           description: "*Optional*. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. Can be empty, in which case just the bot's username will be inserted.  \n\n**Note:** This offers an easy way for users to start using your bot in [inline mode](/bots/inline) when they are currently in a private chat with it. Especially useful when combined with [*switch\\_pm…*](https://core.telegram.org/bots/api/#answerinlinequery) actions – in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen."
           type: string
@@ -8675,6 +8996,54 @@ components:
         - creates_join_request
         - is_primary
         - is_revoked
+    ChatAdministratorRights:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatadministratorrights"
+      description: Represents the rights of an administrator in a chat.
+      type: object
+      properties:
+        is_anonymous:
+          description: "*True*, if the user's presence in the chat is hidden"
+          type: boolean
+        can_manage_chat:
+          description: "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+          type: boolean
+        can_delete_messages:
+          description: "*True*, if the administrator can delete messages of other users"
+          type: boolean
+        can_manage_video_chats:
+          description: "*True*, if the administrator can manage video chats"
+          type: boolean
+        can_restrict_members:
+          description: "*True*, if the administrator can restrict, ban or unban chat members"
+          type: boolean
+        can_promote_members:
+          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+          type: boolean
+        can_change_info:
+          description: "*True*, if the user is allowed to change the chat title, photo and other settings"
+          type: boolean
+        can_invite_users:
+          description: "*True*, if the user is allowed to invite new users to the chat"
+          type: boolean
+        can_post_messages:
+          description: "*Optional*. *True*, if the administrator can post in the channel; channels only"
+          type: boolean
+        can_edit_messages:
+          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only"
+          type: boolean
+        can_pin_messages:
+          description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
+          type: boolean
+      required:
+        - is_anonymous
+        - can_manage_chat
+        - can_delete_messages
+        - can_manage_video_chats
+        - can_restrict_members
+        - can_promote_members
+        - can_change_info
+        - can_invite_users
     ChatMember:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatmember"
@@ -8732,8 +9101,8 @@ components:
         can_delete_messages:
           description: "*True*, if the administrator can delete messages of other users"
           type: boolean
-        can_manage_voice_chats:
-          description: "*True*, if the administrator can manage voice chats"
+        can_manage_video_chats:
+          description: "*True*, if the administrator can manage video chats"
           type: boolean
         can_restrict_members:
           description: "*True*, if the administrator can restrict, ban or unban chat members"
@@ -8766,7 +9135,7 @@ components:
         - is_anonymous
         - can_manage_chat
         - can_delete_messages
-        - can_manage_voice_chats
+        - can_manage_video_chats
         - can_restrict_members
         - can_promote_members
         - can_change_info
@@ -9105,6 +9474,57 @@ components:
         - type
         - chat_id
         - user_id
+    MenuButton:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#menubutton"
+      description: "This object describes the bot's menu button in a private chat. It should be one of\n\n* [MenuButtonCommands](https://core.telegram.org/bots/api/#menubuttoncommands)\n* [MenuButtonWebApp](https://core.telegram.org/bots/api/#menubuttonwebapp)\n* [MenuButtonDefault](https://core.telegram.org/bots/api/#menubuttondefault)"
+      anyOf:
+        - $ref: "#/components/schemas/MenuButtonCommands"
+        - $ref: "#/components/schemas/MenuButtonWebApp"
+        - $ref: "#/components/schemas/MenuButtonDefault"
+    MenuButtonCommands:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#menubuttoncommands"
+      description: "Represents a menu button, which opens the bot's list of commands."
+      type: object
+      properties:
+        type:
+          description: "Type of the button, must be *commands*"
+          default: commands
+          type: string
+      required:
+        - type
+    MenuButtonWebApp:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#menubuttonwebapp"
+      description: "Represents a menu button, which launches a [Web App](/bots/webapps)."
+      type: object
+      properties:
+        type:
+          description: "Type of the button, must be *web\\_app*"
+          default: web_app
+          type: string
+        text:
+          description: Text on the button
+          type: string
+        web_app:
+          $ref: "#/components/schemas/WebAppInfo"
+      required:
+        - type
+        - text
+        - web_app
+    MenuButtonDefault:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#menubuttondefault"
+      description: Describes that no specific value for the menu button was set.
+      type: object
+      properties:
+        type:
+          description: "Type of the button, must be *default*"
+          default: default
+          type: string
+      required:
+        - type
     ResponseParameters:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#responseparameters"
@@ -10637,6 +11057,15 @@ components:
         - result_id
         - from
         - query
+    SentWebAppMessage:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#sentwebappmessage"
+      description: "Contains information about an inline message sent by a [Web App](/bots/webapps) on behalf of a user."
+      type: object
+      properties:
+        inline_message_id:
+          description: "*Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) attached to the message."
+          type: string
     LabeledPrice:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#labeledprice"

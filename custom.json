@@ -1,13 +1,13 @@
 {
   "version": {
-    "major": 5,
-    "minor": 7,
+    "major": 6,
+    "minor": 0,
     "patch": 0
   },
   "recent_changes": {
     "year": 2022,
-    "month": 1,
-    "day": 31
+    "month": 4,
+    "day": 16
   },
   "methods": [
     {
@@ -2439,8 +2439,8 @@
           "type": "bool"
         },
         {
-          "name": "can_manage_voice_chats",
-          "description": "Pass *True*, if the administrator can manage voice chats",
+          "name": "can_manage_video_chats",
+          "description": "Pass *True*, if the administrator can manage video chats",
           "required": false,
           "type": "bool"
         },
@@ -3404,6 +3404,92 @@
       "documentation_link": "https://core.telegram.org/bots/api/#getmycommands"
     },
     {
+      "name": "setChatMenuButton",
+      "description": "Use this method to change the bot's menu button in a private chat, or the default menu button. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target private chat. If not specified, default bot's menu button will be changed",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "menu_button",
+          "description": "A JSON-serialized object for the new bot's menu button. Defaults to [MenuButtonDefault](https://core.telegram.org/bots/api/#menubuttondefault)",
+          "required": false,
+          "type": "reference",
+          "reference": "MenuButton"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#setchatmenubutton"
+    },
+    {
+      "name": "getChatMenuButton",
+      "description": "Use this method to get the current value of the bot's menu button in a private chat, or the default menu button. Returns [MenuButton](https://core.telegram.org/bots/api/#menubutton) on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target private chat. If not specified, default bot's menu button will be returned",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "MenuButton"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#getchatmenubutton"
+    },
+    {
+      "name": "setMyDefaultAdministratorRights",
+      "description": "Use this method to change the default administrator rights requested by the bot when it's added as an administrator to groups or channels. These rights will be suggested to users, but they are are free to modify the list before adding the bot. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "rights",
+          "description": "A JSON-serialized object describing new default administrator rights. If not specified, the default administrator rights will be cleared.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatAdministratorRights"
+        },
+        {
+          "name": "for_channels",
+          "description": "Pass *True* to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed.",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#setmydefaultadministratorrights"
+    },
+    {
+      "name": "getMyDefaultAdministratorRights",
+      "description": "Use this method to get the current default administrator rights of the bot. Returns [ChatAdministratorRights](https://core.telegram.org/bots/api/#chatadministratorrights) on success.",
+      "arguments": [
+        {
+          "name": "for_channels",
+          "description": "Pass *True* to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned.",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatAdministratorRights"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#getmydefaultadministratorrights"
+    },
+    {
       "name": "editMessageText",
       "description": "Use this method to edit text and [game](https://core.telegram.org/bots/api/#games) messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned.",
       "arguments": [
@@ -4174,6 +4260,31 @@
       "documentation_link": "https://core.telegram.org/bots/api/#answerinlinequery"
     },
     {
+      "name": "answerWebAppQuery",
+      "description": "Use this method to set the result of an interaction with a [Web App](/bots/webapps) and send a corresponding message on behalf of the user to the chat from which the query originated. On success, a [SentWebAppMessage](https://core.telegram.org/bots/api/#sentwebappmessage) object is returned.",
+      "arguments": [
+        {
+          "name": "web_app_query_id",
+          "description": "Unique identifier for the query to be answered",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "result",
+          "description": "A JSON-serialized object describing the message to be sent",
+          "required": true,
+          "type": "reference",
+          "reference": "InlineQueryResult"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "SentWebAppMessage"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#answerwebappquery"
+    },
+    {
       "name": "sendInvoice",
       "description": "Use this method to send invoices. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
       "arguments": [
@@ -4779,6 +4890,12 @@
           "type": "string"
         },
         {
+          "name": "last_synchronization_error_date",
+          "description": "*Optional*. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "max_connections",
           "description": "*Optional*. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery",
           "required": false,
@@ -5371,32 +5488,39 @@
           "reference": "ProximityAlertTriggered"
         },
         {
-          "name": "voice_chat_scheduled",
-          "description": "*Optional*. Service message: voice chat scheduled",
+          "name": "video_chat_scheduled",
+          "description": "*Optional*. Service message: video chat scheduled",
           "required": false,
           "type": "reference",
-          "reference": "VoiceChatScheduled"
+          "reference": "VideoChatScheduled"
         },
         {
-          "name": "voice_chat_started",
-          "description": "*Optional*. Service message: voice chat started",
+          "name": "video_chat_started",
+          "description": "*Optional*. Service message: video chat started",
           "required": false,
           "type": "reference",
-          "reference": "VoiceChatStarted"
+          "reference": "VideoChatStarted"
         },
         {
-          "name": "voice_chat_ended",
-          "description": "*Optional*. Service message: voice chat ended",
+          "name": "video_chat_ended",
+          "description": "*Optional*. Service message: video chat ended",
           "required": false,
           "type": "reference",
-          "reference": "VoiceChatEnded"
+          "reference": "VideoChatEnded"
         },
         {
-          "name": "voice_chat_participants_invited",
-          "description": "*Optional*. Service message: new participants invited to a voice chat",
+          "name": "video_chat_participants_invited",
+          "description": "*Optional*. Service message: new participants invited to a video chat",
           "required": false,
           "type": "reference",
-          "reference": "VoiceChatParticipantsInvited"
+          "reference": "VideoChatParticipantsInvited"
+        },
+        {
+          "name": "web_app_data",
+          "description": "*Optional*. Service message: data sent by a Web App",
+          "required": false,
+          "type": "reference",
+          "reference": "WebAppData"
         },
         {
           "name": "reply_markup",
@@ -6148,6 +6272,26 @@
       "documentation_link": "https://core.telegram.org/bots/api/#venue"
     },
     {
+      "name": "WebAppData",
+      "description": "Contains data sent from a [Web App](/bots/webapps) to the bot.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "data",
+          "description": "The data. Be aware that a bad client can send arbitrary data in this field.",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "button_text",
+          "description": "Text of the *web\\_app* keyboard button, from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#webappdata"
+    },
+    {
       "name": "ProximityAlertTriggered",
       "description": "This object represents the content of a service message, sent whenever a user in the chat triggers a proximity alert set by another user.",
       "type": "properties",
@@ -6190,47 +6334,47 @@
       "documentation_link": "https://core.telegram.org/bots/api/#messageautodeletetimerchanged"
     },
     {
-      "name": "VoiceChatScheduled",
-      "description": "This object represents a service message about a voice chat scheduled in the chat.",
+      "name": "VideoChatScheduled",
+      "description": "This object represents a service message about a video chat scheduled in the chat.",
       "type": "properties",
       "properties": [
         {
           "name": "start_date",
-          "description": "Point in time (Unix timestamp) when the voice chat is supposed to be started by a chat administrator",
+          "description": "Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator",
           "required": true,
           "type": "integer"
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#voicechatscheduled"
+      "documentation_link": "https://core.telegram.org/bots/api/#videochatscheduled"
     },
     {
-      "name": "VoiceChatStarted",
-      "description": "This object represents a service message about a voice chat started in the chat. Currently holds no information.",
-      "documentation_link": "https://core.telegram.org/bots/api/#voicechatstarted"
+      "name": "VideoChatStarted",
+      "description": "This object represents a service message about a video chat started in the chat. Currently holds no information.",
+      "documentation_link": "https://core.telegram.org/bots/api/#videochatstarted"
     },
     {
-      "name": "VoiceChatEnded",
-      "description": "This object represents a service message about a voice chat ended in the chat.",
+      "name": "VideoChatEnded",
+      "description": "This object represents a service message about a video chat ended in the chat.",
       "type": "properties",
       "properties": [
         {
           "name": "duration",
-          "description": "Voice chat duration in seconds",
+          "description": "Video chat duration in seconds",
           "required": true,
           "type": "integer"
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#voicechatended"
+      "documentation_link": "https://core.telegram.org/bots/api/#videochatended"
     },
     {
-      "name": "VoiceChatParticipantsInvited",
-      "description": "This object represents a service message about new members invited to a voice chat.",
+      "name": "VideoChatParticipantsInvited",
+      "description": "This object represents a service message about new members invited to a video chat.",
       "type": "properties",
       "properties": [
         {
           "name": "users",
-          "description": "*Optional*. New members that were invited to the voice chat",
-          "required": false,
+          "description": "New members that were invited to the video chat",
+          "required": true,
           "type": "array",
           "array": {
             "type": "reference",
@@ -6238,7 +6382,7 @@
           }
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#voicechatparticipantsinvited"
+      "documentation_link": "https://core.telegram.org/bots/api/#videochatparticipantsinvited"
     },
     {
       "name": "UserProfilePhotos",
@@ -6300,6 +6444,20 @@
       "documentation_link": "https://core.telegram.org/bots/api/#file"
     },
     {
+      "name": "WebAppInfo",
+      "description": "Contains information about a [Web App](/bots/webapps).",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "url",
+          "description": "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](/bots/webapps#initializing-web-apps)",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#webappinfo"
+    },
+    {
       "name": "ReplyKeyboardMarkup",
       "description": "This object represents a [custom keyboard](https://core.telegram.org/bots#keyboards) with reply options (see [Introduction to bots](https://core.telegram.org/bots#keyboards) for details and examples).",
       "type": "properties",
@@ -6350,7 +6508,7 @@
     },
     {
       "name": "KeyboardButton",
-      "description": "This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
+      "description": "This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *web\\_app*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
       "type": "properties",
       "properties": [
         {
@@ -6361,22 +6519,29 @@
         },
         {
           "name": "request_contact",
-          "description": "*Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only",
+          "description": "*Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.",
           "required": false,
           "type": "bool"
         },
         {
           "name": "request_location",
-          "description": "*Optional*. If *True*, the user's current location will be sent when the button is pressed. Available in private chats only",
+          "description": "*Optional*. If *True*, the user's current location will be sent when the button is pressed. Available in private chats only.",
           "required": false,
           "type": "bool"
         },
         {
           "name": "request_poll",
-          "description": "*Optional*. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only",
+          "description": "*Optional*. If specified, the user will be asked to create a poll and send it to the bot when the button is pressed. Available in private chats only.",
           "required": false,
           "type": "reference",
           "reference": "KeyboardButtonPollType"
+        },
+        {
+          "name": "web_app",
+          "description": "*Optional*. If specified, the described [Web App](/bots/webapps) will be launched when the button is pressed. The Web App will be able to send a “web\\_app\\_data” service message. Available in private chats only.",
+          "required": false,
+          "type": "reference",
+          "reference": "WebAppInfo"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#keyboardbutton"
@@ -6454,17 +6619,24 @@
           "type": "string"
         },
         {
+          "name": "callback_data",
+          "description": "*Optional*. Data to be sent in a [callback query](https://core.telegram.org/bots/api/#callbackquery) to the bot when button is pressed, 1-64 bytes",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "web_app",
+          "description": "*Optional*. Description of the [Web App](/bots/webapps) that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method [answerWebAppQuery](https://core.telegram.org/bots/api/#answerwebappquery). Available only in private chats between a user and the bot.",
+          "required": false,
+          "type": "reference",
+          "reference": "WebAppInfo"
+        },
+        {
           "name": "login_url",
           "description": "*Optional*. An HTTP URL used to automatically authorize the user. Can be used as a replacement for the [Telegram Login Widget](https://core.telegram.org/widgets/login).",
           "required": false,
           "type": "reference",
           "reference": "LoginUrl"
-        },
-        {
-          "name": "callback_data",
-          "description": "*Optional*. Data to be sent in a [callback query](https://core.telegram.org/bots/api/#callbackquery) to the bot when button is pressed, 1-64 bytes",
-          "required": false,
-          "type": "string"
         },
         {
           "name": "switch_inline_query",
@@ -6702,6 +6874,80 @@
       "documentation_link": "https://core.telegram.org/bots/api/#chatinvitelink"
     },
     {
+      "name": "ChatAdministratorRights",
+      "description": "Represents the rights of an administrator in a chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "is_anonymous",
+          "description": "*True*, if the user's presence in the chat is hidden",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_manage_chat",
+          "description": "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_delete_messages",
+          "description": "*True*, if the administrator can delete messages of other users",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_manage_video_chats",
+          "description": "*True*, if the administrator can manage video chats",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_restrict_members",
+          "description": "*True*, if the administrator can restrict, ban or unban chat members",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_promote_members",
+          "description": "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_change_info",
+          "description": "*True*, if the user is allowed to change the chat title, photo and other settings",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_invite_users",
+          "description": "*True*, if the user is allowed to invite new users to the chat",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_post_messages",
+          "description": "*Optional*. *True*, if the administrator can post in the channel; channels only",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_edit_messages",
+          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_pin_messages",
+          "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatadministratorrights"
+    },
+    {
       "name": "ChatMember",
       "description": "This object contains information about one member of a chat. Currently, the following 6 types of chat members are supported:\n\n* [ChatMemberOwner](https://core.telegram.org/bots/api/#chatmemberowner)\n* [ChatMemberAdministrator](https://core.telegram.org/bots/api/#chatmemberadministrator)\n* [ChatMemberMember](https://core.telegram.org/bots/api/#chatmembermember)\n* [ChatMemberRestricted](https://core.telegram.org/bots/api/#chatmemberrestricted)\n* [ChatMemberLeft](https://core.telegram.org/bots/api/#chatmemberleft)\n* [ChatMemberBanned](https://core.telegram.org/bots/api/#chatmemberbanned)",
       "type": "any_of",
@@ -6811,8 +7057,8 @@
           "type": "bool"
         },
         {
-          "name": "can_manage_voice_chats",
-          "description": "*True*, if the administrator can manage voice chats",
+          "name": "can_manage_video_chats",
+          "description": "*True*, if the administrator can manage video chats",
           "required": true,
           "type": "bool"
         },
@@ -7402,6 +7648,84 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#botcommandscopechatmember"
+    },
+    {
+      "name": "MenuButton",
+      "description": "This object describes the bot's menu button in a private chat. It should be one of\n\n* [MenuButtonCommands](https://core.telegram.org/bots/api/#menubuttoncommands)\n* [MenuButtonWebApp](https://core.telegram.org/bots/api/#menubuttonwebapp)\n* [MenuButtonDefault](https://core.telegram.org/bots/api/#menubuttondefault)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "MenuButtonCommands"
+        },
+        {
+          "type": "reference",
+          "reference": "MenuButtonWebApp"
+        },
+        {
+          "type": "reference",
+          "reference": "MenuButtonDefault"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#menubutton"
+    },
+    {
+      "name": "MenuButtonCommands",
+      "description": "Represents a menu button, which opens the bot's list of commands.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the button, must be *commands*",
+          "required": true,
+          "type": "string",
+          "default": "commands"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#menubuttoncommands"
+    },
+    {
+      "name": "MenuButtonWebApp",
+      "description": "Represents a menu button, which launches a [Web App](/bots/webapps).",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the button, must be *web\\_app*",
+          "required": true,
+          "type": "string",
+          "default": "web_app"
+        },
+        {
+          "name": "text",
+          "description": "Text on the button",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "web_app",
+          "description": "Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method [answerWebAppQuery](https://core.telegram.org/bots/api/#answerwebappquery).",
+          "required": true,
+          "type": "reference",
+          "reference": "WebAppInfo"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#menubuttonwebapp"
+    },
+    {
+      "name": "MenuButtonDefault",
+      "description": "Describes that no specific value for the menu button was set.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the button, must be *default*",
+          "required": true,
+          "type": "string",
+          "default": "default"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#menubuttondefault"
     },
     {
       "name": "ResponseParameters",
@@ -10113,6 +10437,20 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#choseninlineresult"
+    },
+    {
+      "name": "SentWebAppMessage",
+      "description": "Contains information about an inline message sent by a [Web App](/bots/webapps) on behalf of a user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "inline_message_id",
+          "description": "*Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) attached to the message.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#sentwebappmessage"
     },
     {
       "name": "LabeledPrice",
