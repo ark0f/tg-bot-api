@@ -285,7 +285,7 @@ impl Type {
                 sentence
                     .parts()
                     .iter()
-                    .filter(|part| part.has_quotes())
+                    .filter(|part| part.has_quotes() || part.is_italic())
                     .map(|part| part.as_inner())
                     .cloned()
                     .dedup()
