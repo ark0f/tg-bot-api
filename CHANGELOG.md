@@ -1,5 +1,8 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.4.3 (15.05.2022)
+Fix `Choose one` "one of" pattern is not recognized
+
 # v0.4.2 (17.04.2022)
 Fix links like `/bots/webapps` are not handled
 
