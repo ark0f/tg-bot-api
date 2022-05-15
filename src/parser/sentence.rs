@@ -61,6 +61,7 @@ impl Pattern {
                         .by_word("or")
                         .by_quotes()
                         .with_offset(-3),
+                    SearcherPattern::default().by_word("Choose").by_word("one"),
                 ]
             }
         }
@@ -219,6 +220,10 @@ impl Part {
 
     pub fn has_quotes(&self) -> bool {
         self.has_quotes
+    }
+
+    pub fn is_italic(&self) -> bool {
+        matches!(self.kind, PartKind::Italic)
     }
 
     pub fn as_inner(&self) -> &String {
