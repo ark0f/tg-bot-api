@@ -2681,7 +2681,19 @@
           "required": true,
           "type_info": {
             "type": "string",
-            "enumeration": []
+            "enumeration": [
+              "typing",
+              "upload_photo",
+              "record_video",
+              "upload_video",
+              "record_voice",
+              "upload_voice",
+              "upload_document",
+              "choose_sticker",
+              "find_location",
+              "record_video_note",
+              "upload_video_note"
+            ]
           }
         }
       ],
@@ -4125,7 +4137,7 @@
         },
         {
           "name": "menu_button",
-          "description": "A JSON-serialized object for the new bot's menu button. Defaults to [MenuButtonDefault](https://core.telegram.org/bots/api/#menubuttondefault)",
+          "description": "A JSON-serialized object for the bot's new menu button. Defaults to [MenuButtonDefault](https://core.telegram.org/bots/api/#menubuttondefault)",
           "required": false,
           "type_info": {
             "type": "reference",
