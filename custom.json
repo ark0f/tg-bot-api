@@ -81,7 +81,7 @@
         },
         {
           "name": "max_connections",
-          "description": "Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.",
+          "description": "The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.",
           "required": false,
           "type": "integer",
           "default": 40
@@ -467,7 +467,7 @@
         },
         {
           "name": "photo",
-          "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -580,7 +580,7 @@
         },
         {
           "name": "audio",
-          "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -637,7 +637,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -726,7 +726,7 @@
         },
         {
           "name": "document",
-          "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -741,7 +741,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -842,7 +842,7 @@
     },
     {
       "name": "sendVideo",
-      "description": "Use this method to send video files, Telegram clients support mp4 videos (other formats may be sent as [Document](https://core.telegram.org/bots/api/#document)). On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.",
+      "description": "Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as [Document](https://core.telegram.org/bots/api/#document)). On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.",
       "arguments": [
         {
           "name": "chat_id",
@@ -860,7 +860,7 @@
         },
         {
           "name": "video",
-          "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -893,7 +893,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1012,7 +1012,7 @@
         },
         {
           "name": "animation",
-          "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -1045,7 +1045,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1158,7 +1158,7 @@
         },
         {
           "name": "voice",
-          "description": "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -1259,7 +1259,7 @@
     },
     {
       "name": "sendVideoNote",
-      "description": "As of [v.4.0](https://telegram.org/blog/video-messages-and-telescope), Telegram clients support rounded square mp4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+      "description": "As of [v.4.0](https://telegram.org/blog/video-messages-and-telescope), Telegram clients support rounded square MPEG4 videos of up to 1 minute long. Use this method to send video messages. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
       "arguments": [
         {
           "name": "chat_id",
@@ -1277,7 +1277,7 @@
         },
         {
           "name": "video_note",
-          "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
+          "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -1304,7 +1304,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1619,7 +1619,7 @@
         },
         {
           "name": "proximity_alert_radius",
-          "description": "Maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
+          "description": "The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
           "required": false,
           "type": "integer"
         },
@@ -2254,11 +2254,11 @@
     },
     {
       "name": "getFile",
-      "description": "Use this method to get basic info about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. On success, a [File](https://core.telegram.org/bots/api/#file) object is returned. The file can then be downloaded via the link `https://api.telegram.org/file/bot<token>/<file_path>`, where `<file_path>` is taken from the response. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling [getFile](https://core.telegram.org/bots/api/#getfile) again.",
+      "description": "Use this method to get basic information about a file and prepare it for downloading. For the moment, bots can download files of up to 20MB in size. On success, a [File](https://core.telegram.org/bots/api/#file) object is returned. The file can then be downloaded via the link `https://api.telegram.org/file/bot<token>/<file_path>`, where `<file_path>` is taken from the response. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling [getFile](https://core.telegram.org/bots/api/#getfile) again.",
       "arguments": [
         {
           "name": "file_id",
-          "description": "File identifier to get info about",
+          "description": "File identifier to get information about",
           "required": true,
           "type": "string"
         }
@@ -2691,7 +2691,7 @@
         },
         {
           "name": "member_limit",
-          "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "description": "The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type": "integer"
         },
@@ -2749,7 +2749,7 @@
         },
         {
           "name": "member_limit",
-          "description": "Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "description": "The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type": "integer"
         },
@@ -3309,7 +3309,7 @@
         },
         {
           "name": "url",
-          "description": "URL that will be opened by the user's client. If you have created a [Game](https://core.telegram.org/bots/api/#game) and accepted the conditions via [@BotFather](https://t.me/botfather), specify the URL that opens your game — note that this will only work if the query comes from a [*callback\\_game*](https://core.telegram.org/bots/api/#inlinekeyboardbutton) button.  \n\nOtherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.",
+          "description": "URL that will be opened by the user's client. If you have created a [Game](https://core.telegram.org/bots/api/#game) and accepted the conditions via [@BotFather](https://t.me/botfather), specify the URL that opens your game - note that this will only work if the query comes from a [*callback\\_game*](https://core.telegram.org/bots/api/#inlinekeyboardbutton) button.  \n\nOtherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.",
           "required": false,
           "type": "string"
         },
@@ -3870,7 +3870,7 @@
         },
         {
           "name": "sticker",
-          "description": "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "any_of",
           "any_of": [
@@ -3969,7 +3969,7 @@
         },
         {
           "name": "png_sticker",
-          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "reference",
           "reference": "InputFile"
@@ -3994,7 +3994,7 @@
         },
         {
           "name": "name",
-          "description": "Short name of sticker set, to be used in `t.me/addstickers/` URLs (e.g., *animals*). Can contain only english letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in `\"_by_<bot_username>\"`. `<bot_username>` is case insensitive. 1-64 characters.",
+          "description": "Short name of sticker set, to be used in `t.me/addstickers/` URLs (e.g., *animals*). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in `\"_by_<bot_username>\"`. `<bot_username>` is case insensitive. 1-64 characters.",
           "required": true,
           "type": "string",
           "min_len": 1,
@@ -4010,7 +4010,7 @@
         },
         {
           "name": "png_sticker",
-          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -4082,7 +4082,7 @@
         },
         {
           "name": "png_sticker",
-          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "**PNG** image with the sticker, must be up to 512 kilobytes in size, dimensions must not exceed 512px, and either width or height must be exactly 512px. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -4190,7 +4190,7 @@
         },
         {
           "name": "thumb",
-          "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#animated-sticker-requirements](https://core.telegram.org/stickers#animated-sticker-requirements) for animated sticker technical requirements, or a **WEBM** video with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#video-sticker-requirements](https://core.telegram.org/stickers#video-sticker-requirements) for video sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnails can't be uploaded via HTTP URL.",
+          "description": "A **PNG** image with the thumbnail, must be up to 128 kilobytes in size and have width and height exactly 100px, or a **TGS** animation with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#animated-sticker-requirements](https://core.telegram.org/stickers#animated-sticker-requirements) for animated sticker technical requirements, or a **WEBM** video with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#video-sticker-requirements](https://core.telegram.org/stickers#video-sticker-requirements) for video sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated sticker set thumbnails can't be uploaded via HTTP URL.",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -4710,7 +4710,7 @@
     },
     {
       "name": "getGameHighScores",
-      "description": "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. On success, returns an *Array* of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and his neighbors are not among them. Please note that this behavior is subject to change.",
+      "description": "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. On success, returns an *Array* of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change.",
       "arguments": [
         {
           "name": "user_id",
@@ -4762,7 +4762,7 @@
         },
         {
           "name": "message",
-          "description": "*Optional*. New incoming message of any kind — text, photo, sticker, etc.",
+          "description": "*Optional*. New incoming message of any kind - text, photo, sticker, etc.",
           "required": false,
           "type": "reference",
           "reference": "Message"
@@ -4776,7 +4776,7 @@
         },
         {
           "name": "channel_post",
-          "description": "*Optional*. New incoming channel post of any kind — text, photo, sticker, etc.",
+          "description": "*Optional*. New incoming channel post of any kind - text, photo, sticker, etc.",
           "required": false,
           "type": "reference",
           "reference": "Message"
@@ -4863,7 +4863,7 @@
     },
     {
       "name": "WebhookInfo",
-      "description": "Contains information about the current status of a webhook.",
+      "description": "Describes the current status of a webhook.",
       "type": "properties",
       "properties": [
         {
@@ -4910,7 +4910,7 @@
         },
         {
           "name": "max_connections",
-          "description": "*Optional*. Maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery",
+          "description": "*Optional*. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery",
           "required": false,
           "type": "integer"
         },
@@ -5050,7 +5050,7 @@
         },
         {
           "name": "has_private_forwards",
-          "description": "*Optional*. True, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "bool"
         },
@@ -5094,7 +5094,7 @@
         },
         {
           "name": "has_protected_content",
-          "description": "*Optional*. True, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "bool"
         },
@@ -5204,7 +5204,7 @@
         },
         {
           "name": "is_automatic_forward",
-          "description": "*Optional*. True, if the message is a channel post that was automatically forwarded to the connected discussion group",
+          "description": "*Optional*. *True*, if the message is a channel post that was automatically forwarded to the connected discussion group",
           "required": false,
           "type": "bool"
         },
@@ -5230,7 +5230,7 @@
         },
         {
           "name": "has_protected_content",
-          "description": "*Optional*. True, if the message can't be forwarded",
+          "description": "*Optional*. *True*, if the message can't be forwarded",
           "required": false,
           "type": "bool"
         },
@@ -5881,7 +5881,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. Mime type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by sender",
           "required": false,
           "type": "string"
         },
@@ -6226,7 +6226,7 @@
         },
         {
           "name": "proximity_alert_radius",
-          "description": "*Optional*. Maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.",
+          "description": "*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.",
           "required": false,
           "type": "integer"
         }
@@ -6286,7 +6286,7 @@
     },
     {
       "name": "WebAppData",
-      "description": "Contains data sent from a [Web App](https://core.telegram.org/bots/webapps) to the bot.",
+      "description": "Describes data sent from a [Web App](https://core.telegram.org/bots/webapps) to the bot.",
       "type": "properties",
       "properties": [
         {
@@ -6297,7 +6297,7 @@
         },
         {
           "name": "button_text",
-          "description": "Text of the *web\\_app* keyboard button, from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.",
+          "description": "Text of the *web\\_app* keyboard button from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.",
           "required": true,
           "type": "string"
         }
@@ -6426,7 +6426,7 @@
     },
     {
       "name": "File",
-      "description": "This object represents a file ready to be downloaded. The file can be downloaded via the link `https://api.telegram.org/file/bot<token>/<file_path>`. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling [getFile](https://core.telegram.org/bots/api/#getfile).\n\nMaximum file size to download is 20 MB",
+      "description": "This object represents a file ready to be downloaded. The file can be downloaded via the link `https://api.telegram.org/file/bot<token>/<file_path>`. It is guaranteed that the link will be valid for at least 1 hour. When the link expires, a new one can be requested by calling [getFile](https://core.telegram.org/bots/api/#getfile).\n\nThe maximum file size to download is 20 MB",
       "type": "properties",
       "properties": [
         {
@@ -6458,7 +6458,7 @@
     },
     {
       "name": "WebAppInfo",
-      "description": "Contains information about a [Web App](https://core.telegram.org/bots/webapps).",
+      "description": "Describes a [Web App](https://core.telegram.org/bots/webapps).",
       "type": "properties",
       "properties": [
         {
@@ -6497,7 +6497,7 @@
         },
         {
           "name": "one_time_keyboard",
-          "description": "*Optional*. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to *false*.",
+          "description": "*Optional*. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to *false*.",
           "required": false,
           "type": "bool",
           "default": false
@@ -6653,13 +6653,13 @@
         },
         {
           "name": "switch_inline_query",
-          "description": "*Optional*. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. Can be empty, in which case just the bot's username will be inserted.  \n\n**Note:** This offers an easy way for users to start using your bot in [inline mode](https://core.telegram.org/bots/inline) when they are currently in a private chat with it. Especially useful when combined with [*switch\\_pm…*](https://core.telegram.org/bots/api/#answerinlinequery) actions – in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen.",
+          "description": "*Optional*. If set, pressing the button will prompt the user to select one of their chats, open that chat and insert the bot's username and the specified inline query in the input field. May be empty, in which case just the bot's username will be inserted.  \n\n**Note:** This offers an easy way for users to start using your bot in [inline mode](https://core.telegram.org/bots/inline) when they are currently in a private chat with it. Especially useful when combined with [*switch\\_pm…*](https://core.telegram.org/bots/api/#answerinlinequery) actions - in this case the user will be automatically returned to the chat they switched from, skipping the chat selection screen.",
           "required": false,
           "type": "string"
         },
         {
           "name": "switch_inline_query_current_chat",
-          "description": "*Optional*. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. Can be empty, in which case only the bot's username will be inserted.  \n\nThis offers a quick way for the user to open your bot in inline mode in the same chat – good for selecting something from multiple options.",
+          "description": "*Optional*. If set, pressing the button will insert the bot's username and the specified inline query in the current chat's input field. May be empty, in which case only the bot's username will be inserted.  \n\nThis offers a quick way for the user to open your bot in inline mode in the same chat - good for selecting something from multiple options.",
           "required": false,
           "type": "string"
         },
@@ -6750,7 +6750,7 @@
         },
         {
           "name": "data",
-          "description": "*Optional*. Data associated with the callback button. Be aware that the message, from which originated the query, can contain no callback buttons with this data.",
+          "description": "*Optional*. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data.",
           "required": false,
           "type": "string"
         },
@@ -6873,7 +6873,7 @@
         },
         {
           "name": "member_limit",
-          "description": "*Optional*. Maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
+          "description": "*Optional*. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type": "integer"
         },
@@ -7742,7 +7742,7 @@
     },
     {
       "name": "ResponseParameters",
-      "description": "Contains information about why a request was unsuccessful.",
+      "description": "Describes why a request was unsuccessful.",
       "type": "properties",
       "properties": [
         {
@@ -7802,7 +7802,7 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
@@ -7847,13 +7847,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -7931,13 +7931,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8009,13 +8009,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8087,13 +8087,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More info on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8345,7 +8345,7 @@
         },
         {
           "name": "chat_type",
-          "description": "*Optional*. Type of the chat, from which the inline query was sent. Can be either “sender” for a private chat with the inline query sender, “private”, “group”, “supergroup”, or “channel”. The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat",
+          "description": "*Optional*. Type of the chat from which the inline query was sent. Can be either “sender” for a private chat with the inline query sender, “private”, “group”, “supergroup”, or “channel”. The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat",
           "required": false,
           "type": "string",
           "enumeration": [
@@ -8753,7 +8753,7 @@
         },
         {
           "name": "mpeg4_url",
-          "description": "A valid URL for the MP4 file. File size must not exceed 1MB",
+          "description": "A valid URL for the MPEG4 file. File size must not exceed 1MB",
           "required": true,
           "type": "string"
         },
@@ -8866,7 +8866,7 @@
         },
         {
           "name": "mime_type",
-          "description": "Mime type of the content of the video URL, “text/html” or “video/mp4”",
+          "description": "MIME type of the content of the video URL, “text/html” or “video/mp4”",
           "required": true,
           "type": "string",
           "enumeration": [
@@ -9167,7 +9167,7 @@
         },
         {
           "name": "mime_type",
-          "description": "Mime type of the content of the file, either “application/pdf” or “application/zip”",
+          "description": "MIME type of the content of the file, either “application/pdf” or “application/zip”",
           "required": true,
           "type": "string",
           "enumeration": [
@@ -9691,7 +9691,7 @@
         },
         {
           "name": "mpeg4_file_id",
-          "description": "A valid file identifier for the MP4 file",
+          "description": "A valid file identifier for the MPEG4 file",
           "required": true,
           "type": "string"
         },
@@ -10453,7 +10453,7 @@
     },
     {
       "name": "SentWebAppMessage",
-      "description": "Contains information about an inline message sent by a [Web App](https://core.telegram.org/bots/webapps) on behalf of a user.",
+      "description": "Describes an inline message sent by a [Web App](https://core.telegram.org/bots/webapps) on behalf of a user.",
       "type": "properties",
       "properties": [
         {
@@ -10530,7 +10530,7 @@
       "properties": [
         {
           "name": "country_code",
-          "description": "ISO 3166-1 alpha-2 country code",
+          "description": "Two-letter ISO 3166-1 alpha-2 country code",
           "required": true,
           "type": "string"
         },
@@ -10661,7 +10661,7 @@
         },
         {
           "name": "order_info",
-          "description": "*Optional*. Order info provided by the user",
+          "description": "*Optional*. Order information provided by the user",
           "required": false,
           "type": "reference",
           "reference": "OrderInfo"
@@ -10759,7 +10759,7 @@
         },
         {
           "name": "order_info",
-          "description": "*Optional*. Order info provided by the user",
+          "description": "*Optional*. Order information provided by the user",
           "required": false,
           "type": "reference",
           "reference": "OrderInfo"
@@ -10769,7 +10769,7 @@
     },
     {
       "name": "PassportData",
-      "description": "Contains information about Telegram Passport data shared with the bot by the user.",
+      "description": "Describes Telegram Passport data shared with the bot by the user.",
       "type": "properties",
       "properties": [
         {
@@ -10826,7 +10826,7 @@
     },
     {
       "name": "EncryptedPassportElement",
-      "description": "Contains information about documents or other Telegram Passport elements shared with the bot by the user.",
+      "description": "Describes documents or other Telegram Passport elements shared with the bot by the user.",
       "type": "properties",
       "properties": [
         {
@@ -10920,7 +10920,7 @@
     },
     {
       "name": "EncryptedCredentials",
-      "description": "Contains data required for decrypting and authenticating [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement). See the [Telegram Passport Documentation](https://core.telegram.org/passport#receiving-information) for a complete description of the data decryption and authentication processes.",
+      "description": "Describes data required for decrypting and authenticating [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement). See the [Telegram Passport Documentation](https://core.telegram.org/passport#receiving-information) for a complete description of the data decryption and authentication processes.",
       "type": "properties",
       "properties": [
         {
