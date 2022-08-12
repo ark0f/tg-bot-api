@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 6.1.0
+  version: 6.2.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -13,7 +13,7 @@ servers:
 paths:
   /getUpdates:
     post:
-      description: "Use this method to receive incoming updates using long polling ([wiki](https://en.wikipedia.org/wiki/Push_technology#Long_polling)). An Array of [Update](https://core.telegram.org/bots/api/#update) objects is returned."
+      description: "Use this method to receive incoming updates using long polling ([wiki](https://en.wikipedia.org/wiki/Push_technology#Long_polling)). Returns an Array of [Update](https://core.telegram.org/bots/api/#update) objects."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getupdates"
       requestBody:
@@ -375,7 +375,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -422,7 +422,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -469,7 +469,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -617,7 +617,7 @@ paths:
                   - result
   /copyMessage:
     post:
-      description: "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success."
+      description: "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#copymessage"
       requestBody:
@@ -662,7 +662,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -715,7 +715,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -768,7 +768,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -848,7 +848,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -941,7 +941,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1028,7 +1028,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1112,7 +1112,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
                 supports_streaming:
-                  description: "Pass *True*, if the uploaded video is suitable for streaming"
+                  description: Pass *True* if the uploaded video is suitable for streaming
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -1124,7 +1124,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1217,7 +1217,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1299,7 +1299,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1376,7 +1376,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1446,7 +1446,7 @@ paths:
                   description: "If the messages are a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
               required:
                 - chat_id
@@ -1520,7 +1520,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1570,7 +1570,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1620,7 +1620,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1928,7 +1928,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -1986,7 +1986,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2044,7 +2044,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2120,7 +2120,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
@@ -2164,7 +2164,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
@@ -2208,7 +2208,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove keyboard or to force a reply from the user."
@@ -2308,7 +2308,7 @@ paths:
                   description: "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*."
                   type: integer
                 is_closed:
-                  description: "Pass *True*, if the poll needs to be immediately closed. This can be useful for poll preview."
+                  description: Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -2320,7 +2320,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2390,7 +2390,7 @@ paths:
                   description: "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*."
                   type: integer
                 is_closed:
-                  description: "Pass *True*, if the poll needs to be immediately closed. This can be useful for poll preview."
+                  description: Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -2402,7 +2402,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2472,7 +2472,7 @@ paths:
                   description: "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*."
                   type: integer
                 is_closed:
-                  description: "Pass *True*, if the poll needs to be immediately closed. This can be useful for poll preview."
+                  description: Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -2484,7 +2484,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2557,7 +2557,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2598,7 +2598,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -2639,7 +2639,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -3219,37 +3219,37 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 is_anonymous:
-                  description: "Pass *True*, if the administrator's presence in the chat is hidden"
+                  description: "Pass *True* if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True* if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True*, if the administrator can create channel posts, channels only"
+                  description: "Pass *True* if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True* if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass *True*, if the administrator can delete messages of other users"
+                  description: Pass *True* if the administrator can delete messages of other users
                   type: boolean
                 can_manage_video_chats:
-                  description: "Pass *True*, if the administrator can manage video chats"
+                  description: Pass *True* if the administrator can manage video chats
                   type: boolean
                 can_restrict_members:
-                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True* if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass *True*, if the administrator can invite new users to the chat"
+                  description: Pass *True* if the administrator can invite new users to the chat
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True* if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3267,37 +3267,37 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 is_anonymous:
-                  description: "Pass *True*, if the administrator's presence in the chat is hidden"
+                  description: "Pass *True* if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True* if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True*, if the administrator can create channel posts, channels only"
+                  description: "Pass *True* if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True* if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass *True*, if the administrator can delete messages of other users"
+                  description: Pass *True* if the administrator can delete messages of other users
                   type: boolean
                 can_manage_video_chats:
-                  description: "Pass *True*, if the administrator can manage video chats"
+                  description: Pass *True* if the administrator can manage video chats
                   type: boolean
                 can_restrict_members:
-                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True* if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass *True*, if the administrator can invite new users to the chat"
+                  description: Pass *True* if the administrator can invite new users to the chat
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True* if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3315,37 +3315,37 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 is_anonymous:
-                  description: "Pass *True*, if the administrator's presence in the chat is hidden"
+                  description: "Pass *True* if the administrator's presence in the chat is hidden"
                   type: boolean
                 can_manage_chat:
-                  description: "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
+                  description: "Pass *True* if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege"
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True*, if the administrator can create channel posts, channels only"
+                  description: "Pass *True* if the administrator can create channel posts, channels only"
                   type: boolean
                 can_edit_messages:
-                  description: "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only"
+                  description: "Pass *True* if the administrator can edit messages of other users and can pin messages, channels only"
                   type: boolean
                 can_delete_messages:
-                  description: "Pass *True*, if the administrator can delete messages of other users"
+                  description: Pass *True* if the administrator can delete messages of other users
                   type: boolean
                 can_manage_video_chats:
-                  description: "Pass *True*, if the administrator can manage video chats"
+                  description: Pass *True* if the administrator can manage video chats
                   type: boolean
                 can_restrict_members:
-                  description: "Pass *True*, if the administrator can restrict, ban or unban chat members"
+                  description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
-                  description: "Pass *True*, if the administrator can change chat title, photo and other settings"
+                  description: "Pass *True* if the administrator can change chat title, photo and other settings"
                   type: boolean
                 can_invite_users:
-                  description: "Pass *True*, if the administrator can invite new users to the chat"
+                  description: Pass *True* if the administrator can invite new users to the chat
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True*, if the administrator can pin messages, supergroups only"
+                  description: "Pass *True* if the administrator can pin messages, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -4495,7 +4495,7 @@ paths:
                   description: Identifier of a message to pin
                   type: integer
                 disable_notification:
-                  description: "Pass *True*, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats."
+                  description: Pass *True* if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.
                   type: boolean
               required:
                 - chat_id
@@ -4513,7 +4513,7 @@ paths:
                   description: Identifier of a message to pin
                   type: integer
                 disable_notification:
-                  description: "Pass *True*, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats."
+                  description: Pass *True* if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.
                   type: boolean
               required:
                 - chat_id
@@ -4531,7 +4531,7 @@ paths:
                   description: Identifier of a message to pin
                   type: integer
                 disable_notification:
-                  description: "Pass *True*, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats."
+                  description: Pass *True* if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.
                   type: boolean
               required:
                 - chat_id
@@ -4826,7 +4826,7 @@ paths:
                   - result
   /getChatAdministrators:
     post:
-      description: "Use this method to get a list of administrators in a chat. On success, returns an Array of [ChatMember](https://core.telegram.org/bots/api/#chatmember) objects that contains information about all chat administrators except other bots. If the chat is a group or a supergroup and no administrators were appointed, only the creator will be returned."
+      description: "Use this method to get a list of administrators in a chat, which aren't bots. Returns an Array of [ChatMember](https://core.telegram.org/bots/api/#chatmember) objects."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getchatadministrators"
       requestBody:
@@ -5412,7 +5412,7 @@ paths:
                   - result
   /getMyCommands:
     post:
-      description: "Use this method to get the current list of the bot's commands for the given scope and user language. Returns Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) on success. If commands aren't set, an empty list is returned."
+      description: "Use this method to get the current list of the bot's commands for the given scope and user language. Returns an Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) objects. If commands aren't set, an empty list is returned."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getmycommands"
       requestBody:
@@ -6274,7 +6274,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), [custom reply keyboard](https://core.telegram.org/bots#keyboards), instructions to remove reply keyboard or to force a reply from the user."
@@ -6366,6 +6366,71 @@ paths:
                 required:
                   - ok
                   - result
+  /getCustomEmojiStickers:
+    post:
+      description: "Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of [Sticker](https://core.telegram.org/bots/api/#sticker) objects."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getcustomemojistickers"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                custom_emoji_ids:
+                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  type: array
+                  items:
+                    type: string
+              required:
+                - custom_emoji_ids
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                custom_emoji_ids:
+                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  type: array
+                  items:
+                    type: string
+              required:
+                - custom_emoji_ids
+          application/json:
+            schema:
+              type: object
+              properties:
+                custom_emoji_ids:
+                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  type: array
+                  items:
+                    type: string
+              required:
+                - custom_emoji_ids
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Sticker"
+                required:
+                  - ok
+                  - result
   /uploadStickerFile:
     post:
       description: "Use this method to upload a .PNG file with a sticker for later use in *createNewStickerSet* and *addStickerToSet* methods (can be used multiple times). Returns the uploaded [File](https://core.telegram.org/bots/api/#file) on success."
@@ -6441,12 +6506,15 @@ paths:
                   $ref: "#/components/schemas/InputFile"
                 webm_sticker:
                   $ref: "#/components/schemas/InputFile"
+                sticker_type:
+                  description: "Type of stickers in the set, pass “regular” or “mask”. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created."
+                  type: string
+                  enum:
+                    - regular
+                    - mask
                 emojis:
                   description: One or more emoji corresponding to the sticker
                   type: string
-                contains_masks:
-                  description: "Pass *True*, if a set of mask stickers should be created"
-                  type: boolean
                 mask_position:
                   $ref: "#/components/schemas/MaskPosition"
               required:
@@ -6738,7 +6806,7 @@ paths:
                   default: 300
                   type: integer
                 is_personal:
-                  description: "Pass *True*, if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
+                  description: "Pass *True* if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
                   type: boolean
                 next_offset:
                   description: "Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes."
@@ -6771,7 +6839,7 @@ paths:
                   default: 300
                   type: integer
                 is_personal:
-                  description: "Pass *True*, if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
+                  description: "Pass *True* if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
                   type: boolean
                 next_offset:
                   description: "Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes."
@@ -6804,7 +6872,7 @@ paths:
                   default: 300
                   type: integer
                 is_personal:
-                  description: "Pass *True*, if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
+                  description: "Pass *True* if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query"
                   type: boolean
                 next_offset:
                   description: "Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes."
@@ -6978,25 +7046,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to provider"
+                  description: "Pass *True* if the user's phone number should be sent to provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to provider"
+                  description: "Pass *True* if the user's email address should be sent to provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -7008,7 +7076,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7081,25 +7149,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to provider"
+                  description: "Pass *True* if the user's phone number should be sent to provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to provider"
+                  description: "Pass *True* if the user's email address should be sent to provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -7111,7 +7179,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7184,25 +7252,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to provider"
+                  description: "Pass *True* if the user's phone number should be sent to provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to provider"
+                  description: "Pass *True* if the user's email address should be sent to provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -7214,7 +7282,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7309,25 +7377,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to the provider"
+                  description: "Pass *True* if the user's phone number should be sent to the provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to the provider"
+                  description: "Pass *True* if the user's email address should be sent to the provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
               required:
                 - title
@@ -7389,25 +7457,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to the provider"
+                  description: "Pass *True* if the user's phone number should be sent to the provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to the provider"
+                  description: "Pass *True* if the user's email address should be sent to the provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
               required:
                 - title
@@ -7469,25 +7537,25 @@ paths:
                   description: Photo height
                   type: integer
                 need_name:
-                  description: "Pass *True*, if you require the user's full name to complete the order"
+                  description: "Pass *True* if you require the user's full name to complete the order"
                   type: boolean
                 need_phone_number:
-                  description: "Pass *True*, if you require the user's phone number to complete the order"
+                  description: "Pass *True* if you require the user's phone number to complete the order"
                   type: boolean
                 need_email:
-                  description: "Pass *True*, if you require the user's email address to complete the order"
+                  description: "Pass *True* if you require the user's email address to complete the order"
                   type: boolean
                 need_shipping_address:
-                  description: "Pass *True*, if you require the user's shipping address to complete the order"
+                  description: "Pass *True* if you require the user's shipping address to complete the order"
                   type: boolean
                 send_phone_number_to_provider:
-                  description: "Pass *True*, if the user's phone number should be sent to the provider"
+                  description: "Pass *True* if the user's phone number should be sent to the provider"
                   type: boolean
                 send_email_to_provider:
-                  description: "Pass *True*, if the user's email address should be sent to the provider"
+                  description: "Pass *True* if the user's email address should be sent to the provider"
                   type: boolean
                 is_flexible:
-                  description: "Pass *True*, if the final price depends on the shipping method"
+                  description: Pass *True* if the final price depends on the shipping method
                   type: boolean
               required:
                 - title
@@ -7534,7 +7602,7 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Pass *True* if delivery to the specified address is possible and *False* if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
                   description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
@@ -7542,7 +7610,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/ShippingOption"
                 error_message:
-                  description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
+                  description: "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
               required:
                 - shipping_query_id
@@ -7555,7 +7623,7 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Pass *True* if delivery to the specified address is possible and *False* if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
                   description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
@@ -7563,7 +7631,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/ShippingOption"
                 error_message:
-                  description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
+                  description: "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
               required:
                 - shipping_query_id
@@ -7576,7 +7644,7 @@ paths:
                   description: Unique identifier for the query to be answered
                   type: string
                 ok:
-                  description: "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)"
+                  description: "Pass *True* if delivery to the specified address is possible and *False* if there are any problems (for example, if delivery to the specified address is not possible)"
                   type: boolean
                 shipping_options:
                   description: Required if *ok* is *True*. A JSON-serialized array of available shipping options.
@@ -7584,7 +7652,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/ShippingOption"
                 error_message:
-                  description: "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
+                  description: "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user."
                   type: string
               required:
                 - shipping_query_id
@@ -7795,7 +7863,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7822,7 +7890,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7849,7 +7917,7 @@ paths:
                   description: "If the message is a reply, ID of the original message"
                   type: integer
                 allow_sending_without_reply:
-                  description: "Pass *True*, if the message should be sent even if the specified replied-to message is not found"
+                  description: Pass *True* if the message should be sent even if the specified replied-to message is not found
                   type: boolean
                 reply_markup:
                   $ref: "#/components/schemas/InlineKeyboardMarkup"
@@ -7897,10 +7965,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: Pass *True* if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters
                   type: boolean
                 disable_edit_message:
-                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
+                  description: Pass *True* if the game message should not be automatically edited to include the current scoreboard
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -7925,10 +7993,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: Pass *True* if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters
                   type: boolean
                 disable_edit_message:
-                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
+                  description: Pass *True* if the game message should not be automatically edited to include the current scoreboard
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -7953,10 +8021,10 @@ paths:
                   description: "New score, must be non-negative"
                   type: integer
                 force:
-                  description: "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters"
+                  description: Pass *True* if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters
                   type: boolean
                 disable_edit_message:
-                  description: "Pass *True*, if the game message should not be automatically edited to include the current scoreboard"
+                  description: Pass *True* if the game message should not be automatically edited to include the current scoreboard
                   type: boolean
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat"
@@ -7998,7 +8066,7 @@ paths:
                   - result
   /getGameHighScores:
     post:
-      description: "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. On success, returns an *Array* of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change."
+      description: "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. Returns an Array of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getgamehighscores"
       requestBody:
@@ -8258,6 +8326,9 @@ components:
         has_private_forwards:
           description: "*Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: boolean
+        has_restricted_voice_and_video_messages:
+          description: "*Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          type: boolean
         join_to_send_messages:
           description: "*Optional*. *True*, if users need to join the supergroup before they can send messages. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: boolean
@@ -8479,7 +8550,7 @@ components:
       type: object
       properties:
         type:
-          description: "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions))"
+          description: "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)"
           type: string
           enum:
             - mention
@@ -8498,6 +8569,7 @@ components:
             - pre
             - text_link
             - text_mention
+            - custom_emoji
         offset:
           description: Offset in UTF-16 code units to the start of the entity
           type: integer
@@ -8511,6 +8583,9 @@ components:
           $ref: "#/components/schemas/User"
         language:
           description: "*Optional*. For “pre” only, the programming language of the entity text"
+          type: string
+        custom_emoji_id:
+          description: "*Optional*. For “custom\\_emoji” only, unique identifier of the custom emoji. Use [getCustomEmojiStickers](https://core.telegram.org/bots/api/#getcustomemojistickers) to get full information about the sticker"
           type: string
       required:
         - type
@@ -9936,7 +10011,7 @@ components:
           description: "*Optional*. Video duration in seconds"
           type: integer
         supports_streaming:
-          description: "*Optional*. Pass *True*, if the uploaded video is suitable for streaming"
+          description: "*Optional*. Pass *True* if the uploaded video is suitable for streaming"
           type: boolean
       required:
         - type
@@ -10080,6 +10155,13 @@ components:
         file_unique_id:
           description: "Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file."
           type: string
+        type:
+          description: "Type of the sticker, currently one of “regular”, “mask”, “custom\\_emoji”. The type of the sticker is independent from its format, which is determined by the fields *is\\_animated* and *is\\_video*."
+          type: string
+          enum:
+            - regular
+            - mask
+            - custom_emoji
         width:
           description: Sticker width
           type: integer
@@ -10104,12 +10186,16 @@ components:
           $ref: "#/components/schemas/File"
         mask_position:
           $ref: "#/components/schemas/MaskPosition"
+        custom_emoji_id:
+          description: "*Optional*. For custom emoji stickers, unique identifier of the custom emoji"
+          type: string
         file_size:
           description: "*Optional*. File size in bytes"
           type: integer
       required:
         - file_id
         - file_unique_id
+        - type
         - width
         - height
         - is_animated
@@ -10126,14 +10212,18 @@ components:
         title:
           description: Sticker set title
           type: string
+        sticker_type:
+          description: "Type of stickers in the set, currently one of “regular”, “mask”, “custom\\_emoji”"
+          type: string
+          enum:
+            - regular
+            - mask
+            - custom_emoji
         is_animated:
           description: "*True*, if the sticker set contains [animated stickers](https://telegram.org/blog/animated-stickers)"
           type: boolean
         is_video:
           description: "*True*, if the sticker set contains [video stickers](https://telegram.org/blog/video-stickers-better-reactions)"
-          type: boolean
-        contains_masks:
-          description: "*True*, if the sticker set contains masks"
           type: boolean
         stickers:
           description: List of all set stickers
@@ -10145,9 +10235,9 @@ components:
       required:
         - name
         - title
+        - sticker_type
         - is_animated
         - is_video
-        - contains_masks
         - stickers
     MaskPosition:
       externalDocs:
@@ -10259,7 +10349,7 @@ components:
           description: "*Optional*. URL of the result"
           type: string
         hide_url:
-          description: "*Optional*. Pass *True*, if you don't want the URL to be shown in the message"
+          description: "*Optional*. Pass *True* if you don't want the URL to be shown in the message"
           type: boolean
         description:
           description: "*Optional*. Short description of the result"
@@ -11328,25 +11418,25 @@ components:
           description: "*Optional*. Photo height"
           type: integer
         need_name:
-          description: "*Optional*. Pass *True*, if you require the user's full name to complete the order"
+          description: "*Optional*. Pass *True* if you require the user's full name to complete the order"
           type: boolean
         need_phone_number:
-          description: "*Optional*. Pass *True*, if you require the user's phone number to complete the order"
+          description: "*Optional*. Pass *True* if you require the user's phone number to complete the order"
           type: boolean
         need_email:
-          description: "*Optional*. Pass *True*, if you require the user's email address to complete the order"
+          description: "*Optional*. Pass *True* if you require the user's email address to complete the order"
           type: boolean
         need_shipping_address:
-          description: "*Optional*. Pass *True*, if you require the user's shipping address to complete the order"
+          description: "*Optional*. Pass *True* if you require the user's shipping address to complete the order"
           type: boolean
         send_phone_number_to_provider:
-          description: "*Optional*. Pass *True*, if the user's phone number should be sent to provider"
+          description: "*Optional*. Pass *True* if the user's phone number should be sent to provider"
           type: boolean
         send_email_to_provider:
-          description: "*Optional*. Pass *True*, if the user's email address should be sent to provider"
+          description: "*Optional*. Pass *True* if the user's email address should be sent to provider"
           type: boolean
         is_flexible:
-          description: "*Optional*. Pass *True*, if the final price depends on the shipping method"
+          description: "*Optional*. Pass *True* if the final price depends on the shipping method"
           type: boolean
       required:
         - title

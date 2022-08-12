@@ -1,18 +1,18 @@
 {
   "version": {
     "major": 6,
-    "minor": 1,
+    "minor": 2,
     "patch": 0
   },
   "recent_changes": {
     "year": 2022,
-    "month": 6,
-    "day": 20
+    "month": 8,
+    "day": 12
   },
   "methods": [
     {
       "name": "getUpdates",
-      "description": "Use this method to receive incoming updates using long polling ([wiki](https://en.wikipedia.org/wiki/Push_technology#Long_polling)). An Array of [Update](https://core.telegram.org/bots/api/#update) objects is returned.",
+      "description": "Use this method to receive incoming updates using long polling ([wiki](https://en.wikipedia.org/wiki/Push_technology#Long_polling)). Returns an Array of [Update](https://core.telegram.org/bots/api/#update) objects.",
       "arguments": [
         {
           "name": "offset",
@@ -243,7 +243,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -339,7 +339,7 @@
     },
     {
       "name": "copyMessage",
-      "description": "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+      "description": "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -419,7 +419,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -532,7 +532,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -678,7 +678,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -812,7 +812,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -940,7 +940,7 @@
         },
         {
           "name": "supports_streaming",
-          "description": "Pass *True*, if the uploaded video is suitable for streaming",
+          "description": "Pass *True* if the uploaded video is suitable for streaming",
           "required": false,
           "type": "bool"
         },
@@ -964,7 +964,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1110,7 +1110,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1229,7 +1229,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1345,7 +1345,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1446,7 +1446,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         }
@@ -1535,7 +1535,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1795,7 +1795,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -1893,7 +1893,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -2033,7 +2033,7 @@
         },
         {
           "name": "is_closed",
-          "description": "Pass *True*, if the poll needs to be immediately closed. This can be useful for poll preview.",
+          "description": "Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.",
           "required": false,
           "type": "bool"
         },
@@ -2057,7 +2057,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -2146,7 +2146,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -2431,67 +2431,67 @@
         },
         {
           "name": "is_anonymous",
-          "description": "Pass *True*, if the administrator's presence in the chat is hidden",
+          "description": "Pass *True* if the administrator's presence in the chat is hidden",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_chat",
-          "description": "Pass *True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+          "description": "Pass *True* if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_post_messages",
-          "description": "Pass *True*, if the administrator can create channel posts, channels only",
+          "description": "Pass *True* if the administrator can create channel posts, channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "Pass *True*, if the administrator can edit messages of other users and can pin messages, channels only",
+          "description": "Pass *True* if the administrator can edit messages of other users and can pin messages, channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_delete_messages",
-          "description": "Pass *True*, if the administrator can delete messages of other users",
+          "description": "Pass *True* if the administrator can delete messages of other users",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_video_chats",
-          "description": "Pass *True*, if the administrator can manage video chats",
+          "description": "Pass *True* if the administrator can manage video chats",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_restrict_members",
-          "description": "Pass *True*, if the administrator can restrict, ban or unban chat members",
+          "description": "Pass *True* if the administrator can restrict, ban or unban chat members",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_promote_members",
-          "description": "Pass *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
+          "description": "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_change_info",
-          "description": "Pass *True*, if the administrator can change chat title, photo and other settings",
+          "description": "Pass *True* if the administrator can change chat title, photo and other settings",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_invite_users",
-          "description": "Pass *True*, if the administrator can invite new users to the chat",
+          "description": "Pass *True* if the administrator can invite new users to the chat",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "Pass *True*, if the administrator can pin messages, supergroups only",
+          "description": "Pass *True* if the administrator can pin messages, supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -3024,7 +3024,7 @@
         },
         {
           "name": "disable_notification",
-          "description": "Pass *True*, if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.",
+          "description": "Pass *True* if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.",
           "required": false,
           "type": "bool"
         }
@@ -3148,7 +3148,7 @@
     },
     {
       "name": "getChatAdministrators",
-      "description": "Use this method to get a list of administrators in a chat. On success, returns an Array of [ChatMember](https://core.telegram.org/bots/api/#chatmember) objects that contains information about all chat administrators except other bots. If the chat is a group or a supergroup and no administrators were appointed, only the creator will be returned.",
+      "description": "Use this method to get a list of administrators in a chat, which aren't bots. Returns an Array of [ChatMember](https://core.telegram.org/bots/api/#chatmember) objects.",
       "arguments": [
         {
           "name": "chat_id",
@@ -3398,7 +3398,7 @@
     },
     {
       "name": "getMyCommands",
-      "description": "Use this method to get the current list of the bot's commands for the given scope and user language. Returns Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) on success. If commands aren't set, an empty list is returned.",
+      "description": "Use this method to get the current list of the bot's commands for the given scope and user language. Returns an Array of [BotCommand](https://core.telegram.org/bots/api/#botcommand) objects. If commands aren't set, an empty list is returned.",
       "arguments": [
         {
           "name": "scope",
@@ -3911,7 +3911,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -3964,6 +3964,30 @@
         "reference": "StickerSet"
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getstickerset"
+    },
+    {
+      "name": "getCustomEmojiStickers",
+      "description": "Use this method to get information about custom emoji stickers by their identifiers. Returns an Array of [Sticker](https://core.telegram.org/bots/api/#sticker) objects.",
+      "arguments": [
+        {
+          "name": "custom_emoji_ids",
+          "description": "List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "Sticker"
+        }
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#getcustomemojistickers"
     },
     {
       "name": "uploadStickerFile",
@@ -4046,16 +4070,20 @@
           "reference": "InputFile"
         },
         {
+          "name": "sticker_type",
+          "description": "Type of stickers in the set, pass “regular” or “mask”. Custom emoji sticker sets can't be created via the Bot API at the moment. By default, a regular sticker set is created.",
+          "required": false,
+          "type": "string",
+          "enumeration": [
+            "regular",
+            "mask"
+          ]
+        },
+        {
           "name": "emojis",
           "description": "One or more emoji corresponding to the sticker",
           "required": true,
           "type": "string"
-        },
-        {
-          "name": "contains_masks",
-          "description": "Pass *True*, if a set of mask stickers should be created",
-          "required": false,
-          "type": "bool"
         },
         {
           "name": "mask_position",
@@ -4248,7 +4276,7 @@
         },
         {
           "name": "is_personal",
-          "description": "Pass *True*, if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query",
+          "description": "Pass *True* if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query",
           "required": false,
           "type": "bool"
         },
@@ -4421,43 +4449,43 @@
         },
         {
           "name": "need_name",
-          "description": "Pass *True*, if you require the user's full name to complete the order",
+          "description": "Pass *True* if you require the user's full name to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_phone_number",
-          "description": "Pass *True*, if you require the user's phone number to complete the order",
+          "description": "Pass *True* if you require the user's phone number to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_email",
-          "description": "Pass *True*, if you require the user's email address to complete the order",
+          "description": "Pass *True* if you require the user's email address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_shipping_address",
-          "description": "Pass *True*, if you require the user's shipping address to complete the order",
+          "description": "Pass *True* if you require the user's shipping address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "Pass *True*, if the user's phone number should be sent to provider",
+          "description": "Pass *True* if the user's phone number should be sent to provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_email_to_provider",
-          "description": "Pass *True*, if the user's email address should be sent to provider",
+          "description": "Pass *True* if the user's email address should be sent to provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "is_flexible",
-          "description": "Pass *True*, if the final price depends on the shipping method",
+          "description": "Pass *True* if the final price depends on the shipping method",
           "required": false,
           "type": "bool"
         },
@@ -4481,7 +4509,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -4596,43 +4624,43 @@
         },
         {
           "name": "need_name",
-          "description": "Pass *True*, if you require the user's full name to complete the order",
+          "description": "Pass *True* if you require the user's full name to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_phone_number",
-          "description": "Pass *True*, if you require the user's phone number to complete the order",
+          "description": "Pass *True* if you require the user's phone number to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_email",
-          "description": "Pass *True*, if you require the user's email address to complete the order",
+          "description": "Pass *True* if you require the user's email address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_shipping_address",
-          "description": "Pass *True*, if you require the user's shipping address to complete the order",
+          "description": "Pass *True* if you require the user's shipping address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "Pass *True*, if the user's phone number should be sent to the provider",
+          "description": "Pass *True* if the user's phone number should be sent to the provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_email_to_provider",
-          "description": "Pass *True*, if the user's email address should be sent to the provider",
+          "description": "Pass *True* if the user's email address should be sent to the provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "is_flexible",
-          "description": "Pass *True*, if the final price depends on the shipping method",
+          "description": "Pass *True* if the final price depends on the shipping method",
           "required": false,
           "type": "bool"
         }
@@ -4655,7 +4683,7 @@
         },
         {
           "name": "ok",
-          "description": "Specify *True* if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)",
+          "description": "Pass *True* if delivery to the specified address is possible and *False* if there are any problems (for example, if delivery to the specified address is not possible)",
           "required": true,
           "type": "bool"
         },
@@ -4671,7 +4699,7 @@
         },
         {
           "name": "error_message",
-          "description": "Required if *ok* is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.",
+          "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.",
           "required": false,
           "type": "string"
         }
@@ -4777,7 +4805,7 @@
         },
         {
           "name": "allow_sending_without_reply",
-          "description": "Pass *True*, if the message should be sent even if the specified replied-to message is not found",
+          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
           "required": false,
           "type": "bool"
         },
@@ -4814,13 +4842,13 @@
         },
         {
           "name": "force",
-          "description": "Pass *True*, if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters",
+          "description": "Pass *True* if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters",
           "required": false,
           "type": "bool"
         },
         {
           "name": "disable_edit_message",
-          "description": "Pass *True*, if the game message should not be automatically edited to include the current scoreboard",
+          "description": "Pass *True* if the game message should not be automatically edited to include the current scoreboard",
           "required": false,
           "type": "bool"
         },
@@ -4861,7 +4889,7 @@
     },
     {
       "name": "getGameHighScores",
-      "description": "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. On success, returns an *Array* of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change.",
+      "description": "Use this method to get data for high score tables. Will return the score of the specified user and several of their neighbors in a game. Returns an Array of [GameHighScore](https://core.telegram.org/bots/api/#gamehighscore) objects.\n\nThis method will currently return scores for the target user, plus two of their closest neighbors on each side. Will also return the top three users if the user and their neighbors are not among them. Please note that this behavior is subject to change.",
       "arguments": [
         {
           "name": "user_id",
@@ -5214,6 +5242,12 @@
         {
           "name": "has_private_forwards",
           "description": "*Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "has_restricted_voice_and_video_messages",
+          "description": "*Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "bool"
         },
@@ -5737,7 +5771,7 @@
       "properties": [
         {
           "name": "type",
-          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions))",
+          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
           "required": true,
           "type": "string",
           "enumeration": [
@@ -5756,7 +5790,8 @@
             "code",
             "pre",
             "text_link",
-            "text_mention"
+            "text_mention",
+            "custom_emoji"
           ]
         },
         {
@@ -5787,6 +5822,12 @@
         {
           "name": "language",
           "description": "*Optional*. For “pre” only, the programming language of the entity text",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "custom_emoji_id",
+          "description": "*Optional*. For “custom\\_emoji” only, unique identifier of the custom emoji. Use [getCustomEmojiStickers](https://core.telegram.org/bots/api/#getcustomemojistickers) to get full information about the sticker",
           "required": false,
           "type": "string"
         }
@@ -8081,7 +8122,7 @@
         },
         {
           "name": "supports_streaming",
-          "description": "*Optional*. Pass *True*, if the uploaded video is suitable for streaming",
+          "description": "*Optional*. Pass *True* if the uploaded video is suitable for streaming",
           "required": false,
           "type": "bool"
         }
@@ -8333,6 +8374,17 @@
           "type": "string"
         },
         {
+          "name": "type",
+          "description": "Type of the sticker, currently one of “regular”, “mask”, “custom\\_emoji”. The type of the sticker is independent from its format, which is determined by the fields *is\\_animated* and *is\\_video*.",
+          "required": true,
+          "type": "string",
+          "enumeration": [
+            "regular",
+            "mask",
+            "custom_emoji"
+          ]
+        },
+        {
           "name": "width",
           "description": "Sticker width",
           "required": true,
@@ -8377,7 +8429,7 @@
         },
         {
           "name": "premium_animation",
-          "description": "*Optional*. Premium animation for the sticker, if the sticker is premium",
+          "description": "*Optional*. For premium regular stickers, premium animation for the sticker",
           "required": false,
           "type": "reference",
           "reference": "File"
@@ -8388,6 +8440,12 @@
           "required": false,
           "type": "reference",
           "reference": "MaskPosition"
+        },
+        {
+          "name": "custom_emoji_id",
+          "description": "*Optional*. For custom emoji stickers, unique identifier of the custom emoji",
+          "required": false,
+          "type": "string"
         },
         {
           "name": "file_size",
@@ -8416,6 +8474,17 @@
           "type": "string"
         },
         {
+          "name": "sticker_type",
+          "description": "Type of stickers in the set, currently one of “regular”, “mask”, “custom\\_emoji”",
+          "required": true,
+          "type": "string",
+          "enumeration": [
+            "regular",
+            "mask",
+            "custom_emoji"
+          ]
+        },
+        {
           "name": "is_animated",
           "description": "*True*, if the sticker set contains [animated stickers](https://telegram.org/blog/animated-stickers)",
           "required": true,
@@ -8424,12 +8493,6 @@
         {
           "name": "is_video",
           "description": "*True*, if the sticker set contains [video stickers](https://telegram.org/blog/video-stickers-better-reactions)",
-          "required": true,
-          "type": "bool"
-        },
-        {
-          "name": "contains_masks",
-          "description": "*True*, if the sticker set contains masks",
           "required": true,
           "type": "bool"
         },
@@ -8678,7 +8741,7 @@
         },
         {
           "name": "hide_url",
-          "description": "*Optional*. Pass *True*, if you don't want the URL to be shown in the message",
+          "description": "*Optional*. Pass *True* if you don't want the URL to be shown in the message",
           "required": false,
           "type": "bool"
         },
@@ -10546,43 +10609,43 @@
         },
         {
           "name": "need_name",
-          "description": "*Optional*. Pass *True*, if you require the user's full name to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's full name to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_phone_number",
-          "description": "*Optional*. Pass *True*, if you require the user's phone number to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's phone number to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_email",
-          "description": "*Optional*. Pass *True*, if you require the user's email address to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's email address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "need_shipping_address",
-          "description": "*Optional*. Pass *True*, if you require the user's shipping address to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's shipping address to complete the order",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "*Optional*. Pass *True*, if the user's phone number should be sent to provider",
+          "description": "*Optional*. Pass *True* if the user's phone number should be sent to provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "send_email_to_provider",
-          "description": "*Optional*. Pass *True*, if the user's email address should be sent to provider",
+          "description": "*Optional*. Pass *True* if the user's email address should be sent to provider",
           "required": false,
           "type": "bool"
         },
         {
           "name": "is_flexible",
-          "description": "*Optional*. Pass *True*, if the final price depends on the shipping method",
+          "description": "*Optional*. Pass *True* if the final price depends on the shipping method",
           "required": false,
           "type": "bool"
         }
