@@ -20,7 +20,7 @@ impl TagsHandlerFactory {
 impl TagHandlerFactory for TagsHandlerFactory {
     fn instantiate(&self) -> Box<dyn TagHandler> {
         match self {
-            TagsHandlerFactory::Anchor => Box::new(AnchorHandler::default()),
+            TagsHandlerFactory::Anchor => Box::<AnchorHandler>::default(),
             TagsHandlerFactory::Image => Box::new(ImageHandler),
         }
     }
