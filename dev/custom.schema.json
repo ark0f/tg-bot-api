@@ -31,7 +31,7 @@
   "definitions": {
     "Argument": {
       "type": "object",
-      "anyOf": [
+      "oneOf": [
         {
           "type": "object",
           "required": [
@@ -248,7 +248,7 @@
       }
     },
     "Kind": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "object",
           "required": [
@@ -522,7 +522,7 @@
     },
     "Property": {
       "type": "object",
-      "anyOf": [
+      "oneOf": [
         {
           "type": "object",
           "required": [

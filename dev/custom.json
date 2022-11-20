@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 6,
-    "minor": 2,
+    "minor": 3,
     "patch": 0
   },
   "recent_changes": {
     "year": 2022,
-    "month": 8,
-    "day": 12
+    "month": 11,
+    "day": 5
   },
   "methods": [
     {
@@ -105,9 +105,7 @@
           "name": "secret_token",
           "description": "A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.",
           "required": false,
-          "type": "string",
-          "min_len": 1,
-          "max_len": 256
+          "type": "string"
         }
       ],
       "multipart_only": true,
@@ -192,6 +190,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "text",
@@ -298,6 +302,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "from_chat_id",
           "description": "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)",
           "required": true,
@@ -354,6 +364,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "from_chat_id",
@@ -474,6 +490,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "photo",
           "description": "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
@@ -587,6 +609,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "audio",
           "description": "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
@@ -645,7 +673,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -733,6 +761,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "document",
           "description": "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
@@ -749,7 +783,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -867,6 +901,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "video",
           "description": "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
@@ -901,7 +941,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1019,6 +1059,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "animation",
           "description": "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
@@ -1053,7 +1099,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1163,6 +1209,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "voice",
@@ -1284,6 +1336,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "video_note",
           "description": "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported",
           "required": true,
@@ -1312,7 +1370,7 @@
         },
         {
           "name": "thumb",
-          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -1400,6 +1458,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "media",
           "description": "A JSON-serialized array describing messages to be sent, must include 2-10 items",
           "required": true,
@@ -1478,6 +1542,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "latitude",
@@ -1728,6 +1798,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "latitude",
           "description": "Latitude of the venue",
           "required": true,
@@ -1850,6 +1926,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "phone_number",
           "description": "Contact's phone number",
           "required": true,
@@ -1948,6 +2030,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "question",
           "description": "Poll question, 1-300 characters",
           "required": true,
@@ -1968,15 +2056,13 @@
           "name": "is_anonymous",
           "description": "*True*, if the poll needs to be anonymous, defaults to *True*",
           "required": false,
-          "type": "bool",
-          "default": true
+          "type": "bool"
         },
         {
           "name": "type",
           "description": "Poll type, “quiz” or “regular”, defaults to “regular”",
           "required": false,
           "type": "string",
-          "default": "regular",
           "enumeration": [
             "quiz",
             "regular"
@@ -1986,8 +2072,7 @@
           "name": "allows_multiple_answers",
           "description": "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*",
           "required": false,
-          "type": "bool",
-          "default": false
+          "type": "bool"
         },
         {
           "name": "correct_option_id",
@@ -2110,6 +2195,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "emoji",
@@ -2492,6 +2583,12 @@
         {
           "name": "can_pin_messages",
           "description": "Pass *True* if the administrator can pin messages, supergroups only",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "can_manage_topics",
+          "description": "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -2950,11 +3047,11 @@
         },
         {
           "name": "title",
-          "description": "New chat title, 1-255 characters",
+          "description": "New chat title, 1-128 characters",
           "required": true,
           "type": "string",
           "min_len": 1,
-          "max_len": 255
+          "max_len": 128
         }
       ],
       "multipart_only": false,
@@ -3289,6 +3386,239 @@
         "default": true
       },
       "documentation_link": "https://core.telegram.org/bots/api/#deletechatstickerset"
+    },
+    {
+      "name": "getForumTopicIconStickers",
+      "description": "Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters. Returns an Array of [Sticker](https://core.telegram.org/bots/api/#sticker) objects.",
+      "multipart_only": false,
+      "return_type": {
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "Sticker"
+        }
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#getforumtopiciconstickers"
+    },
+    {
+      "name": "createForumTopic",
+      "description": "Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights. Returns information about the created topic as a [ForumTopic](https://core.telegram.org/bots/api/#forumtopic) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "Topic name, 1-128 characters",
+          "required": true,
+          "type": "string",
+          "min_len": 1,
+          "max_len": 128
+        },
+        {
+          "name": "icon_color",
+          "description": "Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "icon_custom_emoji_id",
+          "description": "Unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers.",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ForumTopic"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#createforumtopic"
+    },
+    {
+      "name": "editForumTopic",
+      "description": "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread of the forum topic",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "name",
+          "description": "New topic name, 1-128 characters",
+          "required": true,
+          "type": "string",
+          "min_len": 1,
+          "max_len": 128
+        },
+        {
+          "name": "icon_custom_emoji_id",
+          "description": "New unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers.",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#editforumtopic"
+    },
+    {
+      "name": "closeForumTopic",
+      "description": "Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread of the forum topic",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#closeforumtopic"
+    },
+    {
+      "name": "reopenForumTopic",
+      "description": "Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread of the forum topic",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#reopenforumtopic"
+    },
+    {
+      "name": "deleteForumTopic",
+      "description": "Use this method to delete a forum topic along with all its messages in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_delete\\_messages* administrator rights. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread of the forum topic",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#deleteforumtopic"
+    },
+    {
+      "name": "unpinAllForumTopicMessages",
+      "description": "Use this method to clear the list of pinned messages in a forum topic. The bot must be an administrator in the chat for this to work and must have the *can\\_pin\\_messages* administrator right in the supergroup. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread of the forum topic",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#unpinallforumtopicmessages"
     },
     {
       "name": "answerCallbackQuery",
@@ -3828,7 +4158,7 @@
     },
     {
       "name": "deleteMessage",
-      "description": "Use this method to delete a message, including service messages, with the following limitations:  \n\\- A message can only be deleted if it was sent less than 48 hours ago.  \n\\- A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.  \n\\- Bots can delete outgoing messages in private chats, groups, and supergroups.  \n\\- Bots can delete incoming messages in private chats.  \n\\- Bots granted *can\\_post\\_messages* permissions can delete outgoing messages in channels.  \n\\- If the bot is an administrator of a group, it can delete any message there.  \n\\- If the bot has *can\\_delete\\_messages* permission in a supergroup or a channel, it can delete any message there.  \nReturns *True* on success.",
+      "description": "Use this method to delete a message, including service messages, with the following limitations:  \n\\- A message can only be deleted if it was sent less than 48 hours ago.  \n\\- Service messages about a supergroup, channel, or forum topic creation can't be deleted.  \n\\- A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.  \n\\- Bots can delete outgoing messages in private chats, groups, and supergroups.  \n\\- Bots can delete incoming messages in private chats.  \n\\- Bots granted *can\\_post\\_messages* permissions can delete outgoing messages in channels.  \n\\- If the bot is an administrator of a group, it can delete any message there.  \n\\- If the bot has *can\\_delete\\_messages* permission in a supergroup or a channel, it can delete any message there.  \nReturns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -3875,6 +4205,12 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
         },
         {
           "name": "sticker",
@@ -4352,6 +4688,12 @@
           ]
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "title",
           "description": "Product name, 1-32 characters",
           "required": true,
@@ -4780,6 +5122,12 @@
           "type": "integer"
         },
         {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "game_short_name",
           "description": "Short name of the game, serves as the unique identifier for the game. Set up your games via [@BotFather](https://t.me/botfather).",
           "required": true,
@@ -4873,17 +5221,8 @@
       ],
       "multipart_only": false,
       "return_type": {
-        "type": "any_of",
-        "any_of": [
-          {
-            "type": "reference",
-            "reference": "Message"
-          },
-          {
-            "type": "bool",
-            "default": true
-          }
-        ]
+        "type": "reference",
+        "reference": "False"
       },
       "documentation_link": "https://core.telegram.org/bots/api/#setgamescore"
     },
@@ -5227,11 +5566,32 @@
           "type": "string"
         },
         {
+          "name": "is_forum",
+          "description": "*Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled)",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "photo",
           "description": "*Optional*. Chat photo. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "reference",
           "reference": "ChatPhoto"
+        },
+        {
+          "name": "active_usernames",
+          "description": "*Optional*. If non-empty, the list of all [active chat usernames](https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames); for private chats, supergroups and channels. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "emoji_status_custom_emoji_id",
+          "description": "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "string"
         },
         {
           "name": "bio",
@@ -5347,6 +5707,12 @@
           "type": "integer"
         },
         {
+          "name": "message_thread_id",
+          "description": "*Optional*. Unique identifier of a message thread to which the message belongs; for supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
           "name": "from",
           "description": "*Optional*. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.",
           "required": false,
@@ -5410,6 +5776,12 @@
           "description": "*Optional*. For forwarded messages, date the original message was sent in Unix time",
           "required": false,
           "type": "integer"
+        },
+        {
+          "name": "is_topic_message",
+          "description": "*Optional*. *True*, if the message is sent to a forum topic",
+          "required": false,
+          "type": "bool"
         },
         {
           "name": "is_automatic_forward",
@@ -5706,6 +6078,27 @@
           "reference": "ProximityAlertTriggered"
         },
         {
+          "name": "forum_topic_created",
+          "description": "*Optional*. Service message: forum topic created",
+          "required": false,
+          "type": "reference",
+          "reference": "ForumTopicCreated"
+        },
+        {
+          "name": "forum_topic_closed",
+          "description": "*Optional*. Service message: forum topic closed",
+          "required": false,
+          "type": "reference",
+          "reference": "ForumTopicClosed"
+        },
+        {
+          "name": "forum_topic_reopened",
+          "description": "*Optional*. Service message: forum topic reopened",
+          "required": false,
+          "type": "reference",
+          "reference": "ForumTopicReopened"
+        },
+        {
           "name": "video_chat_scheduled",
           "description": "*Optional*. Service message: video chat scheduled",
           "required": false,
@@ -5796,13 +6189,13 @@
         },
         {
           "name": "offset",
-          "description": "Offset in UTF-16 code units to the start of the entity",
+          "description": "Offset in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length) to the start of the entity",
           "required": true,
           "type": "integer"
         },
         {
           "name": "length",
-          "description": "Length of the entity in UTF-16 code units",
+          "description": "Length of the entity in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length)",
           "required": true,
           "type": "integer"
         },
@@ -6559,6 +6952,42 @@
       "documentation_link": "https://core.telegram.org/bots/api/#messageautodeletetimerchanged"
     },
     {
+      "name": "ForumTopicCreated",
+      "description": "This object represents a service message about a new forum topic created in the chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "name",
+          "description": "Name of the topic",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "icon_color",
+          "description": "Color of the topic icon in RGB format",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "icon_custom_emoji_id",
+          "description": "*Optional*. Unique identifier of the custom emoji shown as the topic icon",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#forumtopiccreated"
+    },
+    {
+      "name": "ForumTopicClosed",
+      "description": "This object represents a service message about a forum topic closed in the chat. Currently holds no information.",
+      "documentation_link": "https://core.telegram.org/bots/api/#forumtopicclosed"
+    },
+    {
+      "name": "ForumTopicReopened",
+      "description": "This object represents a service message about a forum topic reopened in the chat. Currently holds no information.",
+      "documentation_link": "https://core.telegram.org/bots/api/#forumtopicreopened"
+    },
+    {
       "name": "VideoChatScheduled",
       "description": "This object represents a service message about a video chat scheduled in the chat.",
       "type": "properties",
@@ -7168,6 +7597,12 @@
           "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
           "required": false,
           "type": "bool"
+        },
+        {
+          "name": "can_manage_topics",
+          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only",
+          "required": false,
+          "type": "bool"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatadministratorrights"
@@ -7330,6 +7765,12 @@
           "type": "bool"
         },
         {
+          "name": "can_manage_topics",
+          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "custom_title",
           "description": "*Optional*. Custom title for this user",
           "required": false,
@@ -7400,6 +7841,12 @@
         {
           "name": "can_pin_messages",
           "description": "*True*, if the user is allowed to pin messages",
+          "required": true,
+          "type": "bool"
+        },
+        {
+          "name": "can_manage_topics",
+          "description": "*True*, if the user is allowed to create forum topics",
           "required": true,
           "type": "bool"
         },
@@ -7634,6 +8081,12 @@
           "description": "*Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups",
           "required": false,
           "type": "bool"
+        },
+        {
+          "name": "can_manage_topics",
+          "description": "*Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\\_pin\\_messages",
+          "required": false,
+          "type": "bool"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatpermissions"
@@ -7660,6 +8113,38 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatlocation"
+    },
+    {
+      "name": "ForumTopic",
+      "description": "This object represents a forum topic.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier of the forum topic",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "name",
+          "description": "Name of the topic",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "icon_color",
+          "description": "Color of the topic icon in RGB format",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "icon_custom_emoji_id",
+          "description": "*Optional*. Unique identifier of the custom emoji shown as the topic icon",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#forumtopic"
     },
     {
       "name": "BotCommand",
@@ -8014,7 +8499,7 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
@@ -8059,13 +8544,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8143,13 +8628,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8221,13 +8706,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [
@@ -8299,13 +8784,13 @@
         },
         {
           "name": "media",
-          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": true,
           "type": "string"
         },
         {
           "name": "thumb",
-          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
           "required": false,
           "type": "any_of",
           "any_of": [

@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 6.2.0
+  version: 6.3.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -143,8 +143,6 @@ paths:
                 secret_token:
                   description: "A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you."
                   type: string
-                  minLength: 1
-                  maxLength: 256
               required:
                 - url
         required: true
@@ -349,6 +347,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -396,6 +397,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -443,6 +447,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 text:
                   description: "Text of the message to be sent, 1-4096 characters after entities parsing"
                   type: string
@@ -520,6 +527,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -547,6 +557,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -574,6 +587,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -631,6 +647,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -684,6 +703,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -737,6 +759,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 from_chat_id:
                   description: "Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)"
                   anyOf:
@@ -820,6 +845,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 photo:
                   description: "Photo to send. Pass a file\\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -899,6 +927,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 audio:
                   description: "Audio file to send. Pass a file\\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -927,7 +958,7 @@ paths:
                   description: Track name
                   type: string
                 thumb:
-                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
@@ -992,13 +1023,16 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 document:
                   description: "File to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
                 thumb:
-                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
@@ -1079,6 +1113,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 video:
                   description: "Video to send. Pass a file\\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -1094,7 +1131,7 @@ paths:
                   description: Video height
                   type: integer
                 thumb:
-                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
@@ -1175,6 +1212,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 animation:
                   description: "Animation to send. Pass a file\\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -1190,7 +1230,7 @@ paths:
                   description: Animation height
                   type: integer
                 thumb:
-                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
@@ -1268,6 +1308,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 voice:
                   description: "Audio file to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -1350,6 +1393,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 video_note:
                   description: "Video note to send. Pass a file\\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Sending video notes by a URL is currently unsupported"
                   anyOf:
@@ -1362,7 +1408,7 @@ paths:
                   description: "Video width and height, i.e. diameter of the video message"
                   type: integer
                 thumb:
-                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  description: "Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
@@ -1427,6 +1473,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 media:
                   description: "A JSON-serialized array describing messages to be sent, must include 2-10 items"
                   type: array
@@ -1492,6 +1541,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1542,6 +1594,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1592,6 +1647,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the location
                   type: number
@@ -1894,6 +1952,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -1952,6 +2013,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -2010,6 +2074,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 latitude:
                   description: Latitude of the venue
                   type: number
@@ -2098,6 +2165,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2142,6 +2212,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2186,6 +2259,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 phone_number:
                   description: "Contact's phone number"
                   type: string
@@ -2260,6 +2336,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2272,18 +2351,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "*True*, if the poll needs to be anonymous, defaults to *True*"
-                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
-                  default: regular
                   type: string
                   enum:
                     - quiz
                     - regular
                 allows_multiple_answers:
                   description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
-                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -2342,6 +2418,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2354,18 +2433,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "*True*, if the poll needs to be anonymous, defaults to *True*"
-                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
-                  default: regular
                   type: string
                   enum:
                     - quiz
                     - regular
                 allows_multiple_answers:
                   description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
-                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -2424,6 +2500,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 question:
                   description: "Poll question, 1-300 characters"
                   type: string
@@ -2436,18 +2515,15 @@ paths:
                     type: string
                 is_anonymous:
                   description: "*True*, if the poll needs to be anonymous, defaults to *True*"
-                  default: true
                   type: boolean
                 type:
                   description: "Poll type, “quiz” or “regular”, defaults to “regular”"
-                  default: regular
                   type: string
                   enum:
                     - quiz
                     - regular
                 allows_multiple_answers:
                   description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
-                  default: false
                   type: boolean
                 correct_option_id:
                   description: "0-based identifier of the correct answer option, required for polls in quiz mode"
@@ -2536,6 +2612,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”"
                   default: 🎲
@@ -2577,6 +2656,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”"
                   default: 🎲
@@ -2618,6 +2700,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 emoji:
                   description: "Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”"
                   default: 🎲
@@ -3251,6 +3336,9 @@ paths:
                 can_pin_messages:
                   description: "Pass *True* if the administrator can pin messages, supergroups only"
                   type: boolean
+                can_manage_topics:
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
+                  type: boolean
               required:
                 - chat_id
                 - user_id
@@ -3299,6 +3387,9 @@ paths:
                 can_pin_messages:
                   description: "Pass *True* if the administrator can pin messages, supergroups only"
                   type: boolean
+                can_manage_topics:
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
+                  type: boolean
               required:
                 - chat_id
                 - user_id
@@ -3346,6 +3437,9 @@ paths:
                   type: boolean
                 can_pin_messages:
                   description: "Pass *True* if the administrator can pin messages, supergroups only"
+                  type: boolean
+                can_manage_topics:
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -4331,10 +4425,10 @@ paths:
                     - type: integer
                     - type: string
                 title:
-                  description: "New chat title, 1-255 characters"
+                  description: "New chat title, 1-128 characters"
                   type: string
                   minLength: 1
-                  maxLength: 255
+                  maxLength: 128
               required:
                 - chat_id
                 - title
@@ -4348,10 +4442,10 @@ paths:
                     - type: integer
                     - type: string
                 title:
-                  description: "New chat title, 1-255 characters"
+                  description: "New chat title, 1-128 characters"
                   type: string
                   minLength: 1
-                  maxLength: 255
+                  maxLength: 128
               required:
                 - chat_id
                 - title
@@ -4365,10 +4459,10 @@ paths:
                     - type: integer
                     - type: string
                 title:
-                  description: "New chat title, 1-255 characters"
+                  description: "New chat title, 1-128 characters"
                   type: string
                   minLength: 1
-                  maxLength: 255
+                  maxLength: 128
               required:
                 - chat_id
                 - title
@@ -5143,6 +5237,544 @@ paths:
                     - type: string
               required:
                 - chat_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /getForumTopicIconStickers:
+    post:
+      description: "Use this method to get custom emoji stickers, which can be used as a forum topic icon by any user. Requires no parameters. Returns an Array of [Sticker](https://core.telegram.org/bots/api/#sticker) objects."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getforumtopiciconstickers"
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Sticker"
+                required:
+                  - ok
+                  - result
+  /createForumTopic:
+    post:
+      description: "Use this method to create a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights. Returns information about the created topic as a [ForumTopic](https://core.telegram.org/bots/api/#forumtopic) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#createforumtopic"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: "Topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_color:
+                  description: "Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)"
+                  type: integer
+                icon_custom_emoji_id:
+                  description: "Unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - name
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: "Topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_color:
+                  description: "Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)"
+                  type: integer
+                icon_custom_emoji_id:
+                  description: "Unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - name
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: "Topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_color:
+                  description: "Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)"
+                  type: integer
+                icon_custom_emoji_id:
+                  description: "Unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - name
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/ForumTopic"
+                required:
+                  - ok
+                  - result
+  /editForumTopic:
+    post:
+      description: "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#editforumtopic"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+                name:
+                  description: "New topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_custom_emoji_id:
+                  description: "New unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - message_thread_id
+                - name
+                - icon_custom_emoji_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+                name:
+                  description: "New topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_custom_emoji_id:
+                  description: "New unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - message_thread_id
+                - name
+                - icon_custom_emoji_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+                name:
+                  description: "New topic name, 1-128 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 128
+                icon_custom_emoji_id:
+                  description: "New unique identifier of the custom emoji shown as the topic icon. Use [getForumTopicIconStickers](https://core.telegram.org/bots/api/#getforumtopiciconstickers) to get all allowed custom emoji identifiers."
+                  type: string
+              required:
+                - chat_id
+                - message_thread_id
+                - name
+                - icon_custom_emoji_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /closeForumTopic:
+    post:
+      description: "Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#closeforumtopic"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /reopenForumTopic:
+    post:
+      description: "Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#reopenforumtopic"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /deleteForumTopic:
+    post:
+      description: "Use this method to delete a forum topic along with all its messages in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_delete\\_messages* administrator rights. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#deleteforumtopic"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /unpinAllForumTopicMessages:
+    post:
+      description: "Use this method to clear the list of pinned messages in a forum topic. The bot must be an administrator in the chat for this to work and must have the *can\\_pin\\_messages* administrator right in the supergroup. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#unpinallforumtopicmessages"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread of the forum topic
+                  type: integer
+              required:
+                - chat_id
+                - message_thread_id
         required: true
       responses:
         default:
@@ -6169,7 +6801,7 @@ paths:
                   - result
   /deleteMessage:
     post:
-      description: "Use this method to delete a message, including service messages, with the following limitations:  \n\\- A message can only be deleted if it was sent less than 48 hours ago.  \n\\- A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.  \n\\- Bots can delete outgoing messages in private chats, groups, and supergroups.  \n\\- Bots can delete incoming messages in private chats.  \n\\- Bots granted *can\\_post\\_messages* permissions can delete outgoing messages in channels.  \n\\- If the bot is an administrator of a group, it can delete any message there.  \n\\- If the bot has *can\\_delete\\_messages* permission in a supergroup or a channel, it can delete any message there.  \nReturns *True* on success."
+      description: "Use this method to delete a message, including service messages, with the following limitations:  \n\\- A message can only be deleted if it was sent less than 48 hours ago.  \n\\- Service messages about a supergroup, channel, or forum topic creation can't be deleted.  \n\\- A dice message in a private chat can only be deleted if it was sent more than 24 hours ago.  \n\\- Bots can delete outgoing messages in private chats, groups, and supergroups.  \n\\- Bots can delete incoming messages in private chats.  \n\\- Bots granted *can\\_post\\_messages* permissions can delete outgoing messages in channels.  \n\\- If the bot is an administrator of a group, it can delete any message there.  \n\\- If the bot has *can\\_delete\\_messages* permission in a supergroup or a channel, it can delete any message there.  \nReturns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#deletemessage"
       requestBody:
@@ -6259,6 +6891,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 sticker:
                   description: "Sticker to send. Pass a file\\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
                   anyOf:
@@ -6994,6 +7629,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -7097,6 +7735,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -7200,6 +7841,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -7850,6 +8494,9 @@ paths:
                 chat_id:
                   description: Unique identifier for the target chat
                   type: integer
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 game_short_name:
                   description: "Short name of the game, serves as the unique identifier for the game. Set up your games via [@BotFather](https://t.me/botfather)."
                   type: string
@@ -7877,6 +8524,9 @@ paths:
                 chat_id:
                   description: Unique identifier for the target chat
                   type: integer
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
                 game_short_name:
                   description: "Short name of the game, serves as the unique identifier for the game. Set up your games via [@BotFather](https://t.me/botfather)."
                   type: string
@@ -7903,6 +8553,9 @@ paths:
               properties:
                 chat_id:
                   description: Unique identifier for the target chat
+                  type: integer
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
                   type: integer
                 game_short_name:
                   description: "Short name of the game, serves as the unique identifier for the game. Set up your games via [@BotFather](https://t.me/botfather)."
@@ -8057,10 +8710,7 @@ paths:
                     default: true
                     type: boolean
                   result:
-                    anyOf:
-                      - $ref: "#/components/schemas/Message"
-                      - default: true
-                        type: boolean
+                    $ref: "#/components/schemas/False"
                 required:
                   - ok
                   - result
@@ -8318,8 +8968,19 @@ components:
         last_name:
           description: "*Optional*. Last name of the other party in a private chat"
           type: string
+        is_forum:
+          description: "*Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled)"
+          type: boolean
         photo:
           $ref: "#/components/schemas/ChatPhoto"
+        active_usernames:
+          description: "*Optional*. If non-empty, the list of all [active chat usernames](https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames); for private chats, supergroups and channels. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          type: array
+          items:
+            type: string
+        emoji_status_custom_emoji_id:
+          description: "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          type: string
         bio:
           description: "*Optional*. Bio of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: string
@@ -8377,6 +9038,9 @@ components:
         message_id:
           description: Unique message identifier inside this chat
           type: integer
+        message_thread_id:
+          description: "*Optional*. Unique identifier of a message thread to which the message belongs; for supergroups only"
+          type: integer
         from:
           $ref: "#/components/schemas/User"
         sender_chat:
@@ -8402,6 +9066,9 @@ components:
         forward_date:
           description: "*Optional*. For forwarded messages, date the original message was sent in Unix time"
           type: integer
+        is_topic_message:
+          description: "*Optional*. *True*, if the message is sent to a forum topic"
+          type: boolean
         is_automatic_forward:
           description: "*Optional*. *True*, if the message is a channel post that was automatically forwarded to the connected discussion group"
           type: boolean
@@ -8516,6 +9183,12 @@ components:
           $ref: "#/components/schemas/PassportData"
         proximity_alert_triggered:
           $ref: "#/components/schemas/ProximityAlertTriggered"
+        forum_topic_created:
+          $ref: "#/components/schemas/ForumTopicCreated"
+        forum_topic_closed:
+          $ref: "#/components/schemas/ForumTopicClosed"
+        forum_topic_reopened:
+          $ref: "#/components/schemas/ForumTopicReopened"
         video_chat_scheduled:
           $ref: "#/components/schemas/VideoChatScheduled"
         video_chat_started:
@@ -8571,10 +9244,10 @@ components:
             - text_mention
             - custom_emoji
         offset:
-          description: Offset in UTF-16 code units to the start of the entity
+          description: "Offset in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length) to the start of the entity"
           type: integer
         length:
-          description: Length of the entity in UTF-16 code units
+          description: "Length of the entity in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length)"
           type: integer
         url:
           description: "*Optional*. For “text\\_link” only, URL that will be opened after user taps on the text"
@@ -9049,6 +9722,32 @@ components:
           type: integer
       required:
         - message_auto_delete_time
+    ForumTopicCreated:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#forumtopiccreated"
+      description: This object represents a service message about a new forum topic created in the chat.
+      type: object
+      properties:
+        name:
+          description: Name of the topic
+          type: string
+        icon_color:
+          description: Color of the topic icon in RGB format
+          type: integer
+        icon_custom_emoji_id:
+          description: "*Optional*. Unique identifier of the custom emoji shown as the topic icon"
+          type: string
+      required:
+        - name
+        - icon_color
+    ForumTopicClosed:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#forumtopicclosed"
+      description: This object represents a service message about a forum topic closed in the chat. Currently holds no information.
+    ForumTopicReopened:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#forumtopicreopened"
+      description: This object represents a service message about a forum topic reopened in the chat. Currently holds no information.
     VideoChatScheduled:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#videochatscheduled"
@@ -9429,6 +10128,9 @@ components:
         can_pin_messages:
           description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
           type: boolean
+        can_manage_topics:
+          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only"
+          type: boolean
       required:
         - is_anonymous
         - can_manage_chat
@@ -9519,6 +10221,9 @@ components:
         can_pin_messages:
           description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
           type: boolean
+        can_manage_topics:
+          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only"
+          type: boolean
         custom_title:
           description: "*Optional*. Custom title for this user"
           type: string
@@ -9573,6 +10278,9 @@ components:
         can_pin_messages:
           description: "*True*, if the user is allowed to pin messages"
           type: boolean
+        can_manage_topics:
+          description: "*True*, if the user is allowed to create forum topics"
+          type: boolean
         can_send_messages:
           description: "*True*, if the user is allowed to send text messages, contacts, locations and venues"
           type: boolean
@@ -9598,6 +10306,7 @@ components:
         - can_change_info
         - can_invite_users
         - can_pin_messages
+        - can_manage_topics
         - can_send_messages
         - can_send_media_messages
         - can_send_polls
@@ -9715,6 +10424,9 @@ components:
         can_pin_messages:
           description: "*Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups"
           type: boolean
+        can_manage_topics:
+          description: "*Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\\_pin\\_messages"
+          type: boolean
     ChatLocation:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatlocation"
@@ -9731,6 +10443,28 @@ components:
       required:
         - location
         - address
+    ForumTopic:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#forumtopic"
+      description: This object represents a forum topic.
+      type: object
+      properties:
+        message_thread_id:
+          description: Unique identifier of the forum topic
+          type: integer
+        name:
+          description: Name of the topic
+          type: string
+        icon_color:
+          description: Color of the topic icon in RGB format
+          type: integer
+        icon_custom_emoji_id:
+          description: "*Optional*. Unique identifier of the custom emoji shown as the topic icon"
+          type: string
+      required:
+        - message_thread_id
+        - name
+        - icon_color
     BotCommand:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#botcommand"
@@ -9952,7 +10686,7 @@ components:
           default: photo
           type: string
         media:
-          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           type: string
         caption:
           description: "*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing"
@@ -9981,10 +10715,10 @@ components:
           default: video
           type: string
         media:
-          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           type: string
         thumb:
-          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
             - type: string
@@ -10027,10 +10761,10 @@ components:
           default: animation
           type: string
         media:
-          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           type: string
         thumb:
-          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
             - type: string
@@ -10070,10 +10804,10 @@ components:
           default: audio
           type: string
         media:
-          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           type: string
         thumb:
-          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
             - type: string
@@ -10113,10 +10847,10 @@ components:
           default: document
           type: string
         media:
-          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\\_attach\\_name>” to upload a new one using multipart/form-data under <file\\_attach\\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           type: string
         thumb:
-          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://<file\\_attach\\_name>” if the thumbnail was uploaded using multipart/form-data under <file\\_attach\\_name>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
           anyOf:
             - $ref: "#/components/schemas/InputFile"
             - type: string
