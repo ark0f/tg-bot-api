@@ -4,7 +4,7 @@ use ego_tree::NodeRef;
 use itertools::Itertools;
 use logos::Logos;
 use scraper::{node::Text, Node};
-use std::{mem, ops::Index, slice, slice::SliceIndex};
+use std::{mem, ops::Index, ptr, slice::SliceIndex};
 use tendril::StrTendril;
 
 #[derive(Debug, PartialEq, Copy, Clone)]
@@ -331,9 +331,7 @@ pub struct SentenceRef {
 
 impl SentenceRef {
     pub(crate) fn from_part(part: &Part) -> &Self {
-        unsafe {
-            &*(slice::from_raw_parts(part as *const Part, 1) as *const [Part] as *const SentenceRef)
-        }
+        unsafe { &*(ptr::slice_from_raw_parts(part as *const Part, 1) as *const SentenceRef) }
     }
 
     pub(crate) fn len(&self) -> usize {
