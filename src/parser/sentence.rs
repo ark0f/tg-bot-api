@@ -506,7 +506,7 @@ where
     let patterns = pattern.parts();
 
     'sentences: for sentence in &sentences {
-        'patterns: for pattern in &patterns {
+        for pattern in &patterns {
             for (word_idx, words) in sentence.parts.windows(pattern.parts.len()).enumerate() {
                 if *pattern == words {
                     if pattern.exclude {
@@ -518,7 +518,7 @@ where
 
                     let sentence = &sentence[offset..];
                     result = Some(sentence);
-                    break 'patterns;
+                    break 'sentences;
                 }
             }
         }
