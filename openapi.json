@@ -199,7 +199,9 @@
                   },
                   "secret_token": {
                     "description": "A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.",
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256
                   }
                 },
                 "required": [
@@ -13760,7 +13762,15 @@
                       "type": "boolean"
                     },
                     "result": {
-                      "$ref": "#/components/schemas/False"
+                      "anyOf": [
+                        {
+                          "$ref": "#/components/schemas/Message"
+                        },
+                        {
+                          "default": true,
+                          "type": "boolean"
+                        }
+                      ]
                     }
                   },
                   "required": [

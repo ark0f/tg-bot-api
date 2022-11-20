@@ -105,7 +105,9 @@
           "name": "secret_token",
           "description": "A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.",
           "required": false,
-          "type": "string"
+          "type": "string",
+          "min_len": 1,
+          "max_len": 256
         }
       ],
       "multipart_only": true,
@@ -5221,8 +5223,17 @@
       ],
       "multipart_only": false,
       "return_type": {
-        "type": "reference",
-        "reference": "False"
+        "type": "any_of",
+        "any_of": [
+          {
+            "type": "reference",
+            "reference": "Message"
+          },
+          {
+            "type": "bool",
+            "default": true
+          }
+        ]
       },
       "documentation_link": "https://core.telegram.org/bots/api/#setgamescore"
     },
