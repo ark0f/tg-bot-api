@@ -26,6 +26,10 @@ impl Pattern {
             ],
             Pattern::Default => vec![
                 SearcherPattern::default().by_word("Defaults").by_word("to"),
+                SearcherPattern::default()
+                    .by_word("defaults")
+                    .by_word("to")
+                    .exclude(),
                 SearcherPattern::default().by_word("defaults").by_word("to"),
                 SearcherPattern::default()
                     .by_word("must")
@@ -72,6 +76,7 @@ impl Pattern {
 struct SearcherPattern {
     parts: Vec<SearchBy>,
     offset: isize,
+    exclude: bool,
 }
 
 impl SearcherPattern {
@@ -93,6 +98,11 @@ impl SearcherPattern {
     /// Useful for partial matching  
     fn with_offset(mut self, offset: isize) -> Self {
         self.offset = offset;
+        self
+    }
+
+    fn exclude(mut self) -> Self {
+        self.exclude = true;
         self
     }
 }
@@ -166,7 +176,7 @@ impl Sentences {
     }
 }
 
-#[derive(Debug, Clone, Default, PartialEq)]
+#[derive(Debug, Clone, Hash, Default, PartialEq, Eq)]
 pub struct Part {
     inner: String,
     has_quotes: bool,
@@ -237,7 +247,7 @@ impl PartialEq<&str> for Part {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, Hash, PartialEq, Eq)]
 enum PartKind {
     Word,
     Link(String),
@@ -292,7 +302,7 @@ impl PartialEq<&str> for SearchBy {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Hash, PartialEq, Eq)]
 pub struct Sentence {
     parts: Vec<Part>,
 }
@@ -494,10 +504,15 @@ where
     let sentences = text.sentences()?;
     let mut result = None;
     let patterns = pattern.parts();
-    'patterns: for pattern in patterns {
-        for sentence in &sentences {
+
+    'sentences: for sentence in &sentences {
+        'patterns: for pattern in &patterns {
             for (word_idx, words) in sentence.parts.windows(pattern.parts.len()).enumerate() {
-                if pattern == words {
+                if *pattern == words {
+                    if pattern.exclude {
+                        continue 'sentences;
+                    }
+
                     let offset = (word_idx as isize + pattern.parts.len() as isize + pattern.offset)
                         as usize;
 
