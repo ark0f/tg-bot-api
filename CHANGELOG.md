@@ -1,5 +1,8 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.4.4 (20.11.2022)
+Fix library tries to parse `default to the` as boolean
+
 # v0.4.3 (15.05.2022)
 Fix `Choose one` "one of" pattern is not recognized
 
