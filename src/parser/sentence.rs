@@ -7,7 +7,7 @@ use scraper::{node::Text, Node};
 use std::{mem, ops::Index, ptr, slice::SliceIndex};
 use tendril::StrTendril;
 
-#[derive(Debug, PartialEq, Copy, Clone)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum Pattern {
     ReturnType,
     Default,
