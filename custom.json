@@ -988,7 +988,7 @@
         },
         {
           "name": "has_spoiler",
-          "description": "Pass *True* if the photo needs to be covered with a spoiler animation",
+          "description": "Pass *True* if the video needs to be covered with a spoiler animation",
           "required": false,
           "type": "bool"
         },
@@ -1152,7 +1152,7 @@
         },
         {
           "name": "has_spoiler",
-          "description": "Pass *True* if the photo needs to be covered with a spoiler animation",
+          "description": "Pass *True* if the animation needs to be covered with a spoiler animation",
           "required": false,
           "type": "bool"
         },
@@ -3498,7 +3498,7 @@
         },
         {
           "name": "name",
-          "description": "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept",
+          "description": "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept",
           "required": false,
           "type": "string",
           "min_len": 0,
@@ -8880,7 +8880,7 @@
         },
         {
           "name": "has_spoiler",
-          "description": "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation",
+          "description": "*Optional*. Pass *True* if the video needs to be covered with a spoiler animation",
           "required": false,
           "type": "bool"
         }
@@ -8964,7 +8964,7 @@
         },
         {
           "name": "has_spoiler",
-          "description": "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation",
+          "description": "*Optional*. Pass *True* if the animation needs to be covered with a spoiler animation",
           "required": false,
           "type": "bool"
         }

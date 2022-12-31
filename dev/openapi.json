@@ -1842,7 +1842,7 @@
                     }
                   },
                   "has_spoiler": {
-                    "description": "Pass *True* if the photo needs to be covered with a spoiler animation",
+                    "description": "Pass *True* if the video needs to be covered with a spoiler animation",
                     "type": "boolean"
                   },
                   "supports_streaming": {
@@ -2008,7 +2008,7 @@
                     }
                   },
                   "has_spoiler": {
-                    "description": "Pass *True* if the photo needs to be covered with a spoiler animation",
+                    "description": "Pass *True* if the animation needs to be covered with a spoiler animation",
                     "type": "boolean"
                   },
                   "disable_notification": {
@@ -8751,7 +8751,7 @@
                     "type": "integer"
                   },
                   "name": {
-                    "description": "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept",
+                    "description": "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept",
                     "type": "string",
                     "minLength": 0,
                     "maxLength": 128
@@ -8787,7 +8787,7 @@
                     "type": "integer"
                   },
                   "name": {
-                    "description": "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept",
+                    "description": "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept",
                     "type": "string",
                     "minLength": 0,
                     "maxLength": 128
@@ -8823,7 +8823,7 @@
                     "type": "integer"
                   },
                   "name": {
-                    "description": "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept",
+                    "description": "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept",
                     "type": "string",
                     "minLength": 0,
                     "maxLength": 128
@@ -17306,7 +17306,7 @@
             "type": "boolean"
           },
           "has_spoiler": {
-            "description": "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation",
+            "description": "*Optional*. Pass *True* if the video needs to be covered with a spoiler animation",
             "type": "boolean"
           }
         },
@@ -17372,7 +17372,7 @@
             "type": "integer"
           },
           "has_spoiler": {
-            "description": "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation",
+            "description": "*Optional*. Pass *True* if the animation needs to be covered with a spoiler animation",
             "type": "boolean"
           }
         },

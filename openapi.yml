@@ -1154,7 +1154,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
                 has_spoiler:
-                  description: Pass *True* if the photo needs to be covered with a spoiler animation
+                  description: Pass *True* if the video needs to be covered with a spoiler animation
                   type: boolean
                 supports_streaming:
                   description: Pass *True* if the uploaded video is suitable for streaming
@@ -1256,7 +1256,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
                 has_spoiler:
-                  description: Pass *True* if the photo needs to be covered with a spoiler animation
+                  description: Pass *True* if the animation needs to be covered with a spoiler animation
                   type: boolean
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
@@ -5429,7 +5429,7 @@ paths:
                   description: Unique identifier for the target message thread of the forum topic
                   type: integer
                 name:
-                  description: "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept"
+                  description: "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept"
                   type: string
                   minLength: 0
                   maxLength: 128
@@ -5452,7 +5452,7 @@ paths:
                   description: Unique identifier for the target message thread of the forum topic
                   type: integer
                 name:
-                  description: "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept"
+                  description: "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept"
                   type: string
                   minLength: 0
                   maxLength: 128
@@ -5475,7 +5475,7 @@ paths:
                   description: Unique identifier for the target message thread of the forum topic
                   type: integer
                 name:
-                  description: "New topic name, 0-128 characters. If not specififed or empty, the current name of the topic will be kept"
+                  description: "New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept"
                   type: string
                   minLength: 0
                   maxLength: 128
@@ -11151,7 +11151,7 @@ components:
           description: "*Optional*. Pass *True* if the uploaded video is suitable for streaming"
           type: boolean
         has_spoiler:
-          description: "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation"
+          description: "*Optional*. Pass *True* if the video needs to be covered with a spoiler animation"
           type: boolean
       required:
         - type
@@ -11197,7 +11197,7 @@ components:
           description: "*Optional*. Animation duration in seconds"
           type: integer
         has_spoiler:
-          description: "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation"
+          description: "*Optional*. Pass *True* if the animation needs to be covered with a spoiler animation"
           type: boolean
       required:
         - type
