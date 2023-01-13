@@ -3345,7 +3345,7 @@ paths:
                   description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
                   description: "Pass *True* if the administrator can change chat title, photo and other settings"
@@ -3396,7 +3396,7 @@ paths:
                   description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
                   description: "Pass *True* if the administrator can change chat title, photo and other settings"
@@ -3447,7 +3447,7 @@ paths:
                   description: "Pass *True* if the administrator can restrict, ban or unban chat members"
                   type: boolean
                 can_promote_members:
-                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by him)"
+                  description: "Pass *True* if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)"
                   type: boolean
                 can_change_info:
                   description: "Pass *True* if the administrator can change chat title, photo and other settings"
@@ -10511,7 +10511,7 @@ components:
           description: "*True*, if the administrator can restrict, ban or unban chat members"
           type: boolean
         can_promote_members:
-          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
           type: boolean
         can_change_info:
           description: "*True*, if the user is allowed to change the chat title, photo and other settings"
@@ -10604,7 +10604,7 @@ components:
           description: "*True*, if the administrator can restrict, ban or unban chat members"
           type: boolean
         can_promote_members:
-          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
+          description: "*True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by the user)"
           type: boolean
         can_change_info:
           description: "*True*, if the user is allowed to change the chat title, photo and other settings"
