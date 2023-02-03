@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 6.4.0
+  version: 6.5.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -3231,6 +3231,9 @@ paths:
                   type: integer
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
                 until_date:
                   description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
@@ -3252,6 +3255,9 @@ paths:
                   type: integer
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
                 until_date:
                   description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
@@ -3273,6 +3279,9 @@ paths:
                   type: integer
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
                 until_date:
                   description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
@@ -3752,6 +3761,9 @@ paths:
                     - type: string
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
               required:
                 - chat_id
                 - permissions
@@ -3766,6 +3778,9 @@ paths:
                     - type: string
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
               required:
                 - chat_id
                 - permissions
@@ -3780,6 +3795,9 @@ paths:
                     - type: string
                 permissions:
                   $ref: "#/components/schemas/ChatPermissions"
+                use_independent_chat_permissions:
+                  description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
+                  type: boolean
               required:
                 - chat_id
                 - permissions
@@ -9540,6 +9558,10 @@ components:
           $ref: "#/components/schemas/Invoice"
         successful_payment:
           $ref: "#/components/schemas/SuccessfulPayment"
+        user_shared:
+          $ref: "#/components/schemas/UserShared"
+        chat_shared:
+          $ref: "#/components/schemas/ChatShared"
         connected_website:
           description: "*Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](https://core.telegram.org/widgets/login)"
           type: string
@@ -10140,6 +10162,36 @@ components:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#generalforumtopicunhidden"
       description: This object represents a service message about General forum topic unhidden in the chat. Currently holds no information.
+    UserShared:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#usershared"
+      description: "This object contains information about the user whose identifier was shared with the bot using a [KeyboardButtonRequestUser](https://core.telegram.org/bots/api/#keyboardbuttonrequestuser) button."
+      type: object
+      properties:
+        request_id:
+          description: Identifier of the request
+          type: integer
+        user_id:
+          description: "Identifier of the shared user. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the user and could be unable to use this identifier, unless the user is already known to the bot by some other means."
+          type: integer
+      required:
+        - request_id
+        - user_id
+    ChatShared:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#chatshared"
+      description: "This object contains information about the chat whose identifier was shared with the bot using a [KeyboardButtonRequestChat](https://core.telegram.org/bots/api/#keyboardbuttonrequestchat) button."
+      type: object
+      properties:
+        request_id:
+          description: Identifier of the request
+          type: integer
+        chat_id:
+          description: "Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means."
+          type: integer
+      required:
+        - request_id
+        - chat_id
     WriteAccessAllowed:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#writeaccessallowed"
@@ -10272,12 +10324,16 @@ components:
     KeyboardButton:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbutton"
-      description: "This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *web\\_app*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive."
+      description: "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_user*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive."
       type: object
       properties:
         text:
           description: "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed"
           type: string
+        request_user:
+          $ref: "#/components/schemas/KeyboardButtonRequestUser"
+        request_chat:
+          $ref: "#/components/schemas/KeyboardButtonRequestChat"
         request_contact:
           description: "*Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only."
           type: boolean
@@ -10290,6 +10346,54 @@ components:
           $ref: "#/components/schemas/WebAppInfo"
       required:
         - text
+    KeyboardButtonRequestUser:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#keyboardbuttonrequestuser"
+      description: This object defines the criteria used to request a suitable user. The identifier of the selected user will be shared with the bot when the corresponding button is pressed.
+      type: object
+      properties:
+        request_id:
+          description: Signed 32-bit identifier of the request
+          type: integer
+        user_is_bot:
+          description: "*Optional*. Pass *True* to request a bot, pass *False* to request a regular user. If not specified, no additional restrictions are applied."
+          type: boolean
+        user_is_premium:
+          description: "*Optional*. Pass *True* to request a premium user, pass *False* to request a non-premium user. If not specified, no additional restrictions are applied."
+          type: boolean
+      required:
+        - request_id
+    KeyboardButtonRequestChat:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#keyboardbuttonrequestchat"
+      description: This object defines the criteria used to request a suitable chat. The identifier of the selected chat will be shared with the bot when the corresponding button is pressed.
+      type: object
+      properties:
+        request_id:
+          description: Signed 32-bit identifier of the request
+          type: integer
+        chat_is_channel:
+          description: "Pass *True* to request a channel chat, pass *False* to request a group or a supergroup chat."
+          type: boolean
+        chat_is_forum:
+          description: "*Optional*. Pass *True* to request a forum supergroup, pass *False* to request a non-forum chat. If not specified, no additional restrictions are applied."
+          type: boolean
+        chat_has_username:
+          description: "*Optional*. Pass *True* to request a supergroup or a channel with a username, pass *False* to request a chat without a username. If not specified, no additional restrictions are applied."
+          type: boolean
+        chat_is_created:
+          description: "*Optional*. Pass *True* to request a chat owned by the user. Otherwise, no additional restrictions are applied."
+          type: boolean
+        user_administrator_rights:
+          $ref: "#/components/schemas/ChatAdministratorRights"
+        bot_administrator_rights:
+          $ref: "#/components/schemas/ChatAdministratorRights"
+        bot_is_member:
+          description: "*Optional*. Pass *True* to request a chat with the bot as a member. Otherwise, no additional restrictions are applied."
+          type: boolean
+      required:
+        - request_id
+        - chat_is_channel
     KeyboardButtonPollType:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbuttonpolltype"
@@ -10669,6 +10773,36 @@ components:
         is_member:
           description: "*True*, if the user is a member of the chat at the moment of the request"
           type: boolean
+        can_send_messages:
+          description: "*True*, if the user is allowed to send text messages, contacts, invoices, locations and venues"
+          type: boolean
+        can_send_audios:
+          description: "*True*, if the user is allowed to send audios"
+          type: boolean
+        can_send_documents:
+          description: "*True*, if the user is allowed to send documents"
+          type: boolean
+        can_send_photos:
+          description: "*True*, if the user is allowed to send photos"
+          type: boolean
+        can_send_videos:
+          description: "*True*, if the user is allowed to send videos"
+          type: boolean
+        can_send_video_notes:
+          description: "*True*, if the user is allowed to send video notes"
+          type: boolean
+        can_send_voice_notes:
+          description: "*True*, if the user is allowed to send voice notes"
+          type: boolean
+        can_send_polls:
+          description: "*True*, if the user is allowed to send polls"
+          type: boolean
+        can_send_other_messages:
+          description: "*True*, if the user is allowed to send animations, games, stickers and use inline bots"
+          type: boolean
+        can_add_web_page_previews:
+          description: "*True*, if the user is allowed to add web page previews to their messages"
+          type: boolean
         can_change_info:
           description: "*True*, if the user is allowed to change the chat title, photo and other settings"
           type: boolean
@@ -10681,21 +10815,6 @@ components:
         can_manage_topics:
           description: "*True*, if the user is allowed to create forum topics"
           type: boolean
-        can_send_messages:
-          description: "*True*, if the user is allowed to send text messages, contacts, locations and venues"
-          type: boolean
-        can_send_media_messages:
-          description: "*True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes"
-          type: boolean
-        can_send_polls:
-          description: "*True*, if the user is allowed to send polls"
-          type: boolean
-        can_send_other_messages:
-          description: "*True*, if the user is allowed to send animations, games, stickers and use inline bots"
-          type: boolean
-        can_add_web_page_previews:
-          description: "*True*, if the user is allowed to add web page previews to their messages"
-          type: boolean
         until_date:
           description: "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever"
           type: integer
@@ -10703,15 +10822,20 @@ components:
         - status
         - user
         - is_member
+        - can_send_messages
+        - can_send_audios
+        - can_send_documents
+        - can_send_photos
+        - can_send_videos
+        - can_send_video_notes
+        - can_send_voice_notes
+        - can_send_polls
+        - can_send_other_messages
+        - can_add_web_page_previews
         - can_change_info
         - can_invite_users
         - can_pin_messages
         - can_manage_topics
-        - can_send_messages
-        - can_send_media_messages
-        - can_send_polls
-        - can_send_other_messages
-        - can_add_web_page_previews
         - until_date
     ChatMemberLeft:
       externalDocs:
@@ -10782,6 +10906,9 @@ components:
           $ref: "#/components/schemas/Chat"
         from:
           $ref: "#/components/schemas/User"
+        user_chat_id:
+          description: "Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot can use this identifier for 24 hours to send messages until the join request is processed, assuming no other administrator contacted the user."
+          type: integer
         date:
           description: Date the request was sent in Unix time
           type: integer
@@ -10793,6 +10920,7 @@ components:
       required:
         - chat
         - from
+        - user_chat_id
         - date
     ChatPermissions:
       externalDocs:
@@ -10801,19 +10929,34 @@ components:
       type: object
       properties:
         can_send_messages:
-          description: "*Optional*. *True*, if the user is allowed to send text messages, contacts, locations and venues"
+          description: "*Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues"
           type: boolean
-        can_send_media_messages:
-          description: "*Optional*. *True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\\_send\\_messages"
+        can_send_audios:
+          description: "*Optional*. *True*, if the user is allowed to send audios"
+          type: boolean
+        can_send_documents:
+          description: "*Optional*. *True*, if the user is allowed to send documents"
+          type: boolean
+        can_send_photos:
+          description: "*Optional*. *True*, if the user is allowed to send photos"
+          type: boolean
+        can_send_videos:
+          description: "*Optional*. *True*, if the user is allowed to send videos"
+          type: boolean
+        can_send_video_notes:
+          description: "*Optional*. *True*, if the user is allowed to send video notes"
+          type: boolean
+        can_send_voice_notes:
+          description: "*Optional*. *True*, if the user is allowed to send voice notes"
           type: boolean
         can_send_polls:
-          description: "*Optional*. *True*, if the user is allowed to send polls, implies can\\_send\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to send polls"
           type: boolean
         can_send_other_messages:
-          description: "*Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots, implies can\\_send\\_media\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots"
           type: boolean
         can_add_web_page_previews:
-          description: "*Optional*. *True*, if the user is allowed to add web page previews to their messages, implies can\\_send\\_media\\_messages"
+          description: "*Optional*. *True*, if the user is allowed to add web page previews to their messages"
           type: boolean
         can_change_info:
           description: "*Optional*. *True*, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups"
