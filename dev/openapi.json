@@ -16165,7 +16165,7 @@
         "type": "object",
         "properties": {
           "request_id": {
-            "description": "Signed 32-bit identifier of the request",
+            "description": "Signed 32-bit identifier of the request, which will be received back in the [UserShared](https://core.telegram.org/bots/api/#usershared) object. Must be unique within the message",
             "type": "integer"
           },
           "user_is_bot": {
@@ -16189,7 +16189,7 @@
         "type": "object",
         "properties": {
           "request_id": {
-            "description": "Signed 32-bit identifier of the request",
+            "description": "Signed 32-bit identifier of the request, which will be received back in the [ChatShared](https://core.telegram.org/bots/api/#chatshared) object. Must be unique within the message",
             "type": "integer"
           },
           "chat_is_channel": {

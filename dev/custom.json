@@ -7548,7 +7548,7 @@
       "properties": [
         {
           "name": "request_id",
-          "description": "Signed 32-bit identifier of the request",
+          "description": "Signed 32-bit identifier of the request, which will be received back in the [UserShared](https://core.telegram.org/bots/api/#usershared) object. Must be unique within the message",
           "required": true,
           "type": "integer"
         },
@@ -7574,7 +7574,7 @@
       "properties": [
         {
           "name": "request_id",
-          "description": "Signed 32-bit identifier of the request",
+          "description": "Signed 32-bit identifier of the request, which will be received back in the [ChatShared](https://core.telegram.org/bots/api/#chatshared) object. Must be unique within the message",
           "required": true,
           "type": "integer"
         },
@@ -7604,7 +7604,7 @@
         },
         {
           "name": "user_administrator_rights",
-          "description": "*Optional*. A JSON-serialized object listing the required administrator rights of the user in the chat. If not specified, no additional restrictions are applied.",
+          "description": "*Optional*. A JSON-serialized object listing the required administrator rights of the user in the chat. The rights must be a superset of *bot\\_administrator\\_rights*. If not specified, no additional restrictions are applied.",
           "required": false,
           "type": "reference",
           "reference": "ChatAdministratorRights"
