@@ -11000,7 +11000,7 @@ components:
     KeyboardButtonRequestUser:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbuttonrequestuser"
-      description: This object defines the criteria used to request a suitable user. The identifier of the selected user will be shared with the bot when the corresponding button is pressed.
+      description: "This object defines the criteria used to request a suitable user. The identifier of the selected user will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)"
       type: object
       properties:
         request_id:
@@ -11017,7 +11017,7 @@ components:
     KeyboardButtonRequestChat:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbuttonrequestchat"
-      description: This object defines the criteria used to request a suitable chat. The identifier of the selected chat will be shared with the bot when the corresponding button is pressed.
+      description: "This object defines the criteria used to request a suitable chat. The identifier of the selected chat will be shared with the bot when the corresponding button is pressed. [More about requesting chats »](https://core.telegram.org/bots/features#chat-and-user-selection)"
       type: object
       properties:
         request_id:
