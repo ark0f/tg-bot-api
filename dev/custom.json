@@ -10009,7 +10009,7 @@
         },
         {
           "name": "web_app",
-          "description": "*Optional*. Description of the [Web App](https://core.telegram.org/bots/webapps) that will be launched when the user presses the button. The Web App will be able to switch back to the inline mode using the method *web\\_app\\_switch\\_inline\\_query* inside the Web App.",
+          "description": "*Optional*. Description of the [Web App](https://core.telegram.org/bots/webapps) that will be launched when the user presses the button. The Web App will be able to switch back to the inline mode using the method [switchInlineQuery](https://core.telegram.org/bots/webapps#initializing-web-apps) inside the Web App.",
           "required": false,
           "type": "reference",
           "reference": "WebAppInfo"
