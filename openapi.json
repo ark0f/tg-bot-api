@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "6.7.0"
+    "version": "6.8.0"
   },
   "servers": [
     {
@@ -9635,6 +9635,118 @@
         }
       }
     },
+    "/unpinAllGeneralForumTopicMessages": {
+      "post": {
+        "description": "Use this method to clear the list of pinned messages in a General forum topic. The bot must be an administrator in the chat for this to work and must have the *can\\_pin\\_messages* administrator right in the supergroup. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#unpinallgeneralforumtopicmessages"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/answerCallbackQuery": {
       "post": {
         "description": "Use this method to send answers to callback queries sent from [inline keyboards](https://core.telegram.org/bots/features#inline-keyboards). The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.\n\nAlternatively, the user can be redirected to the specified Game URL. For this option to work, you must first create a game for your bot via [@BotFather](https://t.me/botfather) and accept the terms. Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.",
@@ -15931,6 +16043,10 @@
             "description": "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "string"
           },
+          "emoji_status_expiration_date": {
+            "description": "*Optional*. Expiration date of the emoji status of the other party in a private chat, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "integer"
+          },
           "bio": {
             "description": "*Optional*. Bio of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "string"
@@ -16115,6 +16231,9 @@
           },
           "sticker": {
             "$ref": "#/components/schemas/Sticker"
+          },
+          "story": {
+            "$ref": "#/components/schemas/Story"
           },
           "video": {
             "$ref": "#/components/schemas/Video"
@@ -16524,6 +16643,12 @@
           "file_unique_id"
         ]
       },
+      "Story": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#story"
+        },
+        "description": "This object represents a message about a forwarded story in the chat. Currently holds no information."
+      },
       "Video": {
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#video"
@@ -16735,11 +16860,14 @@
             "description": "Unique poll identifier",
             "type": "string"
           },
+          "voter_chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
           "user": {
             "$ref": "#/components/schemas/User"
           },
           "option_ids": {
-            "description": "0-based identifiers of answer options, chosen by the user. May be empty if the user retracted their vote.",
+            "description": "0-based identifiers of chosen answer options. May be empty if the vote was retracted.",
             "type": "array",
             "items": {
               "type": "integer"
@@ -16748,7 +16876,6 @@
         },
         "required": [
           "poll_id",
-          "user",
           "option_ids"
         ]
       },
