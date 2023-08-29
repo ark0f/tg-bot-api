@@ -2283,7 +2283,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.",
+          "description": "Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.",
           "required": false,
           "type": "integer"
         },
@@ -2378,7 +2378,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever",
+          "description": "Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever",
           "required": false,
           "type": "integer"
         }
@@ -6045,7 +6045,7 @@
         },
         {
           "name": "emoji_status_expiration_date",
-          "description": "*Optional*. Expiration date of the emoji status of the other party in a private chat, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. Expiration date of the emoji status of the other party in a private chat in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "integer"
         },
@@ -8681,7 +8681,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever",
+          "description": "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever",
           "required": true,
           "type": "integer"
         }
@@ -8731,7 +8731,7 @@
         },
         {
           "name": "until_date",
-          "description": "Date when restrictions will be lifted for this user; unix time. If 0, then the user is banned forever",
+          "description": "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever",
           "required": true,
           "type": "integer"
         }

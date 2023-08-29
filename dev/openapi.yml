@@ -2829,7 +2829,7 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 until_date:
-                  description: "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only."
+                  description: Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.
                   type: integer
                 revoke_messages:
                   description: "Pass *True* to delete all messages from the chat for the user that is being removed. If *False*, the user will be able to see messages in the group that were sent before the user was removed. Always *True* for supergroups and channels."
@@ -2850,7 +2850,7 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 until_date:
-                  description: "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only."
+                  description: Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.
                   type: integer
                 revoke_messages:
                   description: "Pass *True* to delete all messages from the chat for the user that is being removed. If *False*, the user will be able to see messages in the group that were sent before the user was removed. Always *True* for supergroups and channels."
@@ -2871,7 +2871,7 @@ paths:
                   description: Unique identifier of the target user
                   type: integer
                 until_date:
-                  description: "Date when the user will be unbanned, unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only."
+                  description: Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.
                   type: integer
                 revoke_messages:
                   description: "Pass *True* to delete all messages from the chat for the user that is being removed. If *False*, the user will be able to see messages in the group that were sent before the user was removed. Always *True* for supergroups and channels."
@@ -3013,7 +3013,7 @@ paths:
                   description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
                   type: boolean
                 until_date:
-                  description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
+                  description: "Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
               required:
                 - chat_id
@@ -3037,7 +3037,7 @@ paths:
                   description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
                   type: boolean
                 until_date:
-                  description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
+                  description: "Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
               required:
                 - chat_id
@@ -3061,7 +3061,7 @@ paths:
                   description: "Pass *True* if chat permissions are set independently. Otherwise, the *can\\_send\\_other\\_messages* and *can\\_add\\_web\\_page\\_previews* permissions will imply the *can\\_send\\_messages*, *can\\_send\\_audios*, *can\\_send\\_documents*, *can\\_send\\_photos*, *can\\_send\\_videos*, *can\\_send\\_video\\_notes*, and *can\\_send\\_voice\\_notes* permissions; the *can\\_send\\_polls* permission will imply the *can\\_send\\_messages* permission."
                   type: boolean
                 until_date:
-                  description: "Date when restrictions will be lifted for the user, unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
+                  description: "Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever"
                   type: integer
               required:
                 - chat_id
@@ -10170,7 +10170,7 @@ components:
           description: "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: string
         emoji_status_expiration_date:
-          description: "*Optional*. Expiration date of the emoji status of the other party in a private chat, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
+          description: "*Optional*. Expiration date of the emoji status of the other party in a private chat in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
           type: integer
         bio:
           description: "*Optional*. Bio of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat)."
@@ -11669,7 +11669,7 @@ components:
           description: "*True*, if the user is allowed to create forum topics"
           type: boolean
         until_date:
-          description: "Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever"
+          description: "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever"
           type: integer
       required:
         - status
@@ -11718,7 +11718,7 @@ components:
         user:
           $ref: "#/components/schemas/User"
         until_date:
-          description: "Date when restrictions will be lifted for this user; unix time. If 0, then the user is banned forever"
+          description: "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever"
           type: integer
       required:
         - status
