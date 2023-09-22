@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "6.8.0"
+    "version": "6.9.0"
   },
   "servers": [
     {
@@ -17215,12 +17215,20 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#writeaccessallowed"
         },
-        "description": "This object represents a service message about a user allowing a bot to write messages after adding the bot to the attachment menu or launching a Web App from a link.",
+        "description": "This object represents a service message about a user allowing a bot to write messages after adding it to the attachment menu, launching a Web App from a link, or accepting an explicit request from a Web App sent by the method [requestWriteAccess](https://core.telegram.org/bots/webapps#initializing-mini-apps).",
         "type": "object",
         "properties": {
+          "from_request": {
+            "description": "*Optional*. True, if the access was granted after the user accepted an explicit request from a Web App sent by the method [requestWriteAccess](https://core.telegram.org/bots/webapps#initializing-mini-apps)",
+            "type": "boolean"
+          },
           "web_app_name": {
-            "description": "*Optional*. Name of the Web App which was launched from a link",
+            "description": "*Optional*. Name of the Web App, if the access was granted when the Web App was launched from a link",
             "type": "string"
+          },
+          "from_attachment_menu": {
+            "description": "*Optional*. True, if the access was granted when the bot was added to the attachment or side menu",
+            "type": "boolean"
           }
         }
       },
@@ -17345,7 +17353,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "description": "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](https://core.telegram.org/bots/webapps#initializing-web-apps)",
+            "description": "An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](https://core.telegram.org/bots/webapps#initializing-mini-apps)",
             "type": "string"
           }
         },
@@ -17823,7 +17831,7 @@
             "type": "boolean"
           },
           "can_manage_chat": {
-            "description": "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+            "description": "*True*, if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
             "type": "boolean"
           },
           "can_delete_messages": {
@@ -17851,7 +17859,7 @@
             "type": "boolean"
           },
           "can_post_messages": {
-            "description": "*Optional*. *True*, if the administrator can post in the channel; channels only",
+            "description": "*Optional*. *True*, if the administrator can post messages in the channel; channels only",
             "type": "boolean"
           },
           "can_edit_messages": {
@@ -17860,6 +17868,18 @@
           },
           "can_pin_messages": {
             "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
+            "type": "boolean"
+          },
+          "can_post_stories": {
+            "description": "*Optional*. *True*, if the administrator can post stories in the channel; channels only",
+            "type": "boolean"
+          },
+          "can_edit_stories": {
+            "description": "*Optional*. *True*, if the administrator can edit stories posted by other users; channels only",
+            "type": "boolean"
+          },
+          "can_delete_stories": {
+            "description": "*Optional*. *True*, if the administrator can delete stories posted by other users",
             "type": "boolean"
           },
           "can_manage_topics": {
@@ -17958,7 +17978,7 @@
             "type": "boolean"
           },
           "can_manage_chat": {
-            "description": "*True*, if the administrator can access the chat event log, chat statistics, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+            "description": "*True*, if the administrator can access the chat event log, chat statistics, boost list in channels, message statistics in channels, see channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
             "type": "boolean"
           },
           "can_delete_messages": {
@@ -17986,7 +18006,7 @@
             "type": "boolean"
           },
           "can_post_messages": {
-            "description": "*Optional*. *True*, if the administrator can post in the channel; channels only",
+            "description": "*Optional*. *True*, if the administrator can post messages in the channel; channels only",
             "type": "boolean"
           },
           "can_edit_messages": {
@@ -17995,6 +18015,18 @@
           },
           "can_pin_messages": {
             "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
+            "type": "boolean"
+          },
+          "can_post_stories": {
+            "description": "*Optional*. *True*, if the administrator can post stories in the channel; channels only",
+            "type": "boolean"
+          },
+          "can_edit_stories": {
+            "description": "*Optional*. *True*, if the administrator can edit stories posted by other users; channels only",
+            "type": "boolean"
+          },
+          "can_delete_stories": {
+            "description": "*Optional*. *True*, if the administrator can delete stories posted by other users",
             "type": "boolean"
           },
           "can_manage_topics": {
