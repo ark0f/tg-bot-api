@@ -1,13 +1,13 @@
 {
   "version": {
-    "major": 6,
-    "minor": 9,
+    "major": 7,
+    "minor": 0,
     "patch": 0
   },
   "recent_changes": {
     "year": 2023,
-    "month": 9,
-    "day": 22
+    "month": 12,
+    "day": 29
   },
   "methods": [
     {
@@ -38,7 +38,7 @@
         },
         {
           "name": "allowed_updates",
-          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
+          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
           "required": false,
           "type": "array",
           "array": {
@@ -88,7 +88,7 @@
         },
         {
           "name": "allowed_updates",
-          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
+          "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
           "required": false,
           "type": "array",
           "array": {
@@ -224,10 +224,11 @@
           }
         },
         {
-          "name": "disable_web_page_preview",
-          "description": "Disables link previews for links in this message",
+          "name": "link_preview_options",
+          "description": "Link preview generation options for the message",
           "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "LinkPreviewOptions"
         },
         {
           "name": "disable_notification",
@@ -242,16 +243,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -287,7 +283,7 @@
     },
     {
       "name": "forwardMessage",
-      "description": "Use this method to forward messages of any kind. Service messages can't be forwarded. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+      "description": "Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
       "arguments": [
         {
           "name": "chat_id",
@@ -350,8 +346,78 @@
       "documentation_link": "https://core.telegram.org/bots/api/#forwardmessage"
     },
     {
+      "name": "forwardMessages",
+      "description": "Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "from_chat_id",
+          "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_ids",
+          "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "disable_notification",
+          "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the forwarded messages from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "MessageId"
+        }
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#forwardmessages"
+    },
+    {
       "name": "copyMessage",
-      "description": "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+      "description": "Use this method to copy messages of any kind. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -430,16 +496,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -472,6 +533,82 @@
         "reference": "MessageId"
       },
       "documentation_link": "https://core.telegram.org/bots/api/#copymessage"
+    },
+    {
+      "name": "copyMessages",
+      "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessages](https://core.telegram.org/bots/api/#forwardmessages), but the copied messages don't have a link to the original message. Album grouping is kept for copied messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_thread_id",
+          "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "from_chat_id",
+          "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_ids",
+          "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "disable_notification",
+          "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent messages from forwarding and saving",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "remove_caption",
+          "description": "Pass *True* to copy the messages without their captions",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "array",
+        "array": {
+          "type": "reference",
+          "reference": "MessageId"
+        }
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#copymessages"
     },
     {
       "name": "sendPhoto",
@@ -555,16 +692,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -707,16 +839,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -847,16 +974,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1011,16 +1133,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1169,16 +1286,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1294,16 +1406,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1416,16 +1523,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1523,16 +1625,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the messages are a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         }
       ],
       "multipart_only": true,
@@ -1618,16 +1715,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1746,16 +1838,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -1850,16 +1937,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -2017,16 +2099,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -2112,16 +2189,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -2205,6 +2277,54 @@
         "default": true
       },
       "documentation_link": "https://core.telegram.org/bots/api/#sendchataction"
+    },
+    {
+      "name": "setMessageReaction",
+      "description": "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_id",
+          "description": "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "reaction",
+          "description": "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ReactionType"
+          }
+        },
+        {
+          "name": "is_big",
+          "description": "Pass *True* to set the reaction with a big animation",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#setmessagereaction"
     },
     {
       "name": "getUserProfilePhotos",
@@ -3137,7 +3257,7 @@
     },
     {
       "name": "getChat",
-      "description": "Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.). Returns a [Chat](https://core.telegram.org/bots/api/#chat) object on success.",
+      "description": "Use this method to get up to date information about the chat. Returns a [Chat](https://core.telegram.org/bots/api/#chat) object on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -3749,6 +3869,38 @@
       "documentation_link": "https://core.telegram.org/bots/api/#answercallbackquery"
     },
     {
+      "name": "getUserChatBoosts",
+      "description": "Use this method to get the list of boosts added to a chat by a user. Requires administrator rights in the chat. Returns a [UserChatBoosts](https://core.telegram.org/bots/api/#userchatboosts) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "user_id",
+          "description": "Unique identifier of the target user",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "UserChatBoosts"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#getuserchatboosts"
+    },
+    {
       "name": "setMyCommands",
       "description": "Use this method to change the list of the bot's commands. See [this manual](https://core.telegram.org/bots/features#commands) for more details about bot commands. Returns *True* on success.",
       "arguments": [
@@ -4109,10 +4261,11 @@
           }
         },
         {
-          "name": "disable_web_page_preview",
-          "description": "Disables link previews for links in this message",
+          "name": "link_preview_options",
+          "description": "Link preview generation options for the message",
           "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "LinkPreviewOptions"
         },
         {
           "name": "reply_markup",
@@ -4541,6 +4694,41 @@
       "documentation_link": "https://core.telegram.org/bots/api/#deletemessage"
     },
     {
+      "name": "deleteMessages",
+      "description": "Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "message_ids",
+          "description": "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "integer"
+          }
+        }
+      ],
+      "multipart_only": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#deletemessages"
+    },
+    {
       "name": "sendSticker",
       "description": "Use this method to send static .WEBP, [animated](https://telegram.org/blog/animated-stickers) .TGS, or [video](https://telegram.org/blog/video-stickers-better-reactions) .WEBM stickers. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
       "arguments": [
@@ -4598,16 +4786,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -5303,16 +5486,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -5605,16 +5783,11 @@
           "type": "bool"
         },
         {
-          "name": "reply_to_message_id",
-          "description": "If the message is a reply, ID of the original message",
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
           "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "allow_sending_without_reply",
-          "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-          "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "ReplyParameters"
         },
         {
           "name": "reply_markup",
@@ -5742,7 +5915,7 @@
       "properties": [
         {
           "name": "update_id",
-          "description": "The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you're using [webhooks](https://core.telegram.org/bots/api/#setwebhook), since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
+          "description": "The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using [webhooks](https://core.telegram.org/bots/api/#setwebhook), since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
           "required": true,
           "type": "integer"
         },
@@ -5755,7 +5928,7 @@
         },
         {
           "name": "edited_message",
-          "description": "*Optional*. New version of a message that is known to the bot and was edited",
+          "description": "*Optional*. New version of a message that is known to the bot and was edited. This update may at times be triggered by changes to message fields that are either unavailable or not actively used by your bot.",
           "required": false,
           "type": "reference",
           "reference": "Message"
@@ -5769,10 +5942,24 @@
         },
         {
           "name": "edited_channel_post",
-          "description": "*Optional*. New version of a channel post that is known to the bot and was edited",
+          "description": "*Optional*. New version of a channel post that is known to the bot and was edited. This update may at times be triggered by changes to message fields that are either unavailable or not actively used by your bot.",
           "required": false,
           "type": "reference",
           "reference": "Message"
+        },
+        {
+          "name": "message_reaction",
+          "description": "*Optional*. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify `\"message_reaction\"` in the list of *allowed\\_updates* to receive these updates. The update isn't received for reactions set by bots.",
+          "required": false,
+          "type": "reference",
+          "reference": "MessageReactionUpdated"
+        },
+        {
+          "name": "message_reaction_count",
+          "description": "*Optional*. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify `\"message_reaction_count\"` in the list of *allowed\\_updates* to receive these updates. The updates are grouped and can be sent with delay up to a few minutes.",
+          "required": false,
+          "type": "reference",
+          "reference": "MessageReactionCountUpdated"
         },
         {
           "name": "inline_query",
@@ -5811,7 +5998,7 @@
         },
         {
           "name": "poll",
-          "description": "*Optional*. New poll state. Bots receive only updates about stopped polls and polls, which are sent by the bot",
+          "description": "*Optional*. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot",
           "required": false,
           "type": "reference",
           "reference": "Poll"
@@ -5843,6 +6030,20 @@
           "required": false,
           "type": "reference",
           "reference": "ChatJoinRequest"
+        },
+        {
+          "name": "chat_boost",
+          "description": "*Optional*. A chat boost was added or changed. The bot must be an administrator in the chat to receive these updates.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatBoostUpdated"
+        },
+        {
+          "name": "removed_chat_boost",
+          "description": "*Optional*. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatBoostRemoved"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#update"
@@ -6056,14 +6257,48 @@
           }
         },
         {
+          "name": "available_reactions",
+          "description": "*Optional*. List of available reactions allowed in the chat. If omitted, then all [emoji reactions](https://core.telegram.org/bots/api/#reactiontypeemoji) are allowed. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ReactionType"
+          }
+        },
+        {
+          "name": "accent_color_id",
+          "description": "*Optional*. Identifier of the accent color for the chat name and backgrounds of the chat photo, reply header, and link preview. See [accent colors](https://core.telegram.org/bots/api/#accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat). Always returned in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "background_custom_emoji_id",
+          "description": "*Optional*. Custom emoji identifier of emoji chosen by the chat for the reply header and link preview background. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "profile_accent_color_id",
+          "description": "*Optional*. Identifier of the accent color for the chat's profile background. See [profile accent colors](https://core.telegram.org/bots/api/#profile-accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "profile_background_custom_emoji_id",
+          "description": "*Optional*. Custom emoji identifier of the emoji chosen by the chat for its profile background. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "string"
+        },
+        {
           "name": "emoji_status_custom_emoji_id",
-          "description": "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. Custom emoji identifier of the emoji status of the chat or the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "string"
         },
         {
           "name": "emoji_status_expiration_date",
-          "description": "*Optional*. Expiration date of the emoji status of the other party in a private chat in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "description": "*Optional*. Expiration date of the emoji status of the chat or the other party in a private chat, in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type": "integer"
         },
@@ -6154,6 +6389,12 @@
           "type": "bool"
         },
         {
+          "name": "has_visible_history",
+          "description": "*Optional*. *True*, if new chat members will have access to old messages; available only to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+          "required": false,
+          "type": "bool"
+        },
+        {
           "name": "sticker_set_name",
           "description": "*Optional*. For supergroups, name of group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
@@ -6214,54 +6455,23 @@
         },
         {
           "name": "date",
-          "description": "Date the message was sent in Unix time",
+          "description": "Date the message was sent in Unix time. It is always a positive number, representing a valid date.",
           "required": true,
           "type": "integer"
         },
         {
           "name": "chat",
-          "description": "Conversation the message belongs to",
+          "description": "Chat the message belongs to",
           "required": true,
           "type": "reference",
           "reference": "Chat"
         },
         {
-          "name": "forward_from",
-          "description": "*Optional*. For forwarded messages, sender of the original message",
+          "name": "forward_origin",
+          "description": "*Optional*. Information about the original message for forwarded messages",
           "required": false,
           "type": "reference",
-          "reference": "User"
-        },
-        {
-          "name": "forward_from_chat",
-          "description": "*Optional*. For messages forwarded from channels or from anonymous administrators, information about the original sender chat",
-          "required": false,
-          "type": "reference",
-          "reference": "Chat"
-        },
-        {
-          "name": "forward_from_message_id",
-          "description": "*Optional*. For messages forwarded from channels, identifier of the original message in the channel",
-          "required": false,
-          "type": "integer"
-        },
-        {
-          "name": "forward_signature",
-          "description": "*Optional*. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "name": "forward_sender_name",
-          "description": "*Optional*. Sender's name for messages forwarded from users who disallow adding a link to their account in forwarded messages",
-          "required": false,
-          "type": "string"
-        },
-        {
-          "name": "forward_date",
-          "description": "*Optional*. For forwarded messages, date the original message was sent in Unix time",
-          "required": false,
-          "type": "integer"
+          "reference": "MessageOrigin"
         },
         {
           "name": "is_topic_message",
@@ -6277,10 +6487,24 @@
         },
         {
           "name": "reply_to_message",
-          "description": "*Optional*. For replies, the original message. Note that the Message object in this field will not contain further *reply\\_to\\_message* fields even if it itself is a reply.",
+          "description": "*Optional*. For replies in the same chat and message thread, the original message. Note that the Message object in this field will not contain further *reply\\_to\\_message* fields even if it itself is a reply.",
           "required": false,
           "type": "reference",
           "reference": "Message"
+        },
+        {
+          "name": "external_reply",
+          "description": "*Optional*. Information about the message that is being replied to, which may come from another chat or forum topic",
+          "required": false,
+          "type": "reference",
+          "reference": "ExternalReplyInfo"
+        },
+        {
+          "name": "quote",
+          "description": "*Optional*. For replies that quote part of the original message, the quoted part of the message",
+          "required": false,
+          "type": "reference",
+          "reference": "TextQuote"
         },
         {
           "name": "via_bot",
@@ -6328,6 +6552,13 @@
             "type": "reference",
             "reference": "MessageEntity"
           }
+        },
+        {
+          "name": "link_preview_options",
+          "description": "*Optional*. Options used for link preview generation for the message, if it is a text message and link preview options were changed",
+          "required": false,
+          "type": "reference",
+          "reference": "LinkPreviewOptions"
         },
         {
           "name": "animation",
@@ -6537,10 +6768,10 @@
         },
         {
           "name": "pinned_message",
-          "description": "*Optional*. Specified message was pinned. Note that the Message object in this field will not contain further *reply\\_to\\_message* fields even if it is itself a reply.",
+          "description": "*Optional*. Specified message was pinned. Note that the Message object in this field will not contain further *reply\\_to\\_message* fields even if it itself is a reply.",
           "required": false,
           "type": "reference",
-          "reference": "Message"
+          "reference": "MaybeInaccessibleMessage"
         },
         {
           "name": "invoice",
@@ -6557,11 +6788,11 @@
           "reference": "SuccessfulPayment"
         },
         {
-          "name": "user_shared",
-          "description": "*Optional*. Service message: a user was shared with the bot",
+          "name": "users_shared",
+          "description": "*Optional*. Service message: users were shared with the bot",
           "required": false,
           "type": "reference",
-          "reference": "UserShared"
+          "reference": "UsersShared"
         },
         {
           "name": "chat_shared",
@@ -6640,6 +6871,34 @@
           "reference": "GeneralForumTopicUnhidden"
         },
         {
+          "name": "giveaway_created",
+          "description": "*Optional*. Service message: a scheduled giveaway was created",
+          "required": false,
+          "type": "reference",
+          "reference": "GiveawayCreated"
+        },
+        {
+          "name": "giveaway",
+          "description": "*Optional*. The message is a scheduled giveaway message",
+          "required": false,
+          "type": "reference",
+          "reference": "Giveaway"
+        },
+        {
+          "name": "giveaway_winners",
+          "description": "*Optional*. A giveaway with public winners was completed",
+          "required": false,
+          "type": "reference",
+          "reference": "GiveawayWinners"
+        },
+        {
+          "name": "giveaway_completed",
+          "description": "*Optional*. Service message: a giveaway without public winners was completed",
+          "required": false,
+          "type": "reference",
+          "reference": "GiveawayCompleted"
+        },
+        {
           "name": "video_chat_scheduled",
           "description": "*Optional*. Service message: video chat scheduled",
           "required": false,
@@ -6699,13 +6958,56 @@
       "documentation_link": "https://core.telegram.org/bots/api/#messageid"
     },
     {
+      "name": "InaccessibleMessage",
+      "description": "This object describes a message that was deleted or is otherwise inaccessible to the bot.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat the message belonged to",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "message_id",
+          "description": "Unique message identifier inside the chat",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "date",
+          "description": "Always 0. The field can be used to differentiate regular and inaccessible messages.",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#inaccessiblemessage"
+    },
+    {
+      "name": "MaybeInaccessibleMessage",
+      "description": "This object describes a message that can be inaccessible to the bot. It can be one of\n\n* [Message](https://core.telegram.org/bots/api/#message)\n* [InaccessibleMessage](https://core.telegram.org/bots/api/#inaccessiblemessage)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "Message"
+        },
+        {
+          "type": "reference",
+          "reference": "InaccessibleMessage"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#maybeinaccessiblemessage"
+    },
+    {
       "name": "MessageEntity",
       "description": "This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.",
       "type": "properties",
       "properties": [
         {
           "name": "type",
-          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
+          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
           "required": true,
           "type": "string",
           "enumeration": [
@@ -6721,6 +7023,7 @@
             "underline",
             "strikethrough",
             "spoiler",
+            "blockquote",
             "code",
             "pre",
             "text_link",
@@ -6767,6 +7070,429 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#messageentity"
+    },
+    {
+      "name": "TextQuote",
+      "description": "This object contains information about the quoted part of a message that is replied to by the given message.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "text",
+          "description": "Text of the quoted part of a message that is replied to by the given message",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "entities",
+          "description": "*Optional*. Special entities that appear in the quote. Currently, only *bold*, *italic*, *underline*, *strikethrough*, *spoiler*, and *custom\\_emoji* entities are kept in quotes.",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
+        },
+        {
+          "name": "position",
+          "description": "Approximate quote position in the original message in UTF-16 code units as specified by the sender",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "is_manual",
+          "description": "*Optional*. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#textquote"
+    },
+    {
+      "name": "ExternalReplyInfo",
+      "description": "This object contains information about a message that is being replied to, which may come from another chat or forum topic.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "origin",
+          "description": "Origin of the message replied to by the given message",
+          "required": true,
+          "type": "reference",
+          "reference": "MessageOrigin"
+        },
+        {
+          "name": "chat",
+          "description": "*Optional*. Chat the original message belongs to. Available only if the chat is a supergroup or a channel.",
+          "required": false,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "message_id",
+          "description": "*Optional*. Unique message identifier inside the original chat. Available only if the original chat is a supergroup or a channel.",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "link_preview_options",
+          "description": "*Optional*. Options used for link preview generation for the original message, if it is a text message",
+          "required": false,
+          "type": "reference",
+          "reference": "LinkPreviewOptions"
+        },
+        {
+          "name": "animation",
+          "description": "*Optional*. Message is an animation, information about the animation",
+          "required": false,
+          "type": "reference",
+          "reference": "Animation"
+        },
+        {
+          "name": "audio",
+          "description": "*Optional*. Message is an audio file, information about the file",
+          "required": false,
+          "type": "reference",
+          "reference": "Audio"
+        },
+        {
+          "name": "document",
+          "description": "*Optional*. Message is a general file, information about the file",
+          "required": false,
+          "type": "reference",
+          "reference": "Document"
+        },
+        {
+          "name": "photo",
+          "description": "*Optional*. Message is a photo, available sizes of the photo",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "PhotoSize"
+          }
+        },
+        {
+          "name": "sticker",
+          "description": "*Optional*. Message is a sticker, information about the sticker",
+          "required": false,
+          "type": "reference",
+          "reference": "Sticker"
+        },
+        {
+          "name": "story",
+          "description": "*Optional*. Message is a forwarded story",
+          "required": false,
+          "type": "reference",
+          "reference": "Story"
+        },
+        {
+          "name": "video",
+          "description": "*Optional*. Message is a video, information about the video",
+          "required": false,
+          "type": "reference",
+          "reference": "Video"
+        },
+        {
+          "name": "video_note",
+          "description": "*Optional*. Message is a [video note](https://telegram.org/blog/video-messages-and-telescope), information about the video message",
+          "required": false,
+          "type": "reference",
+          "reference": "VideoNote"
+        },
+        {
+          "name": "voice",
+          "description": "*Optional*. Message is a voice message, information about the file",
+          "required": false,
+          "type": "reference",
+          "reference": "Voice"
+        },
+        {
+          "name": "has_media_spoiler",
+          "description": "*Optional*. *True*, if the message media is covered by a spoiler animation",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "contact",
+          "description": "*Optional*. Message is a shared contact, information about the contact",
+          "required": false,
+          "type": "reference",
+          "reference": "Contact"
+        },
+        {
+          "name": "dice",
+          "description": "*Optional*. Message is a dice with random value",
+          "required": false,
+          "type": "reference",
+          "reference": "Dice"
+        },
+        {
+          "name": "game",
+          "description": "*Optional*. Message is a game, information about the game. [More about games »](https://core.telegram.org/bots/api/#games)",
+          "required": false,
+          "type": "reference",
+          "reference": "Game"
+        },
+        {
+          "name": "giveaway",
+          "description": "*Optional*. Message is a scheduled giveaway, information about the giveaway",
+          "required": false,
+          "type": "reference",
+          "reference": "Giveaway"
+        },
+        {
+          "name": "giveaway_winners",
+          "description": "*Optional*. A giveaway with public winners was completed",
+          "required": false,
+          "type": "reference",
+          "reference": "GiveawayWinners"
+        },
+        {
+          "name": "invoice",
+          "description": "*Optional*. Message is an invoice for a [payment](https://core.telegram.org/bots/api/#payments), information about the invoice. [More about payments »](https://core.telegram.org/bots/api/#payments)",
+          "required": false,
+          "type": "reference",
+          "reference": "Invoice"
+        },
+        {
+          "name": "location",
+          "description": "*Optional*. Message is a shared location, information about the location",
+          "required": false,
+          "type": "reference",
+          "reference": "Location"
+        },
+        {
+          "name": "poll",
+          "description": "*Optional*. Message is a native poll, information about the poll",
+          "required": false,
+          "type": "reference",
+          "reference": "Poll"
+        },
+        {
+          "name": "venue",
+          "description": "*Optional*. Message is a venue, information about the venue",
+          "required": false,
+          "type": "reference",
+          "reference": "Venue"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#externalreplyinfo"
+    },
+    {
+      "name": "ReplyParameters",
+      "description": "Describes reply parameters for the message that is being sent.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "message_id",
+          "description": "Identifier of the message that will be replied to in the current chat, or in the chat *chat\\_id* if it is specified",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "chat_id",
+          "description": "*Optional*. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+          "required": false,
+          "type": "any_of",
+          "any_of": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "allow_sending_without_reply",
+          "description": "*Optional*. Pass *True* if the message should be sent even if the specified message to be replied to is not found; can be used only for replies in the same chat and forum topic.",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "quote",
+          "description": "*Optional*. Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an exact substring of the message to be replied to, including *bold*, *italic*, *underline*, *strikethrough*, *spoiler*, and *custom\\_emoji* entities. The message will fail to send if the quote isn't found in the original message.",
+          "required": false,
+          "type": "string",
+          "min_len": 0,
+          "max_len": 1024
+        },
+        {
+          "name": "quote_parse_mode",
+          "description": "*Optional*. Mode for parsing entities in the quote. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "quote_entities",
+          "description": "*Optional*. A JSON-serialized list of special entities that appear in the quote. It can be specified instead of *quote\\_parse\\_mode*.",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "MessageEntity"
+          }
+        },
+        {
+          "name": "quote_position",
+          "description": "*Optional*. Position of the quote in the original message in UTF-16 code units",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#replyparameters"
+    },
+    {
+      "name": "MessageOrigin",
+      "description": "This object describes the origin of a message. It can be one of\n\n* [MessageOriginUser](https://core.telegram.org/bots/api/#messageoriginuser)\n* [MessageOriginHiddenUser](https://core.telegram.org/bots/api/#messageoriginhiddenuser)\n* [MessageOriginChat](https://core.telegram.org/bots/api/#messageoriginchat)\n* [MessageOriginChannel](https://core.telegram.org/bots/api/#messageoriginchannel)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "MessageOriginUser"
+        },
+        {
+          "type": "reference",
+          "reference": "MessageOriginHiddenUser"
+        },
+        {
+          "type": "reference",
+          "reference": "MessageOriginChat"
+        },
+        {
+          "type": "reference",
+          "reference": "MessageOriginChannel"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageorigin"
+    },
+    {
+      "name": "MessageOriginUser",
+      "description": "The message was originally sent by a known user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the message origin, always “user”",
+          "required": true,
+          "type": "string",
+          "default": "user"
+        },
+        {
+          "name": "date",
+          "description": "Date the message was sent originally in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "sender_user",
+          "description": "User that sent the message originally",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageoriginuser"
+    },
+    {
+      "name": "MessageOriginHiddenUser",
+      "description": "The message was originally sent by an unknown user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the message origin, always “hidden\\_user”",
+          "required": true,
+          "type": "string",
+          "default": "hidden_user"
+        },
+        {
+          "name": "date",
+          "description": "Date the message was sent originally in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "sender_user_name",
+          "description": "Name of the user that sent the message originally",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageoriginhiddenuser"
+    },
+    {
+      "name": "MessageOriginChat",
+      "description": "The message was originally sent on behalf of a chat to a group chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the message origin, always “chat”",
+          "required": true,
+          "type": "string",
+          "default": "chat"
+        },
+        {
+          "name": "date",
+          "description": "Date the message was sent originally in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "sender_chat",
+          "description": "Chat that sent the message originally",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "author_signature",
+          "description": "*Optional*. For messages originally sent by an anonymous chat administrator, original message author signature",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageoriginchat"
+    },
+    {
+      "name": "MessageOriginChannel",
+      "description": "The message was originally sent to a channel chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the message origin, always “channel”",
+          "required": true,
+          "type": "string",
+          "default": "channel"
+        },
+        {
+          "name": "date",
+          "description": "Date the message was sent originally in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "chat",
+          "description": "Channel chat to which the message was originally sent",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "message_id",
+          "description": "Unique message identifier inside the chat",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "author_signature",
+          "description": "*Optional*. Signature of the original post author",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messageoriginchannel"
     },
     {
       "name": "PhotoSize",
@@ -7571,8 +8297,8 @@
       "documentation_link": "https://core.telegram.org/bots/api/#generalforumtopicunhidden"
     },
     {
-      "name": "UserShared",
-      "description": "This object contains information about the user whose identifier was shared with the bot using a [KeyboardButtonRequestUser](https://core.telegram.org/bots/api/#keyboardbuttonrequestuser) button.",
+      "name": "UsersShared",
+      "description": "This object contains information about the users whose identifiers were shared with the bot using a [KeyboardButtonRequestUsers](https://core.telegram.org/bots/api/#keyboardbuttonrequestusers) button.",
       "type": "properties",
       "properties": [
         {
@@ -7582,13 +8308,16 @@
           "type": "integer"
         },
         {
-          "name": "user_id",
-          "description": "Identifier of the shared user. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the user and could be unable to use this identifier, unless the user is already known to the bot by some other means.",
+          "name": "user_ids",
+          "description": "Identifiers of the shared users. These numbers may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting them. But they have at most 52 significant bits, so 64-bit integers or double-precision float types are safe for storing these identifiers. The bot may not have access to the users and could be unable to use these identifiers, unless the users are already known to the bot by some other means.",
           "required": true,
-          "type": "integer"
+          "type": "array",
+          "array": {
+            "type": "integer"
+          }
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#usershared"
+      "documentation_link": "https://core.telegram.org/bots/api/#usersshared"
     },
     {
       "name": "ChatShared",
@@ -7686,6 +8415,218 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#videochatparticipantsinvited"
+    },
+    {
+      "name": "GiveawayCreated",
+      "description": "This object represents a service message about the creation of a scheduled giveaway. Currently holds no information.",
+      "documentation_link": "https://core.telegram.org/bots/api/#giveawaycreated"
+    },
+    {
+      "name": "Giveaway",
+      "description": "This object represents a message about a scheduled giveaway.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chats",
+          "description": "The list of chats which the user must join to participate in the giveaway",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "Chat"
+          }
+        },
+        {
+          "name": "winners_selection_date",
+          "description": "Point in time (Unix timestamp) when winners of the giveaway will be selected",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "winner_count",
+          "description": "The number of users which are supposed to be selected as winners of the giveaway",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "only_new_members",
+          "description": "*Optional*. *True*, if only users who join the chats after the giveaway started should be eligible to win",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "has_public_winners",
+          "description": "*Optional*. *True*, if the list of giveaway winners will be visible to everyone",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "prize_description",
+          "description": "*Optional*. Description of additional giveaway prize",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "country_codes",
+          "description": "*Optional*. A list of two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes indicating the countries from which eligible users for the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number that was bought on Fragment can always participate in giveaways.",
+          "required": false,
+          "type": "array",
+          "array": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "premium_subscription_month_count",
+          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#giveaway"
+    },
+    {
+      "name": "GiveawayWinners",
+      "description": "This object represents a message about the completion of a giveaway with public winners.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "The chat that created the giveaway",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "giveaway_message_id",
+          "description": "Identifier of the messsage with the giveaway in the chat",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "winners_selection_date",
+          "description": "Point in time (Unix timestamp) when winners of the giveaway were selected",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "winner_count",
+          "description": "Total number of winners in the giveaway",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "winners",
+          "description": "List of up to 100 winners of the giveaway",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "User"
+          }
+        },
+        {
+          "name": "additional_chat_count",
+          "description": "*Optional*. The number of other chats the user had to join in order to be eligible for the giveaway",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "premium_subscription_month_count",
+          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "unclaimed_prize_count",
+          "description": "*Optional*. Number of undistributed prizes",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "only_new_members",
+          "description": "*Optional*. *True*, if only users who had joined the chats after the giveaway started were eligible to win",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "was_refunded",
+          "description": "*Optional*. *True*, if the giveaway was canceled because the payment for it was refunded",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "prize_description",
+          "description": "*Optional*. Description of additional giveaway prize",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#giveawaywinners"
+    },
+    {
+      "name": "GiveawayCompleted",
+      "description": "This object represents a service message about the completion of a giveaway without public winners.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "winner_count",
+          "description": "Number of winners in the giveaway",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "unclaimed_prize_count",
+          "description": "*Optional*. Number of undistributed prizes",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "giveaway_message",
+          "description": "*Optional*. Message with the giveaway that was completed, if it wasn't deleted",
+          "required": false,
+          "type": "reference",
+          "reference": "Message"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#giveawaycompleted"
+    },
+    {
+      "name": "LinkPreviewOptions",
+      "description": "Describes the options used for link preview generation.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "is_disabled",
+          "description": "*Optional*. *True*, if the link preview is disabled",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "url",
+          "description": "*Optional*. URL to use for the link preview. If empty, then the first URL found in the message text will be used",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "prefer_small_media",
+          "description": "*Optional*. *True*, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "prefer_large_media",
+          "description": "*Optional*. *True*, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+          "required": false,
+          "type": "bool"
+        },
+        {
+          "name": "show_above_text",
+          "description": "*Optional*. *True*, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#linkpreviewoptions"
     },
     {
       "name": "UserProfilePhotos",
@@ -7809,7 +8750,7 @@
         },
         {
           "name": "selective",
-          "description": "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.",
+          "description": "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.",
           "required": false,
           "type": "bool"
         }
@@ -7818,7 +8759,7 @@
     },
     {
       "name": "KeyboardButton",
-      "description": "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_user*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
+      "description": "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_users*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
       "type": "properties",
       "properties": [
         {
@@ -7828,11 +8769,11 @@
           "type": "string"
         },
         {
-          "name": "request_user",
-          "description": "*Optional.* If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user\\_shared” service message. Available in private chats only.",
+          "name": "request_users",
+          "description": "*Optional.* If specified, pressing the button will open a list of suitable users. Identifiers of selected users will be sent to the bot in a “users\\_shared” service message. Available in private chats only.",
           "required": false,
           "type": "reference",
-          "reference": "KeyboardButtonRequestUser"
+          "reference": "KeyboardButtonRequestUsers"
         },
         {
           "name": "request_chat",
@@ -7871,30 +8812,37 @@
       "documentation_link": "https://core.telegram.org/bots/api/#keyboardbutton"
     },
     {
-      "name": "KeyboardButtonRequestUser",
-      "description": "This object defines the criteria used to request a suitable user. The identifier of the selected user will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)",
+      "name": "KeyboardButtonRequestUsers",
+      "description": "This object defines the criteria used to request suitable users. The identifiers of the selected users will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)",
       "type": "properties",
       "properties": [
         {
           "name": "request_id",
-          "description": "Signed 32-bit identifier of the request, which will be received back in the [UserShared](https://core.telegram.org/bots/api/#usershared) object. Must be unique within the message",
+          "description": "Signed 32-bit identifier of the request that will be received back in the [UsersShared](https://core.telegram.org/bots/api/#usersshared) object. Must be unique within the message",
           "required": true,
           "type": "integer"
         },
         {
           "name": "user_is_bot",
-          "description": "*Optional*. Pass *True* to request a bot, pass *False* to request a regular user. If not specified, no additional restrictions are applied.",
+          "description": "*Optional*. Pass *True* to request bots, pass *False* to request regular users. If not specified, no additional restrictions are applied.",
           "required": false,
           "type": "bool"
         },
         {
           "name": "user_is_premium",
-          "description": "*Optional*. Pass *True* to request a premium user, pass *False* to request a non-premium user. If not specified, no additional restrictions are applied.",
+          "description": "*Optional*. Pass *True* to request premium users, pass *False* to request non-premium users. If not specified, no additional restrictions are applied.",
           "required": false,
           "type": "bool"
+        },
+        {
+          "name": "max_quantity",
+          "description": "*Optional*. The maximum number of users to be selected; 1-10. Defaults to 1.",
+          "required": false,
+          "type": "integer",
+          "default": 1
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#keyboardbuttonrequestuser"
+      "documentation_link": "https://core.telegram.org/bots/api/#keyboardbuttonrequestusers"
     },
     {
       "name": "KeyboardButtonRequestChat",
@@ -7981,7 +8929,7 @@
         },
         {
           "name": "selective",
-          "description": "*Optional*. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.",
+          "description": "*Optional*. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  \n\n*Example:* A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.",
           "required": false,
           "type": "bool"
         }
@@ -8022,7 +8970,7 @@
         },
         {
           "name": "url",
-          "description": "*Optional*. HTTP or tg:// URL to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their ID without using a username, if this is allowed by their privacy settings.",
+          "description": "*Optional*. HTTP or tg:// URL to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings.",
           "required": false,
           "type": "string"
         },
@@ -8171,10 +9119,10 @@
         },
         {
           "name": "message",
-          "description": "*Optional*. Message with the callback button that originated the query. Note that message content and message date will not be available if the message is too old",
+          "description": "*Optional*. Message sent by the bot with the callback button that originated the query",
           "required": false,
           "type": "reference",
-          "reference": "Message"
+          "reference": "MaybeInaccessibleMessage"
         },
         {
           "name": "inline_message_id",
@@ -8224,7 +9172,7 @@
         },
         {
           "name": "selective",
-          "description": "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.",
+          "description": "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.",
           "required": false,
           "type": "bool"
         }
@@ -8423,6 +9371,61 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatadministratorrights"
+    },
+    {
+      "name": "ChatMemberUpdated",
+      "description": "This object represents changes in the status of a chat member.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat the user belongs to",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "from",
+          "description": "Performer of the action, which resulted in the change",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "date",
+          "description": "Date the change was done in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "old_chat_member",
+          "description": "Previous information about the chat member",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatMember"
+        },
+        {
+          "name": "new_chat_member",
+          "description": "New information about the chat member",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatMember"
+        },
+        {
+          "name": "invite_link",
+          "description": "*Optional*. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.",
+          "required": false,
+          "type": "reference",
+          "reference": "ChatInviteLink"
+        },
+        {
+          "name": "via_chat_folder_invite_link",
+          "description": "*Optional*. True, if the user joined the chat via a chat folder invite link",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatmemberupdated"
     },
     {
       "name": "ChatMember",
@@ -8663,7 +9666,7 @@
         },
         {
           "name": "can_send_messages",
-          "description": "*True*, if the user is allowed to send text messages, contacts, invoices, locations and venues",
+          "description": "*True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues",
           "required": true,
           "type": "bool"
         },
@@ -8805,61 +9808,6 @@
       "documentation_link": "https://core.telegram.org/bots/api/#chatmemberbanned"
     },
     {
-      "name": "ChatMemberUpdated",
-      "description": "This object represents changes in the status of a chat member.",
-      "type": "properties",
-      "properties": [
-        {
-          "name": "chat",
-          "description": "Chat the user belongs to",
-          "required": true,
-          "type": "reference",
-          "reference": "Chat"
-        },
-        {
-          "name": "from",
-          "description": "Performer of the action, which resulted in the change",
-          "required": true,
-          "type": "reference",
-          "reference": "User"
-        },
-        {
-          "name": "date",
-          "description": "Date the change was done in Unix time",
-          "required": true,
-          "type": "integer"
-        },
-        {
-          "name": "old_chat_member",
-          "description": "Previous information about the chat member",
-          "required": true,
-          "type": "reference",
-          "reference": "ChatMember"
-        },
-        {
-          "name": "new_chat_member",
-          "description": "New information about the chat member",
-          "required": true,
-          "type": "reference",
-          "reference": "ChatMember"
-        },
-        {
-          "name": "invite_link",
-          "description": "*Optional*. Chat invite link, which was used by the user to join the chat; for joining by invite link events only.",
-          "required": false,
-          "type": "reference",
-          "reference": "ChatInviteLink"
-        },
-        {
-          "name": "via_chat_folder_invite_link",
-          "description": "*Optional*. True, if the user joined the chat via a chat folder invite link",
-          "required": false,
-          "type": "bool"
-        }
-      ],
-      "documentation_link": "https://core.telegram.org/bots/api/#chatmemberupdated"
-    },
-    {
       "name": "ChatJoinRequest",
       "description": "Represents a join request sent to a chat.",
       "type": "properties",
@@ -8913,7 +9861,7 @@
       "properties": [
         {
           "name": "can_send_messages",
-          "description": "*Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues",
+          "description": "*Optional*. *True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues",
           "required": false,
           "type": "bool"
         },
@@ -9020,6 +9968,258 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatlocation"
+    },
+    {
+      "name": "ReactionType",
+      "description": "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "ReactionTypeEmoji"
+        },
+        {
+          "type": "reference",
+          "reference": "ReactionTypeCustomEmoji"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#reactiontype"
+    },
+    {
+      "name": "ReactionTypeEmoji",
+      "description": "The reaction is based on an emoji.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the reaction, always “emoji”",
+          "required": true,
+          "type": "string",
+          "default": "emoji"
+        },
+        {
+          "name": "emoji",
+          "description": "Reaction emoji. Currently, it can be one of \"👍\", \"👎\", \"❤\", \"🔥\", \"🥰\", \"👏\", \"😁\", \"🤔\", \"🤯\", \"😱\", \"🤬\", \"😢\", \"🎉\", \"🤩\", \"🤮\", \"💩\", \"🙏\", \"👌\", \"🕊\", \"🤡\", \"🥱\", \"🥴\", \"😍\", \"🐳\", \"❤‍🔥\", \"🌚\", \"🌭\", \"💯\", \"🤣\", \"⚡\", \"🍌\", \"🏆\", \"💔\", \"🤨\", \"😐\", \"🍓\", \"🍾\", \"💋\", \"🖕\", \"😈\", \"😴\", \"😭\", \"🤓\", \"👻\", \"👨‍💻\", \"👀\", \"🎃\", \"🙈\", \"😇\", \"😨\", \"🤝\", \"✍\", \"🤗\", \"🫡\", \"🎅\", \"🎄\", \"☃\", \"💅\", \"🤪\", \"🗿\", \"🆒\", \"💘\", \"🙉\", \"🦄\", \"😘\", \"💊\", \"🙊\", \"😎\", \"👾\", \"🤷‍♂\", \"🤷\", \"🤷‍♀\", \"😡\"",
+          "required": true,
+          "type": "string",
+          "enumeration": [
+            "👍",
+            "👎",
+            "❤",
+            "🔥",
+            "🥰",
+            "👏",
+            "😁",
+            "🤔",
+            "🤯",
+            "😱",
+            "🤬",
+            "😢",
+            "🎉",
+            "🤩",
+            "🤮",
+            "💩",
+            "🙏",
+            "👌",
+            "🕊",
+            "🤡",
+            "🥱",
+            "🥴",
+            "😍",
+            "🐳",
+            "❤‍🔥",
+            "🌚",
+            "🌭",
+            "💯",
+            "🤣",
+            "⚡",
+            "🍌",
+            "🏆",
+            "💔",
+            "🤨",
+            "😐",
+            "🍓",
+            "🍾",
+            "💋",
+            "🖕",
+            "😈",
+            "😴",
+            "😭",
+            "🤓",
+            "👻",
+            "👨‍💻",
+            "👀",
+            "🎃",
+            "🙈",
+            "😇",
+            "😨",
+            "🤝",
+            "✍",
+            "🤗",
+            "🫡",
+            "🎅",
+            "🎄",
+            "☃",
+            "💅",
+            "🤪",
+            "🗿",
+            "🆒",
+            "💘",
+            "🙉",
+            "🦄",
+            "😘",
+            "💊",
+            "🙊",
+            "😎",
+            "👾",
+            "🤷‍♂",
+            "🤷",
+            "🤷‍♀",
+            "😡"
+          ]
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#reactiontypeemoji"
+    },
+    {
+      "name": "ReactionTypeCustomEmoji",
+      "description": "The reaction is based on a custom emoji.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the reaction, always “custom\\_emoji”",
+          "required": true,
+          "type": "string",
+          "default": "custom_emoji"
+        },
+        {
+          "name": "custom_emoji_id",
+          "description": "Custom emoji identifier",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#reactiontypecustomemoji"
+    },
+    {
+      "name": "ReactionCount",
+      "description": "Represents a reaction added to a message along with the number of times it was added.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the reaction",
+          "required": true,
+          "type": "reference",
+          "reference": "ReactionType"
+        },
+        {
+          "name": "total_count",
+          "description": "Number of times the reaction was added",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#reactioncount"
+    },
+    {
+      "name": "MessageReactionUpdated",
+      "description": "This object represents a change of a reaction on a message performed by a user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "The chat containing the message the user reacted to",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "message_id",
+          "description": "Unique identifier of the message inside the chat",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "user",
+          "description": "*Optional*. The user that changed the reaction, if the user isn't anonymous",
+          "required": false,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "actor_chat",
+          "description": "*Optional*. The chat on behalf of which the reaction was changed, if the user is anonymous",
+          "required": false,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "date",
+          "description": "Date of the change in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "old_reaction",
+          "description": "Previous list of reaction types that were set by the user",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ReactionType"
+          }
+        },
+        {
+          "name": "new_reaction",
+          "description": "New list of reaction types that have been set by the user",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ReactionType"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messagereactionupdated"
+    },
+    {
+      "name": "MessageReactionCountUpdated",
+      "description": "This object represents reaction changes on a message with anonymous reactions.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "The chat containing the message",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "message_id",
+          "description": "Unique message identifier inside the chat",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "date",
+          "description": "Date of the change in Unix time",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "reactions",
+          "description": "List of reactions that are present on the message",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ReactionCount"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#messagereactioncountupdated"
     },
     {
       "name": "ForumTopic",
@@ -9385,6 +10585,211 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#menubuttondefault"
+    },
+    {
+      "name": "ChatBoostSource",
+      "description": "This object describes the source of a chat boost. It can be one of\n\n* [ChatBoostSourcePremium](https://core.telegram.org/bots/api/#chatboostsourcepremium)\n* [ChatBoostSourceGiftCode](https://core.telegram.org/bots/api/#chatboostsourcegiftcode)\n* [ChatBoostSourceGiveaway](https://core.telegram.org/bots/api/#chatboostsourcegiveaway)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "ChatBoostSourcePremium"
+        },
+        {
+          "type": "reference",
+          "reference": "ChatBoostSourceGiftCode"
+        },
+        {
+          "type": "reference",
+          "reference": "ChatBoostSourceGiveaway"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostsource"
+    },
+    {
+      "name": "ChatBoostSourcePremium",
+      "description": "The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "source",
+          "description": "Source of the boost, always “premium”",
+          "required": true,
+          "type": "string",
+          "default": "premium"
+        },
+        {
+          "name": "user",
+          "description": "User that boosted the chat",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostsourcepremium"
+    },
+    {
+      "name": "ChatBoostSourceGiftCode",
+      "description": "The boost was obtained by the creation of Telegram Premium gift codes to boost a chat. Each such code boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "source",
+          "description": "Source of the boost, always “gift\\_code”",
+          "required": true,
+          "type": "string",
+          "default": "gift_code"
+        },
+        {
+          "name": "user",
+          "description": "User for which the gift code was created",
+          "required": true,
+          "type": "reference",
+          "reference": "User"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostsourcegiftcode"
+    },
+    {
+      "name": "ChatBoostSourceGiveaway",
+      "description": "The boost was obtained by the creation of a Telegram Premium giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "source",
+          "description": "Source of the boost, always “giveaway”",
+          "required": true,
+          "type": "string",
+          "default": "giveaway"
+        },
+        {
+          "name": "giveaway_message_id",
+          "description": "Identifier of a message in the chat with the giveaway; the message could have been deleted already. May be 0 if the message isn't sent yet.",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "user",
+          "description": "*Optional*. User that won the prize in the giveaway if any",
+          "required": false,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "is_unclaimed",
+          "description": "*Optional*. True, if the giveaway was completed, but there was no user to win the prize",
+          "required": false,
+          "type": "bool"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostsourcegiveaway"
+    },
+    {
+      "name": "ChatBoost",
+      "description": "This object contains information about a chat boost.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "boost_id",
+          "description": "Unique identifier of the boost",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "add_date",
+          "description": "Point in time (Unix timestamp) when the chat was boosted",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "expiration_date",
+          "description": "Point in time (Unix timestamp) when the boost will automatically expire, unless the booster's Telegram Premium subscription is prolonged",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "source",
+          "description": "Source of the added boost",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatBoostSource"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboost"
+    },
+    {
+      "name": "ChatBoostUpdated",
+      "description": "This object represents a boost added to a chat or changed.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat which was boosted",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "boost",
+          "description": "Infomation about the chat boost",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatBoost"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostupdated"
+    },
+    {
+      "name": "ChatBoostRemoved",
+      "description": "This object represents a boost removed from a chat.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "chat",
+          "description": "Chat which was boosted",
+          "required": true,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "boost_id",
+          "description": "Unique identifier of the boost",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "remove_date",
+          "description": "Point in time (Unix timestamp) when the boost was removed",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "source",
+          "description": "Source of the removed boost",
+          "required": true,
+          "type": "reference",
+          "reference": "ChatBoostSource"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#chatboostremoved"
+    },
+    {
+      "name": "UserChatBoosts",
+      "description": "This object represents a list of boosts added to a chat by a user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "boosts",
+          "description": "The list of boosts added to the chat by the user",
+          "required": true,
+          "type": "array",
+          "array": {
+            "type": "reference",
+            "reference": "ChatBoost"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#userchatboosts"
     },
     {
       "name": "ResponseParameters",
@@ -11907,10 +13312,11 @@
           }
         },
         {
-          "name": "disable_web_page_preview",
-          "description": "*Optional*. Disables link previews for links in the sent message",
+          "name": "link_preview_options",
+          "description": "*Optional*. Link preview generation options for the message",
           "required": false,
-          "type": "bool"
+          "type": "reference",
+          "reference": "LinkPreviewOptions"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#inputtextmessagecontent"
@@ -12306,7 +13712,7 @@
       "properties": [
         {
           "name": "country_code",
-          "description": "Two-letter ISO 3166-1 alpha-2 country code",
+          "description": "Two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code",
           "required": true,
           "type": "string"
         },

@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "6.9.0"
+    "version": "7.0.0"
   },
   "servers": [
     {
@@ -46,7 +46,7 @@
                     "type": "integer"
                   },
                   "allowed_updates": {
-                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
+                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -76,7 +76,7 @@
                     "type": "integer"
                   },
                   "allowed_updates": {
-                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
+                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -106,7 +106,7 @@
                     "type": "integer"
                   },
                   "allowed_updates": {
-                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
+                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \n\nPlease note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -187,7 +187,7 @@
                     "type": "integer"
                   },
                   "allowed_updates": {
-                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member* (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
+                    "description": "A JSON-serialized list of the update types you want your bot to receive. For example, specify `[\"message\", \"edited_channel_post\", \"callback_query\"]` to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\\_member*, *message\\_reaction*, and *message\\_reaction\\_count* (default). If not specified, the previous setting will be used.  \nPlease note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.",
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -550,9 +550,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "disable_notification": {
                     "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
@@ -562,13 +561,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -630,9 +624,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "disable_notification": {
                     "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
@@ -642,13 +635,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -710,9 +698,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "disable_notification": {
                     "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
@@ -722,13 +709,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -796,7 +778,7 @@
     },
     "/forwardMessage": {
       "post": {
-        "description": "Use this method to forward messages of any kind. Service messages can't be forwarded. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+        "description": "Use this method to forward messages of any kind. Service messages and messages with protected content can't be forwarded. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#forwardmessage"
         },
@@ -992,9 +974,219 @@
         }
       }
     },
+    "/forwardMessages": {
+      "post": {
+        "description": "Use this method to forward multiple messages of any kind. If some of the specified messages can't be found or forwarded, they are skipped. Service messages and messages with protected content can't be forwarded. Album grouping is kept for forwarded messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#forwardmessages"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the forwarded messages from forwarding and saving",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the forwarded messages from forwarding and saving",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the forwarded messages from forwarding and saving",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MessageId"
+                      }
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/copyMessage": {
       "post": {
-        "description": "Use this method to copy messages of any kind. Service messages and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+        "description": "Use this method to copy messages of any kind. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#copymessage"
         },
@@ -1059,13 +1251,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1151,13 +1338,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1243,13 +1425,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1303,6 +1480,228 @@
                     },
                     "result": {
                       "$ref": "#/components/schemas/MessageId"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/copyMessages": {
+      "post": {
+        "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessages](https://core.telegram.org/bots/api/#forwardmessages), but the copied messages don't have a link to the original message. Album grouping is kept for copied messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#copymessages"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the sent messages from forwarding and saving",
+                    "type": "boolean"
+                  },
+                  "remove_caption": {
+                    "description": "Pass *True* to copy the messages without their captions",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the sent messages from forwarding and saving",
+                    "type": "boolean"
+                  },
+                  "remove_caption": {
+                    "description": "Pass *True* to copy the messages without their captions",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_thread_id": {
+                    "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
+                    "type": "integer"
+                  },
+                  "from_chat_id": {
+                    "description": "Unique identifier for the chat where the original messages were sent (or channel username in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "disable_notification": {
+                    "description": "Sends the messages [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+                    "type": "boolean"
+                  },
+                  "protect_content": {
+                    "description": "Protects the contents of the sent messages from forwarding and saving",
+                    "type": "boolean"
+                  },
+                  "remove_caption": {
+                    "description": "Pass *True* to copy the messages without their captions",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "from_chat_id",
+                  "message_ids"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/MessageId"
+                      }
                     }
                   },
                   "required": [
@@ -1383,13 +1782,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1541,13 +1935,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1691,13 +2080,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -1857,13 +2241,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2019,13 +2398,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2158,13 +2532,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2295,13 +2664,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2422,13 +2786,8 @@
                     "description": "Protects the contents of the sent messages from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the messages are a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   }
                 },
                 "required": [
@@ -2539,13 +2898,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2623,13 +2977,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2707,13 +3056,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2847,13 +3191,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -2941,13 +3280,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3035,13 +3369,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3161,13 +3490,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3237,13 +3561,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3313,13 +3632,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3483,13 +3797,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3605,13 +3914,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3727,13 +4031,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3848,13 +4147,8 @@
                     "description": "Protects the contents of the sent message from forwarding",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3919,13 +4213,8 @@
                     "description": "Protects the contents of the sent message from forwarding",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -3990,13 +4279,8 @@
                     "description": "Protects the contents of the sent message from forwarding",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -4195,6 +4479,166 @@
                 "required": [
                   "chat_id",
                   "action"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/setMessageReaction": {
+      "post": {
+        "description": "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#setmessagereaction"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.",
+                    "type": "integer"
+                  },
+                  "reaction": {
+                    "description": "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ReactionType"
+                    }
+                  },
+                  "is_big": {
+                    "description": "Pass *True* to set the reaction with a big animation",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.",
+                    "type": "integer"
+                  },
+                  "reaction": {
+                    "description": "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ReactionType"
+                    }
+                  },
+                  "is_big": {
+                    "description": "Pass *True* to set the reaction with a big animation",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_id": {
+                    "description": "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.",
+                    "type": "integer"
+                  },
+                  "reaction": {
+                    "description": "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ReactionType"
+                    }
+                  },
+                  "is_big": {
+                    "description": "Pass *True* to set the reaction with a big animation",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_id"
                 ]
               }
             }
@@ -7524,7 +7968,7 @@
     },
     "/getChat": {
       "post": {
-        "description": "Use this method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.). Returns a [Chat](https://core.telegram.org/bots/api/#chat) object on success.",
+        "description": "Use this method to get up to date information about the chat. Returns a [Chat](https://core.telegram.org/bots/api/#chat) object on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#getchat"
         },
@@ -9934,6 +10378,132 @@
         }
       }
     },
+    "/getUserChatBoosts": {
+      "post": {
+        "description": "Use this method to get the list of boosts added to a chat by a user. Requires administrator rights in the chat. Returns a [UserChatBoosts](https://core.telegram.org/bots/api/#userchatboosts) object.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#getuserchatboosts"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "user_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "user_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "user_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/UserChatBoosts"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/setMyCommands": {
       "post": {
         "description": "Use this method to change the list of the bot's commands. See [this manual](https://core.telegram.org/bots/features#commands) for more details about bot commands. Returns *True* on success.",
@@ -11174,9 +11744,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -11227,9 +11796,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -11280,9 +11848,8 @@
                       "$ref": "#/components/schemas/MessageEntity"
                     }
                   },
-                  "disable_web_page_preview": {
-                    "description": "Disables link previews for links in this message",
-                    "type": "boolean"
+                  "link_preview_options": {
+                    "$ref": "#/components/schemas/LinkPreviewOptions"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -12389,6 +12956,142 @@
         }
       }
     },
+    "/deleteMessages": {
+      "post": {
+        "description": "Use this method to delete multiple messages simultaneously. If some of the specified messages can't be found, they are skipped. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#deletemessages"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_ids"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "message_ids": {
+                    "description": "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "chat_id",
+                  "message_ids"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sendSticker": {
       "post": {
         "description": "Use this method to send static .WEBP, [animated](https://telegram.org/blog/animated-stickers) .TGS, or [video](https://telegram.org/blog/video-stickers-better-reactions) .WEBM stickers. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
@@ -12439,13 +13142,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove reply keyboard or to force a reply from the user.",
@@ -14262,13 +14960,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -14407,13 +15100,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -14552,13 +15240,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -15385,13 +16068,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -15427,13 +16105,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -15469,13 +16142,8 @@
                     "description": "Protects the contents of the sent message from forwarding and saving",
                     "type": "boolean"
                   },
-                  "reply_to_message_id": {
-                    "description": "If the message is a reply, ID of the original message",
-                    "type": "integer"
-                  },
-                  "allow_sending_without_reply": {
-                    "description": "Pass *True* if the message should be sent even if the specified replied-to message is not found",
-                    "type": "boolean"
+                  "reply_parameters": {
+                    "$ref": "#/components/schemas/ReplyParameters"
                   },
                   "reply_markup": {
                     "$ref": "#/components/schemas/InlineKeyboardMarkup"
@@ -15863,7 +16531,7 @@
         "type": "object",
         "properties": {
           "update_id": {
-            "description": "The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This ID becomes especially handy if you're using [webhooks](https://core.telegram.org/bots/api/#setwebhook), since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
+            "description": "The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using [webhooks](https://core.telegram.org/bots/api/#setwebhook), since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
             "type": "integer"
           },
           "message": {
@@ -15877,6 +16545,12 @@
           },
           "edited_channel_post": {
             "$ref": "#/components/schemas/Message"
+          },
+          "message_reaction": {
+            "$ref": "#/components/schemas/MessageReactionUpdated"
+          },
+          "message_reaction_count": {
+            "$ref": "#/components/schemas/MessageReactionCountUpdated"
           },
           "inline_query": {
             "$ref": "#/components/schemas/InlineQuery"
@@ -15907,6 +16581,12 @@
           },
           "chat_join_request": {
             "$ref": "#/components/schemas/ChatJoinRequest"
+          },
+          "chat_boost": {
+            "$ref": "#/components/schemas/ChatBoostUpdated"
+          },
+          "removed_chat_boost": {
+            "$ref": "#/components/schemas/ChatBoostRemoved"
           }
         },
         "required": [
@@ -16075,12 +16755,35 @@
               "type": "string"
             }
           },
+          "available_reactions": {
+            "description": "*Optional*. List of available reactions allowed in the chat. If omitted, then all [emoji reactions](https://core.telegram.org/bots/api/#reactiontypeemoji) are allowed. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReactionType"
+            }
+          },
+          "accent_color_id": {
+            "description": "*Optional*. Identifier of the accent color for the chat name and backgrounds of the chat photo, reply header, and link preview. See [accent colors](https://core.telegram.org/bots/api/#accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat). Always returned in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "integer"
+          },
+          "background_custom_emoji_id": {
+            "description": "*Optional*. Custom emoji identifier of emoji chosen by the chat for the reply header and link preview background. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "string"
+          },
+          "profile_accent_color_id": {
+            "description": "*Optional*. Identifier of the accent color for the chat's profile background. See [profile accent colors](https://core.telegram.org/bots/api/#profile-accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "integer"
+          },
+          "profile_background_custom_emoji_id": {
+            "description": "*Optional*. Custom emoji identifier of the emoji chosen by the chat for its profile background. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "string"
+          },
           "emoji_status_custom_emoji_id": {
-            "description": "*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "description": "*Optional*. Custom emoji identifier of the emoji status of the chat or the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "string"
           },
           "emoji_status_expiration_date": {
-            "description": "*Optional*. Expiration date of the emoji status of the other party in a private chat in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "description": "*Optional*. Expiration date of the emoji status of the chat or the other party in a private chat, in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "integer"
           },
           "bio": {
@@ -16137,6 +16840,10 @@
             "description": "*Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "boolean"
           },
+          "has_visible_history": {
+            "description": "*Optional*. *True*, if new chat members will have access to old messages; available only to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "boolean"
+          },
           "sticker_set_name": {
             "description": "*Optional*. For supergroups, name of group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "string"
@@ -16180,33 +16887,14 @@
             "$ref": "#/components/schemas/Chat"
           },
           "date": {
-            "description": "Date the message was sent in Unix time",
+            "description": "Date the message was sent in Unix time. It is always a positive number, representing a valid date.",
             "type": "integer"
           },
           "chat": {
             "$ref": "#/components/schemas/Chat"
           },
-          "forward_from": {
-            "$ref": "#/components/schemas/User"
-          },
-          "forward_from_chat": {
-            "$ref": "#/components/schemas/Chat"
-          },
-          "forward_from_message_id": {
-            "description": "*Optional*. For messages forwarded from channels, identifier of the original message in the channel",
-            "type": "integer"
-          },
-          "forward_signature": {
-            "description": "*Optional*. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present",
-            "type": "string"
-          },
-          "forward_sender_name": {
-            "description": "*Optional*. Sender's name for messages forwarded from users who disallow adding a link to their account in forwarded messages",
-            "type": "string"
-          },
-          "forward_date": {
-            "description": "*Optional*. For forwarded messages, date the original message was sent in Unix time",
-            "type": "integer"
+          "forward_origin": {
+            "$ref": "#/components/schemas/MessageOrigin"
           },
           "is_topic_message": {
             "description": "*Optional*. *True*, if the message is sent to a forum topic",
@@ -16218,6 +16906,12 @@
           },
           "reply_to_message": {
             "$ref": "#/components/schemas/Message"
+          },
+          "external_reply": {
+            "$ref": "#/components/schemas/ExternalReplyInfo"
+          },
+          "quote": {
+            "$ref": "#/components/schemas/TextQuote"
           },
           "via_bot": {
             "$ref": "#/components/schemas/User"
@@ -16248,6 +16942,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageEntity"
             }
+          },
+          "link_preview_options": {
+            "$ref": "#/components/schemas/LinkPreviewOptions"
           },
           "animation": {
             "$ref": "#/components/schemas/Animation"
@@ -16362,7 +17059,7 @@
             "type": "integer"
           },
           "pinned_message": {
-            "$ref": "#/components/schemas/Message"
+            "$ref": "#/components/schemas/MaybeInaccessibleMessage"
           },
           "invoice": {
             "$ref": "#/components/schemas/Invoice"
@@ -16370,8 +17067,8 @@
           "successful_payment": {
             "$ref": "#/components/schemas/SuccessfulPayment"
           },
-          "user_shared": {
-            "$ref": "#/components/schemas/UserShared"
+          "users_shared": {
+            "$ref": "#/components/schemas/UsersShared"
           },
           "chat_shared": {
             "$ref": "#/components/schemas/ChatShared"
@@ -16406,6 +17103,18 @@
           },
           "general_forum_topic_unhidden": {
             "$ref": "#/components/schemas/GeneralForumTopicUnhidden"
+          },
+          "giveaway_created": {
+            "$ref": "#/components/schemas/GiveawayCreated"
+          },
+          "giveaway": {
+            "$ref": "#/components/schemas/Giveaway"
+          },
+          "giveaway_winners": {
+            "$ref": "#/components/schemas/GiveawayWinners"
+          },
+          "giveaway_completed": {
+            "$ref": "#/components/schemas/GiveawayCompleted"
           },
           "video_chat_scheduled": {
             "$ref": "#/components/schemas/VideoChatScheduled"
@@ -16448,6 +17157,45 @@
           "message_id"
         ]
       },
+      "InaccessibleMessage": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#inaccessiblemessage"
+        },
+        "description": "This object describes a message that was deleted or is otherwise inaccessible to the bot.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "description": "Unique message identifier inside the chat",
+            "type": "integer"
+          },
+          "date": {
+            "description": "Always 0. The field can be used to differentiate regular and inaccessible messages.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chat",
+          "message_id",
+          "date"
+        ]
+      },
+      "MaybeInaccessibleMessage": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#maybeinaccessiblemessage"
+        },
+        "description": "This object describes a message that can be inaccessible to the bot. It can be one of\n\n* [Message](https://core.telegram.org/bots/api/#message)\n* [InaccessibleMessage](https://core.telegram.org/bots/api/#inaccessiblemessage)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Message"
+          },
+          {
+            "$ref": "#/components/schemas/InaccessibleMessage"
+          }
+        ]
+      },
       "MessageEntity": {
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#messageentity"
@@ -16456,7 +17204,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
+            "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
             "type": "string",
             "enum": [
               "mention",
@@ -16471,6 +17219,7 @@
               "underline",
               "strikethrough",
               "spoiler",
+              "blockquote",
               "code",
               "pre",
               "text_link",
@@ -16506,6 +17255,315 @@
           "type",
           "offset",
           "length"
+        ]
+      },
+      "TextQuote": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#textquote"
+        },
+        "description": "This object contains information about the quoted part of a message that is replied to by the given message.",
+        "type": "object",
+        "properties": {
+          "text": {
+            "description": "Text of the quoted part of a message that is replied to by the given message",
+            "type": "string"
+          },
+          "entities": {
+            "description": "*Optional*. Special entities that appear in the quote. Currently, only *bold*, *italic*, *underline*, *strikethrough*, *spoiler*, and *custom\\_emoji* entities are kept in quotes.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageEntity"
+            }
+          },
+          "position": {
+            "description": "Approximate quote position in the original message in UTF-16 code units as specified by the sender",
+            "type": "integer"
+          },
+          "is_manual": {
+            "description": "*Optional*. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "text",
+          "position"
+        ]
+      },
+      "ExternalReplyInfo": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#externalreplyinfo"
+        },
+        "description": "This object contains information about a message that is being replied to, which may come from another chat or forum topic.",
+        "type": "object",
+        "properties": {
+          "origin": {
+            "$ref": "#/components/schemas/MessageOrigin"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "description": "*Optional*. Unique message identifier inside the original chat. Available only if the original chat is a supergroup or a channel.",
+            "type": "integer"
+          },
+          "link_preview_options": {
+            "$ref": "#/components/schemas/LinkPreviewOptions"
+          },
+          "animation": {
+            "$ref": "#/components/schemas/Animation"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/Audio"
+          },
+          "document": {
+            "$ref": "#/components/schemas/Document"
+          },
+          "photo": {
+            "description": "*Optional*. Message is a photo, available sizes of the photo",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PhotoSize"
+            }
+          },
+          "sticker": {
+            "$ref": "#/components/schemas/Sticker"
+          },
+          "story": {
+            "$ref": "#/components/schemas/Story"
+          },
+          "video": {
+            "$ref": "#/components/schemas/Video"
+          },
+          "video_note": {
+            "$ref": "#/components/schemas/VideoNote"
+          },
+          "voice": {
+            "$ref": "#/components/schemas/Voice"
+          },
+          "has_media_spoiler": {
+            "description": "*Optional*. *True*, if the message media is covered by a spoiler animation",
+            "type": "boolean"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/Contact"
+          },
+          "dice": {
+            "$ref": "#/components/schemas/Dice"
+          },
+          "game": {
+            "$ref": "#/components/schemas/Game"
+          },
+          "giveaway": {
+            "$ref": "#/components/schemas/Giveaway"
+          },
+          "giveaway_winners": {
+            "$ref": "#/components/schemas/GiveawayWinners"
+          },
+          "invoice": {
+            "$ref": "#/components/schemas/Invoice"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "poll": {
+            "$ref": "#/components/schemas/Poll"
+          },
+          "venue": {
+            "$ref": "#/components/schemas/Venue"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "ReplyParameters": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#replyparameters"
+        },
+        "description": "Describes reply parameters for the message that is being sent.",
+        "type": "object",
+        "properties": {
+          "message_id": {
+            "description": "Identifier of the message that will be replied to in the current chat, or in the chat *chat\\_id* if it is specified",
+            "type": "integer"
+          },
+          "chat_id": {
+            "description": "*Optional*. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format `@channelusername`)",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "allow_sending_without_reply": {
+            "description": "*Optional*. Pass *True* if the message should be sent even if the specified message to be replied to is not found; can be used only for replies in the same chat and forum topic.",
+            "type": "boolean"
+          },
+          "quote": {
+            "description": "*Optional*. Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an exact substring of the message to be replied to, including *bold*, *italic*, *underline*, *strikethrough*, *spoiler*, and *custom\\_emoji* entities. The message will fail to send if the quote isn't found in the original message.",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 1024
+          },
+          "quote_parse_mode": {
+            "description": "*Optional*. Mode for parsing entities in the quote. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
+            "type": "string"
+          },
+          "quote_entities": {
+            "description": "*Optional*. A JSON-serialized list of special entities that appear in the quote. It can be specified instead of *quote\\_parse\\_mode*.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageEntity"
+            }
+          },
+          "quote_position": {
+            "description": "*Optional*. Position of the quote in the original message in UTF-16 code units",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
+      "MessageOrigin": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messageorigin"
+        },
+        "description": "This object describes the origin of a message. It can be one of\n\n* [MessageOriginUser](https://core.telegram.org/bots/api/#messageoriginuser)\n* [MessageOriginHiddenUser](https://core.telegram.org/bots/api/#messageoriginhiddenuser)\n* [MessageOriginChat](https://core.telegram.org/bots/api/#messageoriginchat)\n* [MessageOriginChannel](https://core.telegram.org/bots/api/#messageoriginchannel)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MessageOriginUser"
+          },
+          {
+            "$ref": "#/components/schemas/MessageOriginHiddenUser"
+          },
+          {
+            "$ref": "#/components/schemas/MessageOriginChat"
+          },
+          {
+            "$ref": "#/components/schemas/MessageOriginChannel"
+          }
+        ]
+      },
+      "MessageOriginUser": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messageoriginuser"
+        },
+        "description": "The message was originally sent by a known user.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the message origin, always “user”",
+            "default": "user",
+            "type": "string"
+          },
+          "date": {
+            "description": "Date the message was sent originally in Unix time",
+            "type": "integer"
+          },
+          "sender_user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "required": [
+          "type",
+          "date",
+          "sender_user"
+        ]
+      },
+      "MessageOriginHiddenUser": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messageoriginhiddenuser"
+        },
+        "description": "The message was originally sent by an unknown user.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the message origin, always “hidden\\_user”",
+            "default": "hidden_user",
+            "type": "string"
+          },
+          "date": {
+            "description": "Date the message was sent originally in Unix time",
+            "type": "integer"
+          },
+          "sender_user_name": {
+            "description": "Name of the user that sent the message originally",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "date",
+          "sender_user_name"
+        ]
+      },
+      "MessageOriginChat": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messageoriginchat"
+        },
+        "description": "The message was originally sent on behalf of a chat to a group chat.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the message origin, always “chat”",
+            "default": "chat",
+            "type": "string"
+          },
+          "date": {
+            "description": "Date the message was sent originally in Unix time",
+            "type": "integer"
+          },
+          "sender_chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "author_signature": {
+            "description": "*Optional*. For messages originally sent by an anonymous chat administrator, original message author signature",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "date",
+          "sender_chat"
+        ]
+      },
+      "MessageOriginChannel": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messageoriginchannel"
+        },
+        "description": "The message was originally sent to a channel chat.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the message origin, always “channel”",
+            "default": "channel",
+            "type": "string"
+          },
+          "date": {
+            "description": "Date the message was sent originally in Unix time",
+            "type": "integer"
+          },
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "description": "Unique message identifier inside the chat",
+            "type": "integer"
+          },
+          "author_signature": {
+            "description": "*Optional*. Signature of the original post author",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "date",
+          "chat",
+          "message_id"
         ]
       },
       "PhotoSize": {
@@ -17205,25 +18263,28 @@
         },
         "description": "This object represents a service message about General forum topic unhidden in the chat. Currently holds no information."
       },
-      "UserShared": {
+      "UsersShared": {
         "externalDocs": {
-          "url": "https://core.telegram.org/bots/api/#usershared"
+          "url": "https://core.telegram.org/bots/api/#usersshared"
         },
-        "description": "This object contains information about the user whose identifier was shared with the bot using a [KeyboardButtonRequestUser](https://core.telegram.org/bots/api/#keyboardbuttonrequestuser) button.",
+        "description": "This object contains information about the users whose identifiers were shared with the bot using a [KeyboardButtonRequestUsers](https://core.telegram.org/bots/api/#keyboardbuttonrequestusers) button.",
         "type": "object",
         "properties": {
           "request_id": {
             "description": "Identifier of the request",
             "type": "integer"
           },
-          "user_id": {
-            "description": "Identifier of the shared user. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the user and could be unable to use this identifier, unless the user is already known to the bot by some other means.",
-            "type": "integer"
+          "user_ids": {
+            "description": "Identifiers of the shared users. These numbers may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting them. But they have at most 52 significant bits, so 64-bit integers or double-precision float types are safe for storing these identifiers. The bot may not have access to the users and could be unable to use these identifiers, unless the users are already known to the bot by some other means.",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
           }
         },
         "required": [
           "request_id",
-          "user_id"
+          "user_ids"
         ]
       },
       "ChatShared": {
@@ -17324,6 +18385,178 @@
         "required": [
           "users"
         ]
+      },
+      "GiveawayCreated": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#giveawaycreated"
+        },
+        "description": "This object represents a service message about the creation of a scheduled giveaway. Currently holds no information."
+      },
+      "Giveaway": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#giveaway"
+        },
+        "description": "This object represents a message about a scheduled giveaway.",
+        "type": "object",
+        "properties": {
+          "chats": {
+            "description": "The list of chats which the user must join to participate in the giveaway",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Chat"
+            }
+          },
+          "winners_selection_date": {
+            "description": "Point in time (Unix timestamp) when winners of the giveaway will be selected",
+            "type": "integer"
+          },
+          "winner_count": {
+            "description": "The number of users which are supposed to be selected as winners of the giveaway",
+            "type": "integer"
+          },
+          "only_new_members": {
+            "description": "*Optional*. *True*, if only users who join the chats after the giveaway started should be eligible to win",
+            "type": "boolean"
+          },
+          "has_public_winners": {
+            "description": "*Optional*. *True*, if the list of giveaway winners will be visible to everyone",
+            "type": "boolean"
+          },
+          "prize_description": {
+            "description": "*Optional*. Description of additional giveaway prize",
+            "type": "string"
+          },
+          "country_codes": {
+            "description": "*Optional*. A list of two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes indicating the countries from which eligible users for the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number that was bought on Fragment can always participate in giveaways.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "premium_subscription_month_count": {
+            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chats",
+          "winners_selection_date",
+          "winner_count"
+        ]
+      },
+      "GiveawayWinners": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#giveawaywinners"
+        },
+        "description": "This object represents a message about the completion of a giveaway with public winners.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "giveaway_message_id": {
+            "description": "Identifier of the messsage with the giveaway in the chat",
+            "type": "integer"
+          },
+          "winners_selection_date": {
+            "description": "Point in time (Unix timestamp) when winners of the giveaway were selected",
+            "type": "integer"
+          },
+          "winner_count": {
+            "description": "Total number of winners in the giveaway",
+            "type": "integer"
+          },
+          "winners": {
+            "description": "List of up to 100 winners of the giveaway",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "additional_chat_count": {
+            "description": "*Optional*. The number of other chats the user had to join in order to be eligible for the giveaway",
+            "type": "integer"
+          },
+          "premium_subscription_month_count": {
+            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+            "type": "integer"
+          },
+          "unclaimed_prize_count": {
+            "description": "*Optional*. Number of undistributed prizes",
+            "type": "integer"
+          },
+          "only_new_members": {
+            "description": "*Optional*. *True*, if only users who had joined the chats after the giveaway started were eligible to win",
+            "type": "boolean"
+          },
+          "was_refunded": {
+            "description": "*Optional*. *True*, if the giveaway was canceled because the payment for it was refunded",
+            "type": "boolean"
+          },
+          "prize_description": {
+            "description": "*Optional*. Description of additional giveaway prize",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chat",
+          "giveaway_message_id",
+          "winners_selection_date",
+          "winner_count",
+          "winners"
+        ]
+      },
+      "GiveawayCompleted": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#giveawaycompleted"
+        },
+        "description": "This object represents a service message about the completion of a giveaway without public winners.",
+        "type": "object",
+        "properties": {
+          "winner_count": {
+            "description": "Number of winners in the giveaway",
+            "type": "integer"
+          },
+          "unclaimed_prize_count": {
+            "description": "*Optional*. Number of undistributed prizes",
+            "type": "integer"
+          },
+          "giveaway_message": {
+            "$ref": "#/components/schemas/Message"
+          }
+        },
+        "required": [
+          "winner_count"
+        ]
+      },
+      "LinkPreviewOptions": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#linkpreviewoptions"
+        },
+        "description": "Describes the options used for link preview generation.",
+        "type": "object",
+        "properties": {
+          "is_disabled": {
+            "description": "*Optional*. *True*, if the link preview is disabled",
+            "type": "boolean"
+          },
+          "url": {
+            "description": "*Optional*. URL to use for the link preview. If empty, then the first URL found in the message text will be used",
+            "type": "string"
+          },
+          "prefer_small_media": {
+            "description": "*Optional*. *True*, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+            "type": "boolean"
+          },
+          "prefer_large_media": {
+            "description": "*Optional*. *True*, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+            "type": "boolean"
+          },
+          "show_above_text": {
+            "description": "*Optional*. *True*, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text",
+            "type": "boolean"
+          }
+        }
       },
       "UserProfilePhotos": {
         "externalDocs": {
@@ -17436,7 +18669,7 @@
             "maxLength": 64
           },
           "selective": {
-            "description": "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.",
+            "description": "*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  \n\n*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.",
             "type": "boolean"
           }
         },
@@ -17448,15 +18681,15 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#keyboardbutton"
         },
-        "description": "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_user*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
+        "description": "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_users*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
         "type": "object",
         "properties": {
           "text": {
             "description": "Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed",
             "type": "string"
           },
-          "request_user": {
-            "$ref": "#/components/schemas/KeyboardButtonRequestUser"
+          "request_users": {
+            "$ref": "#/components/schemas/KeyboardButtonRequestUsers"
           },
           "request_chat": {
             "$ref": "#/components/schemas/KeyboardButtonRequestChat"
@@ -17480,24 +18713,29 @@
           "text"
         ]
       },
-      "KeyboardButtonRequestUser": {
+      "KeyboardButtonRequestUsers": {
         "externalDocs": {
-          "url": "https://core.telegram.org/bots/api/#keyboardbuttonrequestuser"
+          "url": "https://core.telegram.org/bots/api/#keyboardbuttonrequestusers"
         },
-        "description": "This object defines the criteria used to request a suitable user. The identifier of the selected user will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)",
+        "description": "This object defines the criteria used to request suitable users. The identifiers of the selected users will be shared with the bot when the corresponding button is pressed. [More about requesting users »](https://core.telegram.org/bots/features#chat-and-user-selection)",
         "type": "object",
         "properties": {
           "request_id": {
-            "description": "Signed 32-bit identifier of the request, which will be received back in the [UserShared](https://core.telegram.org/bots/api/#usershared) object. Must be unique within the message",
+            "description": "Signed 32-bit identifier of the request that will be received back in the [UsersShared](https://core.telegram.org/bots/api/#usersshared) object. Must be unique within the message",
             "type": "integer"
           },
           "user_is_bot": {
-            "description": "*Optional*. Pass *True* to request a bot, pass *False* to request a regular user. If not specified, no additional restrictions are applied.",
+            "description": "*Optional*. Pass *True* to request bots, pass *False* to request regular users. If not specified, no additional restrictions are applied.",
             "type": "boolean"
           },
           "user_is_premium": {
-            "description": "*Optional*. Pass *True* to request a premium user, pass *False* to request a non-premium user. If not specified, no additional restrictions are applied.",
+            "description": "*Optional*. Pass *True* to request premium users, pass *False* to request non-premium users. If not specified, no additional restrictions are applied.",
             "type": "boolean"
+          },
+          "max_quantity": {
+            "description": "*Optional*. The maximum number of users to be selected; 1-10. Defaults to 1.",
+            "default": 1,
+            "type": "integer"
           }
         },
         "required": [
@@ -17572,7 +18810,7 @@
             "type": "boolean"
           },
           "selective": {
-            "description": "*Optional*. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.  \n\n*Example:* A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.",
+            "description": "*Optional*. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  \n\n*Example:* A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.",
             "type": "boolean"
           }
         },
@@ -17614,7 +18852,7 @@
             "type": "string"
           },
           "url": {
-            "description": "*Optional*. HTTP or tg:// URL to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their ID without using a username, if this is allowed by their privacy settings.",
+            "description": "*Optional*. HTTP or tg:// URL to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings.",
             "type": "string"
           },
           "callback_data": {
@@ -17722,7 +18960,7 @@
             "$ref": "#/components/schemas/User"
           },
           "message": {
-            "$ref": "#/components/schemas/Message"
+            "$ref": "#/components/schemas/MaybeInaccessibleMessage"
           },
           "inline_message_id": {
             "description": "*Optional*. Identifier of the message sent via the bot in inline mode, that originated the query.",
@@ -17765,7 +19003,7 @@
             "maxLength": 64
           },
           "selective": {
-            "description": "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\\_to\\_message\\_id*), sender of the original message.",
+            "description": "*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.",
             "type": "boolean"
           }
         },
@@ -17932,6 +19170,45 @@
           "can_promote_members",
           "can_change_info",
           "can_invite_users"
+        ]
+      },
+      "ChatMemberUpdated": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatmemberupdated"
+        },
+        "description": "This object represents changes in the status of a chat member.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "from": {
+            "$ref": "#/components/schemas/User"
+          },
+          "date": {
+            "description": "Date the change was done in Unix time",
+            "type": "integer"
+          },
+          "old_chat_member": {
+            "$ref": "#/components/schemas/ChatMember"
+          },
+          "new_chat_member": {
+            "$ref": "#/components/schemas/ChatMember"
+          },
+          "invite_link": {
+            "$ref": "#/components/schemas/ChatInviteLink"
+          },
+          "via_chat_folder_invite_link": {
+            "description": "*Optional*. True, if the user joined the chat via a chat folder invite link",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "chat",
+          "from",
+          "date",
+          "old_chat_member",
+          "new_chat_member"
         ]
       },
       "ChatMember": {
@@ -18129,7 +19406,7 @@
             "type": "boolean"
           },
           "can_send_messages": {
-            "description": "*True*, if the user is allowed to send text messages, contacts, invoices, locations and venues",
+            "description": "*True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues",
             "type": "boolean"
           },
           "can_send_audios": {
@@ -18257,45 +19534,6 @@
           "until_date"
         ]
       },
-      "ChatMemberUpdated": {
-        "externalDocs": {
-          "url": "https://core.telegram.org/bots/api/#chatmemberupdated"
-        },
-        "description": "This object represents changes in the status of a chat member.",
-        "type": "object",
-        "properties": {
-          "chat": {
-            "$ref": "#/components/schemas/Chat"
-          },
-          "from": {
-            "$ref": "#/components/schemas/User"
-          },
-          "date": {
-            "description": "Date the change was done in Unix time",
-            "type": "integer"
-          },
-          "old_chat_member": {
-            "$ref": "#/components/schemas/ChatMember"
-          },
-          "new_chat_member": {
-            "$ref": "#/components/schemas/ChatMember"
-          },
-          "invite_link": {
-            "$ref": "#/components/schemas/ChatInviteLink"
-          },
-          "via_chat_folder_invite_link": {
-            "description": "*Optional*. True, if the user joined the chat via a chat folder invite link",
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "chat",
-          "from",
-          "date",
-          "old_chat_member",
-          "new_chat_member"
-        ]
-      },
       "ChatJoinRequest": {
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#chatjoinrequest"
@@ -18340,7 +19578,7 @@
         "type": "object",
         "properties": {
           "can_send_messages": {
-            "description": "*Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues",
+            "description": "*Optional*. *True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues",
             "type": "boolean"
           },
           "can_send_audios": {
@@ -18417,6 +19655,239 @@
         "required": [
           "location",
           "address"
+        ]
+      },
+      "ReactionType": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#reactiontype"
+        },
+        "description": "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReactionTypeEmoji"
+          },
+          {
+            "$ref": "#/components/schemas/ReactionTypeCustomEmoji"
+          }
+        ]
+      },
+      "ReactionTypeEmoji": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#reactiontypeemoji"
+        },
+        "description": "The reaction is based on an emoji.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the reaction, always “emoji”",
+            "default": "emoji",
+            "type": "string"
+          },
+          "emoji": {
+            "description": "Reaction emoji. Currently, it can be one of \"👍\", \"👎\", \"❤\", \"🔥\", \"🥰\", \"👏\", \"😁\", \"🤔\", \"🤯\", \"😱\", \"🤬\", \"😢\", \"🎉\", \"🤩\", \"🤮\", \"💩\", \"🙏\", \"👌\", \"🕊\", \"🤡\", \"🥱\", \"🥴\", \"😍\", \"🐳\", \"❤‍🔥\", \"🌚\", \"🌭\", \"💯\", \"🤣\", \"⚡\", \"🍌\", \"🏆\", \"💔\", \"🤨\", \"😐\", \"🍓\", \"🍾\", \"💋\", \"🖕\", \"😈\", \"😴\", \"😭\", \"🤓\", \"👻\", \"👨‍💻\", \"👀\", \"🎃\", \"🙈\", \"😇\", \"😨\", \"🤝\", \"✍\", \"🤗\", \"🫡\", \"🎅\", \"🎄\", \"☃\", \"💅\", \"🤪\", \"🗿\", \"🆒\", \"💘\", \"🙉\", \"🦄\", \"😘\", \"💊\", \"🙊\", \"😎\", \"👾\", \"🤷‍♂\", \"🤷\", \"🤷‍♀\", \"😡\"",
+            "type": "string",
+            "enum": [
+              "👍",
+              "👎",
+              "❤",
+              "🔥",
+              "🥰",
+              "👏",
+              "😁",
+              "🤔",
+              "🤯",
+              "😱",
+              "🤬",
+              "😢",
+              "🎉",
+              "🤩",
+              "🤮",
+              "💩",
+              "🙏",
+              "👌",
+              "🕊",
+              "🤡",
+              "🥱",
+              "🥴",
+              "😍",
+              "🐳",
+              "❤‍🔥",
+              "🌚",
+              "🌭",
+              "💯",
+              "🤣",
+              "⚡",
+              "🍌",
+              "🏆",
+              "💔",
+              "🤨",
+              "😐",
+              "🍓",
+              "🍾",
+              "💋",
+              "🖕",
+              "😈",
+              "😴",
+              "😭",
+              "🤓",
+              "👻",
+              "👨‍💻",
+              "👀",
+              "🎃",
+              "🙈",
+              "😇",
+              "😨",
+              "🤝",
+              "✍",
+              "🤗",
+              "🫡",
+              "🎅",
+              "🎄",
+              "☃",
+              "💅",
+              "🤪",
+              "🗿",
+              "🆒",
+              "💘",
+              "🙉",
+              "🦄",
+              "😘",
+              "💊",
+              "🙊",
+              "😎",
+              "👾",
+              "🤷‍♂",
+              "🤷",
+              "🤷‍♀",
+              "😡"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "emoji"
+        ]
+      },
+      "ReactionTypeCustomEmoji": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#reactiontypecustomemoji"
+        },
+        "description": "The reaction is based on a custom emoji.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of the reaction, always “custom\\_emoji”",
+            "default": "custom_emoji",
+            "type": "string"
+          },
+          "custom_emoji_id": {
+            "description": "Custom emoji identifier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "custom_emoji_id"
+        ]
+      },
+      "ReactionCount": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#reactioncount"
+        },
+        "description": "Represents a reaction added to a message along with the number of times it was added.",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReactionType"
+          },
+          "total_count": {
+            "description": "Number of times the reaction was added",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "type",
+          "total_count"
+        ]
+      },
+      "MessageReactionUpdated": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messagereactionupdated"
+        },
+        "description": "This object represents a change of a reaction on a message performed by a user.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "description": "Unique identifier of the message inside the chat",
+            "type": "integer"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "actor_chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "date": {
+            "description": "Date of the change in Unix time",
+            "type": "integer"
+          },
+          "old_reaction": {
+            "description": "Previous list of reaction types that were set by the user",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReactionType"
+            }
+          },
+          "new_reaction": {
+            "description": "New list of reaction types that have been set by the user",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReactionType"
+            }
+          }
+        },
+        "required": [
+          "chat",
+          "message_id",
+          "date",
+          "old_reaction",
+          "new_reaction"
+        ]
+      },
+      "MessageReactionCountUpdated": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#messagereactioncountupdated"
+        },
+        "description": "This object represents reaction changes on a message with anonymous reactions.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "message_id": {
+            "description": "Unique message identifier inside the chat",
+            "type": "integer"
+          },
+          "date": {
+            "description": "Date of the change in Unix time",
+            "type": "integer"
+          },
+          "reactions": {
+            "description": "List of reactions that are present on the message",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReactionCount"
+            }
+          }
+        },
+        "required": [
+          "chat",
+          "message_id",
+          "date",
+          "reactions"
         ]
       },
       "ForumTopic": {
@@ -18786,6 +20257,191 @@
         },
         "required": [
           "type"
+        ]
+      },
+      "ChatBoostSource": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostsource"
+        },
+        "description": "This object describes the source of a chat boost. It can be one of\n\n* [ChatBoostSourcePremium](https://core.telegram.org/bots/api/#chatboostsourcepremium)\n* [ChatBoostSourceGiftCode](https://core.telegram.org/bots/api/#chatboostsourcegiftcode)\n* [ChatBoostSourceGiveaway](https://core.telegram.org/bots/api/#chatboostsourcegiveaway)",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ChatBoostSourcePremium"
+          },
+          {
+            "$ref": "#/components/schemas/ChatBoostSourceGiftCode"
+          },
+          {
+            "$ref": "#/components/schemas/ChatBoostSourceGiveaway"
+          }
+        ]
+      },
+      "ChatBoostSourcePremium": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostsourcepremium"
+        },
+        "description": "The boost was obtained by subscribing to Telegram Premium or by gifting a Telegram Premium subscription to another user.",
+        "type": "object",
+        "properties": {
+          "source": {
+            "description": "Source of the boost, always “premium”",
+            "default": "premium",
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "required": [
+          "source",
+          "user"
+        ]
+      },
+      "ChatBoostSourceGiftCode": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostsourcegiftcode"
+        },
+        "description": "The boost was obtained by the creation of Telegram Premium gift codes to boost a chat. Each such code boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+        "type": "object",
+        "properties": {
+          "source": {
+            "description": "Source of the boost, always “gift\\_code”",
+            "default": "gift_code",
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "required": [
+          "source",
+          "user"
+        ]
+      },
+      "ChatBoostSourceGiveaway": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostsourcegiveaway"
+        },
+        "description": "The boost was obtained by the creation of a Telegram Premium giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+        "type": "object",
+        "properties": {
+          "source": {
+            "description": "Source of the boost, always “giveaway”",
+            "default": "giveaway",
+            "type": "string"
+          },
+          "giveaway_message_id": {
+            "description": "Identifier of a message in the chat with the giveaway; the message could have been deleted already. May be 0 if the message isn't sent yet.",
+            "type": "integer"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "is_unclaimed": {
+            "description": "*Optional*. True, if the giveaway was completed, but there was no user to win the prize",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "source",
+          "giveaway_message_id"
+        ]
+      },
+      "ChatBoost": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboost"
+        },
+        "description": "This object contains information about a chat boost.",
+        "type": "object",
+        "properties": {
+          "boost_id": {
+            "description": "Unique identifier of the boost",
+            "type": "string"
+          },
+          "add_date": {
+            "description": "Point in time (Unix timestamp) when the chat was boosted",
+            "type": "integer"
+          },
+          "expiration_date": {
+            "description": "Point in time (Unix timestamp) when the boost will automatically expire, unless the booster's Telegram Premium subscription is prolonged",
+            "type": "integer"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ChatBoostSource"
+          }
+        },
+        "required": [
+          "boost_id",
+          "add_date",
+          "expiration_date",
+          "source"
+        ]
+      },
+      "ChatBoostUpdated": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostupdated"
+        },
+        "description": "This object represents a boost added to a chat or changed.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "boost": {
+            "$ref": "#/components/schemas/ChatBoost"
+          }
+        },
+        "required": [
+          "chat",
+          "boost"
+        ]
+      },
+      "ChatBoostRemoved": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostremoved"
+        },
+        "description": "This object represents a boost removed from a chat.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "boost_id": {
+            "description": "Unique identifier of the boost",
+            "type": "string"
+          },
+          "remove_date": {
+            "description": "Point in time (Unix timestamp) when the boost was removed",
+            "type": "integer"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ChatBoostSource"
+          }
+        },
+        "required": [
+          "chat",
+          "boost_id",
+          "remove_date",
+          "source"
+        ]
+      },
+      "UserChatBoosts": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#userchatboosts"
+        },
+        "description": "This object represents a list of boosts added to a chat by a user.",
+        "type": "object",
+        "properties": {
+          "boosts": {
+            "description": "The list of boosts added to the chat by the user",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChatBoost"
+            }
+          }
+        },
+        "required": [
+          "boosts"
         ]
       },
       "ResponseParameters": {
@@ -20758,9 +22414,8 @@
               "$ref": "#/components/schemas/MessageEntity"
             }
           },
-          "disable_web_page_preview": {
-            "description": "*Optional*. Disables link previews for links in the sent message",
-            "type": "boolean"
+          "link_preview_options": {
+            "$ref": "#/components/schemas/LinkPreviewOptions"
           }
         },
         "required": [
@@ -21098,7 +22753,7 @@
         "type": "object",
         "properties": {
           "country_code": {
-            "description": "Two-letter ISO 3166-1 alpha-2 country code",
+            "description": "Two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code",
             "type": "string"
           },
           "state": {
