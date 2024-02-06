@@ -16821,7 +16821,7 @@
             "$ref": "#/components/schemas/ChatPermissions"
           },
           "slow_mode_delay": {
-            "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "integer"
           },
           "message_auto_delete_time": {
@@ -18455,7 +18455,7 @@
             "$ref": "#/components/schemas/Chat"
           },
           "giveaway_message_id": {
-            "description": "Identifier of the messsage with the giveaway in the chat",
+            "description": "Identifier of the message with the giveaway in the chat",
             "type": "integer"
           },
           "winners_selection_date": {
@@ -18545,11 +18545,11 @@
             "type": "string"
           },
           "prefer_small_media": {
-            "description": "*Optional*. *True*, if the media in the link preview is suppposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+            "description": "*Optional*. *True*, if the media in the link preview is supposed to be shrunk; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
             "type": "boolean"
           },
           "prefer_large_media": {
-            "description": "*Optional*. *True*, if the media in the link preview is suppposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
+            "description": "*Optional*. *True*, if the media in the link preview is supposed to be enlarged; ignored if the URL isn't explicitly specified or media size change isn't supported for the preview",
             "type": "boolean"
           },
           "show_above_text": {
