@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "7.0.0"
+    "version": "7.1.0"
   },
   "servers": [
     {
@@ -5381,7 +5381,7 @@
                     "type": "boolean"
                   },
                   "can_manage_chat": {
-                    "description": "Pass *True* if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+                    "description": "Pass *True* if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.",
                     "type": "boolean"
                   },
                   "can_delete_messages": {
@@ -5408,6 +5408,18 @@
                     "description": "Pass *True* if the administrator can invite new users to the chat",
                     "type": "boolean"
                   },
+                  "can_post_stories": {
+                    "description": "Pass *True* if the administrator can post stories to the chat",
+                    "type": "boolean"
+                  },
+                  "can_edit_stories": {
+                    "description": "Pass *True* if the administrator can edit stories posted by other users",
+                    "type": "boolean"
+                  },
+                  "can_delete_stories": {
+                    "description": "Pass *True* if the administrator can delete stories posted by other users",
+                    "type": "boolean"
+                  },
                   "can_post_messages": {
                     "description": "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only",
                     "type": "boolean"
@@ -5418,18 +5430,6 @@
                   },
                   "can_pin_messages": {
                     "description": "Pass *True* if the administrator can pin messages, supergroups only",
-                    "type": "boolean"
-                  },
-                  "can_post_stories": {
-                    "description": "Pass *True* if the administrator can post stories in the channel; channels only",
-                    "type": "boolean"
-                  },
-                  "can_edit_stories": {
-                    "description": "Pass *True* if the administrator can edit stories posted by other users; channels only",
-                    "type": "boolean"
-                  },
-                  "can_delete_stories": {
-                    "description": "Pass *True* if the administrator can delete stories posted by other users; channels only",
                     "type": "boolean"
                   },
                   "can_manage_topics": {
@@ -5467,7 +5467,7 @@
                     "type": "boolean"
                   },
                   "can_manage_chat": {
-                    "description": "Pass *True* if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+                    "description": "Pass *True* if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.",
                     "type": "boolean"
                   },
                   "can_delete_messages": {
@@ -5494,6 +5494,18 @@
                     "description": "Pass *True* if the administrator can invite new users to the chat",
                     "type": "boolean"
                   },
+                  "can_post_stories": {
+                    "description": "Pass *True* if the administrator can post stories to the chat",
+                    "type": "boolean"
+                  },
+                  "can_edit_stories": {
+                    "description": "Pass *True* if the administrator can edit stories posted by other users",
+                    "type": "boolean"
+                  },
+                  "can_delete_stories": {
+                    "description": "Pass *True* if the administrator can delete stories posted by other users",
+                    "type": "boolean"
+                  },
                   "can_post_messages": {
                     "description": "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only",
                     "type": "boolean"
@@ -5504,18 +5516,6 @@
                   },
                   "can_pin_messages": {
                     "description": "Pass *True* if the administrator can pin messages, supergroups only",
-                    "type": "boolean"
-                  },
-                  "can_post_stories": {
-                    "description": "Pass *True* if the administrator can post stories in the channel; channels only",
-                    "type": "boolean"
-                  },
-                  "can_edit_stories": {
-                    "description": "Pass *True* if the administrator can edit stories posted by other users; channels only",
-                    "type": "boolean"
-                  },
-                  "can_delete_stories": {
-                    "description": "Pass *True* if the administrator can delete stories posted by other users; channels only",
                     "type": "boolean"
                   },
                   "can_manage_topics": {
@@ -5553,7 +5553,7 @@
                     "type": "boolean"
                   },
                   "can_manage_chat": {
-                    "description": "Pass *True* if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+                    "description": "Pass *True* if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.",
                     "type": "boolean"
                   },
                   "can_delete_messages": {
@@ -5580,6 +5580,18 @@
                     "description": "Pass *True* if the administrator can invite new users to the chat",
                     "type": "boolean"
                   },
+                  "can_post_stories": {
+                    "description": "Pass *True* if the administrator can post stories to the chat",
+                    "type": "boolean"
+                  },
+                  "can_edit_stories": {
+                    "description": "Pass *True* if the administrator can edit stories posted by other users",
+                    "type": "boolean"
+                  },
+                  "can_delete_stories": {
+                    "description": "Pass *True* if the administrator can delete stories posted by other users",
+                    "type": "boolean"
+                  },
                   "can_post_messages": {
                     "description": "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only",
                     "type": "boolean"
@@ -5590,18 +5602,6 @@
                   },
                   "can_pin_messages": {
                     "description": "Pass *True* if the administrator can pin messages, supergroups only",
-                    "type": "boolean"
-                  },
-                  "can_post_stories": {
-                    "description": "Pass *True* if the administrator can post stories in the channel; channels only",
-                    "type": "boolean"
-                  },
-                  "can_edit_stories": {
-                    "description": "Pass *True* if the administrator can edit stories posted by other users; channels only",
-                    "type": "boolean"
-                  },
-                  "can_delete_stories": {
-                    "description": "Pass *True* if the administrator can delete stories posted by other users; channels only",
                     "type": "boolean"
                   },
                   "can_manage_topics": {
@@ -16824,6 +16824,10 @@
             "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "integer"
           },
+          "unrestrict_boost_count": {
+            "description": "*Optional*. For supergroups, the minimum number of boosts that a non-administrator user needs to add in order to ignore slow mode and chat permissions. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "integer"
+          },
           "message_auto_delete_time": {
             "description": "*Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "integer"
@@ -16851,6 +16855,10 @@
           "can_set_sticker_set": {
             "description": "*Optional*. *True*, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
             "type": "boolean"
+          },
+          "custom_emoji_sticker_set_name": {
+            "description": "*Optional*. For supergroups, the name of the group's custom emoji sticker set. Custom emoji from this set can be used by all users and bots in the group. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "type": "string"
           },
           "linked_chat_id": {
             "description": "*Optional*. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
@@ -16886,6 +16894,10 @@
           "sender_chat": {
             "$ref": "#/components/schemas/Chat"
           },
+          "sender_boost_count": {
+            "description": "*Optional*. If the sender of the message boosted the chat, the number of boosts added by the user",
+            "type": "integer"
+          },
           "date": {
             "description": "Date the message was sent in Unix time. It is always a positive number, representing a valid date.",
             "type": "integer"
@@ -16912,6 +16924,9 @@
           },
           "quote": {
             "$ref": "#/components/schemas/TextQuote"
+          },
+          "reply_to_story": {
+            "$ref": "#/components/schemas/Story"
           },
           "via_bot": {
             "$ref": "#/components/schemas/User"
@@ -17085,6 +17100,9 @@
           },
           "proximity_alert_triggered": {
             "$ref": "#/components/schemas/ProximityAlertTriggered"
+          },
+          "boost_added": {
+            "$ref": "#/components/schemas/ChatBoostAdded"
           },
           "forum_topic_created": {
             "$ref": "#/components/schemas/ForumTopicCreated"
@@ -17741,7 +17759,21 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#story"
         },
-        "description": "This object represents a message about a forwarded story in the chat. Currently holds no information."
+        "description": "This object represents a story.",
+        "type": "object",
+        "properties": {
+          "chat": {
+            "$ref": "#/components/schemas/Chat"
+          },
+          "id": {
+            "description": "Unique identifier for the story in the chat",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chat",
+          "id"
+        ]
       },
       "Video": {
         "externalDocs": {
@@ -18195,6 +18227,22 @@
         },
         "required": [
           "message_auto_delete_time"
+        ]
+      },
+      "ChatBoostAdded": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#chatboostadded"
+        },
+        "description": "This object represents a service message about a user boosting a chat.",
+        "type": "object",
+        "properties": {
+          "boost_count": {
+            "description": "Number of boosts added by the user",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "boost_count"
         ]
       },
       "ForumTopicCreated": {
@@ -19105,7 +19153,7 @@
             "type": "boolean"
           },
           "can_manage_chat": {
-            "description": "*True*, if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+            "description": "*True*, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.",
             "type": "boolean"
           },
           "can_delete_messages": {
@@ -19132,6 +19180,18 @@
             "description": "*True*, if the user is allowed to invite new users to the chat",
             "type": "boolean"
           },
+          "can_post_stories": {
+            "description": "*True*, if the administrator can post stories to the chat",
+            "type": "boolean"
+          },
+          "can_edit_stories": {
+            "description": "*True*, if the administrator can edit stories posted by other users",
+            "type": "boolean"
+          },
+          "can_delete_stories": {
+            "description": "*True*, if the administrator can delete stories posted by other users",
+            "type": "boolean"
+          },
           "can_post_messages": {
             "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only",
             "type": "boolean"
@@ -19142,18 +19202,6 @@
           },
           "can_pin_messages": {
             "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
-            "type": "boolean"
-          },
-          "can_post_stories": {
-            "description": "*Optional*. *True*, if the administrator can post stories in the channel; channels only",
-            "type": "boolean"
-          },
-          "can_edit_stories": {
-            "description": "*Optional*. *True*, if the administrator can edit stories posted by other users; channels only",
-            "type": "boolean"
-          },
-          "can_delete_stories": {
-            "description": "*Optional*. *True*, if the administrator can delete stories posted by other users; channels only",
             "type": "boolean"
           },
           "can_manage_topics": {
@@ -19169,7 +19217,10 @@
           "can_restrict_members",
           "can_promote_members",
           "can_change_info",
-          "can_invite_users"
+          "can_invite_users",
+          "can_post_stories",
+          "can_edit_stories",
+          "can_delete_stories"
         ]
       },
       "ChatMemberUpdated": {
@@ -19291,7 +19342,7 @@
             "type": "boolean"
           },
           "can_manage_chat": {
-            "description": "*True*, if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege",
+            "description": "*True*, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.",
             "type": "boolean"
           },
           "can_delete_messages": {
@@ -19318,6 +19369,18 @@
             "description": "*True*, if the user is allowed to invite new users to the chat",
             "type": "boolean"
           },
+          "can_post_stories": {
+            "description": "*True*, if the administrator can post stories to the chat",
+            "type": "boolean"
+          },
+          "can_edit_stories": {
+            "description": "*True*, if the administrator can edit stories posted by other users",
+            "type": "boolean"
+          },
+          "can_delete_stories": {
+            "description": "*True*, if the administrator can delete stories posted by other users",
+            "type": "boolean"
+          },
           "can_post_messages": {
             "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only",
             "type": "boolean"
@@ -19328,18 +19391,6 @@
           },
           "can_pin_messages": {
             "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
-            "type": "boolean"
-          },
-          "can_post_stories": {
-            "description": "*Optional*. *True*, if the administrator can post stories in the channel; channels only",
-            "type": "boolean"
-          },
-          "can_edit_stories": {
-            "description": "*Optional*. *True*, if the administrator can edit stories posted by other users; channels only",
-            "type": "boolean"
-          },
-          "can_delete_stories": {
-            "description": "*Optional*. *True*, if the administrator can delete stories posted by other users; channels only",
             "type": "boolean"
           },
           "can_manage_topics": {
@@ -19362,7 +19413,10 @@
           "can_restrict_members",
           "can_promote_members",
           "can_change_info",
-          "can_invite_users"
+          "can_invite_users",
+          "can_post_stories",
+          "can_edit_stories",
+          "can_delete_stories"
         ]
       },
       "ChatMemberMember": {
