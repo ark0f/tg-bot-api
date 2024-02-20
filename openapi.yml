@@ -11536,11 +11536,11 @@ components:
       description: This object represents a point on the map.
       type: object
       properties:
-        longitude:
-          description: Longitude as defined by sender
-          type: number
         latitude:
           description: Latitude as defined by sender
+          type: number
+        longitude:
+          description: Longitude as defined by sender
           type: number
         horizontal_accuracy:
           description: "*Optional*. The radius of uncertainty for the location, measured in meters; 0-1500"
@@ -11555,8 +11555,8 @@ components:
           description: "*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only."
           type: integer
       required:
-        - longitude
         - latitude
+        - longitude
     Venue:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#venue"

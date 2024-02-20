@@ -8127,14 +8127,14 @@
       "type": "properties",
       "properties": [
         {
-          "name": "longitude",
-          "description": "Longitude as defined by sender",
+          "name": "latitude",
+          "description": "Latitude as defined by sender",
           "required": true,
           "type": "float"
         },
         {
-          "name": "latitude",
-          "description": "Latitude as defined by sender",
+          "name": "longitude",
+          "description": "Longitude as defined by sender",
           "required": true,
           "type": "float"
         },

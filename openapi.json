@@ -18097,12 +18097,12 @@
         "description": "This object represents a point on the map.",
         "type": "object",
         "properties": {
-          "longitude": {
-            "description": "Longitude as defined by sender",
-            "type": "number"
-          },
           "latitude": {
             "description": "Latitude as defined by sender",
+            "type": "number"
+          },
+          "longitude": {
+            "description": "Longitude as defined by sender",
             "type": "number"
           },
           "horizontal_accuracy": {
@@ -18123,8 +18123,8 @@
           }
         },
         "required": [
-          "longitude",
-          "latitude"
+          "latitude",
+          "longitude"
         ]
       },
       "Venue": {
