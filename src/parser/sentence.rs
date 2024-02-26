@@ -114,11 +114,9 @@ impl PartialEq<&[Part]> for SearcherPattern {
 }
 
 #[derive(Debug, Clone, Logos, Eq, PartialEq)]
+#[logos(skip r"[, ]")]
+#[logos(skip "\n")]
 enum SentenceLexer {
-    #[error]
-    #[regex(r"[, ]", logos::skip)]
-    #[regex("\n", logos::skip)]
-    Error,
     #[regex(r#"[^, "“”\(\)\.\n]+"#)]
     Word,
     #[token(".")]
@@ -395,14 +393,19 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                 let lexer = SentenceLexer::lexer(text);
                 for (token, span) in lexer.spanned() {
                     let lexeme = &text[span.start..span.end];
-                    match token {
-                        SentenceLexer::Error => {
+
+                    let token = match token {
+                        Ok(token) => token,
+                        Err(()) => {
                             return Err(ParseError::Lexer {
                                 lexeme: lexeme.to_string(),
                                 input: text.to_string(),
                                 span,
                             });
                         }
+                    };
+
+                    match token {
                         SentenceLexer::Word if !paren => {
                             let part = Part::new(lexeme.to_string());
                             parts.push(part);
@@ -532,9 +535,9 @@ mod tests {
     #[test]
     fn sentence_lexer_quote_and_words() {
         let mut sentence = SentenceLexer::lexer("\" base quote");
-        assert_eq!(sentence.next(), Some(SentenceLexer::Quote));
-        assert_eq!(sentence.next(), Some(SentenceLexer::Word));
-        assert_eq!(sentence.next(), Some(SentenceLexer::Word));
+        assert_eq!(sentence.next(), Some(Ok(SentenceLexer::Quote)));
+        assert_eq!(sentence.next(), Some(Ok(SentenceLexer::Word)));
+        assert_eq!(sentence.next(), Some(Ok(SentenceLexer::Word)));
     }
 
     #[test]
