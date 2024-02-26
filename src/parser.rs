@@ -300,27 +300,41 @@ impl Type {
         };
 
         let ty = match Type::new(s) {
-            Type::Integer { .. } => Type::Integer {
-                default: default.as_deref().map(str::parse).transpose()?,
-                min: min.as_deref().map(str::parse).transpose()?,
-                max: max.as_deref().map(str::parse).transpose()?,
+            Type::Integer {
+                default: type_default,
+                min: type_min,
+                max: type_max,
+            } => Type::Integer {
+                default: default
+                    .as_deref()
+                    .map(str::parse)
+                    .transpose()?
+                    .or(type_default),
+                min: min.as_deref().map(str::parse).transpose()?.or(type_min),
+                max: max.as_deref().map(str::parse).transpose()?.or(type_max),
             },
-            Type::Bool { .. } => Type::Bool {
+            Type::Bool {
+                default: type_default,
+            } => Type::Bool {
                 default: default
                     .as_deref()
                     .map(str::to_lowercase)
                     .as_deref()
                     .map(str::parse)
-                    .transpose()?,
+                    .transpose()?
+                    .or(type_default),
             },
-            Type::String { .. }
-                if default.is_some() || min.is_some() || max.is_some() || one_of.is_some() =>
-            {
+            Type::String {
+                default: type_default,
+                min_len: type_min_len,
+                max_len: type_max_len,
+                one_of: type_one_if,
+            } if default.is_some() || min.is_some() || max.is_some() || one_of.is_some() => {
                 Type::String {
-                    default,
-                    min_len: min.as_deref().map(str::parse).transpose()?,
-                    max_len: max.as_deref().map(str::parse).transpose()?,
-                    one_of: one_of.unwrap_or_default(),
+                    default: default.or(type_default),
+                    min_len: min.as_deref().map(str::parse).transpose()?.or(type_min_len),
+                    max_len: max.as_deref().map(str::parse).transpose()?.or(type_max_len),
+                    one_of: one_of.unwrap_or(type_one_if),
                 }
             }
             x => x,
