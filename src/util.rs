@@ -19,7 +19,6 @@ pub trait ElementRefExt {
 impl ElementRefExt for ElementRef<'_> {
     fn plain_text(&self) -> String {
         self.traverse()
-            .into_iter()
             .filter_map(|edge| {
                 if let Edge::Open(node) = edge {
                     return match node.value() {
