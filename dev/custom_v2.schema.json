@@ -77,7 +77,7 @@
       }
     },
     "Kind": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "object",
           "required": [
@@ -285,7 +285,7 @@
     },
     "Object": {
       "type": "object",
-      "anyOf": [
+      "oneOf": [
         {
           "type": "object",
           "required": [
