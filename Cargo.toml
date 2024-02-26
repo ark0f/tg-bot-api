@@ -16,13 +16,14 @@ categories = ["development-tools", "parsing"]
 members = ["gh-pages-generator"]
 
 [dependencies]
-scraper = "0.12.0"
+scraper = "0.18.1"
 ego-tree = "0.6.2"
 thiserror = "1.0.22"
-itertools = "0.9.0"
+itertools = "0.12.1"
 chrono = "0.4.19"
-html2md = "0.2.13"
-semver = "0.11.0"
-logos = "0.12.0"
+html2md = "0.2.10"
+semver = "1.0.22"
+percent-encoding = "2.1.0"
+logos = "0.14.0"
 log = "0.4.14"
 tendril = "0.4.2"
