@@ -271,10 +271,10 @@ impl Type {
 
     fn new_with_description(s: &str, description: TypeParsingUnit) -> Result<Self> {
         let default = sentence::parse_type_custom(Pattern::Default, description, |sentence| {
-            sentence.parts().get(0).map(|part| part.as_inner().clone())
+            sentence.parts().first().map(|part| part.as_inner().clone())
         })?;
         let min_max = sentence::parse_type_custom(Pattern::MinMax, description, |sentence| {
-            let values = sentence.parts().get(0)?.as_inner();
+            let values = sentence.parts().first()?.as_inner();
             let mut split = values.split('-');
             let min = split.next()?.to_string();
             let max = split.next()?.to_string();
