@@ -41,7 +41,7 @@ pub enum ParseError {
     SemVer(
         #[from]
         #[source]
-        semver::SemVerError,
+        semver::Error,
     ),
     #[error("Integer parsing: {0}")]
     ParseInt(
