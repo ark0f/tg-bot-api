@@ -16679,10 +16679,12 @@
           },
           "is_premium": {
             "description": "*Optional*. *True*, if this user is a Telegram Premium user",
+            "default": true,
             "type": "boolean"
           },
           "added_to_attachment_menu": {
             "description": "*Optional*. *True*, if this user added the bot to the attachment menu",
+            "default": true,
             "type": "boolean"
           },
           "can_join_groups": {
@@ -16743,6 +16745,7 @@
           },
           "is_forum": {
             "description": "*Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled)",
+            "default": true,
             "type": "boolean"
           },
           "photo": {
@@ -16792,18 +16795,22 @@
           },
           "has_private_forwards": {
             "description": "*Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "has_restricted_voice_and_video_messages": {
             "description": "*Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "join_to_send_messages": {
             "description": "*Optional*. *True*, if users need to join the supergroup before they can send messages. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "join_by_request": {
             "description": "*Optional*. *True*, if all users directly joining the supergroup need to be approved by supergroup administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "description": {
@@ -16834,18 +16841,22 @@
           },
           "has_aggressive_anti_spam_enabled": {
             "description": "*Optional*. *True*, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "has_hidden_members": {
             "description": "*Optional*. *True*, if non-administrators can only get the list of bots and administrators in the chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "has_protected_content": {
             "description": "*Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "has_visible_history": {
             "description": "*Optional*. *True*, if new chat members will have access to old messages; available only to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "sticker_set_name": {
@@ -16854,6 +16865,7 @@
           },
           "can_set_sticker_set": {
             "description": "*Optional*. *True*, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
+            "default": true,
             "type": "boolean"
           },
           "custom_emoji_sticker_set_name": {
@@ -16910,10 +16922,12 @@
           },
           "is_topic_message": {
             "description": "*Optional*. *True*, if the message is sent to a forum topic",
+            "default": true,
             "type": "boolean"
           },
           "is_automatic_forward": {
             "description": "*Optional*. *True*, if the message is a channel post that was automatically forwarded to the connected discussion group",
+            "default": true,
             "type": "boolean"
           },
           "reply_to_message": {
@@ -16937,6 +16951,7 @@
           },
           "has_protected_content": {
             "description": "*Optional*. *True*, if the message can't be forwarded",
+            "default": true,
             "type": "boolean"
           },
           "media_group_id": {
@@ -17005,6 +17020,7 @@
           },
           "has_media_spoiler": {
             "description": "*Optional*. *True*, if the message media is covered by a spoiler animation",
+            "default": true,
             "type": "boolean"
           },
           "contact": {
@@ -17048,18 +17064,22 @@
           },
           "delete_chat_photo": {
             "description": "*Optional*. Service message: the chat photo was deleted",
+            "default": true,
             "type": "boolean"
           },
           "group_chat_created": {
             "description": "*Optional*. Service message: the group has been created",
+            "default": true,
             "type": "boolean"
           },
           "supergroup_chat_created": {
             "description": "*Optional*. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply\\_to\\_message if someone replies to a very first message in a directly created supergroup.",
+            "default": true,
             "type": "boolean"
           },
           "channel_chat_created": {
             "description": "*Optional*. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply\\_to\\_message if someone replies to a very first message in a channel.",
+            "default": true,
             "type": "boolean"
           },
           "message_auto_delete_timer_changed": {
@@ -17299,6 +17319,7 @@
           },
           "is_manual": {
             "description": "*Optional*. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.",
+            "default": true,
             "type": "boolean"
           }
         },
@@ -17360,6 +17381,7 @@
           },
           "has_media_spoiler": {
             "description": "*Optional*. *True*, if the message media is covered by a spoiler animation",
+            "default": true,
             "type": "boolean"
           },
           "contact": {
@@ -18464,10 +18486,12 @@
           },
           "only_new_members": {
             "description": "*Optional*. *True*, if only users who join the chats after the giveaway started should be eligible to win",
+            "default": true,
             "type": "boolean"
           },
           "has_public_winners": {
             "description": "*Optional*. *True*, if the list of giveaway winners will be visible to everyone",
+            "default": true,
             "type": "boolean"
           },
           "prize_description": {
@@ -18535,10 +18559,12 @@
           },
           "only_new_members": {
             "description": "*Optional*. *True*, if only users who had joined the chats after the giveaway started were eligible to win",
+            "default": true,
             "type": "boolean"
           },
           "was_refunded": {
             "description": "*Optional*. *True*, if the giveaway was canceled because the payment for it was refunded",
+            "default": true,
             "type": "boolean"
           },
           "prize_description": {
@@ -18855,6 +18881,7 @@
         "properties": {
           "remove_keyboard": {
             "description": "Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use *one\\_time\\_keyboard* in [ReplyKeyboardMarkup](https://core.telegram.org/bots/api/#replykeyboardmarkup))",
+            "default": true,
             "type": "boolean"
           },
           "selective": {
@@ -19042,6 +19069,7 @@
         "properties": {
           "force_reply": {
             "description": "Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'",
+            "default": true,
             "type": "boolean"
           },
           "input_field_placeholder": {
@@ -20393,6 +20421,7 @@
           },
           "is_unclaimed": {
             "description": "*Optional*. True, if the giveaway was completed, but there was no user to win the prize",
+            "default": true,
             "type": "boolean"
           }
         },
@@ -20902,6 +20931,7 @@
           },
           "needs_repainting": {
             "description": "*Optional*. *True*, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places",
+            "default": true,
             "type": "boolean"
           },
           "file_size": {
