@@ -469,7 +469,7 @@ pub(crate) fn parse_node(elem: NodeRef<Node>) -> Result<Vec<Sentence>, ParseErro
                     ("li", _) => {
                         if !parts.is_empty() {
                             sentences.push(Sentence {
-                                parts: parts.drain(..).collect(),
+                                parts: mem::take(&mut parts),
                             });
                         }
 
