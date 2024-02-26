@@ -18,7 +18,7 @@ Custom schema thar more convenient to work with:
 
 * [`/custom_v2.json`](https://ark0f.github.io/tg-bot-api/custom_v2.json)
 * [`/custom_v2.schema.json`](https://ark0f.github.io/tg-bot-api/custom_v2.schema.json) - JSON Schema Draft #7
-  for `/custom.json`
+  for `/custom_v2.json`
 
 Documentation can be found at [CUSTOM_SCHEMA.md](CUSTOM_SCHEMA.md).
 
