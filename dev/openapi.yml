@@ -643,7 +643,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -675,7 +675,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -707,7 +707,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -957,7 +957,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -992,7 +992,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -1027,7 +1027,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
+                  description: "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order."
                   type: array
                   items:
                     type: integer
@@ -2710,7 +2710,7 @@ paths:
                     - type: integer
                     - type: string
                 message_thread_id:
-                  description: Unique identifier for the target message thread; supergroups only
+                  description: Unique identifier for the target message thread; for supergroups only
                   type: integer
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
@@ -2740,7 +2740,7 @@ paths:
                     - type: integer
                     - type: string
                 message_thread_id:
-                  description: Unique identifier for the target message thread; supergroups only
+                  description: Unique identifier for the target message thread; for supergroups only
                   type: integer
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
@@ -2770,7 +2770,7 @@ paths:
                     - type: integer
                     - type: string
                 message_thread_id:
-                  description: Unique identifier for the target message thread; supergroups only
+                  description: Unique identifier for the target message thread; for supergroups only
                   type: integer
                 action:
                   description: "Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for [text messages](https://core.telegram.org/bots/api/#sendmessage), *upload\\_photo* for [photos](https://core.telegram.org/bots/api/#sendphoto), *record\\_video* or *upload\\_video* for [videos](https://core.telegram.org/bots/api/#sendvideo), *record\\_voice* or *upload\\_voice* for [voice notes](https://core.telegram.org/bots/api/#sendvoice), *upload\\_document* for [general files](https://core.telegram.org/bots/api/#senddocument), *choose\\_sticker* for [stickers](https://core.telegram.org/bots/api/#sendsticker), *find\\_location* for [location data](https://core.telegram.org/bots/api/#sendlocation), *record\\_video\\_note* or *upload\\_video\\_note* for [video notes](https://core.telegram.org/bots/api/#sendvideonote)."
@@ -2834,7 +2834,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -2857,7 +2857,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -2880,7 +2880,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -3390,16 +3390,16 @@ paths:
                   description: Pass *True* if the administrator can delete stories posted by other users
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only"
+                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; for channels only"
                   type: boolean
                 can_edit_messages:
-                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; channels only
+                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; for channels only
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True* if the administrator can pin messages, supergroups only"
+                  description: Pass *True* if the administrator can pin messages; for supergroups only
                   type: boolean
                 can_manage_topics:
-                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3450,16 +3450,16 @@ paths:
                   description: Pass *True* if the administrator can delete stories posted by other users
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only"
+                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; for channels only"
                   type: boolean
                 can_edit_messages:
-                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; channels only
+                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; for channels only
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True* if the administrator can pin messages, supergroups only"
+                  description: Pass *True* if the administrator can pin messages; for supergroups only
                   type: boolean
                 can_manage_topics:
-                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -3510,16 +3510,16 @@ paths:
                   description: Pass *True* if the administrator can delete stories posted by other users
                   type: boolean
                 can_post_messages:
-                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only"
+                  description: "Pass *True* if the administrator can post messages in the channel, or access channel statistics; for channels only"
                   type: boolean
                 can_edit_messages:
-                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; channels only
+                  description: Pass *True* if the administrator can edit messages of other users and can pin messages; for channels only
                   type: boolean
                 can_pin_messages:
-                  description: "Pass *True* if the administrator can pin messages, supergroups only"
+                  description: Pass *True* if the administrator can pin messages; for supergroups only
                   type: boolean
                 can_manage_topics:
-                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only"
+                  description: "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only"
                   type: boolean
               required:
                 - chat_id
@@ -8025,7 +8025,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
+                  description: "A JSON-serialized list of 1-100 identifiers of messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
                   type: array
                   items:
                     type: integer
@@ -8042,7 +8042,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
+                  description: "A JSON-serialized list of 1-100 identifiers of messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
                   type: array
                   items:
                     type: integer
@@ -8059,7 +8059,7 @@ paths:
                     - type: integer
                     - type: string
                 message_ids:
-                  description: "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
+                  description: "A JSON-serialized list of 1-100 identifiers of messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted"
                   type: array
                   items:
                     type: integer
@@ -8227,7 +8227,7 @@ paths:
               type: object
               properties:
                 custom_emoji_ids:
-                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  description: A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
                   type: array
                   items:
                     type: string
@@ -8238,7 +8238,7 @@ paths:
               type: object
               properties:
                 custom_emoji_ids:
-                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  description: A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
                   type: array
                   items:
                     type: string
@@ -8249,7 +8249,7 @@ paths:
               type: object
               properties:
                 custom_emoji_ids:
-                  description: List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
+                  description: A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.
                   type: array
                   items:
                     type: string
@@ -12351,16 +12351,16 @@ components:
           description: "*True*, if the administrator can delete stories posted by other users"
           type: boolean
         can_post_messages:
-          description: "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only"
+          description: "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; for channels only"
           type: boolean
         can_edit_messages:
-          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only"
+          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; for channels only"
           type: boolean
         can_pin_messages:
-          description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
+          description: "*Optional*. *True*, if the user is allowed to pin messages; for groups and supergroups only"
           type: boolean
         can_manage_topics:
-          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only"
+          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only"
           type: boolean
       required:
         - is_anonymous
@@ -12484,16 +12484,16 @@ components:
           description: "*True*, if the administrator can delete stories posted by other users"
           type: boolean
         can_post_messages:
-          description: "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only"
+          description: "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; for channels only"
           type: boolean
         can_edit_messages:
-          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only"
+          description: "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; for channels only"
           type: boolean
         can_pin_messages:
-          description: "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only"
+          description: "*Optional*. *True*, if the user is allowed to pin messages; for groups and supergroups only"
           type: boolean
         can_manage_topics:
-          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only"
+          description: "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only"
           type: boolean
         custom_title:
           description: "*Optional*. Custom title for this user"
@@ -15160,16 +15160,16 @@ components:
             - phone_number
             - email
         data:
-          description: "*Optional*. Base64-encoded encrypted Telegram Passport element data provided by the user, available for “personal\\_details”, “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport” and “address” types. Can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
+          description: "*Optional*. Base64-encoded encrypted Telegram Passport element data provided by the user; available only for “personal\\_details”, “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport” and “address” types. Can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
           type: string
         phone_number:
-          description: "*Optional*. User's verified phone number, available only for “phone\\_number” type"
+          description: "*Optional*. User's verified phone number; available only for “phone\\_number” type"
           type: string
         email:
-          description: "*Optional*. User's verified email address, available only for “email” type"
+          description: "*Optional*. User's verified email address; available only for “email” type"
           type: string
         files:
-          description: "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
+          description: "*Optional*. Array of encrypted files with documents provided by the user; available only for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
           type: array
           items:
             $ref: "#/components/schemas/PassportFile"
@@ -15180,7 +15180,7 @@ components:
         selfie:
           $ref: "#/components/schemas/PassportFile"
         translation:
-          description: "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
+          description: "*Optional*. Array of encrypted files with translated versions of documents provided by the user; available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials)."
           type: array
           items:
             $ref: "#/components/schemas/PassportFile"

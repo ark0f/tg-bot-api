@@ -385,7 +385,7 @@
         },
         {
           "name": "message_ids",
-          "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
+          "description": "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to forward. The identifiers must be specified in a strictly increasing order.",
           "required": true,
           "type": "array",
           "array": {
@@ -574,7 +574,7 @@
         },
         {
           "name": "message_ids",
-          "description": "Identifiers of 1-100 messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
+          "description": "A JSON-serialized list of 1-100 identifiers of messages in the chat *from\\_chat\\_id* to copy. The identifiers must be specified in a strictly increasing order.",
           "required": true,
           "type": "array",
           "array": {
@@ -2247,7 +2247,7 @@
         },
         {
           "name": "message_thread_id",
-          "description": "Unique identifier for the target message thread; supergroups only",
+          "description": "Unique identifier for the target message thread; for supergroups only",
           "required": false,
           "type": "integer"
         },
@@ -2304,7 +2304,7 @@
         },
         {
           "name": "reaction",
-          "description": "New list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+          "description": "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
           "required": false,
           "type": "array",
           "array": {
@@ -2602,25 +2602,25 @@
         },
         {
           "name": "can_post_messages",
-          "description": "Pass *True* if the administrator can post messages in the channel, or access channel statistics; channels only",
+          "description": "Pass *True* if the administrator can post messages in the channel, or access channel statistics; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "Pass *True* if the administrator can edit messages of other users and can pin messages; channels only",
+          "description": "Pass *True* if the administrator can edit messages of other users and can pin messages; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "Pass *True* if the administrator can pin messages, supergroups only",
+          "description": "Pass *True* if the administrator can pin messages; for supergroups only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_topics",
-          "description": "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only",
+          "description": "Pass *True* if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -4713,7 +4713,7 @@
         },
         {
           "name": "message_ids",
-          "description": "Identifiers of 1-100 messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
+          "description": "A JSON-serialized list of 1-100 identifiers of messages to delete. See [deleteMessage](https://core.telegram.org/bots/api/#deletemessage) for limitations on which messages can be deleted",
           "required": true,
           "type": "array",
           "array": {
@@ -4848,7 +4848,7 @@
       "arguments": [
         {
           "name": "custom_emoji_ids",
-          "description": "List of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.",
+          "description": "A JSON-serialized list of custom emoji identifiers. At most 200 custom emoji identifiers can be specified.",
           "required": true,
           "type": "array",
           "array": {
@@ -9437,25 +9437,25 @@
         },
         {
           "name": "can_post_messages",
-          "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only",
+          "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only",
+          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
+          "description": "*Optional*. *True*, if the user is allowed to pin messages; for groups and supergroups only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_topics",
-          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only",
+          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only",
           "required": false,
           "type": "bool"
         }
@@ -9676,25 +9676,25 @@
         },
         {
           "name": "can_post_messages",
-          "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only",
+          "description": "*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_edit_messages",
-          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only",
+          "description": "*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; for channels only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_pin_messages",
-          "description": "*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only",
+          "description": "*Optional*. *True*, if the user is allowed to pin messages; for groups and supergroups only",
           "required": false,
           "type": "bool"
         },
         {
           "name": "can_manage_topics",
-          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only",
+          "description": "*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only",
           "required": false,
           "type": "bool"
         },
@@ -14126,25 +14126,25 @@
         },
         {
           "name": "data",
-          "description": "*Optional*. Base64-encoded encrypted Telegram Passport element data provided by the user, available for “personal\\_details”, “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport” and “address” types. Can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Base64-encoded encrypted Telegram Passport element data provided by the user; available only for “personal\\_details”, “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport” and “address” types. Can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "string"
         },
         {
           "name": "phone_number",
-          "description": "*Optional*. User's verified phone number, available only for “phone\\_number” type",
+          "description": "*Optional*. User's verified phone number; available only for “phone\\_number” type",
           "required": false,
           "type": "string"
         },
         {
           "name": "email",
-          "description": "*Optional*. User's verified email address, available only for “email” type",
+          "description": "*Optional*. User's verified email address; available only for “email” type",
           "required": false,
           "type": "string"
         },
         {
           "name": "files",
-          "description": "*Optional*. Array of encrypted files with documents provided by the user, available for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Array of encrypted files with documents provided by the user; available only for “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "array",
           "array": {
@@ -14154,28 +14154,28 @@
         },
         {
           "name": "front_side",
-          "description": "*Optional*. Encrypted file with the front side of the document, provided by the user. Available for “passport”, “driver\\_license”, “identity\\_card” and “internal\\_passport”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Encrypted file with the front side of the document, provided by the user; available only for “passport”, “driver\\_license”, “identity\\_card” and “internal\\_passport”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "reference",
           "reference": "PassportFile"
         },
         {
           "name": "reverse_side",
-          "description": "*Optional*. Encrypted file with the reverse side of the document, provided by the user. Available for “driver\\_license” and “identity\\_card”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Encrypted file with the reverse side of the document, provided by the user; available only for “driver\\_license” and “identity\\_card”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "reference",
           "reference": "PassportFile"
         },
         {
           "name": "selfie",
-          "description": "*Optional*. Encrypted file with the selfie of the user holding a document, provided by the user; available for “passport”, “driver\\_license”, “identity\\_card” and “internal\\_passport”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Encrypted file with the selfie of the user holding a document, provided by the user; available if requested for “passport”, “driver\\_license”, “identity\\_card” and “internal\\_passport”. The file can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "reference",
           "reference": "PassportFile"
         },
         {
           "name": "translation",
-          "description": "*Optional*. Array of encrypted files with translated versions of documents provided by the user. Available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
+          "description": "*Optional*. Array of encrypted files with translated versions of documents provided by the user; available if requested for “passport”, “driver\\_license”, “identity\\_card”, “internal\\_passport”, “utility\\_bill”, “bank\\_statement”, “rental\\_agreement”, “passport\\_registration” and “temporary\\_registration” types. Files can be decrypted and verified using the accompanying [EncryptedCredentials](https://core.telegram.org/bots/api/#encryptedcredentials).",
           "required": false,
           "type": "array",
           "array": {
