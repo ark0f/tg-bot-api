@@ -223,9 +223,12 @@ impl TypeExt for ParserType {
             | this @ ParserType::Float
             | this @ ParserType::Array(_) => {
                 let schema_type = match this {
-                    ParserType::Integer { min, max, .. } => Type::Integer(IntegerType {
+                    ParserType::Integer {
+                        min, max, one_of, ..
+                    } => Type::Integer(IntegerType {
                         minimum: min,
                         maximum: max,
+                        enumeration: one_of,
                         ..IntegerType::default()
                     }),
                     ParserType::String {
