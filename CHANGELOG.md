@@ -1,5 +1,9 @@
 Format: vX.Y.Z (DD-MM-YYYY)
 
+# v0.6.0 (09.03.2024)
+
+Parse `icon_color` field enumeration
+
 # v0.5.0 (26.02.2024)
 
 * Update dependencies
