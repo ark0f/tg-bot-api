@@ -81,6 +81,7 @@
         {
           "type": "object",
           "required": [
+            "enumeration",
             "type"
           ],
           "properties": {
@@ -90,6 +91,13 @@
                 "null"
               ],
               "format": "int64"
+            },
+            "enumeration": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
             },
             "max": {
               "type": [

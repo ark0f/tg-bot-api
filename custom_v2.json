@@ -19,7 +19,8 @@
           "description": "Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as [getUpdates](https://core.telegram.org/bots/api/#getupdates) is called with an *offset* higher than its *update\\_id*. The negative offset can be specified to retrieve updates starting from *-offset* update from the end of the updates queue. All previous updates will be forgotten.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -30,7 +31,8 @@
             "type": "integer",
             "default": 100,
             "min": 1,
-            "max": 100
+            "max": 100,
+            "enumeration": []
           }
         },
         {
@@ -39,7 +41,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 0
+            "default": 0,
+            "enumeration": []
           }
         },
         {
@@ -102,7 +105,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 40
+            "default": 40,
+            "enumeration": []
           }
         },
         {
@@ -220,7 +224,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -234,7 +239,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -349,7 +355,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -363,7 +370,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -374,7 +382,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -404,7 +413,8 @@
           "description": "Message identifier in the chat specified in *from\\_chat\\_id*",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -427,7 +437,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -441,7 +452,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -452,7 +464,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -468,7 +481,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         },
@@ -511,7 +525,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -525,7 +540,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -536,7 +552,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -550,7 +567,8 @@
           "description": "Message identifier in the chat specified in *from\\_chat\\_id*",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -656,7 +674,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -670,7 +689,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -681,7 +701,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -697,7 +718,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         },
@@ -748,7 +770,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -762,7 +785,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -894,7 +918,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -908,7 +933,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -966,7 +992,8 @@
           "description": "Duration of the audio in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1076,7 +1103,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1090,7 +1118,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1240,7 +1269,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1254,7 +1284,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1280,7 +1311,8 @@
           "description": "Duration of sent video in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1288,7 +1320,8 @@
           "description": "Video width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1296,7 +1329,8 @@
           "description": "Video height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1436,7 +1470,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1450,7 +1485,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1476,7 +1512,8 @@
           "description": "Duration of sent animation in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1484,7 +1521,8 @@
           "description": "Animation width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1492,7 +1530,8 @@
           "description": "Animation height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1624,7 +1663,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1638,7 +1678,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1696,7 +1737,8 @@
           "description": "Duration of the voice message in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1770,7 +1812,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1784,7 +1827,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1810,7 +1854,8 @@
           "description": "Duration of sent video in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1818,7 +1863,8 @@
           "description": "Video width and height, i.e. diameter of the video message",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -1910,7 +1956,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -1924,7 +1971,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2004,7 +2052,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2018,7 +2067,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2050,7 +2100,8 @@
           "description": "Period in seconds for which the location will be updated (see [Live Locations](https://telegram.org/blog/live-locations), should be between 60 and 86400.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2058,7 +2109,8 @@
           "description": "For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2066,7 +2118,8 @@
           "description": "For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2140,7 +2193,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2154,7 +2208,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2298,7 +2353,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2312,7 +2368,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2422,7 +2479,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2436,7 +2494,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2495,7 +2554,8 @@
           "description": "0-based identifier of the correct answer option, required for polls in quiz mode",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2535,7 +2595,8 @@
           "description": "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2543,7 +2604,8 @@
           "description": "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2625,7 +2687,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2639,7 +2702,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2730,7 +2794,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2744,7 +2809,8 @@
           "description": "Unique identifier for the target message thread; for supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2788,7 +2854,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2802,7 +2869,8 @@
           "description": "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2842,7 +2910,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2850,7 +2919,8 @@
           "description": "Sequential number of the first photo to be returned. By default, all photos are returned.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2861,7 +2931,8 @@
             "type": "integer",
             "default": 100,
             "min": 1,
-            "max": 100
+            "max": 100,
+            "enumeration": []
           }
         }
       ],
@@ -2905,7 +2976,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2919,7 +2991,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2927,7 +3000,8 @@
           "description": "Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -2958,7 +3032,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -2972,7 +3047,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3003,7 +3079,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3017,7 +3094,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3042,7 +3120,8 @@
           "description": "Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3065,7 +3144,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3079,7 +3159,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3222,7 +3303,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3236,7 +3318,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3270,7 +3353,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3284,7 +3368,8 @@
           "description": "Unique identifier of the target sender chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3307,7 +3392,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3321,7 +3407,8 @@
           "description": "Unique identifier of the target sender chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3344,7 +3431,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3390,7 +3478,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3419,7 +3508,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3444,7 +3534,8 @@
           "description": "Point in time (Unix timestamp) when the link will expire",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3452,7 +3543,8 @@
           "description": "The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3483,7 +3575,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3517,7 +3610,8 @@
           "description": "Point in time (Unix timestamp) when the link will expire",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3525,7 +3619,8 @@
           "description": "The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3556,7 +3651,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3594,7 +3690,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3608,7 +3705,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3631,7 +3729,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3645,7 +3744,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3668,7 +3768,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3706,7 +3807,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3735,7 +3837,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3775,7 +3878,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3815,7 +3919,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3829,7 +3934,8 @@
           "description": "Identifier of a message to pin",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -3860,7 +3966,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3874,7 +3981,8 @@
           "description": "Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -3897,7 +4005,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3926,7 +4035,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3955,7 +4065,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -3984,7 +4095,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4016,7 +4128,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4028,7 +4141,8 @@
       ],
       "maybe_multipart": false,
       "return_type": {
-        "type": "integer"
+        "type": "integer",
+        "enumeration": []
       },
       "documentation_link": "https://core.telegram.org/bots/api/#getchatmembercount"
     },
@@ -4044,7 +4158,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4058,7 +4173,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4081,7 +4197,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4119,7 +4236,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4162,7 +4280,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4187,7 +4306,15 @@
           "description": "Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": [
+              7322096,
+              16766590,
+              13338331,
+              9367192,
+              16749490,
+              16478047
+            ]
           }
         },
         {
@@ -4219,7 +4346,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4233,7 +4361,8 @@
           "description": "Unique identifier for the target message thread of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -4276,7 +4405,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4290,7 +4420,8 @@
           "description": "Unique identifier for the target message thread of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4313,7 +4444,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4327,7 +4459,8 @@
           "description": "Unique identifier for the target message thread of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4350,7 +4483,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4364,7 +4498,8 @@
           "description": "Unique identifier for the target message thread of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4387,7 +4522,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4401,7 +4537,8 @@
           "description": "Unique identifier for the target message thread of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4424,7 +4561,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4464,7 +4602,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4493,7 +4632,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4522,7 +4662,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4551,7 +4692,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4580,7 +4722,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4645,7 +4788,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 0
+            "default": 0,
+            "enumeration": []
           }
         }
       ],
@@ -4668,7 +4812,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -4682,7 +4827,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -4966,7 +5112,8 @@
           "description": "Unique identifier for the target private chat. If not specified, default bot's menu button will be changed",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -4995,7 +5142,8 @@
           "description": "Unique identifier for the target private chat. If not specified, default bot's menu button will be returned",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -5067,7 +5215,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5081,7 +5230,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5172,7 +5322,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5186,7 +5337,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5268,7 +5420,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5282,7 +5435,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5341,7 +5495,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5355,7 +5510,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5396,7 +5552,8 @@
           "description": "Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5404,7 +5561,8 @@
           "description": "The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5445,7 +5603,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5459,7 +5618,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message with live location to stop",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5509,7 +5669,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5523,7 +5684,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the message to edit",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5573,7 +5735,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5587,7 +5750,8 @@
           "description": "Identifier of the original message with the poll",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5619,7 +5783,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5633,7 +5798,8 @@
           "description": "Identifier of the message to delete",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -5656,7 +5822,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5672,7 +5839,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         }
@@ -5696,7 +5864,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -5710,7 +5879,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5856,7 +6026,8 @@
           "description": "User identifier of sticker file owner",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5898,7 +6069,8 @@
           "description": "User identifier of created sticker set owner",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -5985,7 +6157,8 @@
           "description": "User identifier of sticker set owner",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6032,7 +6205,8 @@
           "description": "New sticker position in the set, zero-based",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -6210,7 +6384,8 @@
           "description": "User identifier of the sticker set owner",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6321,7 +6496,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 300
+            "default": 300,
+            "enumeration": []
           }
         },
         {
@@ -6400,7 +6576,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -6414,7 +6591,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6484,7 +6662,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 0
+            "default": 0,
+            "enumeration": []
           }
         },
         {
@@ -6494,7 +6673,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         },
@@ -6530,7 +6710,8 @@
           "description": "Photo size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6538,7 +6719,8 @@
           "description": "Photo width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6546,7 +6728,8 @@
           "description": "Photo height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6718,7 +6901,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 0
+            "default": 0,
+            "enumeration": []
           }
         },
         {
@@ -6728,7 +6912,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         },
@@ -6755,7 +6940,8 @@
           "description": "Photo size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6763,7 +6949,8 @@
           "description": "Photo width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6771,7 +6958,8 @@
           "description": "Photo height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6935,7 +7123,8 @@
           "description": "User identifier",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6967,7 +7156,8 @@
           "description": "Unique identifier for the target chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -6975,7 +7165,8 @@
           "description": "Unique identifier for the target message thread (topic) of the forum; for forum supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7038,7 +7229,8 @@
           "description": "User identifier",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7046,7 +7238,8 @@
           "description": "New score, must be non-negative",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7070,7 +7263,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7078,7 +7272,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the sent message",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7116,7 +7311,8 @@
           "description": "Target user id",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7124,7 +7320,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7132,7 +7329,8 @@
           "description": "Required if *inline\\_message\\_id* is not specified. Identifier of the sent message",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7167,7 +7365,8 @@
           "description": "The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using [webhooks](https://core.telegram.org/bots/api/#setwebhook), since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7362,7 +7561,8 @@
           "description": "Number of updates awaiting delivery",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7379,7 +7579,8 @@
           "description": "*Optional*. Unix time for the most recent error that happened when trying to deliver an update via webhook",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7396,7 +7597,8 @@
           "description": "*Optional*. Unix time of the most recent error that happened when trying to synchronize available updates with Telegram datacenters",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7404,7 +7606,8 @@
           "description": "*Optional*. The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7432,7 +7635,8 @@
           "description": "Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7534,7 +7738,8 @@
           "description": "Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7634,7 +7839,8 @@
           "description": "*Optional*. Identifier of the accent color for the chat name and backgrounds of the chat photo, reply header, and link preview. See [accent colors](https://core.telegram.org/bots/api/#accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat). Always returned in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7651,7 +7857,8 @@
           "description": "*Optional*. Identifier of the accent color for the chat's profile background. See [profile accent colors](https://core.telegram.org/bots/api/#profile-accent-colors) for more details. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7677,7 +7884,8 @@
           "description": "*Optional*. Expiration date of the emoji status of the chat or the other party in a private chat, in Unix time, if any. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7766,7 +7974,8 @@
           "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7774,7 +7983,8 @@
           "description": "*Optional*. For supergroups, the minimum number of boosts that a non-administrator user needs to add in order to ignore slow mode and chat permissions. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7782,7 +7992,8 @@
           "description": "*Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7853,7 +8064,8 @@
           "description": "*Optional*. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7878,7 +8090,8 @@
           "description": "Unique message identifier inside this chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7886,7 +8099,8 @@
           "description": "*Optional*. Unique identifier of a message thread to which the message belongs; for supergroups only",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7912,7 +8126,8 @@
           "description": "*Optional*. If the sender of the message boosted the chat, the number of boosts added by the user",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -7920,7 +8135,8 @@
           "description": "Date the message was sent in Unix time. It is always a positive number, representing a valid date.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8009,7 +8225,8 @@
           "description": "*Optional*. Date the message was last edited in Unix time",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8329,7 +8546,8 @@
           "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8337,7 +8555,8 @@
           "description": "*Optional*. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8587,7 +8806,8 @@
           "description": "Unique message identifier",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -8612,7 +8832,8 @@
           "description": "Unique message identifier inside the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8620,7 +8841,8 @@
           "description": "Always 0. The field can be used to differentiate regular and inaccessible messages.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -8680,7 +8902,8 @@
           "description": "Offset in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length) to the start of the entity",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8688,7 +8911,8 @@
           "description": "Length of the entity in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length)",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8761,7 +8985,8 @@
           "description": "Approximate quote position in the original message in UTF-16 code units as specified by the sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -8804,7 +9029,8 @@
           "description": "*Optional*. Unique message identifier inside the original chat. Available only if the original chat is a supergroup or a channel.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9003,7 +9229,8 @@
           "description": "Identifier of the message that will be replied to in the current chat, or in the chat *chat\\_id* if it is specified",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9014,7 +9241,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -9068,7 +9296,8 @@
           "description": "*Optional*. Position of the quote in the original message in UTF-16 code units",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9118,7 +9347,8 @@
           "description": "Date the message was sent originally in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9153,7 +9383,8 @@
           "description": "Date the message was sent originally in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9188,7 +9419,8 @@
           "description": "Date the message was sent originally in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9232,7 +9464,8 @@
           "description": "Date the message was sent originally in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9249,7 +9482,8 @@
           "description": "Unique message identifier inside the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9292,7 +9526,8 @@
           "description": "Photo width",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9300,7 +9535,8 @@
           "description": "Photo height",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9308,7 +9544,8 @@
           "description": "*Optional*. File size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9342,7 +9579,8 @@
           "description": "Video width as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9350,7 +9588,8 @@
           "description": "Video height as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9358,7 +9597,8 @@
           "description": "Duration of the video in seconds as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9393,7 +9633,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9427,7 +9668,8 @@
           "description": "Duration of the audio in seconds as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9471,7 +9713,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9541,7 +9784,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9566,7 +9810,8 @@
           "description": "Unique identifier for the story in the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9600,7 +9845,8 @@
           "description": "Video width as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9608,7 +9854,8 @@
           "description": "Video height as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9616,7 +9863,8 @@
           "description": "Duration of the video in seconds as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9651,7 +9899,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9685,7 +9934,8 @@
           "description": "Video width and height (diameter of the video message) as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9693,7 +9943,8 @@
           "description": "Duration of the video in seconds as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9710,7 +9961,8 @@
           "description": "*Optional*. File size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9744,7 +9996,8 @@
           "description": "Duration of the audio in seconds as defined by sender",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9761,7 +10014,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9804,7 +10058,8 @@
           "description": "*Optional*. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -9838,7 +10093,8 @@
           "description": "Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9865,7 +10121,8 @@
           "description": "Number of users that voted for this option",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -9910,7 +10167,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         }
@@ -9959,7 +10217,8 @@
           "description": "Total number of users that voted in the poll",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10003,7 +10262,8 @@
           "description": "*Optional*. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10034,7 +10294,8 @@
           "description": "*Optional*. Amount of time in seconds the poll will be active after creation",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10042,7 +10303,8 @@
           "description": "*Optional*. Point in time (Unix timestamp) when the poll will be automatically closed",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10082,7 +10344,8 @@
           "description": "*Optional*. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10090,7 +10353,8 @@
           "description": "*Optional*. The direction in which user is moving, in degrees; 1-360. For active live locations only.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10098,7 +10362,8 @@
           "description": "*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10229,7 +10494,8 @@
           "description": "The distance between the users",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10245,7 +10511,8 @@
           "description": "New auto-delete time for messages in the chat; in seconds",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10261,7 +10528,8 @@
           "description": "Number of boosts added by the user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10286,7 +10554,8 @@
           "description": "Color of the topic icon in RGB format",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10361,7 +10630,8 @@
           "description": "Identifier of the request",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10371,7 +10641,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         }
@@ -10388,7 +10659,8 @@
           "description": "Identifier of the request",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10396,7 +10668,8 @@
           "description": "Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10445,7 +10718,8 @@
           "description": "Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10467,7 +10741,8 @@
           "description": "Video chat duration in seconds",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10521,7 +10796,8 @@
           "description": "Point in time (Unix timestamp) when winners of the giveaway will be selected",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10529,7 +10805,8 @@
           "description": "The number of users which are supposed to be selected as winners of the giveaway",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10576,7 +10853,8 @@
           "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -10601,7 +10879,8 @@
           "description": "Identifier of the message with the giveaway in the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10609,7 +10888,8 @@
           "description": "Point in time (Unix timestamp) when winners of the giveaway were selected",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10617,7 +10897,8 @@
           "description": "Total number of winners in the giveaway",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10637,7 +10918,8 @@
           "description": "*Optional*. The number of other chats the user had to join in order to be eligible for the giveaway",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10645,7 +10927,8 @@
           "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10653,7 +10936,8 @@
           "description": "*Optional*. Number of undistributed prizes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10696,7 +10980,8 @@
           "description": "Number of winners in the giveaway",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10704,7 +10989,8 @@
           "description": "*Optional*. Number of undistributed prizes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10778,7 +11064,8 @@
           "description": "Total number of profile pictures the target user has",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -10827,7 +11114,8 @@
           "description": "*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -11007,7 +11295,8 @@
           "description": "Signed 32-bit identifier of the request that will be received back in the [UsersShared](https://core.telegram.org/bots/api/#usersshared) object. Must be unique within the message",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -11032,7 +11321,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 1
+            "default": 1,
+            "enumeration": []
           }
         }
       ],
@@ -11048,7 +11338,8 @@
           "description": "Signed 32-bit identifier of the request, which will be received back in the [ChatShared](https://core.telegram.org/bots/api/#chatshared) object. Must be unique within the message",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -11578,7 +11869,8 @@
           "description": "*Optional*. Point in time (Unix timestamp) when the link will expire or has been expired",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -11586,7 +11878,8 @@
           "description": "*Optional*. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -11594,7 +11887,8 @@
           "description": "*Optional*. Number of pending join requests created using this link",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -11756,7 +12050,8 @@
           "description": "Date the change was done in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12213,7 +12508,8 @@
           "description": "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -12275,7 +12571,8 @@
           "description": "Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -12309,7 +12606,8 @@
           "description": "Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot can use this identifier for 5 minutes to send messages until the join request is processed, assuming no other administrator contacted the user.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12317,7 +12615,8 @@
           "description": "Date the request was sent in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12652,7 +12951,8 @@
           "description": "Number of times the reaction was added",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -12677,7 +12977,8 @@
           "description": "Unique identifier of the message inside the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12703,7 +13004,8 @@
           "description": "Date of the change in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12752,7 +13054,8 @@
           "description": "Unique message identifier inside the chat",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12760,7 +13063,8 @@
           "description": "Date of the change in Unix time",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12788,7 +13092,8 @@
           "description": "Unique identifier of the forum topic",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12805,7 +13110,8 @@
           "description": "Color of the topic icon in RGB format",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -12981,7 +13287,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -13016,7 +13323,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -13051,7 +13359,8 @@
             "type": "any_of",
             "any_of": [
               {
-                "type": "integer"
+                "type": "integer",
+                "enumeration": []
               },
               {
                 "type": "string",
@@ -13065,7 +13374,8 @@
           "description": "Unique identifier of the target user",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -13308,7 +13618,8 @@
           "description": "Identifier of a message in the chat with the giveaway; the message could have been deleted already. May be 0 if the message isn't sent yet.",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13351,7 +13662,8 @@
           "description": "Point in time (Unix timestamp) when the chat was boosted",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13359,7 +13671,8 @@
           "description": "Point in time (Unix timestamp) when the boost will automatically expire, unless the booster's Telegram Premium subscription is prolonged",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13428,7 +13741,8 @@
           "description": "Point in time (Unix timestamp) when the boost was removed",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13473,7 +13787,8 @@
           "description": "*Optional*. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13481,7 +13796,8 @@
           "description": "*Optional*. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -13661,7 +13977,8 @@
           "description": "*Optional*. Video width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13669,7 +13986,8 @@
           "description": "*Optional*. Video height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13677,7 +13995,8 @@
           "description": "*Optional*. Video duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13778,7 +14097,8 @@
           "description": "*Optional*. Animation width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13786,7 +14106,8 @@
           "description": "*Optional*. Animation height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13794,7 +14115,8 @@
           "description": "*Optional*. Animation duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -13887,7 +14209,8 @@
           "description": "*Optional*. Duration of the audio in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14043,7 +14366,8 @@
           "description": "Sticker width",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14051,7 +14375,8 @@
           "description": "Sticker height",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14138,7 +14463,8 @@
           "description": "*Optional*. File size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -14609,7 +14935,8 @@
           "description": "*Optional*. Thumbnail width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14617,7 +14944,8 @@
           "description": "*Optional*. Thumbnail height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -14670,7 +14998,8 @@
           "description": "*Optional*. Width of the photo",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14678,7 +15007,8 @@
           "description": "*Optional*. Height of the photo",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14790,7 +15120,8 @@
           "description": "*Optional*. Width of the GIF",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14798,7 +15129,8 @@
           "description": "*Optional*. Height of the GIF",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14806,7 +15138,8 @@
           "description": "*Optional*. Duration of the GIF in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14932,7 +15265,8 @@
           "description": "*Optional*. Video width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14940,7 +15274,8 @@
           "description": "*Optional*. Video height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -14948,7 +15283,8 @@
           "description": "*Optional*. Video duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15136,7 +15472,8 @@
           "description": "*Optional*. Video width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15144,7 +15481,8 @@
           "description": "*Optional*. Video height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15152,7 +15490,8 @@
           "description": "*Optional*. Video duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15273,7 +15612,8 @@
           "description": "*Optional*. Audio duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15376,7 +15716,8 @@
           "description": "*Optional*. Recording duration in seconds",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15527,7 +15868,8 @@
           "description": "*Optional*. Thumbnail width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15535,7 +15877,8 @@
           "description": "*Optional*. Thumbnail height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -15603,7 +15946,8 @@
           "description": "*Optional*. Period in seconds for which the location can be updated, should be between 60 and 86400.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15611,7 +15955,8 @@
           "description": "*Optional*. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15619,7 +15964,8 @@
           "description": "*Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15654,7 +16000,8 @@
           "description": "*Optional*. Thumbnail width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15662,7 +16009,8 @@
           "description": "*Optional*. Thumbnail height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -15794,7 +16142,8 @@
           "description": "*Optional*. Thumbnail width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15802,7 +16151,8 @@
           "description": "*Optional*. Thumbnail height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -15900,7 +16250,8 @@
           "description": "*Optional*. Thumbnail width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -15908,7 +16259,8 @@
           "description": "*Optional*. Thumbnail height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -16807,7 +17159,8 @@
           "description": "*Optional*. Period in seconds for which the location can be updated, should be between 60 and 86400.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -16815,7 +17168,8 @@
           "description": "*Optional*. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -16823,7 +17177,8 @@
           "description": "*Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -17023,7 +17378,8 @@
           "required": false,
           "type_info": {
             "type": "integer",
-            "default": 0
+            "default": 0,
+            "enumeration": []
           }
         },
         {
@@ -17033,7 +17389,8 @@
           "type_info": {
             "type": "array",
             "array": {
-              "type": "integer"
+              "type": "integer",
+              "enumeration": []
             }
           }
         },
@@ -17060,7 +17417,8 @@
           "description": "*Optional*. Photo size in bytes",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17068,7 +17426,8 @@
           "description": "*Optional*. Photo width",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17076,7 +17435,8 @@
           "description": "*Optional*. Photo height",
           "required": false,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17227,7 +17587,8 @@
           "description": "Price of the product in the *smallest units* of the [currency](https://core.telegram.org/bots/payments#supported-currencies) (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -17279,7 +17640,8 @@
           "description": "Total price in the *smallest units* of the currency (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -17448,7 +17810,8 @@
           "description": "Total price in the *smallest units* of the currency (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17580,7 +17943,8 @@
           "description": "Total price in the *smallest units* of the currency (integer, **not** float/double). For example, for a price of `US$ 1.45` pass `amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17670,7 +18034,8 @@
           "description": "File size in bytes",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -17678,7 +18043,8 @@
           "description": "Unix time when the file was uploaded",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],
@@ -18439,7 +18805,8 @@
           "description": "Position in high score table for the game",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -18456,7 +18823,8 @@
           "description": "Score",
           "required": true,
           "type_info": {
-            "type": "integer"
+            "type": "integer",
+            "enumeration": []
           }
         }
       ],

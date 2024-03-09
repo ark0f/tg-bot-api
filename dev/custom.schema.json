@@ -45,6 +45,16 @@
               ],
               "format": "int64"
             },
+            "enumeration": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
             "max": {
               "type": [
                 "integer",
@@ -85,7 +95,7 @@
                 "null"
               ],
               "items": {
-                "$ref": "#/definitions/Argument"
+                "type": "string"
               }
             },
             "max_len": {
@@ -262,6 +272,16 @@
               ],
               "format": "int64"
             },
+            "enumeration": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
             "max": {
               "type": [
                 "integer",
@@ -302,7 +322,7 @@
                 "null"
               ],
               "items": {
-                "$ref": "#/definitions/Argument"
+                "type": "string"
               }
             },
             "max_len": {
@@ -536,6 +556,16 @@
               ],
               "format": "int64"
             },
+            "enumeration": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            },
             "max": {
               "type": [
                 "integer",
@@ -576,7 +606,7 @@
                 "null"
               ],
               "items": {
-                "$ref": "#/definitions/Argument"
+                "type": "string"
               }
             },
             "max_len": {
