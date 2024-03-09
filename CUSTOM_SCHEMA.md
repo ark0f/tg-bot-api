@@ -48,7 +48,13 @@ Basic structure:
   // optional
   "min": 0,
   // optional
-  "max": 255
+  "max": 255,
+  // there can be variants or list is empty
+  "enumeration": [
+    123,
+    23,
+    1423423
+  ]
 }
 ```
 

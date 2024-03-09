@@ -19,7 +19,7 @@ use sentence::{Pattern, SentenceRef, Sentences};
 use std::{num::ParseIntError, ops::Deref, str::ParseBoolError};
 use tags::TagsHandlerFactory;
 
-type Result<T> = std::result::Result<T, ParseError>;
+type Result<T, E = ParseError> = std::result::Result<T, E>;
 
 #[derive(Debug, thiserror::Error)]
 pub enum ParseError {
@@ -193,6 +193,7 @@ pub enum Type {
         default: Option<i64>,
         min: Option<i64>,
         max: Option<i64>,
+        one_of: Vec<i64>,
     },
     String {
         default: Option<String>,
@@ -229,6 +230,7 @@ impl Type {
                 default: None,
                 min: None,
                 max: None,
+                one_of: vec![],
             },
             "String" => Self::String {
                 default: None,
@@ -285,11 +287,15 @@ impl Type {
                 sentence
                     .parts()
                     .iter()
-                    .filter(|part| part.has_quotes() || part.is_italic())
+                    .filter(|part| {
+                        part.has_quotes()
+                            || part.is_italic()
+                            || part.as_inner().chars().all(|c| c.is_ascii_digit())
+                    })
                     .map(|part| part.as_inner())
                     .cloned()
                     .dedup()
-                    .collect(),
+                    .collect::<Vec<_>>(),
             )
         })?;
 
@@ -304,15 +310,28 @@ impl Type {
                 default: type_default,
                 min: type_min,
                 max: type_max,
-            } => Type::Integer {
-                default: default
-                    .as_deref()
-                    .map(str::parse)
-                    .transpose()?
-                    .or(type_default),
-                min: min.as_deref().map(str::parse).transpose()?.or(type_min),
-                max: max.as_deref().map(str::parse).transpose()?.or(type_max),
-            },
+                one_of: type_one_of,
+            } => {
+                let one_of = if let Some(one_of) = one_of {
+                    one_of
+                        .into_iter()
+                        .map(|x| x.parse::<i64>())
+                        .collect::<Result<_, ParseIntError>>()?
+                } else {
+                    type_one_of
+                };
+
+                Type::Integer {
+                    default: default
+                        .as_deref()
+                        .map(str::parse)
+                        .transpose()?
+                        .or(type_default),
+                    min: min.as_deref().map(str::parse).transpose()?.or(type_min),
+                    max: max.as_deref().map(str::parse).transpose()?.or(type_max),
+                    one_of,
+                }
+            }
             Type::Bool {
                 default: type_default,
             } => Type::Bool {
@@ -580,7 +599,8 @@ mod tests {
                 Type::Integer {
                     default: None,
                     min: None,
-                    max: None
+                    max: None,
+                    one_of: vec![],
                 },
                 Type::String {
                     default: None,
