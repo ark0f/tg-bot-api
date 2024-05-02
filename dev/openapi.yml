@@ -379,7 +379,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -427,7 +427,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -475,7 +475,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1130,7 +1130,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1225,7 +1225,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1314,7 +1314,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1415,7 +1415,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1513,7 +1513,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1597,7 +1597,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1676,7 +1676,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1824,7 +1824,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1876,7 +1876,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -1928,7 +1928,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2016,7 +2016,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2076,7 +2076,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2136,7 +2136,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2214,7 +2214,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2260,7 +2260,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2306,7 +2306,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2417,7 +2417,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2498,7 +2498,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2579,7 +2579,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2654,7 +2654,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2697,7 +2697,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -2740,7 +2740,7 @@ paths:
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
-                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account"
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user. Not supported for messages sent on behalf of a business account."
                   anyOf:
                     - $ref: "#/components/schemas/InlineKeyboardMarkup"
                     - $ref: "#/components/schemas/ReplyKeyboardMarkup"
@@ -11970,7 +11970,7 @@ components:
     SharedUser:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#shareduser"
-      description: "This object contains information about a user that was shared with the bot using a [KeyboardButtonRequestUser](https://core.telegram.org/bots/api/#keyboardbuttonrequestuser) button."
+      description: "This object contains information about a user that was shared with the bot using a [KeyboardButtonRequestUsers](https://core.telegram.org/bots/api/#keyboardbuttonrequestusers) button."
       type: object
       properties:
         user_id:
@@ -12349,20 +12349,20 @@ components:
           default: 1
           type: integer
         request_name:
-          description: "*Optional*. Pass *True* to request the users' first and last name"
+          description: "*Optional*. Pass *True* to request the users' first and last names"
           type: boolean
         request_username:
-          description: "*Optional*. Pass *True* to request the users' username"
+          description: "*Optional*. Pass *True* to request the users' usernames"
           type: boolean
         request_photo:
-          description: "*Optional*. Pass *True* to request the users' photo"
+          description: "*Optional*. Pass *True* to request the users' photos"
           type: boolean
       required:
         - request_id
     KeyboardButtonRequestChat:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#keyboardbuttonrequestchat"
-      description: "This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted requested rights in the сhat if appropriate [More about requesting chats »](https://core.telegram.org/bots/features#chat-and-user-selection)"
+      description: "This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted requested rights in the chat if appropriate. [More about requesting chats »](https://core.telegram.org/bots/features#chat-and-user-selection)."
       type: object
       properties:
         request_id:
@@ -13642,7 +13642,7 @@ components:
         chat:
           $ref: "#/components/schemas/Chat"
         message_ids:
-          description: A JSON-serialized list of identifiers of deleted messages in the chat of the business account
+          description: The list of identifiers of deleted messages in the chat of the business account
           type: array
           items:
             type: integer
