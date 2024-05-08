@@ -16996,7 +16996,7 @@
             "type": "boolean"
           },
           "join_by_request": {
-            "description": "*Optional*. *True*, if all users directly joining the supergroup need to be approved by supergroup administrators",
+            "description": "*Optional*. *True*, if all users directly joining the supergroup without using an invite link need to be approved by supergroup administrators",
             "default": true,
             "type": "boolean"
           },
@@ -19854,7 +19854,7 @@
             "$ref": "#/components/schemas/ChatInviteLink"
           },
           "via_join_request": {
-            "description": "*Optional*. True, if the user joined the chat after sending a direct join request and being approved by an administrator",
+            "description": "*Optional*. True, if the user joined the chat after sending a direct join request without using an invite link and being approved by an administrator",
             "type": "boolean"
           },
           "via_chat_folder_invite_link": {

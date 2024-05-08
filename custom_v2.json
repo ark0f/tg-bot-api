@@ -7668,7 +7668,7 @@
         },
         {
           "name": "business_message",
-          "description": "*Optional*. New non-service message from a connected business account",
+          "description": "*Optional*. New message from a connected business account",
           "required": false,
           "type_info": {
             "type": "reference",
@@ -8352,7 +8352,7 @@
         },
         {
           "name": "join_by_request",
-          "description": "*Optional*. *True*, if all users directly joining the supergroup need to be approved by supergroup administrators",
+          "description": "*Optional*. *True*, if all users directly joining the supergroup without using an invite link need to be approved by supergroup administrators",
           "required": false,
           "type_info": {
             "type": "bool",
@@ -13086,7 +13086,7 @@
         },
         {
           "name": "via_join_request",
-          "description": "*Optional*. True, if the user joined the chat after sending a direct join request and being approved by an administrator",
+          "description": "*Optional*. True, if the user joined the chat after sending a direct join request without using an invite link and being approved by an administrator",
           "required": false,
           "type_info": {
             "type": "bool"
