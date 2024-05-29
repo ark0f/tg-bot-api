@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 7,
-    "minor": 3,
+    "minor": 4,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
     "month": 5,
-    "day": 6
+    "day": 28
   },
   "methods": [
     {
@@ -307,6 +307,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -613,6 +622,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media. Ignored if a new caption isn't specified.",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "disable_notification",
           "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
           "required": false,
@@ -858,6 +875,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "has_spoiler",
           "description": "Pass *True* if the photo needs to be covered with a spoiler animation",
           "required": false,
@@ -879,6 +904,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -1076,6 +1110,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -1248,6 +1291,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -1429,6 +1481,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "has_spoiler",
           "description": "Pass *True* if the video needs to be covered with a spoiler animation",
           "required": false,
@@ -1458,6 +1518,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -1639,6 +1708,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "has_spoiler",
           "description": "Pass *True* if the animation needs to be covered with a spoiler animation",
           "required": false,
@@ -1660,6 +1737,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -1821,6 +1907,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -1974,6 +2069,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -2102,6 +2206,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -2226,6 +2339,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -2398,6 +2520,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -2530,6 +2661,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -2771,6 +2911,15 @@
           }
         },
         {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "reply_parameters",
           "description": "Description of the message to reply to",
           "required": false,
@@ -2884,6 +3033,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -5560,6 +5718,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media. Supported only for animation, photo and video messages.",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "reply_markup",
           "description": "A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards).",
           "required": false,
@@ -6119,6 +6285,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -6871,8 +7046,8 @@
         },
         {
           "name": "provider_token",
-          "description": "Payment provider token, obtained via [@BotFather](https://t.me/botfather)",
-          "required": true,
+          "description": "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90).",
+          "required": false,
           "type_info": {
             "type": "string",
             "enumeration": []
@@ -6880,7 +7055,7 @@
         },
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
+          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies). Pass “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "string",
@@ -6889,7 +7064,7 @@
         },
         {
           "name": "prices",
-          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
+          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "array",
@@ -6901,7 +7076,7 @@
         },
         {
           "name": "max_tip_amount",
-          "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+          "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "integer",
@@ -6977,7 +7152,7 @@
         },
         {
           "name": "need_name",
-          "description": "Pass *True* if you require the user's full name to complete the order",
+          "description": "Pass *True* if you require the user's full name to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -6985,7 +7160,7 @@
         },
         {
           "name": "need_phone_number",
-          "description": "Pass *True* if you require the user's phone number to complete the order",
+          "description": "Pass *True* if you require the user's phone number to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -6993,7 +7168,7 @@
         },
         {
           "name": "need_email",
-          "description": "Pass *True* if you require the user's email address to complete the order",
+          "description": "Pass *True* if you require the user's email address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7001,7 +7176,7 @@
         },
         {
           "name": "need_shipping_address",
-          "description": "Pass *True* if you require the user's shipping address to complete the order",
+          "description": "Pass *True* if you require the user's shipping address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7009,7 +7184,7 @@
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "Pass *True* if the user's phone number should be sent to provider",
+          "description": "Pass *True* if the user's phone number should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7017,7 +7192,7 @@
         },
         {
           "name": "send_email_to_provider",
-          "description": "Pass *True* if the user's email address should be sent to provider",
+          "description": "Pass *True* if the user's email address should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7025,7 +7200,7 @@
         },
         {
           "name": "is_flexible",
-          "description": "Pass *True* if the final price depends on the shipping method",
+          "description": "Pass *True* if the final price depends on the shipping method. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7045,6 +7220,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -7110,8 +7294,8 @@
         },
         {
           "name": "provider_token",
-          "description": "Payment provider token, obtained via [BotFather](https://t.me/botfather)",
-          "required": true,
+          "description": "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90).",
+          "required": false,
           "type_info": {
             "type": "string",
             "enumeration": []
@@ -7119,7 +7303,7 @@
         },
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
+          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies). Pass “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "string",
@@ -7128,7 +7312,7 @@
         },
         {
           "name": "prices",
-          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
+          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "array",
@@ -7140,7 +7324,7 @@
         },
         {
           "name": "max_tip_amount",
-          "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+          "description": "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "integer",
@@ -7207,7 +7391,7 @@
         },
         {
           "name": "need_name",
-          "description": "Pass *True* if you require the user's full name to complete the order",
+          "description": "Pass *True* if you require the user's full name to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7215,7 +7399,7 @@
         },
         {
           "name": "need_phone_number",
-          "description": "Pass *True* if you require the user's phone number to complete the order",
+          "description": "Pass *True* if you require the user's phone number to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7223,7 +7407,7 @@
         },
         {
           "name": "need_email",
-          "description": "Pass *True* if you require the user's email address to complete the order",
+          "description": "Pass *True* if you require the user's email address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7231,7 +7415,7 @@
         },
         {
           "name": "need_shipping_address",
-          "description": "Pass *True* if you require the user's shipping address to complete the order",
+          "description": "Pass *True* if you require the user's shipping address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7239,7 +7423,7 @@
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "Pass *True* if the user's phone number should be sent to the provider",
+          "description": "Pass *True* if the user's phone number should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7247,7 +7431,7 @@
         },
         {
           "name": "send_email_to_provider",
-          "description": "Pass *True* if the user's email address should be sent to the provider",
+          "description": "Pass *True* if the user's email address should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7255,7 +7439,7 @@
         },
         {
           "name": "is_flexible",
-          "description": "Pass *True* if the final price depends on the shipping method",
+          "description": "Pass *True* if the final price depends on the shipping method. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -7358,6 +7542,36 @@
       "documentation_link": "https://core.telegram.org/bots/api/#answerprecheckoutquery"
     },
     {
+      "name": "refundStarPayment",
+      "description": "Refunds a successful payment in [Telegram Stars](https://t.me/BotNews/90). Returns *True* on success.",
+      "arguments": [
+        {
+          "name": "user_id",
+          "description": "Identifier of the user whose payment will be refunded",
+          "required": true,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "telegram_payment_charge_id",
+          "description": "Telegram payment identifier",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        }
+      ],
+      "maybe_multipart": false,
+      "return_type": {
+        "type": "bool",
+        "default": true
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#refundstarpayment"
+    },
+    {
       "name": "setPassportDataErrors",
       "description": "Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns *True* on success.\n\nUse this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.",
       "arguments": [
@@ -7444,6 +7658,15 @@
           "required": false,
           "type_info": {
             "type": "bool"
+          }
+        },
+        {
+          "name": "message_effect_id",
+          "description": "Unique identifier of the message effect to be added to the message; for private chats only",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -8740,6 +8963,15 @@
           }
         },
         {
+          "name": "effect_id",
+          "description": "*Optional*. Unique identifier of the message effect added to the message",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "animation",
           "description": "*Optional*. Message is an animation, information about the animation. For backward compatibility, when this field is set, the *document* field will also be set",
           "required": false,
@@ -8842,6 +9074,15 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. True, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool",
+            "default": true
           }
         },
         {
@@ -9333,7 +9574,7 @@
       "properties": [
         {
           "name": "type",
-          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
+          "description": "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable\\_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)",
           "required": true,
           "type_info": {
             "type": "string",
@@ -9351,6 +9592,7 @@
               "strikethrough",
               "spoiler",
               "blockquote",
+              "expandable_blockquote",
               "code",
               "pre",
               "text_link",
@@ -12173,7 +12415,7 @@
     },
     {
       "name": "KeyboardButton",
-      "description": "This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\\_app*, *request\\_users*, *request\\_chat*, *request\\_contact*, *request\\_location*, and *request\\_poll* are mutually exclusive.",
+      "description": "This object represents one button of the reply keyboard. At most one of the optional fields must be used to specify type of the button. For simple text buttons, *String* can be used instead of this object to specify the button text.",
       "type": "properties",
       "properties": [
         {
@@ -12473,7 +12715,7 @@
     },
     {
       "name": "InlineKeyboardButton",
-      "description": "This object represents one button of an inline keyboard. You **must** use exactly one of the optional fields.",
+      "description": "This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify type of the button.",
       "type": "properties",
       "properties": [
         {
@@ -12559,7 +12801,7 @@
         },
         {
           "name": "pay",
-          "description": "*Optional*. Specify *True*, to send a [Pay button](https://core.telegram.org/bots/api/#payments).  \n\n**NOTE:** This type of button **must** always be the first button in the first row and can only be used in invoice messages.",
+          "description": "*Optional*. Specify *True*, to send a [Pay button](https://core.telegram.org/bots/api/#payments). Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon.  \n\n**NOTE:** This type of button **must** always be the first button in the first row and can only be used in invoice messages.",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -15148,6 +15390,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "has_spoiler",
           "description": "*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation",
           "required": false,
@@ -15230,6 +15480,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -15350,6 +15608,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -16319,6 +16585,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "reply_markup",
           "description": "*Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message",
           "required": false,
@@ -16461,6 +16735,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -16609,6 +16891,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "reply_markup",
           "description": "*Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message",
           "required": false,
@@ -16722,6 +17012,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -17652,6 +17950,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "reply_markup",
           "description": "*Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message",
           "required": false,
@@ -17747,6 +18053,14 @@
           }
         },
         {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
           "name": "reply_markup",
           "description": "*Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message",
           "required": false,
@@ -17839,6 +18153,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -18101,6 +18423,14 @@
               "type": "reference",
               "reference": "MessageEntity"
             }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "*Optional*. Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
           }
         },
         {
@@ -18601,8 +18931,8 @@
         },
         {
           "name": "provider_token",
-          "description": "Payment provider token, obtained via [@BotFather](https://t.me/botfather)",
-          "required": true,
+          "description": "*Optional*. Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90).",
+          "required": false,
           "type_info": {
             "type": "string",
             "enumeration": []
@@ -18610,7 +18940,7 @@
         },
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies)",
+          "description": "Three-letter ISO 4217 currency code, see [more on currencies](https://core.telegram.org/bots/payments#supported-currencies). Pass “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "string",
@@ -18619,7 +18949,7 @@
         },
         {
           "name": "prices",
-          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)",
+          "description": "Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": true,
           "type_info": {
             "type": "array",
@@ -18631,7 +18961,7 @@
         },
         {
           "name": "max_tip_amount",
-          "description": "*Optional*. The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0",
+          "description": "*Optional*. The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "integer",
@@ -18698,7 +19028,7 @@
         },
         {
           "name": "need_name",
-          "description": "*Optional*. Pass *True* if you require the user's full name to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's full name to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18706,7 +19036,7 @@
         },
         {
           "name": "need_phone_number",
-          "description": "*Optional*. Pass *True* if you require the user's phone number to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's phone number to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18714,7 +19044,7 @@
         },
         {
           "name": "need_email",
-          "description": "*Optional*. Pass *True* if you require the user's email address to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's email address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18722,7 +19052,7 @@
         },
         {
           "name": "need_shipping_address",
-          "description": "*Optional*. Pass *True* if you require the user's shipping address to complete the order",
+          "description": "*Optional*. Pass *True* if you require the user's shipping address to complete the order. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18730,7 +19060,7 @@
         },
         {
           "name": "send_phone_number_to_provider",
-          "description": "*Optional*. Pass *True* if the user's phone number should be sent to provider",
+          "description": "*Optional*. Pass *True* if the user's phone number should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18738,7 +19068,7 @@
         },
         {
           "name": "send_email_to_provider",
-          "description": "*Optional*. Pass *True* if the user's email address should be sent to provider",
+          "description": "*Optional*. Pass *True* if the user's email address should be sent to the provider. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18746,7 +19076,7 @@
         },
         {
           "name": "is_flexible",
-          "description": "*Optional*. Pass *True* if the final price depends on the shipping method",
+          "description": "*Optional*. Pass *True* if the final price depends on the shipping method. Ignored for payments in [Telegram Stars](https://t.me/BotNews/90).",
           "required": false,
           "type_info": {
             "type": "bool"
@@ -18885,7 +19215,7 @@
         },
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
+          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code, or “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90)",
           "required": true,
           "type_info": {
             "type": "string",
@@ -19055,7 +19385,7 @@
       "properties": [
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
+          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code, or “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90)",
           "required": true,
           "type_info": {
             "type": "string",
@@ -19188,7 +19518,7 @@
         },
         {
           "name": "currency",
-          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code",
+          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code, or “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90)",
           "required": true,
           "type_info": {
             "type": "string",
