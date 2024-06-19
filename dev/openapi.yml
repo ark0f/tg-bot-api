@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.4.0
+  version: 7.5.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -7336,7 +7336,7 @@ paths:
                   - result
   /editMessageText:
     post:
-      description: "Use this method to edit text and [game](https://core.telegram.org/bots/api/#games) messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned."
+      description: "Use this method to edit text and [game](https://core.telegram.org/bots/api/#games) messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editmessagetext"
       requestBody:
@@ -7345,6 +7345,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7379,6 +7382,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7413,6 +7419,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7471,7 +7480,7 @@ paths:
                   - result
   /editMessageCaption:
     post:
-      description: "Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned."
+      description: "Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editmessagecaption"
       requestBody:
@@ -7480,6 +7489,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7513,6 +7525,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7546,6 +7561,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7603,7 +7621,7 @@ paths:
                   - result
   /editMessageMedia:
     post:
-      description: "Use this method to edit animation, audio, document, photo, or video messages. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file\\_id or specify a URL. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned."
+      description: "Use this method to edit animation, audio, document, photo, or video messages. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file\\_id or specify a URL. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editmessagemedia"
       requestBody:
@@ -7612,6 +7630,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7666,6 +7687,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7704,6 +7728,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7742,6 +7769,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7813,6 +7843,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7830,6 +7863,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7847,6 +7883,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7888,7 +7927,7 @@ paths:
                   - result
   /editMessageReplyMarkup:
     post:
-      description: "Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned."
+      description: "Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editmessagereplymarkup"
       requestBody:
@@ -7897,6 +7936,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7914,6 +7956,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7931,6 +7976,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Required if *inline\\_message\\_id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7981,6 +8029,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -7998,6 +8049,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -8015,6 +8069,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message to be edited was sent
+                  type: string
                 chat_id:
                   description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
                   anyOf:
@@ -10176,6 +10233,75 @@ paths:
                   result:
                     default: true
                     type: boolean
+                required:
+                  - ok
+                  - result
+  /getStarTransactions:
+    post:
+      description: "Returns the bot's Telegram Star transactions in chronological order. On success, returns a [StarTransactions](https://core.telegram.org/bots/api/#startransactions) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getstartransactions"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                offset:
+                  description: Number of transactions to skip in the response
+                  type: integer
+                limit:
+                  description: The maximum number of transactions to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+                  default: 100
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                offset:
+                  description: Number of transactions to skip in the response
+                  type: integer
+                limit:
+                  description: The maximum number of transactions to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+                  default: 100
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+          application/json:
+            schema:
+              type: object
+              properties:
+                offset:
+                  description: Number of transactions to skip in the response
+                  type: integer
+                limit:
+                  description: The maximum number of transactions to be retrieved. Values between 1-100 are accepted. Defaults to 100.
+                  default: 100
+                  type: integer
+                  minimum: 1
+                  maximum: 100
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/Telegram"
                 required:
                   - ok
                   - result
@@ -12749,7 +12875,7 @@ components:
           description: "*Optional*. HTTP or tg:// URL to be opened when the button is pressed. Links `tg://user?id=<user_id>` can be used to mention a user by their identifier without using a username, if this is allowed by their privacy settings."
           type: string
         callback_data:
-          description: "*Optional*. Data to be sent in a [callback query](https://core.telegram.org/bots/api/#callbackquery) to the bot when button is pressed, 1-64 bytes. Not supported for messages sent on behalf of a Telegram Business account."
+          description: "*Optional*. Data to be sent in a [callback query](https://core.telegram.org/bots/api/#callbackquery) to the bot when the button is pressed, 1-64 bytes"
           type: string
         web_app:
           $ref: "#/components/schemas/WebAppInfo"
@@ -15869,6 +15995,143 @@ components:
         - currency
         - total_amount
         - invoice_payload
+    RevenueWithdrawalState:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#revenuewithdrawalstate"
+      description: "This object describes the state of a revenue withdrawal operation. Currently, it can be one of\n\n* [RevenueWithdrawalStatePending](https://core.telegram.org/bots/api/#revenuewithdrawalstatepending)\n* [RevenueWithdrawalStateSucceeded](https://core.telegram.org/bots/api/#revenuewithdrawalstatesucceeded)\n* [RevenueWithdrawalStateFailed](https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed)"
+      anyOf:
+        - $ref: "#/components/schemas/RevenueWithdrawalStatePending"
+        - $ref: "#/components/schemas/RevenueWithdrawalStateSucceeded"
+        - $ref: "#/components/schemas/RevenueWithdrawalStateFailed"
+    RevenueWithdrawalStatePending:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#revenuewithdrawalstatepending"
+      description: The withdrawal is in progress.
+      type: object
+      properties:
+        type:
+          description: "Type of the state, always “pending”"
+          default: pending
+          type: string
+      required:
+        - type
+    RevenueWithdrawalStateSucceeded:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#revenuewithdrawalstatesucceeded"
+      description: The withdrawal succeeded.
+      type: object
+      properties:
+        type:
+          description: "Type of the state, always “succeeded”"
+          default: succeeded
+          type: string
+        date:
+          description: Date the withdrawal was completed in Unix time
+          type: integer
+        url:
+          description: An HTTPS URL that can be used to see transaction details
+          type: string
+      required:
+        - type
+        - date
+        - url
+    RevenueWithdrawalStateFailed:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed"
+      description: The withdrawal failed and the transaction was refunded.
+      type: object
+      properties:
+        type:
+          description: "Type of the state, always “failed”"
+          default: failed
+          type: string
+      required:
+        - type
+    TransactionPartner:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartner"
+      description: "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)"
+      anyOf:
+        - $ref: "#/components/schemas/TransactionPartnerFragment"
+        - $ref: "#/components/schemas/TransactionPartnerUser"
+        - $ref: "#/components/schemas/TransactionPartnerOther"
+    TransactionPartnerFragment:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartnerfragment"
+      description: Describes a withdrawal transaction with Fragment.
+      type: object
+      properties:
+        type:
+          description: "Type of the transaction partner, always “fragment”"
+          default: fragment
+          type: string
+        withdrawal_state:
+          $ref: "#/components/schemas/RevenueWithdrawalState"
+      required:
+        - type
+    TransactionPartnerUser:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartneruser"
+      description: Describes a transaction with a user.
+      type: object
+      properties:
+        type:
+          description: "Type of the transaction partner, always “user”"
+          default: user
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+      required:
+        - type
+        - user
+    TransactionPartnerOther:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartnerother"
+      description: Describes a transaction with an unknown source or recipient.
+      type: object
+      properties:
+        type:
+          description: "Type of the transaction partner, always “other”"
+          default: other
+          type: string
+      required:
+        - type
+    StarTransaction:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#startransaction"
+      description: Describes a Telegram Star transaction.
+      type: object
+      properties:
+        id:
+          description: "Unique identifier of the transaction. Coincides with the identifer of the original transaction for refund transactions. Coincides with *SuccessfulPayment.telegram\\_payment\\_charge\\_id* for successful incoming payments from users."
+          type: string
+        amount:
+          description: Number of Telegram Stars transferred by the transaction
+          type: integer
+        date:
+          description: Date the transaction was created in Unix time
+          type: integer
+        source:
+          $ref: "#/components/schemas/TransactionPartner"
+        receiver:
+          $ref: "#/components/schemas/TransactionPartner"
+      required:
+        - id
+        - amount
+        - date
+    StarTransactions:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#startransactions"
+      description: Contains a list of Telegram Star transactions.
+      type: object
+      properties:
+        transactions:
+          description: The list of transactions
+          type: array
+          items:
+            $ref: "#/components/schemas/StarTransaction"
+      required:
+        - transactions
     PassportData:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#passportdata"
