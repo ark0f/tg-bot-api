@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 7,
-    "minor": 5,
+    "minor": 6,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
-    "month": 6,
-    "day": 18
+    "month": 7,
+    "day": 1
   },
   "methods": [
     {
@@ -533,7 +533,7 @@
     },
     {
       "name": "copyMessage",
-      "description": "Use this method to copy messages of any kind. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
+      "description": "Use this method to copy messages of any kind. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessage](https://core.telegram.org/bots/api/#forwardmessage), but the copied message doesn't have a link to the original message. Returns the [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent message on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -690,7 +690,7 @@
     },
     {
       "name": "copyMessages",
-      "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessages](https://core.telegram.org/bots/api/#forwardmessages), but the copied messages don't have a link to the original message. Album grouping is kept for copied messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
+      "description": "Use this method to copy messages of any kind. If some of the specified messages can't be found or copied, they are skipped. Service messages, paid media messages, giveaway messages, giveaway winners messages, and invoice messages can't be copied. A quiz [poll](https://core.telegram.org/bots/api/#poll) can be copied only if the value of the field *correct\\_option\\_id* is known to the bot. The method is analogous to the method [forwardMessages](https://core.telegram.org/bots/api/#forwardmessages), but the copied messages don't have a link to the original message. Album grouping is kept for copied messages. On success, an array of [MessageId](https://core.telegram.org/bots/api/#messageid) of the sent messages is returned.",
       "arguments": [
         {
           "name": "chat_id",
@@ -2119,6 +2119,148 @@
         "reference": "Message"
       },
       "documentation_link": "https://core.telegram.org/bots/api/#sendvideonote"
+    },
+    {
+      "name": "sendPaidMedia",
+      "description": "Use this method to send paid media to channel chats. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type_info": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "integer",
+                "enumeration": []
+              },
+              {
+                "type": "string",
+                "enumeration": []
+              }
+            ]
+          }
+        },
+        {
+          "name": "star_count",
+          "description": "The number of Telegram Stars that must be paid to buy access to the media",
+          "required": true,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "media",
+          "description": "A JSON-serialized array describing the media to be sent; up to 10 items",
+          "required": true,
+          "type_info": {
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "InputPaidMedia"
+            }
+          }
+        },
+        {
+          "name": "caption",
+          "description": "Media caption, 0-1024 characters after entities parsing",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "min_len": 0,
+            "max_len": 1024,
+            "enumeration": []
+          }
+        },
+        {
+          "name": "parse_mode",
+          "description": "Mode for parsing entities in the media caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "caption_entities",
+          "description": "A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\\_mode*",
+          "required": false,
+          "type_info": {
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "MessageEntity"
+            }
+          }
+        },
+        {
+          "name": "show_caption_above_media",
+          "description": "Pass *True*, if the caption must be shown above the message media",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "disable_notification",
+          "description": "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound.",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "protect_content",
+          "description": "Protects the contents of the sent message from forwarding and saving",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        },
+        {
+          "name": "reply_parameters",
+          "description": "Description of the message to reply to",
+          "required": false,
+          "type_info": {
+            "type": "reference",
+            "reference": "ReplyParameters"
+          }
+        },
+        {
+          "name": "reply_markup",
+          "description": "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user",
+          "required": false,
+          "type_info": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "InlineKeyboardMarkup"
+              },
+              {
+                "type": "reference",
+                "reference": "ReplyKeyboardMarkup"
+              },
+              {
+                "type": "reference",
+                "reference": "ReplyKeyboardRemove"
+              },
+              {
+                "type": "reference",
+                "reference": "ForceReply"
+              }
+            ]
+          }
+        }
+      ],
+      "maybe_multipart": true,
+      "return_type": {
+        "type": "reference",
+        "reference": "Message"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#sendpaidmedia"
     },
     {
       "name": "sendMediaGroup",
@@ -8715,6 +8857,15 @@
           }
         },
         {
+          "name": "can_send_paid_media",
+          "description": "*Optional*. *True*, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.",
+          "required": false,
+          "type_info": {
+            "type": "bool",
+            "default": true
+          }
+        },
+        {
           "name": "slow_mode_delay",
           "description": "*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds",
           "required": false,
@@ -9095,6 +9246,15 @@
           }
         },
         {
+          "name": "paid_media",
+          "description": "*Optional*. Message contains paid media; information about the paid media",
+          "required": false,
+          "type_info": {
+            "type": "reference",
+            "reference": "PaidMediaInfo"
+          }
+        },
+        {
           "name": "photo",
           "description": "*Optional*. Message is a photo, available sizes of the photo",
           "required": false,
@@ -9153,7 +9313,7 @@
         },
         {
           "name": "caption",
-          "description": "*Optional*. Caption for the animation, audio, document, photo, video or voice",
+          "description": "*Optional*. Caption for the animation, audio, document, paid media, photo, video or voice",
           "required": false,
           "type_info": {
             "type": "string",
@@ -9870,6 +10030,15 @@
           }
         },
         {
+          "name": "paid_media",
+          "description": "*Optional*. Message contains paid media; information about the paid media",
+          "required": false,
+          "type_info": {
+            "type": "reference",
+            "reference": "PaidMediaInfo"
+          }
+        },
+        {
           "name": "photo",
           "description": "*Optional*. Message is a photo, available sizes of the photo",
           "required": false,
@@ -10376,7 +10545,7 @@
         },
         {
           "name": "width",
-          "description": "Video width as defined by sender",
+          "description": "Video width as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10385,7 +10554,7 @@
         },
         {
           "name": "height",
-          "description": "Video height as defined by sender",
+          "description": "Video height as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10394,7 +10563,7 @@
         },
         {
           "name": "duration",
-          "description": "Duration of the video in seconds as defined by sender",
+          "description": "Duration of the video in seconds as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10403,7 +10572,7 @@
         },
         {
           "name": "thumbnail",
-          "description": "*Optional*. Animation thumbnail as defined by sender",
+          "description": "*Optional*. Animation thumbnail as defined by the sender",
           "required": false,
           "type_info": {
             "type": "reference",
@@ -10412,7 +10581,7 @@
         },
         {
           "name": "file_name",
-          "description": "*Optional*. Original animation filename as defined by sender",
+          "description": "*Optional*. Original animation filename as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10421,7 +10590,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. MIME type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10465,7 +10634,7 @@
         },
         {
           "name": "duration",
-          "description": "Duration of the audio in seconds as defined by sender",
+          "description": "Duration of the audio in seconds as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10474,7 +10643,7 @@
         },
         {
           "name": "performer",
-          "description": "*Optional*. Performer of the audio as defined by sender or by audio tags",
+          "description": "*Optional*. Performer of the audio as defined by the sender or by audio tags",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10483,7 +10652,7 @@
         },
         {
           "name": "title",
-          "description": "*Optional*. Title of the audio as defined by sender or by audio tags",
+          "description": "*Optional*. Title of the audio as defined by the sender or by audio tags",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10492,7 +10661,7 @@
         },
         {
           "name": "file_name",
-          "description": "*Optional*. Original filename as defined by sender",
+          "description": "*Optional*. Original filename as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10501,7 +10670,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. MIME type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10554,7 +10723,7 @@
         },
         {
           "name": "thumbnail",
-          "description": "*Optional*. Document thumbnail as defined by sender",
+          "description": "*Optional*. Document thumbnail as defined by the sender",
           "required": false,
           "type_info": {
             "type": "reference",
@@ -10563,7 +10732,7 @@
         },
         {
           "name": "file_name",
-          "description": "*Optional*. Original filename as defined by sender",
+          "description": "*Optional*. Original filename as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10572,7 +10741,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. MIME type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10642,7 +10811,7 @@
         },
         {
           "name": "width",
-          "description": "Video width as defined by sender",
+          "description": "Video width as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10651,7 +10820,7 @@
         },
         {
           "name": "height",
-          "description": "Video height as defined by sender",
+          "description": "Video height as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10660,7 +10829,7 @@
         },
         {
           "name": "duration",
-          "description": "Duration of the video in seconds as defined by sender",
+          "description": "Duration of the video in seconds as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10678,7 +10847,7 @@
         },
         {
           "name": "file_name",
-          "description": "*Optional*. Original filename as defined by sender",
+          "description": "*Optional*. Original filename as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10687,7 +10856,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. MIME type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10731,7 +10900,7 @@
         },
         {
           "name": "length",
-          "description": "Video width and height (diameter of the video message) as defined by sender",
+          "description": "Video width and height (diameter of the video message) as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10740,7 +10909,7 @@
         },
         {
           "name": "duration",
-          "description": "Duration of the video in seconds as defined by sender",
+          "description": "Duration of the video in seconds as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10793,7 +10962,7 @@
         },
         {
           "name": "duration",
-          "description": "Duration of the audio in seconds as defined by sender",
+          "description": "Duration of the audio in seconds as defined by the sender",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -10802,7 +10971,7 @@
         },
         {
           "name": "mime_type",
-          "description": "*Optional*. MIME type of the file as defined by sender",
+          "description": "*Optional*. MIME type of the file as defined by the sender",
           "required": false,
           "type_info": {
             "type": "string",
@@ -10820,6 +10989,157 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#voice"
+    },
+    {
+      "name": "PaidMediaInfo",
+      "description": "Describes the paid media added to a message.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "star_count",
+          "description": "The number of Telegram Stars that must be paid to buy access to the media",
+          "required": true,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "paid_media",
+          "description": "Information about the paid media",
+          "required": true,
+          "type_info": {
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "PaidMedia"
+            }
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmediainfo"
+    },
+    {
+      "name": "PaidMedia",
+      "description": "This object describes paid media. Currently, it can be one of\n\n* [PaidMediaPreview](https://core.telegram.org/bots/api/#paidmediapreview)\n* [PaidMediaPhoto](https://core.telegram.org/bots/api/#paidmediaphoto)\n* [PaidMediaVideo](https://core.telegram.org/bots/api/#paidmediavideo)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "PaidMediaPreview"
+        },
+        {
+          "type": "reference",
+          "reference": "PaidMediaPhoto"
+        },
+        {
+          "type": "reference",
+          "reference": "PaidMediaVideo"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmedia"
+    },
+    {
+      "name": "PaidMediaPreview",
+      "description": "The paid media isn't available before the payment.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the paid media, always “preview”",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "preview",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "width",
+          "description": "*Optional*. Media width as defined by the sender",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "height",
+          "description": "*Optional*. Media height as defined by the sender",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "duration",
+          "description": "*Optional*. Duration of the media in seconds as defined by the sender",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmediapreview"
+    },
+    {
+      "name": "PaidMediaPhoto",
+      "description": "The paid media is a photo.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the paid media, always “photo”",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "photo",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "photo",
+          "description": "The photo",
+          "required": true,
+          "type_info": {
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "PhotoSize"
+            }
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmediaphoto"
+    },
+    {
+      "name": "PaidMediaVideo",
+      "description": "The paid media is a video.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the paid media, always “video”",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "video",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "video",
+          "description": "The video",
+          "required": true,
+          "type_info": {
+            "type": "reference",
+            "reference": "Video"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmediavideo"
     },
     {
       "name": "Contact",
@@ -10942,7 +11262,7 @@
     },
     {
       "name": "InputPollOption",
-      "description": "This object contains information about one answer option in a poll to send.",
+      "description": "This object contains information about one answer option in a poll to be sent.",
       "type": "properties",
       "properties": [
         {
@@ -11181,7 +11501,7 @@
       "properties": [
         {
           "name": "latitude",
-          "description": "Latitude as defined by sender",
+          "description": "Latitude as defined by the sender",
           "required": true,
           "type_info": {
             "type": "float"
@@ -11189,7 +11509,7 @@
         },
         {
           "name": "longitude",
-          "description": "Longitude as defined by sender",
+          "description": "Longitude as defined by the sender",
           "required": true,
           "type_info": {
             "type": "float"
@@ -14996,7 +15316,7 @@
         },
         {
           "name": "web_app",
-          "description": "Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method [answerWebAppQuery](https://core.telegram.org/bots/api/#answerwebappquery).",
+          "description": "Description of the Web App that will be launched when the user presses the button. The Web App will be able to send an arbitrary message on behalf of the user using the method [answerWebAppQuery](https://core.telegram.org/bots/api/#answerwebappquery). Alternatively, a `t.me` link to a Web App of the bot can be specified in the object instead of the Web App's URL, in which case the Web App will be opened as if the user pressed the link.",
           "required": true,
           "type_info": {
             "type": "reference",
@@ -15946,6 +16266,129 @@
       "description": "This object represents the contents of a file to be uploaded. Must be posted using multipart/form-data in the usual way that files are uploaded via the browser.",
       "type": "unknown",
       "documentation_link": "https://core.telegram.org/bots/api/#inputfile"
+    },
+    {
+      "name": "InputPaidMedia",
+      "description": "This object describes the paid media to be sent. Currently, it can be one of\n\n* [InputPaidMediaPhoto](https://core.telegram.org/bots/api/#inputpaidmediaphoto)\n* [InputPaidMediaVideo](https://core.telegram.org/bots/api/#inputpaidmediavideo)",
+      "type": "any_of",
+      "any_of": [
+        {
+          "type": "reference",
+          "reference": "InputPaidMediaPhoto"
+        },
+        {
+          "type": "reference",
+          "reference": "InputPaidMediaVideo"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#inputpaidmedia"
+    },
+    {
+      "name": "InputPaidMediaPhoto",
+      "description": "The paid media to send is a photo.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the media, must be *photo*",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "photo",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "media",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#inputpaidmediaphoto"
+    },
+    {
+      "name": "InputPaidMediaVideo",
+      "description": "The paid media to send is a video.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the media, must be *video*",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "video",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "media",
+          "description": "File to send. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "thumbnail",
+          "description": "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)",
+          "required": false,
+          "type_info": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "reference",
+                "reference": "InputFile"
+              },
+              {
+                "type": "string",
+                "enumeration": []
+              }
+            ]
+          }
+        },
+        {
+          "name": "width",
+          "description": "*Optional*. Video width",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "height",
+          "description": "*Optional*. Video height",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "duration",
+          "description": "*Optional*. Video duration in seconds",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "supports_streaming",
+          "description": "*Optional*. Pass *True* if the uploaded video is suitable for streaming",
+          "required": false,
+          "type_info": {
+            "type": "bool"
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#inputpaidmediavideo"
     },
     {
       "name": "Sticker",
@@ -19499,7 +19942,7 @@
         },
         {
           "name": "invoice_payload",
-          "description": "Bot specified invoice payload",
+          "description": "Bot-specified invoice payload",
           "required": true,
           "type_info": {
             "type": "string",
@@ -19570,7 +20013,7 @@
         },
         {
           "name": "invoice_payload",
-          "description": "Bot specified invoice payload",
+          "description": "Bot-specified invoice payload",
           "required": true,
           "type_info": {
             "type": "string",
@@ -19632,7 +20075,7 @@
         },
         {
           "name": "invoice_payload",
-          "description": "Bot specified invoice payload",
+          "description": "Bot-specified invoice payload",
           "required": true,
           "type_info": {
             "type": "string",
@@ -19754,16 +20197,20 @@
     },
     {
       "name": "TransactionPartner",
-      "description": "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)",
+      "description": "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)",
       "type": "any_of",
       "any_of": [
+        {
+          "type": "reference",
+          "reference": "TransactionPartnerUser"
+        },
         {
           "type": "reference",
           "reference": "TransactionPartnerFragment"
         },
         {
           "type": "reference",
-          "reference": "TransactionPartnerUser"
+          "reference": "TransactionPartnerTelegramAds"
         },
         {
           "type": "reference",
@@ -19771,6 +20218,42 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#transactionpartner"
+    },
+    {
+      "name": "TransactionPartnerUser",
+      "description": "Describes a transaction with a user.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the transaction partner, always “user”",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "user",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "user",
+          "description": "Information about the user",
+          "required": true,
+          "type_info": {
+            "type": "reference",
+            "reference": "User"
+          }
+        },
+        {
+          "name": "invoice_payload",
+          "description": "*Optional*. Bot-specified invoice payload",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#transactionpartneruser"
     },
     {
       "name": "TransactionPartnerFragment",
@@ -19800,31 +20283,22 @@
       "documentation_link": "https://core.telegram.org/bots/api/#transactionpartnerfragment"
     },
     {
-      "name": "TransactionPartnerUser",
-      "description": "Describes a transaction with a user.",
+      "name": "TransactionPartnerTelegramAds",
+      "description": "Describes a withdrawal transaction to the Telegram Ads platform.",
       "type": "properties",
       "properties": [
         {
           "name": "type",
-          "description": "Type of the transaction partner, always “user”",
+          "description": "Type of the transaction partner, always “telegram\\_ads”",
           "required": true,
           "type_info": {
             "type": "string",
-            "default": "user",
+            "default": "telegram_ads",
             "enumeration": []
-          }
-        },
-        {
-          "name": "user",
-          "description": "Information about the user",
-          "required": true,
-          "type_info": {
-            "type": "reference",
-            "reference": "User"
           }
         }
       ],
-      "documentation_link": "https://core.telegram.org/bots/api/#transactionpartneruser"
+      "documentation_link": "https://core.telegram.org/bots/api/#transactionpartnertelegramads"
     },
     {
       "name": "TransactionPartnerOther",
