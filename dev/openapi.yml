@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.6.0
+  version: 7.7.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -11387,6 +11387,8 @@ components:
           $ref: "#/components/schemas/Invoice"
         successful_payment:
           $ref: "#/components/schemas/SuccessfulPayment"
+        refunded_payment:
+          $ref: "#/components/schemas/RefundedPayment"
         users_shared:
           $ref: "#/components/schemas/UsersShared"
         chat_shared:
@@ -16168,6 +16170,33 @@ components:
         - invoice_payload
         - telegram_payment_charge_id
         - provider_payment_charge_id
+    RefundedPayment:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#refundedpayment"
+      description: This object contains basic information about a refunded payment.
+      type: object
+      properties:
+        currency:
+          description: "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code, or “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90). Currently, always “XTR”"
+          default: XTR
+          type: string
+        total_amount:
+          description: "Total refunded price in the *smallest units* of the currency (integer, **not** float/double). For example, for a price of `US$ 1.45`, `total_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies)."
+          type: integer
+        invoice_payload:
+          description: Bot-specified invoice payload
+          type: string
+        telegram_payment_charge_id:
+          description: Telegram payment identifier
+          type: string
+        provider_payment_charge_id:
+          description: "*Optional*. Provider payment identifier"
+          type: string
+      required:
+        - currency
+        - total_amount
+        - invoice_payload
+        - telegram_payment_charge_id
     ShippingQuery:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#shippingquery"

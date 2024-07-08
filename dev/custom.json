@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 7,
-    "minor": 6,
+    "minor": 7,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
     "month": 7,
-    "day": 1
+    "day": 7
   },
   "methods": [
     {
@@ -7538,6 +7538,13 @@
           "required": false,
           "type": "reference",
           "reference": "SuccessfulPayment"
+        },
+        {
+          "name": "refunded_payment",
+          "description": "*Optional*. Message is a service message about a refunded payment, information about the payment. [More about payments »](https://core.telegram.org/bots/api/#payments)",
+          "required": false,
+          "type": "reference",
+          "reference": "RefundedPayment"
         },
         {
           "name": "users_shared",
@@ -15591,6 +15598,45 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#successfulpayment"
+    },
+    {
+      "name": "RefundedPayment",
+      "description": "This object contains basic information about a refunded payment.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "currency",
+          "description": "Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code, or “XTR” for payments in [Telegram Stars](https://t.me/BotNews/90). Currently, always “XTR”",
+          "required": true,
+          "type": "string",
+          "default": "XTR"
+        },
+        {
+          "name": "total_amount",
+          "description": "Total refunded price in the *smallest units* of the currency (integer, **not** float/double). For example, for a price of `US$ 1.45`, `total_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "invoice_payload",
+          "description": "Bot-specified invoice payload",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "telegram_payment_charge_id",
+          "description": "Telegram payment identifier",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "provider_payment_charge_id",
+          "description": "*Optional*. Provider payment identifier",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#refundedpayment"
     },
     {
       "name": "ShippingQuery",
