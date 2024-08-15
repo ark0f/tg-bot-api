@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.8.0
+  version: 7.9.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -1758,7 +1758,7 @@ paths:
                   - result
   /sendPaidMedia:
     post:
-      description: "Use this method to send paid media to channel chats. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned."
+      description: "Use this method to send paid media. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#sendpaidmedia"
       requestBody:
@@ -1767,8 +1767,11 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message will be sent
+                  type: string
                 chat_id:
-                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance."
                   anyOf:
                     - type: integer
                     - type: string
@@ -2921,7 +2924,7 @@ paths:
                   - result
   /setMessageReaction:
     post:
-      description: "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns *True* on success."
+      description: "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setmessagereaction"
       requestBody:
@@ -2939,7 +2942,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators. Paid reactions can't be used by bots."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -2962,7 +2965,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators. Paid reactions can't be used by bots."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -2985,7 +2988,7 @@ paths:
                   description: "Identifier of the target message. If the message belongs to a media group, the reaction is set to the first non-deleted message in the group instead."
                   type: integer
                 reaction:
-                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators."
+                  description: "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators. Paid reactions can't be used by bots."
                   type: array
                   items:
                     $ref: "#/components/schemas/ReactionType"
@@ -4240,6 +4243,198 @@ paths:
                 creates_join_request:
                   description: "*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\\_limit* can't be specified"
                   type: boolean
+              required:
+                - chat_id
+                - invite_link
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/ChatInviteLink"
+                required:
+                  - ok
+                  - result
+  /createChatSubscriptionInviteLink:
+    post:
+      description: "Use this method to create a [subscription invite link](https://telegram.org/blog/superchannels-star-reactions-subscriptions#star-subscriptions) for a channel chat. The bot must have the *can\\_invite\\_users* administrator rights. The link can be edited using the method [editChatSubscriptionInviteLink](https://core.telegram.org/bots/api/#editchatsubscriptioninvitelink) or revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#createchatsubscriptioninvitelink"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target channel chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. Currently, it must always be 2592000 (30 days)."
+                  type: integer
+                subscription_price:
+                  description: The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat; 1-2500
+                  type: integer
+              required:
+                - chat_id
+                - subscription_period
+                - subscription_price
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target channel chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. Currently, it must always be 2592000 (30 days)."
+                  type: integer
+                subscription_price:
+                  description: The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat; 1-2500
+                  type: integer
+              required:
+                - chat_id
+                - subscription_period
+                - subscription_price
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target channel chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. Currently, it must always be 2592000 (30 days)."
+                  type: integer
+                subscription_price:
+                  description: The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat; 1-2500
+                  type: integer
+              required:
+                - chat_id
+                - subscription_period
+                - subscription_price
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/ChatInviteLink"
+                required:
+                  - ok
+                  - result
+  /editChatSubscriptionInviteLink:
+    post:
+      description: "Use this method to edit a subscription invite link created by the bot. The bot must have the *can\\_invite\\_users* administrator rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#editchatsubscriptioninvitelink"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                invite_link:
+                  description: The invite link to edit
+                  type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
+              required:
+                - chat_id
+                - invite_link
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                invite_link:
+                  description: The invite link to edit
+                  type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
+              required:
+                - chat_id
+                - invite_link
+          application/json:
+            schema:
+              type: object
+              properties:
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                invite_link:
+                  description: The invite link to edit
+                  type: string
+                name:
+                  description: Invite link name; 0-32 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 32
               required:
                 - chat_id
                 - invite_link
@@ -5624,7 +5819,7 @@ paths:
                   - result
   /editForumTopic:
     post:
-      description: "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success."
+      description: "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editforumtopic"
       requestBody:
@@ -6028,7 +6223,7 @@ paths:
                   - result
   /editGeneralForumTopic:
     post:
-      description: "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights. Returns *True* on success."
+      description: "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editgeneralforumtopic"
       requestBody:
@@ -13456,6 +13651,9 @@ components:
           type: string
         user:
           $ref: "#/components/schemas/User"
+        until_date:
+          description: "*Optional*. Date when the user's subscription will expire; Unix time"
+          type: integer
       required:
         - status
         - user
@@ -13742,10 +13940,11 @@ components:
     ReactionType:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#reactiontype"
-      description: "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)"
+      description: "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)\n* [ReactionTypePaid](https://core.telegram.org/bots/api/#reactiontypepaid)"
       anyOf:
         - $ref: "#/components/schemas/ReactionTypeEmoji"
         - $ref: "#/components/schemas/ReactionTypeCustomEmoji"
+        - $ref: "#/components/schemas/ReactionTypePaid"
     ReactionTypeEmoji:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#reactiontypeemoji"
@@ -13852,6 +14051,18 @@ components:
       required:
         - type
         - custom_emoji_id
+    ReactionTypePaid:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#reactiontypepaid"
+      description: The reaction is paid.
+      type: object
+      properties:
+        type:
+          description: "Type of the reaction, always “paid”"
+          default: paid
+          type: string
+      required:
+        - type
     ReactionCount:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#reactioncount"
@@ -16346,6 +16557,11 @@ components:
         invoice_payload:
           description: "*Optional*. Bot-specified invoice payload"
           type: string
+        paid_media:
+          description: "*Optional*. Information about the paid media bought by the user"
+          type: array
+          items:
+            $ref: "#/components/schemas/PaidMedia"
       required:
         - type
         - user

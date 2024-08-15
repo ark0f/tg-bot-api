@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 7,
-    "minor": 8,
+    "minor": 9,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
-    "month": 7,
-    "day": 31
+    "month": 8,
+    "day": 14
   },
   "methods": [
     {
@@ -2122,11 +2122,20 @@
     },
     {
       "name": "sendPaidMedia",
-      "description": "Use this method to send paid media to channel chats. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
+      "description": "Use this method to send paid media. On success, the sent [Message](https://core.telegram.org/bots/api/#message) is returned.",
       "arguments": [
         {
+          "name": "business_connection_id",
+          "description": "Unique identifier of the business connection on behalf of which the message will be sent",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
           "name": "chat_id",
-          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`). If the chat is a channel, all Telegram Star proceeds from this media will be credited to the chat's balance. Otherwise, they will be credited to the bot's balance.",
           "required": true,
           "type_info": {
             "type": "any_of",
@@ -3300,7 +3309,7 @@
     },
     {
       "name": "setMessageReaction",
-      "description": "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Returns *True* on success.",
+      "description": "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -3331,7 +3340,7 @@
         },
         {
           "name": "reaction",
-          "description": "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators.",
+          "description": "A JSON-serialized list of reaction types to set on the message. Currently, as non-premium users, bots can set up to one reaction per message. A custom emoji reaction can be used if it is either already present on the message or explicitly allowed by chat administrators. Paid reactions can't be used by bots.",
           "required": false,
           "type_info": {
             "type": "array",
@@ -4096,6 +4105,115 @@
       "documentation_link": "https://core.telegram.org/bots/api/#editchatinvitelink"
     },
     {
+      "name": "createChatSubscriptionInviteLink",
+      "description": "Use this method to create a [subscription invite link](https://telegram.org/blog/superchannels-star-reactions-subscriptions#star-subscriptions) for a channel chat. The bot must have the *can\\_invite\\_users* administrator rights. The link can be edited using the method [editChatSubscriptionInviteLink](https://core.telegram.org/bots/api/#editchatsubscriptioninvitelink) or revoked using the method [revokeChatInviteLink](https://core.telegram.org/bots/api/#revokechatinvitelink). Returns the new invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target channel chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type_info": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "integer",
+                "enumeration": []
+              },
+              {
+                "type": "string",
+                "enumeration": []
+              }
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "description": "Invite link name; 0-32 characters",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "min_len": 0,
+            "max_len": 32,
+            "enumeration": []
+          }
+        },
+        {
+          "name": "subscription_period",
+          "description": "The number of seconds the subscription will be active for before the next payment. Currently, it must always be 2592000 (30 days).",
+          "required": true,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "subscription_price",
+          "description": "The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat; 1-2500",
+          "required": true,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        }
+      ],
+      "maybe_multipart": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatInviteLink"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#createchatsubscriptioninvitelink"
+    },
+    {
+      "name": "editChatSubscriptionInviteLink",
+      "description": "Use this method to edit a subscription invite link created by the bot. The bot must have the *can\\_invite\\_users* administrator rights. Returns the edited invite link as a [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
+      "arguments": [
+        {
+          "name": "chat_id",
+          "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+          "required": true,
+          "type_info": {
+            "type": "any_of",
+            "any_of": [
+              {
+                "type": "integer",
+                "enumeration": []
+              },
+              {
+                "type": "string",
+                "enumeration": []
+              }
+            ]
+          }
+        },
+        {
+          "name": "invite_link",
+          "description": "The invite link to edit",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        },
+        {
+          "name": "name",
+          "description": "Invite link name; 0-32 characters",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "min_len": 0,
+            "max_len": 32,
+            "enumeration": []
+          }
+        }
+      ],
+      "maybe_multipart": false,
+      "return_type": {
+        "type": "reference",
+        "reference": "ChatInviteLink"
+      },
+      "documentation_link": "https://core.telegram.org/bots/api/#editchatsubscriptioninvitelink"
+    },
+    {
       "name": "revokeChatInviteLink",
       "description": "Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as [ChatInviteLink](https://core.telegram.org/bots/api/#chatinvitelink) object.",
       "arguments": [
@@ -4810,7 +4928,7 @@
     },
     {
       "name": "editForumTopic",
-      "description": "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success.",
+      "description": "Use this method to edit name and icon of a topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights, unless it is the creator of the topic. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -5025,7 +5143,7 @@
     },
     {
       "name": "editGeneralForumTopic",
-      "description": "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have *can\\_manage\\_topics* administrator rights. Returns *True* on success.",
+      "description": "Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the *can\\_manage\\_topics* administrator rights. Returns *True* on success.",
       "arguments": [
         {
           "name": "chat_id",
@@ -9027,7 +9145,7 @@
         },
         {
           "name": "from",
-          "description": "*Optional*. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.",
+          "description": "*Optional*. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats",
           "required": false,
           "type_info": {
             "type": "reference",
@@ -9036,7 +9154,7 @@
         },
         {
           "name": "sender_chat",
-          "description": "*Optional*. Sender of the message, sent on behalf of a chat. For example, the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators, the linked channel for messages automatically forwarded to the discussion group. For backward compatibility, the field *from* contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.",
+          "description": "*Optional*. Sender of the message when sent on behalf of a chat. For example, the supergroup itself for messages sent by its anonymous administrators or a linked channel for messages automatically forwarded to the channel's discussion group. For backward compatibility, if the message was sent on behalf of a chat, the field *from* contains a fake sender user in non-channel chats.",
           "required": false,
           "type_info": {
             "type": "reference",
@@ -14059,6 +14177,15 @@
             "type": "reference",
             "reference": "User"
           }
+        },
+        {
+          "name": "until_date",
+          "description": "*Optional*. Date when the user's subscription will expire; Unix time",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#chatmembermember"
@@ -14645,7 +14772,7 @@
     },
     {
       "name": "ReactionType",
-      "description": "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)",
+      "description": "This object describes the type of a reaction. Currently, it can be one of\n\n* [ReactionTypeEmoji](https://core.telegram.org/bots/api/#reactiontypeemoji)\n* [ReactionTypeCustomEmoji](https://core.telegram.org/bots/api/#reactiontypecustomemoji)\n* [ReactionTypePaid](https://core.telegram.org/bots/api/#reactiontypepaid)",
       "type": "any_of",
       "any_of": [
         {
@@ -14655,6 +14782,10 @@
         {
           "type": "reference",
           "reference": "ReactionTypeCustomEmoji"
+        },
+        {
+          "type": "reference",
+          "reference": "ReactionTypePaid"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#reactiontype"
@@ -14786,6 +14917,24 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#reactiontypecustomemoji"
+    },
+    {
+      "name": "ReactionTypePaid",
+      "description": "The reaction is paid.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the reaction, always “paid”",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "default": "paid",
+            "enumeration": []
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#reactiontypepaid"
     },
     {
       "name": "ReactionCount",
@@ -20339,6 +20488,18 @@
           "type_info": {
             "type": "string",
             "enumeration": []
+          }
+        },
+        {
+          "name": "paid_media",
+          "description": "*Optional*. Information about the paid media bought by the user",
+          "required": false,
+          "type_info": {
+            "type": "array",
+            "array": {
+              "type": "reference",
+              "reference": "PaidMedia"
+            }
           }
         }
       ],
