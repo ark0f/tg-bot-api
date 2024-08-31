@@ -5916,7 +5916,7 @@
         },
         {
           "name": "payload",
-          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
+          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.",
           "required": true,
           "type": "string"
         },
@@ -6098,7 +6098,7 @@
         },
         {
           "name": "payload",
-          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
+          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.",
           "required": true,
           "type": "string"
         },
@@ -15359,7 +15359,7 @@
         },
         {
           "name": "payload",
-          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.",
+          "description": "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.",
           "required": true,
           "type": "string"
         },

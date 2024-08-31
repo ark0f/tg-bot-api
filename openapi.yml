@@ -9779,7 +9779,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -9883,7 +9883,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -9987,7 +9987,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -10113,7 +10113,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -10192,7 +10192,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -10271,7 +10271,7 @@ paths:
                   minLength: 1
                   maxLength: 255
                 payload:
-                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+                  description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
                   type: string
                 provider_token:
                   description: "Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
@@ -16169,7 +16169,7 @@ components:
           minLength: 1
           maxLength: 255
         payload:
-          description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes."
+          description: "Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes."
           type: string
         provider_token:
           description: "*Optional*. Payment provider token, obtained via [@BotFather](https://t.me/botfather). Pass an empty string for payments in [Telegram Stars](https://t.me/BotNews/90)."
