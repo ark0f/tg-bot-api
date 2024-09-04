@@ -63,6 +63,11 @@ impl Extractor {
                     // get rid of elements like `Formatting options`, `Sending files` that are not objects or methods
                     if name.chars().any(char::is_whitespace) {
                         State::GetName
+                    } else if select_any.peek().matches(&table) {
+                        State::GetObjectFields {
+                            name: elem,
+                            description: RawDescription::default(),
+                        }
                     } else {
                         State::GetDescription {
                             name: elem,
