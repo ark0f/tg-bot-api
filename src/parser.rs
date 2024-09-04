@@ -418,7 +418,8 @@ impl Type {
             Type::Integer { .. } | Type::String { .. } | Type::Bool { .. } | Type::Float => false,
             Type::Or(types) => types.iter().any(Self::maybe_file_to_send),
             Type::Array(ty) => ty.maybe_file_to_send(),
-            Type::Object(object) => object.starts_with("Input"),
+            // Kinda bad, but the alternative is hardcoding every value
+            Type::Object(object) => object.starts_with("Input") && object != "InputPollOption",
         }
     }
 }
