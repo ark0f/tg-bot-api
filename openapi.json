@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "7.9.0"
+    "version": "7.10.0"
   },
   "servers": [
     {
@@ -2863,7 +2863,7 @@
                     ]
                   },
                   "star_count": {
-                    "description": "The number of Telegram Stars that must be paid to buy access to the media",
+                    "description": "The number of Telegram Stars that must be paid to buy access to the media; 1-2500",
                     "type": "integer"
                   },
                   "media": {
@@ -2872,6 +2872,10 @@
                     "items": {
                       "$ref": "#/components/schemas/InputPaidMedia"
                     }
+                  },
+                  "payload": {
+                    "description": "Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.",
+                    "type": "string"
                   },
                   "caption": {
                     "description": "Media caption, 0-1024 characters after entities parsing",
@@ -17583,6 +17587,9 @@
           "pre_checkout_query": {
             "$ref": "#/components/schemas/PreCheckoutQuery"
           },
+          "purchased_paid_media": {
+            "$ref": "#/components/schemas/PaidMediaPurchased"
+          },
           "poll": {
             "$ref": "#/components/schemas/Poll"
           },
@@ -20056,7 +20063,14 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#giveawaycreated"
         },
-        "description": "This object represents a service message about the creation of a scheduled giveaway. Currently holds no information."
+        "description": "This object represents a service message about the creation of a scheduled giveaway.",
+        "type": "object",
+        "properties": {
+          "prize_star_count": {
+            "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+            "type": "integer"
+          }
+        }
       },
       "Giveaway": {
         "externalDocs": {
@@ -20101,8 +20115,12 @@
               "type": "string"
             }
           },
+          "prize_star_count": {
+            "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+            "type": "integer"
+          },
           "premium_subscription_month_count": {
-            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only",
             "type": "integer"
           }
         },
@@ -20145,8 +20163,12 @@
             "description": "*Optional*. The number of other chats the user had to join in order to be eligible for the giveaway",
             "type": "integer"
           },
+          "prize_star_count": {
+            "description": "*Optional*. The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only",
+            "type": "integer"
+          },
           "premium_subscription_month_count": {
-            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+            "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only",
             "type": "integer"
           },
           "unclaimed_prize_count": {
@@ -20193,6 +20215,11 @@
           },
           "giveaway_message": {
             "$ref": "#/components/schemas/Message"
+          },
+          "is_star_giveaway": {
+            "description": "*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.",
+            "default": true,
+            "type": "boolean"
           }
         },
         "required": [
@@ -22169,7 +22196,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#chatboostsourcegiveaway"
         },
-        "description": "The boost was obtained by the creation of a Telegram Premium giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+        "description": "The boost was obtained by the creation of a Telegram Premium or a Telegram Star giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription for Telegram Premium giveaways and *prize\\_star\\_count* / 500 times for one year for Telegram Star giveaways.",
         "type": "object",
         "properties": {
           "source": {
@@ -22183,6 +22210,10 @@
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "prize_star_count": {
+            "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+            "type": "integer"
           },
           "is_unclaimed": {
             "description": "*Optional*. True, if the giveaway was completed, but there was no user to win the prize",
@@ -25034,6 +25065,26 @@
           "invoice_payload"
         ]
       },
+      "PaidMediaPurchased": {
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#paidmediapurchased"
+        },
+        "description": "This object contains information about a paid media purchase.",
+        "type": "object",
+        "properties": {
+          "from": {
+            "$ref": "#/components/schemas/User"
+          },
+          "paid_media_payload": {
+            "description": "Bot-specified paid media payload",
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "paid_media_payload"
+        ]
+      },
       "RevenueWithdrawalState": {
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#revenuewithdrawalstate"
@@ -25157,6 +25208,10 @@
             "items": {
               "$ref": "#/components/schemas/PaidMedia"
             }
+          },
+          "paid_media_payload": {
+            "description": "*Optional*. Bot-specified paid media payload",
+            "type": "string"
           }
         },
         "required": [

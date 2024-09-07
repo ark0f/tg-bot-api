@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 7,
-    "minor": 9,
+    "minor": 10,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
-    "month": 8,
-    "day": 14
+    "month": 9,
+    "day": 6
   },
   "methods": [
     {
@@ -2153,7 +2153,7 @@
         },
         {
           "name": "star_count",
-          "description": "The number of Telegram Stars that must be paid to buy access to the media",
+          "description": "The number of Telegram Stars that must be paid to buy access to the media; 1-2500",
           "required": true,
           "type_info": {
             "type": "integer",
@@ -2170,6 +2170,15 @@
               "type": "reference",
               "reference": "InputPaidMedia"
             }
+          }
+        },
+        {
+          "name": "payload",
+          "description": "Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         },
         {
@@ -8354,6 +8363,15 @@
           }
         },
         {
+          "name": "purchased_paid_media",
+          "description": "*Optional*. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat",
+          "required": false,
+          "type_info": {
+            "type": "reference",
+            "reference": "PaidMediaPurchased"
+          }
+        },
+        {
           "name": "poll",
           "description": "*Optional*. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot",
           "required": false,
@@ -12536,8 +12554,19 @@
     },
     {
       "name": "GiveawayCreated",
-      "description": "This object represents a service message about the creation of a scheduled giveaway. Currently holds no information.",
-      "type": "unknown",
+      "description": "This object represents a service message about the creation of a scheduled giveaway.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "prize_star_count",
+          "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        }
+      ],
       "documentation_link": "https://core.telegram.org/bots/api/#giveawaycreated"
     },
     {
@@ -12615,8 +12644,17 @@
           }
         },
         {
+          "name": "prize_star_count",
+          "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
           "name": "premium_subscription_month_count",
-          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only",
           "required": false,
           "type_info": {
             "type": "integer",
@@ -12689,8 +12727,17 @@
           }
         },
         {
+          "name": "prize_star_count",
+          "description": "*Optional*. The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
+          }
+        },
+        {
           "name": "premium_subscription_month_count",
-          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for",
+          "description": "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only",
           "required": false,
           "type_info": {
             "type": "integer",
@@ -12766,6 +12813,15 @@
           "type_info": {
             "type": "reference",
             "reference": "Message"
+          }
+        },
+        {
+          "name": "is_star_giveaway",
+          "description": "*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.",
+          "required": false,
+          "type_info": {
+            "type": "bool",
+            "default": true
           }
         }
       ],
@@ -15622,7 +15678,7 @@
     },
     {
       "name": "ChatBoostSourceGiveaway",
-      "description": "The boost was obtained by the creation of a Telegram Premium giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.",
+      "description": "The boost was obtained by the creation of a Telegram Premium or a Telegram Star giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription for Telegram Premium giveaways and *prize\\_star\\_count* / 500 times for one year for Telegram Star giveaways.",
       "type": "properties",
       "properties": [
         {
@@ -15646,11 +15702,20 @@
         },
         {
           "name": "user",
-          "description": "*Optional*. User that won the prize in the giveaway if any",
+          "description": "*Optional*. User that won the prize in the giveaway if any; for Telegram Premium giveaways only",
           "required": false,
           "type_info": {
             "type": "reference",
             "reference": "User"
+          }
+        },
+        {
+          "name": "prize_star_count",
+          "description": "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only",
+          "required": false,
+          "type_info": {
+            "type": "integer",
+            "enumeration": []
           }
         },
         {
@@ -20360,6 +20425,32 @@
       "documentation_link": "https://core.telegram.org/bots/api/#precheckoutquery"
     },
     {
+      "name": "PaidMediaPurchased",
+      "description": "This object contains information about a paid media purchase.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "from",
+          "description": "User who purchased the media",
+          "required": true,
+          "type_info": {
+            "type": "reference",
+            "reference": "User"
+          }
+        },
+        {
+          "name": "paid_media_payload",
+          "description": "Bot-specified paid media payload",
+          "required": true,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
+          }
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#paidmediapurchased"
+    },
+    {
       "name": "RevenueWithdrawalState",
       "description": "This object describes the state of a revenue withdrawal operation. Currently, it can be one of\n\n* [RevenueWithdrawalStatePending](https://core.telegram.org/bots/api/#revenuewithdrawalstatepending)\n* [RevenueWithdrawalStateSucceeded](https://core.telegram.org/bots/api/#revenuewithdrawalstatesucceeded)\n* [RevenueWithdrawalStateFailed](https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed)",
       "type": "any_of",
@@ -20518,6 +20609,15 @@
               "type": "reference",
               "reference": "PaidMedia"
             }
+          }
+        },
+        {
+          "name": "paid_media_payload",
+          "description": "*Optional*. Bot-specified paid media payload",
+          "required": false,
+          "type_info": {
+            "type": "string",
+            "enumeration": []
           }
         }
       ],

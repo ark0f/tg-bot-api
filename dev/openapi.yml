@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.9.0
+  version: 7.10.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -1776,13 +1776,16 @@ paths:
                     - type: integer
                     - type: string
                 star_count:
-                  description: The number of Telegram Stars that must be paid to buy access to the media
+                  description: The number of Telegram Stars that must be paid to buy access to the media; 1-2500
                   type: integer
                 media:
                   description: A JSON-serialized array describing the media to be sent; up to 10 items
                   type: array
                   items:
                     $ref: "#/components/schemas/InputPaidMedia"
+                payload:
+                  description: "Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes."
+                  type: string
                 caption:
                   description: "Media caption, 0-1024 characters after entities parsing"
                   type: string
@@ -11132,6 +11135,8 @@ components:
           $ref: "#/components/schemas/ShippingQuery"
         pre_checkout_query:
           $ref: "#/components/schemas/PreCheckoutQuery"
+        purchased_paid_media:
+          $ref: "#/components/schemas/PaidMediaPurchased"
         poll:
           $ref: "#/components/schemas/Poll"
         poll_answer:
@@ -12903,7 +12908,12 @@ components:
     GiveawayCreated:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#giveawaycreated"
-      description: This object represents a service message about the creation of a scheduled giveaway. Currently holds no information.
+      description: This object represents a service message about the creation of a scheduled giveaway.
+      type: object
+      properties:
+        prize_star_count:
+          description: "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only"
+          type: integer
     Giveaway:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#giveaway"
@@ -12937,8 +12947,11 @@ components:
           type: array
           items:
             type: string
+        prize_star_count:
+          description: "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only"
+          type: integer
         premium_subscription_month_count:
-          description: "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for"
+          description: "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only"
           type: integer
       required:
         - chats
@@ -12969,8 +12982,11 @@ components:
         additional_chat_count:
           description: "*Optional*. The number of other chats the user had to join in order to be eligible for the giveaway"
           type: integer
+        prize_star_count:
+          description: "*Optional*. The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only"
+          type: integer
         premium_subscription_month_count:
-          description: "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for"
+          description: "*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only"
           type: integer
         unclaimed_prize_count:
           description: "*Optional*. Number of undistributed prizes"
@@ -13006,6 +13022,10 @@ components:
           type: integer
         giveaway_message:
           $ref: "#/components/schemas/Message"
+        is_star_giveaway:
+          description: "*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway."
+          default: true
+          type: boolean
       required:
         - winner_count
     LinkPreviewOptions:
@@ -14425,7 +14445,7 @@ components:
     ChatBoostSourceGiveaway:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#chatboostsourcegiveaway"
-      description: The boost was obtained by the creation of a Telegram Premium giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.
+      description: "The boost was obtained by the creation of a Telegram Premium or a Telegram Star giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription for Telegram Premium giveaways and *prize\\_star\\_count* / 500 times for one year for Telegram Star giveaways."
       type: object
       properties:
         source:
@@ -14437,6 +14457,9 @@ components:
           type: integer
         user:
           $ref: "#/components/schemas/User"
+        prize_star_count:
+          description: "*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only"
+          type: integer
         is_unclaimed:
           description: "*Optional*. True, if the giveaway was completed, but there was no user to win the prize"
           default: true
@@ -16487,6 +16510,20 @@ components:
         - currency
         - total_amount
         - invoice_payload
+    PaidMediaPurchased:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#paidmediapurchased"
+      description: This object contains information about a paid media purchase.
+      type: object
+      properties:
+        from:
+          $ref: "#/components/schemas/User"
+        paid_media_payload:
+          description: Bot-specified paid media payload
+          type: string
+      required:
+        - from
+        - paid_media_payload
     RevenueWithdrawalState:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#revenuewithdrawalstate"
@@ -16568,6 +16605,9 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/PaidMedia"
+        paid_media_payload:
+          description: "*Optional*. Bot-specified paid media payload"
+          type: string
       required:
         - type
         - user
