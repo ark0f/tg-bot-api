@@ -16143,7 +16143,7 @@
       "properties": [
         {
           "name": "id",
-          "description": "Unique identifier of the transaction. Coincides with the identifer of the original transaction for refund transactions. Coincides with *SuccessfulPayment.telegram\\_payment\\_charge\\_id* for successful incoming payments from users.",
+          "description": "Unique identifier of the transaction. Coincides with the identifier of the original transaction for refund transactions. Coincides with *SuccessfulPayment.telegram\\_payment\\_charge\\_id* for successful incoming payments from users.",
           "required": true,
           "type": "string"
         },

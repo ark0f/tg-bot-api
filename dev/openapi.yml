@@ -16656,7 +16656,7 @@ components:
       type: object
       properties:
         id:
-          description: "Unique identifier of the transaction. Coincides with the identifer of the original transaction for refund transactions. Coincides with *SuccessfulPayment.telegram\\_payment\\_charge\\_id* for successful incoming payments from users."
+          description: "Unique identifier of the transaction. Coincides with the identifier of the original transaction for refund transactions. Coincides with *SuccessfulPayment.telegram\\_payment\\_charge\\_id* for successful incoming payments from users."
           type: string
         amount:
           description: Number of Telegram Stars transferred by the transaction
