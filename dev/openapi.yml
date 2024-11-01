@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.10.0
+  version: 7.11.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -376,6 +376,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -427,6 +430,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -477,6 +483,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -813,6 +822,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
@@ -868,6 +880,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
@@ -922,6 +937,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
@@ -1148,6 +1166,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -1246,6 +1267,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -1337,6 +1361,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -1445,6 +1472,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -1549,6 +1579,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -1636,6 +1669,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -1717,6 +1753,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -1808,6 +1847,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 reply_parameters:
                   $ref: "#/components/schemas/ReplyParameters"
                 reply_markup:
@@ -1880,6 +1922,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent messages from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -1960,6 +2005,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2015,6 +2063,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2069,6 +2120,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -2161,6 +2215,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2224,6 +2281,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2286,6 +2346,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -2368,6 +2431,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2417,6 +2483,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2465,6 +2534,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -2588,6 +2660,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2666,6 +2741,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2712,6 +2790,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -2757,6 +2838,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -7919,7 +8003,7 @@ paths:
                   - result
   /editMessageMedia:
     post:
-      description: "Use this method to edit animation, audio, document, photo, or video messages. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file\\_id or specify a URL. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
+      description: "Use this method to edit animation, audio, document, photo, or video messages, or to add media to text messages. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file\\_id or specify a URL. On success, if the edited message is not an inline message, the edited [Message](https://core.telegram.org/bots/api/#message) is returned, otherwise *True* is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within **48 hours** from the time they were sent."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#editmessagemedia"
       requestBody:
@@ -8599,6 +8683,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -9849,6 +9936,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -9953,6 +10043,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -10056,6 +10149,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -10778,6 +10874,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -10810,6 +10909,9 @@ paths:
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
                   type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
                   type: string
@@ -10841,6 +10943,9 @@ paths:
                   type: boolean
                 protect_content:
                   description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
                   type: boolean
                 message_effect_id:
                   description: Unique identifier of the message effect to be added to the message; for private chats only
@@ -11440,7 +11545,7 @@ components:
       type: object
       properties:
         message_id:
-          description: Unique message identifier inside this chat
+          description: "Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent"
           type: integer
         message_thread_id:
           description: "*Optional*. Unique identifier of a message thread to which the message belongs; for supergroups only"
@@ -11670,7 +11775,7 @@ components:
       type: object
       properties:
         message_id:
-          description: Unique message identifier
+          description: "Unique message identifier. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent"
           type: integer
       required:
         - message_id
@@ -11706,7 +11811,7 @@ components:
       type: object
       properties:
         type:
-          description: "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable\\_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)"
+          description: "Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag` or `#hashtag@chatusername`), “cashtag” (`$USD` or `$USD@chatusername`), “bot\\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable\\_blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text\\_link” (for clickable text URLs), “text\\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\\_emoji” (for inline custom emoji stickers)"
           type: string
           enum:
             - mention
@@ -13296,6 +13401,8 @@ components:
           type: string
         switch_inline_query_chosen_chat:
           $ref: "#/components/schemas/SwitchInlineQueryChosenChat"
+        copy_text:
+          $ref: "#/components/schemas/CopyTextButton"
         callback_game:
           $ref: "#/components/schemas/CallbackGame"
         pay:
@@ -13344,6 +13451,19 @@ components:
         allow_channel_chats:
           description: "*Optional*. True, if channel chats can be chosen"
           type: boolean
+    CopyTextButton:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#copytextbutton"
+      description: This object represents an inline keyboard button that copies specified text to the clipboard.
+      type: object
+      properties:
+        text:
+          description: The text to be copied to the clipboard; 1-256 characters
+          type: string
+          minLength: 1
+          maxLength: 256
+      required:
+        - text
     CallbackQuery:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#callbackquery"
@@ -16579,11 +16699,12 @@ components:
     TransactionPartner:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#transactionpartner"
-      description: "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)"
+      description: "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerTelegramApi](https://core.telegram.org/bots/api/#transactionpartnertelegramapi)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)"
       anyOf:
         - $ref: "#/components/schemas/TransactionPartnerUser"
         - $ref: "#/components/schemas/TransactionPartnerFragment"
         - $ref: "#/components/schemas/TransactionPartnerTelegramAds"
+        - $ref: "#/components/schemas/TransactionPartnerTelegramApi"
         - $ref: "#/components/schemas/TransactionPartnerOther"
     TransactionPartnerUser:
       externalDocs:
@@ -16637,6 +16758,22 @@ components:
           type: string
       required:
         - type
+    TransactionPartnerTelegramApi:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartnertelegramapi"
+      description: "Describes a transaction with payment for [paid broadcasting](https://core.telegram.org/bots/api/#paid-broadcasts)."
+      type: object
+      properties:
+        type:
+          description: "Type of the transaction partner, always “telegram\\_api”"
+          default: telegram_api
+          type: string
+        request_count:
+          description: The number of successful requests that exceeded regular limits and were therefore billed
+          type: integer
+      required:
+        - type
+        - request_count
     TransactionPartnerOther:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#transactionpartnerother"
