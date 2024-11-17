@@ -25,6 +25,12 @@ impl Pattern {
                     .by_word("bot's")
                     .by_word("Telegram")
                     .exclude(),
+                SearcherPattern::default()
+                    .by_word("Returns")
+                    .by_word("the")
+                    .by_word("list")
+                    .by_word("of")
+                    .exclude(),
                 SearcherPattern::default().by_word("On").by_word("success"),
                 SearcherPattern::default().by_word("Returns"),
                 SearcherPattern::default().by_word("returns"),
