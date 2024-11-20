@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 7.11.0
+  version: 8.0.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -2584,7 +2584,197 @@ paths:
         url: "https://core.telegram.org/bots/api/#sendpoll"
       requestBody:
         content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message will be sent
+                  type: string
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
+                question:
+                  description: "Poll question, 1-300 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 300
+                question_parse_mode:
+                  description: "Mode for parsing entities in the question. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details. Currently, only custom emoji entities are allowed"
+                  type: string
+                question_entities:
+                  description: "A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of *question\\_parse\\_mode*"
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+                options:
+                  description: A JSON-serialized list of 2-10 answer options
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/InputPollOption"
+                is_anonymous:
+                  description: "*True*, if the poll needs to be anonymous, defaults to *True*"
+                  type: boolean
+                type:
+                  description: "Poll type, “quiz” or “regular”, defaults to “regular”"
+                  type: string
+                  enum:
+                    - quiz
+                    - regular
+                allows_multiple_answers:
+                  description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  type: boolean
+                correct_option_id:
+                  description: "0-based identifier of the correct answer option, required for polls in quiz mode"
+                  type: integer
+                explanation:
+                  description: "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing"
+                  type: string
+                  minLength: 0
+                  maxLength: 200
+                explanation_parse_mode:
+                  description: "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
+                  type: string
+                explanation_entities:
+                  description: "A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of *explanation\\_parse\\_mode*"
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+                open_period:
+                  description: "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*."
+                  type: integer
+                close_date:
+                  description: "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*."
+                  type: integer
+                is_closed:
+                  description: Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.
+                  type: boolean
+                disable_notification:
+                  description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
+                  type: boolean
+                protect_content:
+                  description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
+                message_effect_id:
+                  description: Unique identifier of the message effect to be added to the message; for private chats only
+                  type: string
+                reply_parameters:
+                  $ref: "#/components/schemas/ReplyParameters"
+                reply_markup:
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user"
+                  anyOf:
+                    - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/ReplyKeyboardRemove"
+                    - $ref: "#/components/schemas/ForceReply"
+              required:
+                - chat_id
+                - question
+                - options
           multipart/form-data:
+            schema:
+              type: object
+              properties:
+                business_connection_id:
+                  description: Unique identifier of the business connection on behalf of which the message will be sent
+                  type: string
+                chat_id:
+                  description: "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)"
+                  anyOf:
+                    - type: integer
+                    - type: string
+                message_thread_id:
+                  description: Unique identifier for the target message thread (topic) of the forum; for forum supergroups only
+                  type: integer
+                question:
+                  description: "Poll question, 1-300 characters"
+                  type: string
+                  minLength: 1
+                  maxLength: 300
+                question_parse_mode:
+                  description: "Mode for parsing entities in the question. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details. Currently, only custom emoji entities are allowed"
+                  type: string
+                question_entities:
+                  description: "A JSON-serialized list of special entities that appear in the poll question. It can be specified instead of *question\\_parse\\_mode*"
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+                options:
+                  description: A JSON-serialized list of 2-10 answer options
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/InputPollOption"
+                is_anonymous:
+                  description: "*True*, if the poll needs to be anonymous, defaults to *True*"
+                  type: boolean
+                type:
+                  description: "Poll type, “quiz” or “regular”, defaults to “regular”"
+                  type: string
+                  enum:
+                    - quiz
+                    - regular
+                allows_multiple_answers:
+                  description: "*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*"
+                  type: boolean
+                correct_option_id:
+                  description: "0-based identifier of the correct answer option, required for polls in quiz mode"
+                  type: integer
+                explanation:
+                  description: "Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing"
+                  type: string
+                  minLength: 0
+                  maxLength: 200
+                explanation_parse_mode:
+                  description: "Mode for parsing entities in the explanation. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details."
+                  type: string
+                explanation_entities:
+                  description: "A JSON-serialized list of special entities that appear in the poll explanation. It can be specified instead of *explanation\\_parse\\_mode*"
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+                open_period:
+                  description: "Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\\_date*."
+                  type: integer
+                close_date:
+                  description: "Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\\_period*."
+                  type: integer
+                is_closed:
+                  description: Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.
+                  type: boolean
+                disable_notification:
+                  description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
+                  type: boolean
+                protect_content:
+                  description: Protects the contents of the sent message from forwarding and saving
+                  type: boolean
+                allow_paid_broadcast:
+                  description: "Pass *True* to allow up to 1000 messages per second, ignoring [broadcasting limits](https://core.telegram.org/bots/faq#how-can-i-message-all-of-my-bot-39s-subscribers-at-once) for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance"
+                  type: boolean
+                message_effect_id:
+                  description: Unique identifier of the message effect to be added to the message; for private chats only
+                  type: string
+                reply_parameters:
+                  $ref: "#/components/schemas/ReplyParameters"
+                reply_markup:
+                  description: "Additional interface options. A JSON-serialized object for an [inline keyboard](https://core.telegram.org/bots/features#inline-keyboards), [custom reply keyboard](https://core.telegram.org/bots/features#keyboards), instructions to remove a reply keyboard or to force a reply from the user"
+                  anyOf:
+                    - $ref: "#/components/schemas/InlineKeyboardMarkup"
+                    - $ref: "#/components/schemas/ReplyKeyboardMarkup"
+                    - $ref: "#/components/schemas/ReplyKeyboardRemove"
+                    - $ref: "#/components/schemas/ForceReply"
+              required:
+                - chat_id
+                - question
+                - options
+          application/json:
             schema:
               type: object
               properties:
@@ -3190,6 +3380,82 @@ paths:
                     type: boolean
                   result:
                     $ref: "#/components/schemas/UserProfilePhotos"
+                required:
+                  - ok
+                  - result
+  /setUserEmojiStatus:
+    post:
+      description: "Changes the emoji status for a given user that previously allowed the bot to manage their emoji status via the Mini App method [requestEmojiStatusAccess](https://core.telegram.org/bots/webapps#initializing-mini-apps). Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#setuseremojistatus"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+                emoji_status_custom_emoji_id:
+                  description: Custom emoji identifier of the emoji status to set. Pass an empty string to remove the status.
+                  type: string
+                emoji_status_expiration_date:
+                  description: "Expiration date of the emoji status, if any"
+                  type: integer
+              required:
+                - user_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+                emoji_status_custom_emoji_id:
+                  description: Custom emoji identifier of the emoji status to set. Pass an empty string to remove the status.
+                  type: string
+                emoji_status_expiration_date:
+                  description: "Expiration date of the emoji status, if any"
+                  type: integer
+              required:
+                - user_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user
+                  type: integer
+                emoji_status_custom_emoji_id:
+                  description: Custom emoji identifier of the emoji status to set. Pass an empty string to remove the status.
+                  type: string
+                emoji_status_expiration_date:
+                  description: "Expiration date of the emoji status, if any"
+                  type: integer
+              required:
+                - user_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
                 required:
                   - ok
                   - result
@@ -9661,6 +9927,142 @@ paths:
                 required:
                   - ok
                   - result
+  /getAvailableGifts:
+    post:
+      description: "Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a [Gifts](https://core.telegram.org/bots/api/#gifts) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#getavailablegifts"
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/Gifts"
+                required:
+                  - ok
+                  - result
+  /sendGift:
+    post:
+      description: "Sends a gift to the given user. The gift can't be converted to Telegram Stars by the user. Returns *True* on success."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#sendgift"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that will receive the gift
+                  type: integer
+                gift_id:
+                  description: Identifier of the gift
+                  type: string
+                text:
+                  description: Text that will be shown along with the gift; 0-255 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 255
+                text_parse_mode:
+                  description: "Mode for parsing entities in the text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: string
+                text_entities:
+                  description: "A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of *text\\_parse\\_mode*. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+              required:
+                - user_id
+                - gift_id
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that will receive the gift
+                  type: integer
+                gift_id:
+                  description: Identifier of the gift
+                  type: string
+                text:
+                  description: Text that will be shown along with the gift; 0-255 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 255
+                text_parse_mode:
+                  description: "Mode for parsing entities in the text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: string
+                text_entities:
+                  description: "A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of *text\\_parse\\_mode*. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+              required:
+                - user_id
+                - gift_id
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that will receive the gift
+                  type: integer
+                gift_id:
+                  description: Identifier of the gift
+                  type: string
+                text:
+                  description: Text that will be shown along with the gift; 0-255 characters
+                  type: string
+                  minLength: 0
+                  maxLength: 255
+                text_parse_mode:
+                  description: "Mode for parsing entities in the text. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: string
+                text_entities:
+                  description: "A JSON-serialized list of special entities that appear in the gift text. It can be specified instead of *text\\_parse\\_mode*. Entities other than “bold”, “italic”, “underline”, “strikethrough”, “spoiler”, and “custom\\_emoji” are ignored."
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/MessageEntity"
+              required:
+                - user_id
+                - gift_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
   /answerInlineQuery:
     post:
       description: "Use this method to send answers to an inline query. On success, *True* is returned.  \nNo more than **50** results per query are allowed."
@@ -9836,6 +10238,108 @@ paths:
                     type: boolean
                   result:
                     $ref: "#/components/schemas/SentWebAppMessage"
+                required:
+                  - ok
+                  - result
+  /savePreparedInlineMessage:
+    post:
+      description: "Stores a message that can be sent by a user of a Mini App. Returns a [PreparedInlineMessage](https://core.telegram.org/bots/api/#preparedinlinemessage) object."
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#savepreparedinlinemessage"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that can use the prepared message
+                  type: integer
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+                allow_user_chats:
+                  description: Pass *True* if the message can be sent to private chats with users
+                  type: boolean
+                allow_bot_chats:
+                  description: Pass *True* if the message can be sent to private chats with bots
+                  type: boolean
+                allow_group_chats:
+                  description: Pass *True* if the message can be sent to group and supergroup chats
+                  type: boolean
+                allow_channel_chats:
+                  description: Pass *True* if the message can be sent to channel chats
+                  type: boolean
+              required:
+                - user_id
+                - result
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that can use the prepared message
+                  type: integer
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+                allow_user_chats:
+                  description: Pass *True* if the message can be sent to private chats with users
+                  type: boolean
+                allow_bot_chats:
+                  description: Pass *True* if the message can be sent to private chats with bots
+                  type: boolean
+                allow_group_chats:
+                  description: Pass *True* if the message can be sent to group and supergroup chats
+                  type: boolean
+                allow_channel_chats:
+                  description: Pass *True* if the message can be sent to channel chats
+                  type: boolean
+              required:
+                - user_id
+                - result
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Unique identifier of the target user that can use the prepared message
+                  type: integer
+                result:
+                  $ref: "#/components/schemas/InlineQueryResult"
+                allow_user_chats:
+                  description: Pass *True* if the message can be sent to private chats with users
+                  type: boolean
+                allow_bot_chats:
+                  description: Pass *True* if the message can be sent to private chats with bots
+                  type: boolean
+                allow_group_chats:
+                  description: Pass *True* if the message can be sent to group and supergroup chats
+                  type: boolean
+                allow_channel_chats:
+                  description: Pass *True* if the message can be sent to channel chats
+                  type: boolean
+              required:
+                - user_id
+                - result
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    $ref: "#/components/schemas/PreparedInlineMessage"
                 required:
                   - ok
                   - result
@@ -10201,6 +10705,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: "Unique identifier of the business connection on behalf of which the link will be created. For payments in [Telegram Stars](https://t.me/BotNews/90) only."
+                  type: string
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -10225,6 +10732,9 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/LabeledPrice"
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user."
+                  type: integer
                 max_tip_amount:
                   description: "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90)."
                   default: 0
@@ -10280,6 +10790,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: "Unique identifier of the business connection on behalf of which the link will be created. For payments in [Telegram Stars](https://t.me/BotNews/90) only."
+                  type: string
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -10304,6 +10817,9 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/LabeledPrice"
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user."
+                  type: integer
                 max_tip_amount:
                   description: "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90)."
                   default: 0
@@ -10359,6 +10875,9 @@ paths:
             schema:
               type: object
               properties:
+                business_connection_id:
+                  description: "Unique identifier of the business connection on behalf of which the link will be created. For payments in [Telegram Stars](https://t.me/BotNews/90) only."
+                  type: string
                 title:
                   description: "Product name, 1-32 characters"
                   type: string
@@ -10383,6 +10902,9 @@ paths:
                   type: array
                   items:
                     $ref: "#/components/schemas/LabeledPrice"
+                subscription_period:
+                  description: "The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user."
+                  type: integer
                 max_tip_amount:
                   description: "The maximum accepted amount for tips in the *smallest units* of the currency (integer, **not** float/double). For example, for a maximum tip of `US$ 1.45` pass `max_tip_amount = 145`. See the *exp* parameter in [currencies.json](https://core.telegram.org/bots/payments/currencies.json), it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in [Telegram Stars](https://t.me/BotNews/90)."
                   default: 0
@@ -10695,7 +11217,7 @@ paths:
                     default: true
                     type: boolean
                   result:
-                    $ref: "#/components/schemas/Telegram"
+                    $ref: "#/components/schemas/StarTransactions"
                 required:
                   - ok
                   - result
@@ -10745,6 +11267,88 @@ paths:
               required:
                 - user_id
                 - telegram_payment_charge_id
+        required: true
+      responses:
+        default:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    default: true
+                    type: boolean
+                  result:
+                    default: true
+                    type: boolean
+                required:
+                  - ok
+                  - result
+  /editUserStarSubscription:
+    post:
+      description: Allows the bot to cancel or re-enable extension of a subscription paid in Telegram Stars. Returns *True* on success.
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#edituserstarsubscription"
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Identifier of the user whose subscription will be edited
+                  type: integer
+                telegram_payment_charge_id:
+                  description: Telegram payment identifier for the subscription
+                  type: string
+                is_canceled:
+                  description: Pass *True* to cancel extension of the user subscription; the subscription must be active up to the end of the current subscription period. Pass *False* to allow the user to re-enable a subscription that was previously canceled by the bot.
+                  type: boolean
+              required:
+                - user_id
+                - telegram_payment_charge_id
+                - is_canceled
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Identifier of the user whose subscription will be edited
+                  type: integer
+                telegram_payment_charge_id:
+                  description: Telegram payment identifier for the subscription
+                  type: string
+                is_canceled:
+                  description: Pass *True* to cancel extension of the user subscription; the subscription must be active up to the end of the current subscription period. Pass *False* to allow the user to re-enable a subscription that was previously canceled by the bot.
+                  type: boolean
+              required:
+                - user_id
+                - telegram_payment_charge_id
+                - is_canceled
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  description: Identifier of the user whose subscription will be edited
+                  type: integer
+                telegram_payment_charge_id:
+                  description: Telegram payment identifier for the subscription
+                  type: string
+                is_canceled:
+                  description: Pass *True* to cancel extension of the user subscription; the subscription must be active up to the end of the current subscription period. Pass *False* to allow the user to re-enable a subscription that was previously canceled by the bot.
+                  type: boolean
+              required:
+                - user_id
+                - telegram_payment_charge_id
+                - is_canceled
         required: true
       responses:
         default:
@@ -15158,6 +15762,43 @@ components:
         - sticker
         - format
         - emoji_list
+    Gift:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#gift"
+      description: This object represents a gift that can be sent by the bot.
+      type: object
+      properties:
+        id:
+          description: Unique identifier of the gift
+          type: string
+        sticker:
+          $ref: "#/components/schemas/Sticker"
+        star_count:
+          description: The number of Telegram Stars that must be paid to send the sticker
+          type: integer
+        total_count:
+          description: "*Optional*. The total number of the gifts of this type that can be sent; for limited gifts only"
+          type: integer
+        remaining_count:
+          description: "*Optional*. The number of remaining gifts of this type that can be sent; for limited gifts only"
+          type: integer
+      required:
+        - id
+        - sticker
+        - star_count
+    Gifts:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#gifts"
+      description: This object represent a list of gifts.
+      type: object
+      properties:
+        gifts:
+          description: The list of gifts
+          type: array
+          items:
+            $ref: "#/components/schemas/Gift"
+      required:
+        - gifts
     InlineQuery:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#inlinequery"
@@ -16408,6 +17049,21 @@ components:
         inline_message_id:
           description: "*Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) attached to the message."
           type: string
+    PreparedInlineMessage:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#preparedinlinemessage"
+      description: Describes an inline message to be sent by a user of a Mini App.
+      type: object
+      properties:
+        id:
+          description: Unique identifier of the prepared message
+          type: string
+        expiration_date:
+          description: "Expiration date of the prepared message, in Unix time. Expired prepared messages can no longer be used"
+          type: integer
+      required:
+        - id
+        - expiration_date
     LabeledPrice:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#labeledprice"
@@ -16534,6 +17190,17 @@ components:
         invoice_payload:
           description: Bot-specified invoice payload
           type: string
+        subscription_expiration_date:
+          description: "*Optional*. Expiration date of the subscription, in Unix time; for recurring payments only"
+          type: integer
+        is_recurring:
+          description: "*Optional*. True, if the payment is a recurring payment for a subscription"
+          default: true
+          type: boolean
+        is_first_recurring:
+          description: "*Optional*. True, if the payment is the first payment for a subscription"
+          default: true
+          type: boolean
         shipping_option_id:
           description: "*Optional*. Identifier of the shipping option chosen by the user"
           type: string
@@ -16721,6 +17388,9 @@ components:
         invoice_payload:
           description: "*Optional*. Bot-specified invoice payload"
           type: string
+        subscription_period:
+          description: "*Optional*. The duration of the paid subscription"
+          type: integer
         paid_media:
           description: "*Optional*. Information about the paid media bought by the user"
           type: array
@@ -16728,6 +17398,9 @@ components:
             $ref: "#/components/schemas/PaidMedia"
         paid_media_payload:
           description: "*Optional*. Bot-specified paid media payload"
+          type: string
+        gift:
+          description: "*Optional*. The gift sent to the user by the bot"
           type: string
       required:
         - type
