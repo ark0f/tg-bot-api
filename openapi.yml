@@ -17400,8 +17400,7 @@ components:
           description: "*Optional*. Bot-specified paid media payload"
           type: string
         gift:
-          description: "*Optional*. The gift sent to the user by the bot"
-          type: string
+          $ref: "#/components/schemas/Gift"
       required:
         - type
         - user

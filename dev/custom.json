@@ -16508,7 +16508,8 @@
           "name": "gift",
           "description": "*Optional*. The gift sent to the user by the bot",
           "required": false,
-          "type": "string"
+          "type": "reference",
+          "reference": "Gift"
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#transactionpartneruser"

@@ -21174,8 +21174,8 @@
           "description": "*Optional*. The gift sent to the user by the bot",
           "required": false,
           "type_info": {
-            "type": "string",
-            "enumeration": []
+            "type": "reference",
+            "reference": "Gift"
           }
         }
       ],
