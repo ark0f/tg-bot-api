@@ -1,13 +1,13 @@
 {
   "version": {
     "major": 8,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "recent_changes": {
     "year": 2024,
-    "month": 11,
-    "day": 17
+    "month": 12,
+    "day": 4
   },
   "methods": [
     {
@@ -6383,7 +6383,7 @@
         },
         {
           "name": "subscription_period",
-          "description": "The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user.",
+          "description": "The number of seconds the subscription will be active for before the next payment. The currency must be set to “XTR” (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must no exceed 2500 Telegram Stars.",
           "required": false,
           "type": "integer"
         },
@@ -16430,13 +16430,57 @@
       "documentation_link": "https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed"
     },
     {
+      "name": "AffiliateInfo",
+      "description": "Contains information about the affiliate that received a commission via this transaction.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "affiliate_user",
+          "description": "*Optional*. The bot or the user that received an affiliate commission if it was received by a bot or a user",
+          "required": false,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "affiliate_chat",
+          "description": "*Optional*. The chat that received an affiliate commission if it was received by a chat",
+          "required": false,
+          "type": "reference",
+          "reference": "Chat"
+        },
+        {
+          "name": "commission_per_mille",
+          "description": "The number of Telegram Stars received by the affiliate for each 1000 Telegram Stars received by the bot from referred users",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "amount",
+          "description": "Integer amount of Telegram Stars received by the affiliate from the transaction, rounded to 0; can be negative for refunds",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "nanostar_amount",
+          "description": "*Optional*. The number of 1/1000000000 shares of Telegram Stars received by the affiliate; from -999999999 to 999999999; can be negative for refunds",
+          "required": false,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#affiliateinfo"
+    },
+    {
       "name": "TransactionPartner",
-      "description": "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerTelegramApi](https://core.telegram.org/bots/api/#transactionpartnertelegramapi)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)",
+      "description": "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerAffiliateProgram](https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerTelegramApi](https://core.telegram.org/bots/api/#transactionpartnertelegramapi)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)",
       "type": "any_of",
       "any_of": [
         {
           "type": "reference",
           "reference": "TransactionPartnerUser"
+        },
+        {
+          "type": "reference",
+          "reference": "TransactionPartnerAffiliateProgram"
         },
         {
           "type": "reference",
@@ -16477,6 +16521,13 @@
           "reference": "User"
         },
         {
+          "name": "affiliate",
+          "description": "*Optional*. Information about the affiliate that received a commission via this transaction",
+          "required": false,
+          "type": "reference",
+          "reference": "AffiliateInfo"
+        },
+        {
           "name": "invoice_payload",
           "description": "*Optional*. Bot-specified invoice payload",
           "required": false,
@@ -16513,6 +16564,34 @@
         }
       ],
       "documentation_link": "https://core.telegram.org/bots/api/#transactionpartneruser"
+    },
+    {
+      "name": "TransactionPartnerAffiliateProgram",
+      "description": "Describes the affiliate program that issued the affiliate commission received via this transaction.",
+      "type": "properties",
+      "properties": [
+        {
+          "name": "type",
+          "description": "Type of the transaction partner, always “affiliate\\_program”",
+          "required": true,
+          "type": "string",
+          "default": "affiliate_program"
+        },
+        {
+          "name": "sponsor_user",
+          "description": "*Optional*. Information about the bot that sponsored the affiliate program",
+          "required": false,
+          "type": "reference",
+          "reference": "User"
+        },
+        {
+          "name": "commission_per_mille",
+          "description": "The number of Telegram Stars received by the bot for each 1000 Telegram Stars received by the affiliate program sponsor from referred users",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "documentation_link": "https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram"
     },
     {
       "name": "TransactionPartnerFragment",
@@ -16600,8 +16679,14 @@
         },
         {
           "name": "amount",
-          "description": "Number of Telegram Stars transferred by the transaction",
+          "description": "Integer amount of Telegram Stars transferred by the transaction",
           "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "nanostar_amount",
+          "description": "*Optional*. The number of 1/1000000000 shares of Telegram Stars transferred by the transaction; from 0 to 999999999",
+          "required": false,
           "type": "integer"
         },
         {
