@@ -3,7 +3,7 @@
   "info": {
     "title": "Telegram Bot API",
     "description": "Auto-generated OpenAPI schema",
-    "version": "8.1.0"
+    "version": "8.2.0"
   },
   "servers": [
     {
@@ -160,7 +160,7 @@
     },
     "/setWebhook": {
       "post": {
-        "description": "Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized [Update](https://core.telegram.org/bots/api/#update). In case of an unsuccessful request, we will give up after a reasonable amount of attempts. Returns *True* on success.\n\nIf you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter *secret\\_token*. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.",
+        "description": "Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized [Update](https://core.telegram.org/bots/api/#update). In case of an unsuccessful request (a request with response [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) different from `2XY`), we will repeat the request and give up after a reasonable amount of attempts. Returns *True* on success.\n\nIf you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter *secret\\_token*. If specified, the request will contain a header “X-Telegram-Bot-Api-Secret-Token” with the secret token as content.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#setwebhook"
         },
@@ -15584,7 +15584,7 @@
                     "type": "integer"
                   },
                   "thumbnail": {
-                    "description": "A **.WEBP** or **.PNG** image with the thumbnail, must be up to 128 kilobytes in size and have a width and height of exactly 100px, or a **.TGS** animation with a thumbnail up to 32 kilobytes in size (see [https://core.telegram.org/stickers#animation-requirements](https://core.telegram.org/stickers#animation-requirements) for animated sticker technical requirements), or a **WEBM** video with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#video-requirements](https://core.telegram.org/stickers#video-requirements) for video sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated and video sticker set thumbnails can't be uploaded via HTTP URL. If omitted, then the thumbnail is dropped and the first sticker is used as the thumbnail.",
+                    "description": "A **.WEBP** or **.PNG** image with the thumbnail, must be up to 128 kilobytes in size and have a width and height of exactly 100px, or a **.TGS** animation with a thumbnail up to 32 kilobytes in size (see [https://core.telegram.org/stickers#animation-requirements](https://core.telegram.org/stickers#animation-requirements) for animated sticker technical requirements), or a **.WEBM** video with the thumbnail up to 32 kilobytes in size; see [https://core.telegram.org/stickers#video-requirements](https://core.telegram.org/stickers#video-requirements) for video sticker technical requirements. Pass a *file\\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files). Animated and video sticker set thumbnails can't be uploaded via HTTP URL. If omitted, then the thumbnail is dropped and the first sticker is used as the thumbnail.",
                     "anyOf": [
                       {
                         "$ref": "#/components/schemas/InputFile"
@@ -15595,7 +15595,7 @@
                     ]
                   },
                   "format": {
-                    "description": "Format of the thumbnail, must be one of “static” for a **.WEBP** or **.PNG** image, “animated” for a **.TGS** animation, or “video” for a **WEBM** video",
+                    "description": "Format of the thumbnail, must be one of “static” for a **.WEBP** or **.PNG** image, “animated” for a **.TGS** animation, or “video” for a **.WEBM** video",
                     "type": "string",
                     "enum": [
                       "static",
@@ -15909,6 +15909,10 @@
                     "description": "Identifier of the gift",
                     "type": "string"
                   },
+                  "pay_for_upgrade": {
+                    "description": "Pass *True* to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver",
+                    "type": "boolean"
+                  },
                   "text": {
                     "description": "Text that will be shown along with the gift; 0-255 characters",
                     "type": "string",
@@ -15944,6 +15948,10 @@
                   "gift_id": {
                     "description": "Identifier of the gift",
                     "type": "string"
+                  },
+                  "pay_for_upgrade": {
+                    "description": "Pass *True* to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver",
+                    "type": "boolean"
                   },
                   "text": {
                     "description": "Text that will be shown along with the gift; 0-255 characters",
@@ -15981,6 +15989,10 @@
                     "description": "Identifier of the gift",
                     "type": "string"
                   },
+                  "pay_for_upgrade": {
+                    "description": "Pass *True* to pay for the gift upgrade from the bot's balance, thereby making the upgrade free for the receiver",
+                    "type": "boolean"
+                  },
                   "text": {
                     "description": "Text that will be shown along with the gift; 0-255 characters",
                     "type": "string",
@@ -16002,6 +16014,448 @@
                 "required": [
                   "user_id",
                   "gift_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verifyUser": {
+      "post": {
+        "description": "Verifies a user on behalf of the organization which is represented by the bot. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#verifyuser"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/verifyChat": {
+      "post": {
+        "description": "Verifies a chat on behalf of the organization which is represented by the bot. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#verifychat"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "custom_description": {
+                    "description": "Custom description for the verification; 0-70 characters. Must be empty if the organization isn't allowed to provide a custom verification description.",
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 70
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeUserVerification": {
+      "post": {
+        "description": "Removes verification from a user who is currently verified on behalf of the organization represented by the bot. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#removeuserverification"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "description": "Unique identifier of the target user",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "default": true,
+                      "type": "boolean"
+                    },
+                    "result": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "result"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeChatVerification": {
+      "post": {
+        "description": "Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns *True* on success.",
+        "externalDocs": {
+          "url": "https://core.telegram.org/bots/api/#removechatverification"
+        },
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chat_id": {
+                    "description": "Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)",
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "chat_id"
                 ]
               }
             }
@@ -20777,7 +21231,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#backgroundtypepattern"
         },
-        "description": "The background is a PNG or TGV (gzipped subset of SVG with MIME type “application/x-tgwallpattern”) pattern to be combined with the background fill chosen by the user.",
+        "description": "The background is a .PNG or .TGV (gzipped subset of SVG with MIME type “application/x-tgwallpattern”) pattern to be combined with the background fill chosen by the user.",
         "type": "object",
         "properties": {
           "type": {
@@ -24059,7 +24513,7 @@
             ]
           },
           "format": {
-            "description": "Format of the added sticker, must be one of “static” for a **.WEBP** or **.PNG** image, “animated” for a **.TGS** animation, “video” for a **WEBM** video",
+            "description": "Format of the added sticker, must be one of “static” for a **.WEBP** or **.PNG** image, “animated” for a **.TGS** animation, “video” for a **.WEBM** video",
             "type": "string",
             "enum": [
               "static",
@@ -24107,6 +24561,10 @@
           },
           "star_count": {
             "description": "The number of Telegram Stars that must be paid to send the sticker",
+            "type": "integer"
+          },
+          "upgrade_star_count": {
+            "description": "*Optional*. The number of Telegram Stars that must be paid to upgrade the gift to a unique one",
             "type": "integer"
           },
           "total_count": {
@@ -24310,10 +24768,6 @@
             "description": "*Optional*. URL of the result",
             "type": "string"
           },
-          "hide_url": {
-            "description": "*Optional*. Pass *True* if you don't want the URL to be shown in the message",
-            "type": "boolean"
-          },
           "description": {
             "description": "*Optional*. Short description of the result",
             "type": "string"
@@ -24430,7 +24884,7 @@
             "type": "string"
           },
           "gif_url": {
-            "description": "A valid URL for the GIF file. File size must not exceed 1MB",
+            "description": "A valid URL for the GIF file",
             "type": "string"
           },
           "gif_width": {
@@ -24515,7 +24969,7 @@
             "type": "string"
           },
           "mpeg4_url": {
-            "description": "A valid URL for the MPEG4 file. File size must not exceed 1MB",
+            "description": "A valid URL for the MPEG4 file",
             "type": "string"
           },
           "mpeg4_width": {
