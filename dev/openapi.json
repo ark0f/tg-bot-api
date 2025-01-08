@@ -16060,7 +16060,7 @@
     },
     "/verifyUser": {
       "post": {
-        "description": "Verifies a user on behalf of the organization which is represented by the bot. Returns *True* on success.",
+        "description": "Verifies a user [on behalf of the organization](https://telegram.org/verify#third-party-verification) which is represented by the bot. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#verifyuser"
         },
@@ -16169,7 +16169,7 @@
     },
     "/verifyChat": {
       "post": {
-        "description": "Verifies a chat on behalf of the organization which is represented by the bot. Returns *True* on success.",
+        "description": "Verifies a chat [on behalf of the organization](https://telegram.org/verify#third-party-verification) which is represented by the bot. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#verifychat"
         },
@@ -16299,7 +16299,7 @@
     },
     "/removeUserVerification": {
       "post": {
-        "description": "Removes verification from a user who is currently verified on behalf of the organization represented by the bot. Returns *True* on success.",
+        "description": "Removes verification from a user who is currently verified [on behalf of the organization](https://telegram.org/verify#third-party-verification) represented by the bot. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#removeuserverification"
         },
@@ -16390,7 +16390,7 @@
     },
     "/removeChatVerification": {
       "post": {
-        "description": "Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns *True* on success.",
+        "description": "Removes verification from a chat that is currently verified [on behalf of the organization](https://telegram.org/verify#third-party-verification) represented by the bot. Returns *True* on success.",
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#removechatverification"
         },
@@ -17819,7 +17819,7 @@
                     }
                   },
                   "error_message": {
-                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.",
+                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.",
                     "type": "string"
                   }
                 },
@@ -17849,7 +17849,7 @@
                     }
                   },
                   "error_message": {
-                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.",
+                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.",
                     "type": "string"
                   }
                 },
@@ -17879,7 +17879,7 @@
                     }
                   },
                   "error_message": {
-                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. \"Sorry, delivery to your desired address is unavailable'). Telegram will display this message to the user.",
+                    "description": "Required if *ok* is *False*. Error message in human readable form that explains why it is impossible to complete the order (e.g. “Sorry, delivery to your desired address is unavailable”). Telegram will display this message to the user.",
                     "type": "string"
                   }
                 },
@@ -26497,7 +26497,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#successfulpayment"
         },
-        "description": "This object contains basic information about a successful payment.",
+        "description": "This object contains basic information about a successful payment. Note that if the buyer initiates a chargeback with the relevant payment provider following this transaction, the funds may be debited from your balance. This is outside of Telegram's control.",
         "type": "object",
         "properties": {
           "currency": {
@@ -26963,7 +26963,7 @@
         "externalDocs": {
           "url": "https://core.telegram.org/bots/api/#startransaction"
         },
-        "description": "Describes a Telegram Star transaction.",
+        "description": "Describes a Telegram Star transaction. Note that if the buyer initiates a chargeback with the payment provider from whom they acquired Stars (e.g., Apple, Google) following this transaction, the refunded Stars will be deducted from the bot's balance. This is outside of Telegram's control.",
         "type": "object",
         "properties": {
           "id": {
