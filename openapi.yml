@@ -3,7 +3,7 @@ openapi: 3.0.0
 info:
   title: Telegram Bot API
   description: Auto-generated OpenAPI schema
-  version: 8.2.0
+  version: 8.3.0
 servers:
   - url: "https://api.telegram.org/bot{token}"
     variables:
@@ -549,6 +549,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                video_start_timestamp:
+                  description: New start timestamp for the forwarded video in the message
+                  type: integer
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -579,6 +582,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                video_start_timestamp:
+                  description: New start timestamp for the forwarded video in the message
+                  type: integer
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -609,6 +615,9 @@ paths:
                   anyOf:
                     - type: integer
                     - type: string
+                video_start_timestamp:
+                  description: New start timestamp for the forwarded video in the message
+                  type: integer
                 disable_notification:
                   description: "Sends the message [silently](https://telegram.org/blog/channels-2-0#silent-messages). Users will receive a notification with no sound."
                   type: boolean
@@ -800,6 +809,9 @@ paths:
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
                   type: integer
+                video_start_timestamp:
+                  description: New start timestamp for the copied video in the message
+                  type: integer
                 caption:
                   description: "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept"
                   type: string
@@ -858,6 +870,9 @@ paths:
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
                   type: integer
+                video_start_timestamp:
+                  description: New start timestamp for the copied video in the message
+                  type: integer
                 caption:
                   description: "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept"
                   type: string
@@ -915,6 +930,9 @@ paths:
                     - type: string
                 message_id:
                   description: "Message identifier in the chat specified in *from\\_chat\\_id*"
+                  type: integer
+                video_start_timestamp:
+                  description: New start timestamp for the copied video in the message
                   type: integer
                 caption:
                   description: "New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept"
@@ -1444,6 +1462,14 @@ paths:
                   anyOf:
                     - $ref: "#/components/schemas/InputFile"
                     - type: string
+                cover:
+                  description: "Cover for the video in the message. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+                  anyOf:
+                    - $ref: "#/components/schemas/InputFile"
+                    - type: string
+                start_timestamp:
+                  description: Start timestamp for the video in the message
+                  type: integer
                 caption:
                   description: "Video caption (may also be used when resending videos by *file\\_id*), 0-1024 characters after entities parsing"
                   type: string
@@ -3201,7 +3227,7 @@ paths:
                   - result
   /setMessageReaction:
     post:
-      description: "Use this method to change the chosen reactions on a message. Service messages can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns *True* on success."
+      description: "Use this method to change the chosen reactions on a message. Service messages of some types can't be reacted to. Automatically forwarded messages from a channel to its discussion group have the same available reactions as messages in the channel. Bots can't use paid reactions. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#setmessagereaction"
       requestBody:
@@ -9929,7 +9955,7 @@ paths:
                   - result
   /getAvailableGifts:
     post:
-      description: "Returns the list of gifts that can be sent by the bot to users. Requires no parameters. Returns a [Gifts](https://core.telegram.org/bots/api/#gifts) object."
+      description: "Returns the list of gifts that can be sent by the bot to users and channel chats. Requires no parameters. Returns a [Gifts](https://core.telegram.org/bots/api/#gifts) object."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#getavailablegifts"
       responses:
@@ -9956,7 +9982,7 @@ paths:
                   - result
   /sendGift:
     post:
-      description: "Sends a gift to the given user. The gift can't be converted to Telegram Stars by the user. Returns *True* on success."
+      description: "Sends a gift to the given user or channel chat. The gift can't be converted to Telegram Stars by the receiver. Returns *True* on success."
       externalDocs:
         url: "https://core.telegram.org/bots/api/#sendgift"
       requestBody:
@@ -9966,8 +9992,13 @@ paths:
               type: object
               properties:
                 user_id:
-                  description: Unique identifier of the target user that will receive the gift
+                  description: "Required if *chat\\_id* is not specified. Unique identifier of the target user who will receive the gift."
                   type: integer
+                chat_id:
+                  description: "Required if *user\\_id* is not specified. Unique identifier for the chat or username of the channel (in the format `@channelusername`) that will receive the gift."
+                  anyOf:
+                    - type: integer
+                    - type: string
                 gift_id:
                   description: Identifier of the gift
                   type: string
@@ -9988,15 +10019,19 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
               required:
-                - user_id
                 - gift_id
           multipart/form-data:
             schema:
               type: object
               properties:
                 user_id:
-                  description: Unique identifier of the target user that will receive the gift
+                  description: "Required if *chat\\_id* is not specified. Unique identifier of the target user who will receive the gift."
                   type: integer
+                chat_id:
+                  description: "Required if *user\\_id* is not specified. Unique identifier for the chat or username of the channel (in the format `@channelusername`) that will receive the gift."
+                  anyOf:
+                    - type: integer
+                    - type: string
                 gift_id:
                   description: Identifier of the gift
                   type: string
@@ -10017,15 +10052,19 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
               required:
-                - user_id
                 - gift_id
           application/json:
             schema:
               type: object
               properties:
                 user_id:
-                  description: Unique identifier of the target user that will receive the gift
+                  description: "Required if *chat\\_id* is not specified. Unique identifier of the target user who will receive the gift."
                   type: integer
+                chat_id:
+                  description: "Required if *user\\_id* is not specified. Unique identifier for the chat or username of the channel (in the format `@channelusername`) that will receive the gift."
+                  anyOf:
+                    - type: integer
+                    - type: string
                 gift_id:
                   description: Identifier of the gift
                   type: string
@@ -10046,7 +10085,6 @@ paths:
                   items:
                     $ref: "#/components/schemas/MessageEntity"
               required:
-                - user_id
                 - gift_id
         required: true
       responses:
@@ -12376,6 +12414,10 @@ components:
           $ref: "#/components/schemas/Message"
         permissions:
           $ref: "#/components/schemas/ChatPermissions"
+        can_send_gift:
+          description: "*Optional*. *True*, if gifts can be sent to the chat"
+          default: true
+          type: boolean
         can_send_paid_media:
           description: "*Optional*. *True*, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats."
           default: true
@@ -13121,6 +13163,14 @@ components:
           type: integer
         thumbnail:
           $ref: "#/components/schemas/PhotoSize"
+        cover:
+          description: "*Optional*. Available sizes of the cover of the video in the message"
+          type: array
+          items:
+            $ref: "#/components/schemas/PhotoSize"
+        start_timestamp:
+          description: "*Optional*. Timestamp in seconds from which the video will play in the message"
+          type: integer
         file_name:
           description: "*Optional*. Original filename as defined by the sender"
           type: string
@@ -15665,9 +15715,13 @@ components:
           type: string
         thumbnail:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
-          anyOf:
-            - $ref: "#/components/schemas/InputFile"
-            - type: string
+          type: string
+        cover:
+          description: "*Optional*. Cover for the video in the message. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          type: string
+        start_timestamp:
+          description: "*Optional*. Start timestamp for the video in the message"
+          type: integer
         caption:
           description: "*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -15717,9 +15771,7 @@ components:
           type: string
         thumbnail:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
-          anyOf:
-            - $ref: "#/components/schemas/InputFile"
-            - type: string
+          type: string
         caption:
           description: "*Optional*. Caption of the animation to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -15766,9 +15818,7 @@ components:
           type: string
         thumbnail:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
-          anyOf:
-            - $ref: "#/components/schemas/InputFile"
-            - type: string
+          type: string
         caption:
           description: "*Optional*. Caption of the audio to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -15809,9 +15859,7 @@ components:
           type: string
         thumbnail:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
-          anyOf:
-            - $ref: "#/components/schemas/InputFile"
-            - type: string
+          type: string
         caption:
           description: "*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing"
           type: string
@@ -15873,9 +15921,13 @@ components:
           type: string
         thumbnail:
           description: "*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\\<file\\_attach\\_name\\>” if the thumbnail was uploaded using multipart/form-data under \\<file\\_attach\\_name\\>. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
-          anyOf:
-            - $ref: "#/components/schemas/InputFile"
-            - type: string
+          type: string
+        cover:
+          description: "*Optional*. Cover for the video in the message. Pass a file\\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\\<file\\_attach\\_name\\>” to upload a new one using multipart/form-data under \\<file\\_attach\\_name\\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)"
+          type: string
+        start_timestamp:
+          description: "*Optional*. Start timestamp for the video in the message"
+          type: integer
         width:
           description: "*Optional*. Video width"
           type: integer
@@ -17671,9 +17723,10 @@ components:
     TransactionPartner:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#transactionpartner"
-      description: "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerAffiliateProgram](https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerTelegramApi](https://core.telegram.org/bots/api/#transactionpartnertelegramapi)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)"
+      description: "This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of\n\n* [TransactionPartnerUser](https://core.telegram.org/bots/api/#transactionpartneruser)\n* [TransactionPartnerChat](https://core.telegram.org/bots/api/#transactionpartnerchat)\n* [TransactionPartnerAffiliateProgram](https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram)\n* [TransactionPartnerFragment](https://core.telegram.org/bots/api/#transactionpartnerfragment)\n* [TransactionPartnerTelegramAds](https://core.telegram.org/bots/api/#transactionpartnertelegramads)\n* [TransactionPartnerTelegramApi](https://core.telegram.org/bots/api/#transactionpartnertelegramapi)\n* [TransactionPartnerOther](https://core.telegram.org/bots/api/#transactionpartnerother)"
       anyOf:
         - $ref: "#/components/schemas/TransactionPartnerUser"
+        - $ref: "#/components/schemas/TransactionPartnerChat"
         - $ref: "#/components/schemas/TransactionPartnerAffiliateProgram"
         - $ref: "#/components/schemas/TransactionPartnerFragment"
         - $ref: "#/components/schemas/TransactionPartnerTelegramAds"
@@ -17712,6 +17765,23 @@ components:
       required:
         - type
         - user
+    TransactionPartnerChat:
+      externalDocs:
+        url: "https://core.telegram.org/bots/api/#transactionpartnerchat"
+      description: Describes a transaction with a chat.
+      type: object
+      properties:
+        type:
+          description: "Type of the transaction partner, always “chat”"
+          default: chat
+          type: string
+        chat:
+          $ref: "#/components/schemas/Chat"
+        gift:
+          $ref: "#/components/schemas/Gift"
+      required:
+        - type
+        - chat
     TransactionPartnerAffiliateProgram:
       externalDocs:
         url: "https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram"
