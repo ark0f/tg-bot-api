@@ -6014,11 +6014,11 @@
         },
         {
           "name": "text",
-          "description": "Text that will be shown along with the gift; 0-255 characters",
+          "description": "Text that will be shown along with the gift; 0-128 characters",
           "required": false,
           "type": "string",
           "min_len": 0,
-          "max_len": 255
+          "max_len": 128
         },
         {
           "name": "text_parse_mode",
